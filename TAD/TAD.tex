@@ -109,6 +109,29 @@
 	\end{tadAxiomes}
 \end{tad}
 
+\section{Le TAD \tt{Pion}}
+
+\begin{tad}
+	\tadNom{Pion}
+	\tadDependances{Couleur}
+	\begin{tadOperations}{changerCouleurPion}
+		\tadOperation{creerPion}{\tadUnParam{Couleur}}{\tadUnParam{Pion}}
+		\tadOperation{obtenirCouleurPion}{\tadUnParam{Pion}}{\tadUnParam{Couleur}}		
+		\tadOperation{retournerPion}{\tadUnParam{Pion}}{\tadUnParam{Pion}}
+		\tadOperation{changerCouleurPion}{\tadDeuxParams{Pion}{Couleur}}{\tadUnParam{Pion}}
+	\end{tadOperations}
+	\begin{tadSemantiques}{changerCouleurPion}
+		\tadSemantique{creerPion}{permet de créer un pion}
+		\tadSemantique{obtenirCouleurPion}{permet d'obtenir la couleur d'un pion}
+		\tadSemantique{retournerPion}{permet de retourner un pion}
+		\tadSemantique{changerCouleurPion}{permet de changer la couleur d'un pion}
+	\end{tadSemantiques}
+	\begin{tadAxiomes}
+		\tadAxiome{obtenirCouleurPion(creerPion(couleur))=couleur}
+		\tadAxiome{obtenirCouleurPion(retournerPion(pion))=\\ $\text{~~~~~~~~~}\hookrightarrow\text{~}$obtenirCouleurPion(changerCouleurPion(pion,couleur))}
+	\end{tadAxiomes}
+\end{tad}
+
 
 
 \end{document}
