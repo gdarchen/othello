@@ -45,7 +45,7 @@
 	\tadNom{Couleur}
 	\begin{tadOperations}{changerCouleur}
 		\tadOperation{blanc}{}{\tadUnParam{Couleur}}
-		\tadOperation{noir}{}{\tadUnParam{Couleur}}		
+		\tadOperation{noir}{}{\tadUnParam{Couleur}}
 		\tadOperation{changerCouleur}{\tadUnParam{Couleur}}{\tadUnParam{Couleur}}
 	\end{tadOperations}
 	\begin{tadSemantiques}{changerCouleur}
@@ -66,7 +66,7 @@
 	\tadDependances{\naturelNonNul, \booleen, Position, Pion}
 	\begin{tadOperations}{retournerPion}
 		\tadOperation{creerPlateau}{\tadUnParam{\naturelNonNul}}{\tadUnParam{Plateau}}
-		\tadOperation{estCaseVide}{\tadDeuxParams{Plateau}{Position}}{\tadUnParam{\booleen}}		
+		\tadOperation{estCaseVide}{\tadDeuxParams{Plateau}{Position}}{\tadUnParam{\booleen}}
 		\tadOperationAvecPreconditions{viderCase}{\tadDeuxParams{Plateau}{Position}}{\tadUnParam{Plateau}}
 		\tadOperationAvecPreconditions{poserPion}{\tadTroisParams{Plateau}{Position}{Pion}}{\tadUnParam{Plateau}}
 		\tadOperationAvecPreconditions{obtenirPion}{\tadDeuxParams{Plateau}{Position}}{\tadUnParam{Pion}}
@@ -85,7 +85,7 @@
 		\tadPrecondition{obtenirPion}{non(estCaseVide(Plateau,Position))}
 		\tadPrecondition{retournerPion}{non(estCaseVide(Plateau,Position))}
 	\end{tadPreconditions}
-	
+
 \end{tad}
 
 \section{Le TAD \tt{Coup}}
@@ -95,7 +95,7 @@
 	\tadDependances{Position, Pion}
 	\begin{tadOperations}{obtenirPositionCoup}
 		\tadOperation{creerCoup}{\tadDeuxParams{Position}{Pion}}{\tadUnParam{Coup}}
-		\tadOperation{obtenirPositionCoup}{\tadUnParam{Coup}}{\tadUnParam{Position}}		
+		\tadOperation{obtenirPositionCoup}{\tadUnParam{Coup}}{\tadUnParam{Position}}
 		\tadOperation{obtenirPionCoup}{\tadUnParam{Coup}}{\tadUnParam{Pion}}
 	\end{tadOperations}
 	\begin{tadSemantiques}{obtenirPositionCoup}
@@ -116,7 +116,7 @@
 	\tadDependances{Couleur}
 	\begin{tadOperations}{changerCouleurPion}
 		\tadOperation{creerPion}{\tadUnParam{Couleur}}{\tadUnParam{Pion}}
-		\tadOperation{obtenirCouleurPion}{\tadUnParam{Pion}}{\tadUnParam{Couleur}}		
+		\tadOperation{obtenirCouleurPion}{\tadUnParam{Pion}}{\tadUnParam{Couleur}}
 		\tadOperation{retournerPion}{\tadUnParam{Pion}}{\tadUnParam{Pion}}
 		\tadOperation{changerCouleurPion}{\tadDeuxParams{Pion}{Couleur}}{\tadUnParam{Pion}}
 	\end{tadOperations}
@@ -132,6 +132,24 @@
 	\end{tadAxiomes}
 \end{tad}
 
+\section{Le TAD \tt{Position}}
 
+\begin{tad}
+	\tadNom{Position}
+	\tadDependances{NaturelNonNul}
+	\begin{tadOperations}{obtenirColonne}
+		\tadOperation{obtenirLigne}{\tadUnParam{Position}}{\tadUnParam{NaturelNonNul}}
+		\tadOperation{obtenirColonne}{\tadUnParam{Position}}{\tadUnParam{NaturelNonNul}}
+		\tadOperationAvecPreconditions{fixerPosition}{\tadDeuxParams{NaturelNonNul}{NaturelNonNul}}{\tadUnParam{Position}}
+	\end{tadOperations}
+	\begin{tadAxiomes}
+		\tadAxiome{obtenirLigne(fixerPosition(ligne,colonne))=ligne}
+		\tadAxiome{obtenirColonne(fixerPosition(ligne,colonne))=colonne}
+	\end{tadAxiomes}
+	\begin{tadPreconditions}{fixerPosition}
+		\tadPrecondition{fixerPosition(ligne,colonne)}{$1 \leqslant ligne \leqslant 8$  \&  $1 \leqslant colonne \leqslant 8 $}
+	\end{tadPreconditions}
+
+\end{tad}
 
 \end{document}
