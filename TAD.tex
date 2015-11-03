@@ -1,0 +1,160 @@
+\documentclass[11pt]{article}
+
+%PRéAMBULE
+\usepackage[french]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[table]{xcolor}
+\usepackage[T1]{fontenc}
+\usepackage[normalem]{ulem}
+\usepackage{verbatim}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{graphics}
+\usepackage{fancybox}
+\usepackage{amsfonts}
+\usepackage{xcolor}
+\usepackage{amsmath}
+\usepackage{ulem}
+\usepackage{adjustbox}
+\usepackage{amssymb,amsmath,latexsym}
+\usepackage{mathrsfs}
+\usepackage[a4paper]{geometry}
+\usepackage{subfig}
+\usepackage[bottom]{footmisc}
+%%\usepackage{mathpazo}
+
+\usepackage{algorithmeUTF8}
+
+
+
+%TITRE
+\geometry{hscale=0.8,vscale=0.8,centering}
+\title{Projet Othello - \textsc{Les TAD}}
+\author{Groupe 1.5}
+\date{\today}
+
+\begin{document}
+\maketitle
+\noindent\rule{\textwidth}{1.3pt}
+
+\renewcommand{\tt}[1]{\og \texttt{#1} \fg}
+
+\section{Le TAD \tt{Couleur}}
+
+\begin{tad}
+	\tadNom{Couleur}
+	\begin{tadOperations}{changerCouleur}
+		\tadOperation{blanc}{}{\tadUnParam{Couleur}}
+		\tadOperation{noir}{}{\tadUnParam{Couleur}}		
+		\tadOperation{changerCouleur}{\tadUnParam{Couleur}}{\tadUnParam{Couleur}}
+	\end{tadOperations}
+	\begin{tadSemantiques}{changerCouleur}
+		\tadSemantique{blanc}{permet d'obtenir un pion blanc}
+		\tadSemantique{noir}{permet d'obtenir un pion noir}
+		\tadSemantique{changerCouleur}{permet de changer la couleur d'un pion}
+	\end{tadSemantiques}
+	\begin{tadAxiomes}
+		\tadAxiome{changerCouleur(blanc( ))=noir( )}
+		\tadAxiome{changerCouleur(noir( ))=blanc( )}
+	\end{tadAxiomes}
+\end{tad}
+
+\section{Le TAD \tt{Plateau}}
+
+\begin{tad}
+	\tadNom{Plateau}
+	\tadDependances{\naturelNonNul, \booleen, Position, Pion}
+	\begin{tadOperations}{retournerPion}
+		\tadOperation{creerPlateau}{\tadUnParam{\naturelNonNul}}{\tadUnParam{Plateau}}
+		\tadOperation{estCaseVide}{\tadDeuxParams{Plateau}{Position}}{\tadUnParam{\booleen}}		
+		\tadOperationAvecPreconditions{viderCase}{\tadDeuxParams{Plateau}{Position}}{\tadUnParam{Plateau}}
+		\tadOperationAvecPreconditions{poserPion}{\tadTroisParams{Plateau}{Position}{Pion}}{\tadUnParam{Plateau}}
+		\tadOperationAvecPreconditions{obtenirPion}{\tadDeuxParams{Plateau}{Position}}{\tadUnParam{Pion}}
+		\tadOperationAvecPreconditions{retournerPion}{\tadDeuxParams{Plateau}{Position}}{\tadUnParam{Plateau}}
+	\end{tadOperations}
+	\begin{tadAxiomes}
+		\tadAxiome{estCaseVide(creerPlateau(taille),Position)=VRAI}
+		\tadAxiome{estCaseVide(viderCase(Plateau,Position),Position)=VRAI}
+		\tadAxiome{estCaseVide(poserPion(Plateau,Position,Pion),Position)=FAUX}
+		\tadAxiome{obtenirPion(poserPion(Pion,Plateau),Position)=Pion}
+		\tadAxiome{retournerPion(retournerPion(Pion))=Pion}
+	\end{tadAxiomes}
+	\begin{tadPreconditions}{retournerPion}
+		\tadPrecondition{viderCase}{non(estCaseVide(Plateau,Position))}
+		\tadPrecondition{poserPion}{estCaseVide(Plateau,Position)}
+		\tadPrecondition{obtenirPion}{non(estCaseVide(Plateau,Position))}
+		\tadPrecondition{retournerPion}{non(estCaseVide(Plateau,Position))}
+	\end{tadPreconditions}
+	
+\end{tad}
+
+\section{Le TAD \tt{Coup}}
+
+\begin{tad}
+	\tadNom{Coup}
+	\tadDependances{Position, Pion}
+	\begin{tadOperations}{obtenirPositionCoup}
+		\tadOperation{creerCoup}{\tadDeuxParams{Position}{Pion}}{\tadUnParam{Coup}}
+		\tadOperation{obtenirPositionCoup}{\tadUnParam{Coup}}{\tadUnParam{Position}}		
+		\tadOperation{obtenirPionCoup}{\tadUnParam{Coup}}{\tadUnParam{Pion}}
+	\end{tadOperations}
+	\begin{tadSemantiques}{obtenirPositionCoup}
+		\tadSemantique{creerCoup}{permet de créer un coup selon la position et le pion}
+		\tadSemantique{obtenirPositionCoup}{permet d'obtenir la position d'un coup}
+		\tadSemantique{obtenirPionCoup}{permet d'obtenir le pion d'un coup}
+	\end{tadSemantiques}
+	\begin{tadAxiomes}
+		\tadAxiome{obtenirPositionCoup(creerCoup(pos,pion))=pos}
+		\tadAxiome{obtenirPionCoup(creerCoup(pos,pion))=pion}
+	\end{tadAxiomes}
+\end{tad}
+
+\section{Le TAD \tt{Pion}}
+
+\begin{tad}
+	\tadNom{Pion}
+	\tadDependances{Couleur}
+	\begin{tadOperations}{changerCouleurPion}
+		\tadOperation{creerPion}{\tadUnParam{Couleur}}{\tadUnParam{Pion}}
+		\tadOperation{obtenirCouleurPion}{\tadUnParam{Pion}}{\tadUnParam{Couleur}}		
+		\tadOperation{retournerPion}{\tadUnParam{Pion}}{\tadUnParam{Pion}}
+		\tadOperation{changerCouleurPion}{\tadDeuxParams{Pion}{Couleur}}{\tadUnParam{Pion}}
+	\end{tadOperations}
+	\begin{tadSemantiques}{changerCouleurPion}
+		\tadSemantique{creerPion}{permet de créer un pion}
+		\tadSemantique{obtenirCouleurPion}{permet d'obtenir la couleur d'un pion}
+		\tadSemantique{retournerPion}{permet de retourner un pion}
+		\tadSemantique{changerCouleurPion}{permet de changer la couleur d'un pion}
+	\end{tadSemantiques}
+	\begin{tadAxiomes}
+		\tadAxiome{obtenirCouleurPion(creerPion(couleur))=couleur}
+		\tadAxiome{obtenirCouleurPion(retournerPion(pion))=\\ $\text{~~~~~~~~~}\hookrightarrow\text{~}$obtenirCouleurPion(changerCouleurPion(pion,couleur))}
+	\end{tadAxiomes}
+\end{tad}
+
+\section{Le TAD \tt{Coups}}
+
+\begin{tad}
+	\tadNom{Coups}
+	\tadDependances{\naturelNonNul, \booleen, Coup}
+	\begin{tadOperations}{obtenirCoup}
+		\tadOperation{creerCoups}{\tadUnParam{Coups}}
+		\tadOperation{ajouterCoup}{\tadDeuxParams{Coups}{Coup}}{\tadUnParam{Coups}}		
+		\tadOperation{nbCoups}{\tadUnParam{Coups}}{\tadUnParam{\naturel}}
+		\tadOperation{obtenirCoup}{\tadDeuxParams{Coups}{\naturelNonNul}}{\tadUnParam{Coup}}
+	\end{tadOperations}
+	\begin{tadSemantiques}{obtenirCoup}
+		\tadSemantique{creerCoups}{permet de créer  un ensemble de coups}
+		\tadSemantique{ajouterCoup}{permet d'ajouter un coup à l'ensemble}
+		\tadSemantique{nbCoups}{permet d'obtenir le nombre de coups}
+		\tadSemantique{obtenirCoup}{permet d'obtenir le ième coup}
+	\end{tadSemantiques}
+	\begin{tadAxiomes}
+		\tadAxiome{obtenirCoup(ajouterCoup(cps,cp),nbCoups(cps))=cp}
+	\end{tadAxiomes}
+\end{tad}
+\begin{tadPreconditions}{obtenirCoup}
+		\tadPrecondition{obtenirCoup}{obtenirCoup(cps,i,cp) i<=nbCoup(cps)}		
+	\end{tadPreconditions}
+
+\end{document}
