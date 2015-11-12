@@ -49,8 +49,8 @@
 		\tadOperation{changerCouleur}{\tadUnParam{Couleur}}{\tadUnParam{Couleur}}
 	\end{tadOperations}
 	\begin{tadAxiomes}
-		\tadAxiome{\emph{changerCouleur(blanc( ))=noir( )}}
-		\tadAxiome{\emph{changerCouleur(noir( ))=blanc( )}}
+		\tadAxiome{\emph{changerCouleur(blanc())=noir()}}
+		\tadAxiome{\emph{changerCouleur(noir())=blanc()}}
 	\end{tadAxiomes}
 \end{tad}
 
@@ -59,26 +59,26 @@
 \begin{tad}
 \tadNom{Plateau}
 \tadDependances{\booleen, Position, Pion}
-\begin{tadOperations}{retournerPion}
+\begin{tadOperations}{inverserPion}
 \tadOperation{creerPlateau}{}{\tadUnParam{Plateau}}
 \tadOperation{estCaseVide}{\tadDeuxParams{Plateau}{Position}}{\tadUnParam{\booleen}}
 \tadOperationAvecPreconditions{viderCase}{\tadDeuxParams{Plateau}{Position}}{\tadUnParam{Plateau}}
 \tadOperationAvecPreconditions{poserPion}{\tadTroisParams{Plateau}{Position}{Pion}}{\tadUnParam{Plateau}}
 \tadOperationAvecPreconditions{obtenirPion}{\tadDeuxParams{Plateau}{Position}}{\tadUnParam{Pion}}
-\tadOperationAvecPreconditions{retournerPion}{\tadDeuxParams{Plateau}{Position}}{\tadUnParam{Plateau}}
+\tadOperationAvecPreconditions{inverserPion}{\tadDeuxParams{Plateau}{Position}}{\tadUnParam{Plateau}}
 \end{tadOperations}
 \begin{tadAxiomes}
-\tadAxiome{\emph{estCaseVide(creerPlateau(taille),Position)=VRAI}}
-\tadAxiome{\emph{estCaseVide(viderCase(Plateau,Position),Position)=VRAI}}
-\tadAxiome{\emph{estCaseVide(poserPion(Plateau,Position,Pion),Position)=FAUX}}
-\tadAxiome{\emph{obtenirPion(poserPion(Plateau,Position,Pion),Position)=Pion}}
-\tadAxiome{\emph{retournerPion(retournerPion(Plateau,Position),Position)=Plateau}}
+\tadAxiome{\emph{estCaseVide(creerPlateau(),position)=VRAI}}
+\tadAxiome{\emph{estCaseVide(viderCase(plateau,position),position)=VRAI}}
+\tadAxiome{\emph{estCaseVide(poserPion(plateau,position,pion),position)=FAUX}}
+\tadAxiome{\emph{obtenirPion(poserPion(plateau,position,pion),position)=pion}}
+\tadAxiome{\emph{inverserPion(inverserPion(plateau,position),position)=plateau}}
 \end{tadAxiomes}
-\begin{tadPreconditions}{retournerPion}
-\tadPrecondition{viderCase}{non(estCaseVide(Plateau,Position))}
-\tadPrecondition{poserPion}{estCaseVide(Plateau,Position)}
-\tadPrecondition{obtenirPion}{non(estCaseVide(Plateau,Position))}
-\tadPrecondition{retournerPion}{non(estCaseVide(Plateau,Position))}
+\begin{tadPreconditions}{inverserPion(plateau,position)}
+\tadPrecondition{viderCase(plateau,position)}{non(estCaseVide(plateau,position))}
+\tadPrecondition{poserPion(plateau,position)}{estCaseVide(plateau,position)}
+\tadPrecondition{obtenirPion(plateau,position)}{non(estCaseVide(plateau,position))}
+\tadPrecondition{inverserPion(plateau,position)}{non(estCaseVide(plateau,position))}
 \end{tadPreconditions}
 
 \end{tad}
@@ -122,7 +122,7 @@
 	\tadDependances{\naturel, \naturelNonNul, Coup}
 	\begin{tadOperations}{ajouterCoups}
 		\tadOperation{creerCoups}{}{\tadUnParam{Coups}}
-		\tadOperation{ajouterCoups}{\tadDeuxParams{Coups}{Coup}}{\tadUnParam{Coups}}		
+		\tadOperation{ajouterCoups}{\tadDeuxParams{Coups}{Coup}}{\tadUnParam{Coups}}	
 		\tadOperation{nbCoups}{\tadUnParam{Coups}}{\tadUnParam{\naturel}}
 		\tadOperationAvecPreconditions{iemeCoup}{\tadDeuxParams{Coups}{\naturelNonNul}}{\tadUnParam{Coup}}
 	\end{tadOperations}
@@ -132,7 +132,7 @@
 		\tadAxiome{\emph{nbCoups(ajouterCoups(cps,cp))=nbCoups(cps)+1}}
 	\end{tadAxiomes}
 	\begin{tadPreconditions}{iemeCoup}
-		\tadPrecondition{iemeCoup}{i$\leqslant$nbCoups(cps)}		
+		\tadPrecondition{iemeCoup(cps,i)}{i$\leqslant$nbCoups(cps)}		
 	\end{tadPreconditions}
 \end{tad}
 
