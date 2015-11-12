@@ -1,0 +1,161 @@
+\documentclass[11pt]{article}
+
+%PRéAMBULE
+\usepackage[french]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[table]{xcolor}
+\usepackage[T1]{fontenc}
+\usepackage[normalem]{ulem}
+\usepackage{verbatim}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{graphics}
+\usepackage{fancybox}
+\usepackage{amsfonts}
+\usepackage{xcolor}
+\usepackage{amsmath}
+\usepackage{ulem}
+\usepackage{adjustbox}
+\usepackage{amssymb,amsmath,latexsym}
+\usepackage{mathrsfs}
+\usepackage[a4paper]{geometry}
+\usepackage{subfig}
+\usepackage[bottom]{footmisc}
+%%\usepackage{mathpazo}
+
+\usepackage{algorithmeUTF8}
+
+
+
+%TITRE
+\geometry{hscale=0.8,vscale=0.8,centering}
+\title{Projet Othello - \textsc{Les TAD}}
+\author{Groupe 1.5}
+\date{\today}
+
+\begin{document}
+\maketitle
+\noindent\rule{\textwidth}{1.3pt}
+
+\renewcommand{\tt}[1]{\og \texttt{#1} \fg}
+
+\section{Le TAD \tt{Couleur}}
+
+\begin{tad}
+	\tadNom{Couleur}
+	\begin{tadOperations}{changerCouleur}
+		\tadOperation{blanc}{}{\tadUnParam{Couleur}}
+		\tadOperation{noir}{}{\tadUnParam{Couleur}}		
+		\tadOperation{changerCouleur}{\tadUnParam{Couleur}}{\tadUnParam{Couleur}}
+	\end{tadOperations}
+	\begin{tadAxiomes}
+		\tadAxiome{\emph{changerCouleur(blanc( ))=noir( )}}
+		\tadAxiome{\emph{changerCouleur(noir( ))=blanc( )}}
+	\end{tadAxiomes}
+\end{tad}
+
+\section{Le TAD \tt{Plateau}}
+
+\begin{tad}
+\tadNom{Plateau}
+\tadDependances{\booleen, Position, Pion}
+\begin{tadOperations}{retournerPion}
+\tadOperation{creerPlateau}{}{\tadUnParam{Plateau}}
+\tadOperation{estCaseVide}{\tadDeuxParams{Plateau}{Position}}{\tadUnParam{\booleen}}
+\tadOperationAvecPreconditions{viderCase}{\tadDeuxParams{Plateau}{Position}}{\tadUnParam{Plateau}}
+\tadOperationAvecPreconditions{poserPion}{\tadTroisParams{Plateau}{Position}{Pion}}{\tadUnParam{Plateau}}
+\tadOperationAvecPreconditions{obtenirPion}{\tadDeuxParams{Plateau}{Position}}{\tadUnParam{Pion}}
+\tadOperationAvecPreconditions{retournerPion}{\tadDeuxParams{Plateau}{Position}}{\tadUnParam{Plateau}}
+\end{tadOperations}
+\begin{tadAxiomes}
+\tadAxiome{\emph{estCaseVide(creerPlateau(taille),Position)=VRAI}}
+\tadAxiome{\emph{estCaseVide(viderCase(Plateau,Position),Position)=VRAI}}
+\tadAxiome{\emph{estCaseVide(poserPion(Plateau,Position,Pion),Position)=FAUX}}
+\tadAxiome{\emph{obtenirPion(poserPion(Plateau,Position,Pion),Position)=Pion}}
+\tadAxiome{\emph{retournerPion(retournerPion(Plateau,Position),Position)=Plateau}}
+\end{tadAxiomes}
+\begin{tadPreconditions}{retournerPion}
+\tadPrecondition{viderCase}{non(estCaseVide(Plateau,Position))}
+\tadPrecondition{poserPion}{estCaseVide(Plateau,Position)}
+\tadPrecondition{obtenirPion}{non(estCaseVide(Plateau,Position))}
+\tadPrecondition{retournerPion}{non(estCaseVide(Plateau,Position))}
+\end{tadPreconditions}
+
+\end{tad}
+
+\section{Le TAD \tt{Coup}}
+
+\begin{tad}
+	\tadNom{Coup}
+	\tadDependances{Position, Pion}
+	\begin{tadOperations}{obtenirPositionCoup}
+		\tadOperation{creerCoup}{\tadDeuxParams{Position}{Pion}}{\tadUnParam{Coup}}
+		\tadOperation{obtenirPositionCoup}{\tadUnParam{Coup}}{\tadUnParam{Position}}		
+		\tadOperation{obtenirPionCoup}{\tadUnParam{Coup}}{\tadUnParam{Pion}}
+	\end{tadOperations}
+	\begin{tadAxiomes}
+		\tadAxiome{\emph{obtenirPositionCoup(creerCoup(pos,pion))=pos}}
+		\tadAxiome{\emph{obtenirPionCoup(creerCoup(pos,pion))=pion}}
+	\end{tadAxiomes}
+\end{tad}
+
+\section{Le TAD \tt{Pion}}
+
+\begin{tad}
+	\tadNom{Pion}
+	\tadDependances{Couleur}
+	\begin{tadOperations}{changerCouleurPion}
+		\tadOperation{creerPion}{\tadUnParam{Couleur}}{\tadUnParam{Pion}}
+		\tadOperation{obtenirCouleurPion}{\tadUnParam{Pion}}{\tadUnParam{Couleur}}		
+		\tadOperation{retournerPion}{\tadUnParam{Pion}}{\tadUnParam{Pion}}
+	\end{tadOperations}
+	\begin{tadAxiomes}
+		\tadAxiome{\emph{obtenirCouleurPion(creerPion(couleur))=couleur}}
+		\tadAxiome{\emph{obtenirCouleurPion(retournerPion(pion))=changerCouleur(obtenirCouleurPion(pion))}}
+	\end{tadAxiomes}
+\end{tad}
+
+\section{Le TAD \tt{Coups}}
+
+\begin{tad}
+	\tadNom{Coups}
+	\tadDependances{\naturel, \naturelNonNul, Coup}
+	\begin{tadOperations}{ajouterCoups}
+		\tadOperation{creerCoups}{}{\tadUnParam{Coups}}
+		\tadOperation{ajouterCoups}{\tadDeuxParams{Coups}{Coup}}{\tadUnParam{Coups}}		
+		\tadOperation{nbCoups}{\tadUnParam{Coups}}{\tadUnParam{\naturel}}
+		\tadOperationAvecPreconditions{iemeCoup}{\tadDeuxParams{Coups}{\naturelNonNul}}{\tadUnParam{Coup}}
+	\end{tadOperations}
+	\begin{tadAxiomes}
+		\tadAxiome{\emph{iemeCoup(ajouterCoups(cps,cp),nbCoups(cps))=cp}}
+		\tadAxiome{\emph{nbCoups(creerCoups( ))=0}}
+		\tadAxiome{\emph{nbCoups(ajouterCoups(cps,cp))=nbCoups(cps)+1}}
+	\end{tadAxiomes}
+	\begin{tadPreconditions}{iemeCoup}
+		\tadPrecondition{iemeCoup}{i$\leqslant$nbCoups(cps)}		
+	\end{tadPreconditions}
+\end{tad}
+
+
+
+\section{Le TAD \tt{Position}}
+
+\begin{tad}
+	\tadNom{Position}
+	\tadDependances{NaturelNonNul}
+	\begin{tadOperations}{obtenirColonne}
+		\tadOperation{obtenirLigne}{\tadUnParam{Position}}{\tadUnParam{NaturelNonNul}}
+		\tadOperation{obtenirColonne}{\tadUnParam{Position}}{\tadUnParam{NaturelNonNul}}
+		\tadOperationAvecPreconditions{fixerPosition}{\tadDeuxParams{NaturelNonNul}{NaturelNonNul}}{\tadUnParam{Position}}
+	\end{tadOperations}
+	\begin{tadAxiomes}
+		\tadAxiome{\emph{obtenirLigne(fixerPosition(ligne,colonne))=ligne}}
+		\tadAxiome{\emph{obtenirColonne(fixerPosition(ligne,colonne))=colonne}}
+	\end{tadAxiomes}
+	\begin{tadPreconditions}{fixerPosition}
+	\tadPrecondition{fixerPosition(ligne,colonne)}{$1 \leqslant \text{ligne} \leqslant 8$  \&  $1 \leqslant \text{colonne} \leqslant 8 $}
+	\end{tadPreconditions}
+\end{tad}
+
+
+\end{document}
