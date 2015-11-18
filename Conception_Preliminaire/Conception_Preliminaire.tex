@@ -86,4 +86,20 @@
 \signatureProcedureAvecPreconditions{fixerPosition}{\paramEntree{ligne, colonne : \naturelNonNul}, {\paramSortie{position : Position}}}{1 $\leqslant$ ligne $\leqslant$ 8 \& 1$\leqslant$ colonne $\leqslant$ 8}
 \end{itemize}
 
+\subsection{Faire une partie}
+\begin{itemize}
+\type{getCoup}{\typeFonction{plateau : Plateau, pionJoueur : Pion}{Coup}}
+\signatureprocedure{faireUnePartie}{\paramEntree{coupJoueur1 : getCoup, coupJoueur2 : getCoup}, \paramSortie{joueur : Couleur, estMatchNul : Booleen}}
+\signaturefonction{initialiserPlateau}{}{Plateau}
+\signatureprocedure{jouer}{\paramEntree{coupJoueur : getCoup}, \paramEntreeSortie{plateau : Plateau}, \paramSortie{aPuJouer : Booleen}}
+\signatureprocedure{finPartie}{\paramEntree{aPuJouerJoueur1 : Booleen, aPuJouerJoueur2 : Booleen, plateau : Plateau}, \paramSortie{estFinie : Booleen, gagnant : Couleur}}
+\signaturefonction{plateauRempli}{plateau : Plateau}{Booleen}
+\signatureprocedure{jouerCoup}{\paramEntree{coupJoueur : getCoup, coup : Coup}, \paramEntreeSortie{plateau : Plateau}}
+\signatureprocedure{inverserLigne}{\paramEntree{position : Position, pionJoueur : Pion}, \paramEntreeSortie{plateau : Plateau}}
+\signatureprocedure{inverserDiagonale}{\paramEntree{position : Position, pionJoueur : Pion}, \paramEntreeSortie{plateau : Plateau}}
+\signatureprocedure{inverserColonne}{\paramEntree{position : Position, pionJoueur : Pion}, \paramEntreeSortie{plateau : Plateau}}
+\end{itemize}
+
+
+
 \end{document}
