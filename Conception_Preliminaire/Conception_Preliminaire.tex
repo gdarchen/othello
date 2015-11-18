@@ -1,0 +1,89 @@
+\documentclass[11pt]{article}
+
+%PRéAMBULE
+\usepackage[french]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[table]{xcolor}
+\usepackage[T1]{fontenc}
+\usepackage[normalem]{ulem}
+\usepackage{verbatim}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{graphics}
+\usepackage{fancybox}
+\usepackage{amsfonts}
+\usepackage{xcolor}
+\usepackage{amsmath}
+\usepackage{ulem}
+\usepackage{adjustbox}
+\usepackage{amssymb,amsmath,latexsym}
+\usepackage{mathrsfs}
+\usepackage[a4paper]{geometry}
+\usepackage{subfig}
+\usepackage[bottom]{footmisc}
+%%\usepackage{mathpazo}
+
+\usepackage{algorithmeUTF8}
+
+
+
+%TITRE
+\geometry{hscale=0.8,vscale=0.8,centering}
+\title{Projet Othello - \textsc{La conception préliminaire}}
+\author{Groupe 1.5}
+\date{\today}
+
+\begin{document}
+\maketitle
+\noindent\rule{\textwidth}{1.3pt}
+
+\renewcommand{\tt}[1]{\og \texttt{#1} \fg}
+
+\section{Conception préliminaire des TAD}
+\subsection{Le TAD \tt{Couleur}}
+\begin{itemize}
+\signaturefonction{blanc}{}{Couleur}
+\signaturefonction{noir}{}{Couleur}
+\signaturefonction{changerCouleur}{couleur : Couleur}{Couleur}
+\end{itemize}
+
+\subsection{Le TAD \tt{Plateau}}
+\begin{itemize}
+\signaturefonction{creerPlateau}{}{Plateau}
+\signaturefonction{estCaseVide}{plateau : Plateau, position : Position}{Couleur}
+\signatureProcedureAvecPreconditions{viderCase}{\paramEntreeSortie{plateau : Plateau}, \paramEntree{position : Position}}{non(estCaseVide(plateau,position))}
+\signatureProcedureAvecPreconditions{poserPion}{\paramEntreeSortie{plateau : Plateau}, \paramEntree{position : Position, pion : Pion}}{estCaseVide(plateau,position)}
+\signatureFonctionAvecPreconditions{obtenirPion}{plateau : Plateau, position : Position}{Pion}{non(estCaseVide(plateau,position))}
+\signatureProcedureAvecPreconditions{inverserPion}{\paramEntreeSortie{plateau : Plateau}, \paramEntree{position : Position}}{non(estCaseVide(plateau,position))}
+\end{itemize}
+
+\subsection{Le TAD \tt{Coup}}
+\begin{itemize}
+\signaturefonction{creerCoup}{position : Position, pion : Pion}{Coup}
+\signaturefonction{obtenirPositionCoup}{coup : Coup}{Position}
+\signaturefonction{obtenirPionCoup}{coup : Coup}{Pion}
+\end{itemize}
+
+\subsection{Le TAD \tt{Pion}}
+\begin{itemize}
+\signaturefonction{creerPion}{couleur : Couleur}{Pion}
+\signaturefonction{obtenirCouleurPion}{pion : Pion}{Couleur}
+\signatureprocedure{retournerPion}{\paramEntreeSortie{pion : Pion}}
+\end{itemize}
+
+\subsection{Le TAD \tt{Coups}}
+\begin{itemize}
+\signaturefonction{creerCoups}{}{Coups}
+\signatureprocedure{ajouterCoups}{\paramEntreeSortie{coups : Coups}, \paramEntree{Coup}}
+\signaturefonction{nbCoups}{coups : Coups}{Naturel}
+\signatureFonctionAvecPreconditions{iemeCoup}{coups : Coups, i : \naturelNonNul}{Coup}{i $\leqslant$ nbCoups(coups)}
+\end{itemize}
+
+\subsection{Le TAD \tt{Position}}
+\begin{itemize}
+\signaturefonction{obtenirLigne}{position : Position}{\naturelNonNul}
+\signaturefonction{obtenirColonne}{position : Position}{\naturelNonNul}
+\signatureProcedureAvecPreconditions{fixerPosition}{\paramEntree{ligne, colonne : \naturelNonNul}, {\paramSortie{position : Position}}}{1 $\leqslant$ ligne $\leqslant$ 8 \& 1$\leqslant$ colonne $\leqslant$ 8}
+\end{itemize}
+
+\end{document}
