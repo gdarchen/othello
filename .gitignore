@@ -1,0 +1,3 @@
+# Contient tous les fichiers de ce dossier à ignorer (le git ne les prendra pas en compte)
+*.aux
+*.log
