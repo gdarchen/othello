@@ -128,7 +128,7 @@
 	\end{tadOperations}
 	\begin{tadAxiomes}
 		\tadAxiome{\emph{iemeCoup(ajouterCoups(cps,cp),nbCoups(cps))=cp}}
-		\tadAxiome{\emph{nbCoups(creerCoups( ))=0}}
+		\tadAxiome{\emph{nbCoups(creerCoups())=0}}
 		\tadAxiome{\emph{nbCoups(ajouterCoups(cps,cp))=nbCoups(cps)+1}}
 	\end{tadAxiomes}
 	\begin{tadPreconditions}{iemeCoup}
@@ -142,11 +142,11 @@
 
 \begin{tad}
 	\tadNom{Position}
-	\tadDependances{NaturelNonNul}
+	\tadDependances{\naturelNonNul}
 	\begin{tadOperations}{obtenirColonne}
-		\tadOperation{obtenirLigne}{\tadUnParam{Position}}{\tadUnParam{NaturelNonNul}}
-		\tadOperation{obtenirColonne}{\tadUnParam{Position}}{\tadUnParam{NaturelNonNul}}
-		\tadOperationAvecPreconditions{fixerPosition}{\tadDeuxParams{NaturelNonNul}{NaturelNonNul}}{\tadUnParam{Position}}
+		\tadOperation{obtenirLigne}{\tadUnParam{Position}}{\tadUnParam{\naturelNonNul}}
+		\tadOperation{obtenirColonne}{\tadUnParam{Position}}{\tadUnParam{\naturelNonNul}}
+		\tadOperationAvecPreconditions{fixerPosition}{\tadDeuxParams{\naturelNonNul}{\naturelNonNul}}{\tadUnParam{Position}}
 	\end{tadOperations}
 	\begin{tadAxiomes}
 		\tadAxiome{\emph{obtenirLigne(fixerPosition(ligne,colonne))=ligne}}
