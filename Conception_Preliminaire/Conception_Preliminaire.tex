@@ -109,4 +109,18 @@
 \signatureprocedure{inverserColonne}{\paramEntree{position : Position, pionJoueur : Pion}, \paramEntreeSortie{plateau : Plateau}}
 \end{itemize}
 
+\section{Conception préliminaire de l'analyse descendante de \tt{obtenirCoupIA}}
+\begin{itemize}
+\signaturefonction{obtenirCoupIA}{plateau : Plateau, couleur : Couleur}{Coup}
+\signaturefonction{profondeur}{}{}
+\signaturefonction{listeCoupsPossibles}{plateau : Plateau, couleur : Couleur}{Coups}
+\signaturefonction{coupValide}{plateau : Plateau, coup : Coup}{\booleen}
+\signaturefonction{minMax}{plateau : Plateau, coupsPossibles : Coups, couleur : Couleur, profondeur : \naturel}{\entier}
+\signaturefonction{scoreDUnCoup}{plateau : Plateau, couleur : Couleur}{\entier}
+\signaturefonction{coupGagnant}{plateau : Plateau, coup : Coup, couleur : Couleur}{\booleen}
+\signaturefonction{score}{plateau : Plateau, couleur : Couleur}{\naturel}
+\signaturefonction{evaluerPlateau}{}{}
+\end{itemize}
+
+
 \end{document}
