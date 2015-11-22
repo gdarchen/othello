@@ -39,15 +39,15 @@
 
 \renewcommand{\tt}[1]{\og \texttt{#1} \fg}
 
-\section{Conception préliminaire des TAD}
-\subsection{Le TAD \tt{Couleur}}
+\part{Conception préliminaire des TAD}
+\section{Conception préliminaire du TAD \tt{Couleur}}
 \begin{itemize}
 \signaturefonction{blanc}{}{Couleur}
 \signaturefonction{noir}{}{Couleur}
 \signaturefonction{changerCouleur}{couleur : Couleur}{Couleur}
 \end{itemize}
 
-\subsection{Le TAD \tt{Plateau}}
+\section{Conception préliminaire du TAD \tt{Plateau}}
 \begin{itemize}
 \signaturefonction{creerPlateau}{}{Plateau}
 \signaturefonction{estCaseVide}{plateau : Plateau, position : Position}{Couleur}
@@ -57,21 +57,21 @@
 \signatureProcedureAvecPreconditions{inverserPion}{\paramEntreeSortie{plateau : Plateau}, \paramEntree{position : Position}}{non(estCaseVide(plateau,position))}
 \end{itemize}
 
-\subsection{Le TAD \tt{Coup}}
+\section{Conception préliminaire du TAD \tt{Coup}}
 \begin{itemize}
 \signaturefonction{creerCoup}{position : Position, pion : Pion}{Coup}
 \signaturefonction{obtenirPositionCoup}{coup : Coup}{Position}
 \signaturefonction{obtenirPionCoup}{coup : Coup}{Pion}
 \end{itemize}
 
-\subsection{Le TAD \tt{Pion}}
+\section{Conception préliminaire du TAD \tt{Pion}}
 \begin{itemize}
 \signaturefonction{creerPion}{couleur : Couleur}{Pion}
 \signaturefonction{obtenirCouleurPion}{pion : Pion}{Couleur}
 \signatureprocedure{retournerPion}{\paramEntreeSortie{pion : Pion}}
 \end{itemize}
 
-\subsection{Le TAD \tt{Coups}}
+\section{Conception préliminaire du TAD \tt{Coups}}
 \begin{itemize}
 \signaturefonction{creerCoups}{}{Coups}
 \signatureprocedure{ajouterCoups}{\paramEntreeSortie{coups : Coups}, \paramEntree{Coup}}
@@ -79,28 +79,34 @@
 \signatureFonctionAvecPreconditions{iemeCoup}{coups : Coups, i : \naturelNonNul}{Coup}{i $\leqslant$ nbCoups(coups)}
 \end{itemize}
 
-\subsection{Le TAD \tt{Position}}
+\section{Conception préliminaire du TAD \tt{Position}}
 \begin{itemize}
 \signaturefonction{obtenirLigne}{position : Position}{\naturelNonNul}
 \signaturefonction{obtenirColonne}{position : Position}{\naturelNonNul}
 \signatureProcedureAvecPreconditions{fixerPosition}{\paramEntree{ligne, colonne : \naturelNonNul}, {\paramSortie{position : Position}}}{1 $\leqslant$ ligne $\leqslant$ 8 \& 1$\leqslant$ colonne $\leqslant$ 8}
 \end{itemize}
 
-\subsection{Faire une partie}
+
+\part{Conception préliminaire des fonctions et procédures des analyses descendantes}
+\setcounter{section}{0}
+\section{Conception préliminaire de l'analyse descendante de \tt{Faire une partie}}
+\subsection{Types}
 \begin{itemize}
 \type{getCoup}{\typeFonction{plateau : Plateau, pionJoueur : Pion}{Coup}}
-\signatureprocedure{faireUnePartie}{\paramEntree{coupJoueur1, coupJoueur2 : getCoup}, \paramSortie{joueur : Couleur, estMatchNul : Booleen}}
+\end{itemize}
+
+\subsection{Sous-programmes}
+\begin{itemize}
+\signatureprocedure{faireUnePartie}{\paramEntree{coupJoueur1, coupJoueur2 : getCoup}, \paramSortie{joueur : Couleur, estMatchNul : \booleen}}
 \signaturefonction{initialiserPlateau}{}{Plateau}
-\signatureprocedure{jouer}{\paramEntree{coupJoueur : getCoup}, \paramEntreeSortie{plateau : Plateau}, \paramSortie{aPuJouer : Booleen}}
-\signatureprocedure{finPartie}{\paramEntree{aPuJouerJoueur1,aPuJouerJoueur2 : Booleen, plateau : Plateau}, \paramSortie{estFinie : Booleen, nbPionsBlancs, nbPionsNoirs : Naturel}}
-\signaturefonction{plateauRempli}{plateau : Plateau}{Booleen}
-\signatureprocedure{nbPions}{\paramEntree{plateau : Plateau}, \paramSortie{nbPionsBlancs, nbPionsNoirs : Naturel}}
+\signatureprocedure{jouer}{\paramEntree{coupJoueur : getCoup}, \paramEntreeSortie{plateau : Plateau}, \paramSortie{aPuJouer : \booleen}}
+\signatureprocedure{finPartie}{\paramEntree{aPuJouerJoueur1,aPuJouerJoueur2 : \booleen, plateau : Plateau}, \paramSortie{estFinie : \booleen, nbPionsBlancs, nbPionsNoirs :\naturel}}
+\signaturefonction{plateauRempli}{plateau : Plateau}{\booleen}
+\signatureprocedure{nbPions}{\paramEntree{plateau : Plateau}, \paramSortie{nbPionsBlancs, nbPionsNoirs : \naturel}}
 \signatureprocedure{jouerCoup}{\paramEntree{coup : Coup}, \paramEntreeSortie{plateau : Plateau}}
 \signatureprocedure{inverserLigne}{\paramEntree{position : Position, pionJoueur : Pion}, \paramEntreeSortie{plateau : Plateau}}
 \signatureprocedure{inverserDiagonale}{\paramEntree{position : Position, pionJoueur : Pion}, \paramEntreeSortie{plateau : Plateau}}
 \signatureprocedure{inverserColonne}{\paramEntree{position : Position, pionJoueur : Pion}, \paramEntreeSortie{plateau : Plateau}}
 \end{itemize}
-
-
 
 \end{document}
