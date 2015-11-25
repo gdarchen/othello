@@ -93,11 +93,12 @@
 \subsection{Types}
 \begin{itemize}
 \type{getCoup}{\typeFonction{plateau : Plateau, pionJoueur : Pion}{Coup}}
+\type{afficherPlateau}{\typeProcedure{\paramEntree{plateau : Plateau}}}
 \end{itemize}
 
 \subsection{Sous-programmes}
 \begin{itemize}
-\signatureprocedure{faireUnePartie}{\paramEntree{coupJoueur1, coupJoueur2 : getCoup}, \paramSortie{joueur : Couleur, estMatchNul : \booleen}}
+\signatureprocedure{faireUnePartie}{\paramEntree{coupJoueur1, coupJoueur2 : getCoup, afficher : afficherPlateau}, \paramSortie{joueur : Couleur, estMatchNul : \booleen}}
 \signaturefonction{initialiserPlateau}{}{Plateau}
 \signatureprocedure{jouer}{\paramEntree{coupJoueur : getCoup}, \paramEntreeSortie{plateau : Plateau}, \paramSortie{aPuJouer : \booleen}}
 \signatureprocedure{finPartie}{\paramEntree{aPuJouerJoueur1,aPuJouerJoueur2 : \booleen, plateau : Plateau}, \paramSortie{estFinie : \booleen, nbPionsBlancs, nbPionsNoirs :\naturel}}
@@ -105,7 +106,8 @@
 \signatureprocedure{nbPions}{\paramEntree{plateau : Plateau}, \paramSortie{nbPionsBlancs, nbPionsNoirs : \naturel}}
 \signatureprocedure{jouerCoup}{\paramEntree{coup : Coup}, \paramEntreeSortie{plateau : Plateau}}
 \signatureprocedure{inverserLigne}{\paramEntree{position : Position, pionJoueur : Pion}, \paramEntreeSortie{plateau : Plateau}}
-\signatureprocedure{inverserDiagonale}{\paramEntree{position : Position, pionJoueur : Pion}, \paramEntreeSortie{plateau : Plateau}}
+\signatureprocedure{inverserDiagMontante}{\paramEntree{position : Position, pionJoueur : Pion}, \paramEntreeSortie{plateau : Plateau}}
+\signatureprocedure{inverserDiagDescendante}{\paramEntree{position : Position, pionJoueur : Pion}, \paramEntreeSortie{plateau : Plateau}}
 \signatureprocedure{inverserColonne}{\paramEntree{position : Position, pionJoueur : Pion}, \paramEntreeSortie{plateau : Plateau}}
 \end{itemize}
 
