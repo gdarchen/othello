@@ -1,0 +1,155 @@
+\documentclass[11pt]{article}
+
+%PRéAMBULE
+\usepackage[french]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[table]{xcolor}
+\usepackage[T1]{fontenc}
+\usepackage[normalem]{ulem}
+\usepackage{verbatim}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{graphics}
+\usepackage{fancybox}
+\usepackage{amsfonts}
+\usepackage{xcolor}
+\usepackage{amsmath}
+\usepackage{ulem}
+\usepackage{adjustbox}
+\usepackage{amssymb,amsmath,latexsym}
+\usepackage{mathrsfs}
+\usepackage[a4paper]{geometry}
+\usepackage{subfig}
+\usepackage[bottom]{footmisc}
+%%\usepackage{mathpazo}
+
+\usepackage{algorithmeUTF8}
+
+
+
+%TITRE
+\geometry{hscale=0.8,vscale=0.8,centering}
+\title{Projet Othello - \textsc{La conception détaillée}}
+\author{Groupe 1.5}
+\date{\today}
+
+\begin{document}
+\maketitle
+\noindent\rule{\textwidth}{1.3pt}
+
+\renewcommand{\tt}[1]{\og \texttt{#1} \fg}
+
+\part{Conception détaillée des TAD}
+
+\section{Conception détaillée des types}
+
+\subsection{CD du type \tt{Couleur}}
+\begin{itemize}
+\type{Couleur}{\{blanc, noir\}} 
+\end{itemize}
+
+\subsection{CD du type \tt{Pion}}
+\begin{itemize}\item
+\begin{algorithme}
+\begin{enregistrement}{Pion}
+\champEnregistrement{couleur}{Couleur}
+\end{enregistrement}
+\end{algorithme} 
+% Est-ce utile de faire un enregistrement juste pour ça ? 
+\end{itemize}
+
+\subsection{CD du type \tt{Position}}
+\begin{itemize}
+\item
+\begin{algorithme}
+\begin{enregistrement}{Position}
+\champEnregistrement{ligne}{\naturel}
+\champEnregistrement{colonne}{\naturel}
+\end{enregistrement}
+\end{algorithme} 
+\end{itemize}
+
+\subsection{CD du type \tt{Plateau}}
+\begin{itemize}\type{Case}{\{blanc, noir, vide\}}
+\type{Plateau}{\tableauDeuxDimensions{1..8}{1..8}{de}{Case}}
+% Pas terrible mais pas d'autre idées
+\end{itemize}
+
+\subsection{CD du type \tt{Coup}}
+\begin{itemize}\item
+\begin{algorithme}
+\begin{enregistrement}{Coup}
+\champEnregistrement{position}{Position}
+\champEnregistrement{pion}{Pion}
+\end{enregistrement}
+\end{algorithme} 
+\end{itemize}
+
+\subsection{CD du type \tt{Coups}}
+\begin{itemize}\item
+\begin{algorithme}
+\begin{enregistrement}{Coups}
+\champEnregistrement{listeDesCoups}{Liste<Coup>}
+\end{enregistrement}
+\end{algorithme}
+\end{itemize}
+
+\section{Conception détaillée des opérations des TAD}
+
+\part{Conception détaillée des algorithmes compliqués de l'analyse \tt{faireUnePartie}}
+\setcounter{section}{0}
+\section{La procédure \tt{jouer}}
+\begin{algorithme}
+	\procedure{jouer}
+	{\paramEntreeSortie{plateau : Plateau}, \paramEntree{coupJouer : getCoup}, \paramSortie{aPuJouer : \booleen}}
+	{i : \naturel \\
+	coups : Coups \\
+	joueurCourant : Couleur \\
+	res : \booleen}
+	{
+	\affecter{joueurCourant}{obtenirCouleurPion(obtenirPionCoup(coupJoueur))}
+	\affecter{coups}{listeCoupsPossibles(plateau, joueurCourant)}
+	\pour{i}{1}{nbCoups(coups)}{}{
+		\sialorssinon{iemeCoup(coups,i) $=$ coup}
+		{	\affecter{res}{VRAI}
+			\instruction{jouerCoup(coupJoueur,plateau)}
+		}
+		{\affecter{res}{FAUX}
+		} %FinSi
+	} %FinPour
+	\affecter{aPuJouer}{res}
+	
+	}
+\end{algorithme}
+\part{Conception détaillée des algorithmes compliqués de l'analyse \tt{obtenirCoupIA}}
+\setcounter{section}{0}
+\section{La fonction \tt{obtenirCoupIA}}
+\begin{algorithme}
+	\fonction
+	{obtenirCoupIA}
+	{plateau : Plateau, couleur : Couleur}
+	{Coup}{i, pronfondeurMinMax : \naturel \\
+	coupsPossibles : Coups \\
+	scoreCourant, meilleurScore : \entier\\
+	coupCourant, meilleurCoup : Coup}
+	{
+	\affecter{profondeurMinMax}{profondeur()}
+	\affecter{coupsPossibles}{listeCoupsPossibles(plateau,couleur)}
+	\sialors{nbCoups(coupsPossibles) $>$ 0}
+		{
+			\affecter{meilleurCoup}{iemeCoup(coupsPossibles,1)}
+			\affecter{meilleurScore}{scoreDUnCoup(plateau,meilleurCoup,couleur)}
+			\pour{i}{2}{nbCoups(coupsPossibles}{}{
+				\affecter{coupCourant}{iemeCoup(coupsPossibles,i)}
+				\affecter{scoreCourant}{scoreDUnCoup(plateau,coupCourant,couleur)}
+				\sialors{scoreCourant $>$ meilleurScore}{
+					\affecter{meilleurCoup}{coupCourant}
+					\affecter{meilleurScore}{scoreCourant}
+				} %FinSi
+			} %FinPour		
+		} %FinSi
+	
+	} 
+\end{algorithme}
+
+\end{document}
