@@ -97,14 +97,14 @@
 \section{La procédure \tt{jouer}}
 \begin{algorithme}
 	\procedure{jouer}
-	{\paramEntreeSortie{plateau : Plateau}, \paramEntree{coupJouer : getCoup}, \paramSortie{aPuJouer : \booleen}}
+	{\paramEntreeSortie{plateau : Plateau, couleurJoueur : Couleur}, \paramEntree{obtenirCoupJoueur : getCoup}, \paramSortie{aPuJouer : \booleen}}
 	{i : \naturel \\
 	coups : Coups \\
 	joueurCourant : Couleur \\
+	coupJoueur : Coup \\
 	res : \booleen}
-	{
-	\affecter{joueurCourant}{obtenirCouleurPion(obtenirPionCoup(coupJoueur))}
-	\affecter{coups}{listeCoupsPossibles(plateau, joueurCourant)}
+	{\affecter{coupJoueur}{obtenirCoupJoueur(plateau,couleurJoueur)}
+	\affecter{coups}{listeCoupsPossibles(plateau, couleurJoueur)}
 	\pour{i}{1}{nbCoups(coups)}{}{
 		\sialorssinon{iemeCoup(coups,i) $=$ coup}
 		{	\affecter{res}{VRAI}
@@ -146,7 +146,7 @@
 	{
 		\affecter{i}{obtenirLigne(pos)}
 		\affecter{j}{obtenirColonne(pos)}
-		\affecter{k}{2 $+$ pas}
+		\affecter{k}{j $+$ pas}
 		\affecter{test}{FAUX}
 		\tantque{((k $ > $ 0) et (k $\leqslant $ 8) et (test $ = $ FAUX) et non(estCaseVide(plateau, fixerPosition(k,j))))}{
 			\sialorssinon{obtenirPion(plateau, fixerPosition(k,j)) = pionJoueur}
@@ -164,23 +164,25 @@
 \section{La procédure \tt{faireUnePartie}}
 \begin{algorithme}
 	\procedure{faireUnePartie}
-	{\paramEntree{afficher : afficherPlateau, coupJoueur1, coupJoueur2 : getCoup}, \paramSortie{joueur : Couleur, estMatchNul : \booleen}}
+	{\paramEntree{afficher : afficherPlateau, obtenirCoupJoueur1, obtenirCoupJoueur2 : getCoup}, \paramSortie{joueur : Couleur, estMatchNul : \booleen}}
 	{plateau : Plateau \\
 	aPuJouerJoueur1, aPuJouerJoueur2, estFinie : \booleen\\
+	couleurJoueur1,couleurJoueur2 : Couleur \\
 	nbPionsBlancs, nbPionsNoirs : \naturel}
 	{
 		\affecter{aPuJouerJoueur1}{VRAI}
 		\affecter{aPuJouerJoueur2}{VRAI}
-		\affecter{estFinie}{VRAI}
+		\affecter{couleurJoueur1}{blanc()}
+		\affecter{couleurJoueur2}{noir()}
+		\affecter{estFinie}{FAUX}
 		\affecter{nbPionsBlancs}{2}
 		\affecter{nbPionsNoirs}{2}
 		\affecter{plateau}{initialiserPlateau()}
-		\instruction{finPartie(aPuJouerJoueur1, aPuJouerJoueur2, plateau, estFinie, nbPionsBlancs, nbPionsNoirs)}
 		\instruction{afficher(plateau)}
 		\tantque{non(estFinie)}{
-			\instruction{jouer(coupJoueur1, plateau, aPuJouerJoueur1)}
+			\instruction{jouer(plateau, couleurJoueur1, obtenirCoupJoueur1, aPuJouerJoueur1)}
 			\instruction{afficher(plateau)}		
-			\instruction{jouer(coupJoueur2, plateau, aPuJouerJoueur2)}
+			\instruction{jouer(plateau, couleurJoueur2, obtenirCoupJoueur1, aPuJouerJoueur2)}
 			\instruction{afficher(plateau)}		
 			\instruction{finPartie(aPuJouerJoueur1, aPuJouerJoueur2, plateau, estFinie, nbPionsBlancs, nbPionsNoirs)}
 		}%FinTantQue

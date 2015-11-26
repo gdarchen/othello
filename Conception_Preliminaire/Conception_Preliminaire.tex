@@ -117,11 +117,10 @@
 \signaturefonction{profondeur}{}{}
 \signaturefonction{listeCoupsPossibles}{plateau : Plateau, couleur : Couleur}{Coups}
 \signaturefonction{coupValide}{plateau : Plateau, coup : Coup}{\booleen}
-\signaturefonction{minMax}{plateau : Plateau, coupsPossibles : Coups, couleur : Couleur, profondeur : \naturel}{\entier}
-\signaturefonction{scoreDUnCoup}{plateau : Plateau, couleur : Couleur}{\entier}
-\signaturefonction{coupGagnant}{plateau : Plateau, coup : Coup, couleur : Couleur}{\booleen}
-\signaturefonction{score}{plateau : Plateau, couleur : Couleur}{\naturel}
-\signaturefonction{evaluerPlateau}{}{}
+\signaturefonction{minMax}{plateau : Plateau, couleurRef, couleurCourante : Couleur, profondeurCourante : \naturel}{\entier}
+\signaturefonction{scoreDUnCoup}{plateau : Plateau, couleurRef,couleurCourante : Couleur, profondeurCourante : \naturel}{\entier}
+\signaturefonction{score}{plateau : Plateau, couleur : Couleur}{\entier}
+\signaturefonction{evaluerPlateau}{plateau : Plateau, couleur : Couleur}{\entier}
 \end{itemize}
 
 
