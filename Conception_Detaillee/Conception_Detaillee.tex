@@ -94,6 +94,43 @@
 
 \part{Conception détaillée des algorithmes compliqués de l'analyse \tt{faireUnePartie}}
 \setcounter{section}{0}
+
+\section{La procédure \tt{faireUnePartie}}
+\begin{algorithme}
+	\procedure{faireUnePartie}
+	{\paramEntree{afficher : afficherPlateau, obtenirCoupJoueur1, obtenirCoupJoueur2 : getCoup}, \paramSortie{joueur : Couleur, estMatchNul : \booleen}}
+	{plateau : Plateau \\
+	aPuJouerJoueur1, aPuJouerJoueur2, estFinie, plateauModifie : \booleen\\
+	couleurJoueur1,couleurJoueur2 : Couleur \\
+	nbPionsBlancs, nbPionsNoirs : \naturel}
+	{
+		\affecter{aPuJouerJoueur1}{VRAI}
+		\affecter{aPuJouerJoueur2}{VRAI}
+		\affecter{couleurJoueur1}{blanc()}
+		\affecter{couleurJoueur2}{noir()}
+		\affecter{estFinie}{FAUX}
+		\affecter{nbPionsBlancs}{2}
+		\affecter{nbPionsNoirs}{2}
+		\affecter{plateau}{initialiserPlateau()}
+		\instruction{afficher(plateau)}
+		\tantque{non(estFinie)}{
+			\instruction{jouer(plateau, couleurJoueur1, obtenirCoupJoueur1, aPuJouerJoueur1, plateauModifie)}
+			\instruction{afficher(plateau)}		
+			\instruction{jouer(plateau, couleurJoueur2, obtenirCoupJoueur1, aPuJouerJoueur2, plateauModifie)}
+			\instruction{afficher(plateau)}		
+			\instruction{finPartie(aPuJouerJoueur1, aPuJouerJoueur2, plateau, estFinie, nbPionsBlancs, nbPionsNoirs)}}%FinTantQue
+		\sialorssinon{nbPionsBlancs $=$ nbPionsNoirs}
+		{\affecter{joueur}{blanc()}
+		\affecter{estMatchNul}{VRAI}}
+		{\affecter{estMatchNul}{FAUX}
+			\sialorssinon{nbPionsBlancs $ > $ nbPionsNoirs}
+			{\affecter{joueur}{blanc()}}
+			{\affecter{joueur}{noir()}}%FinSi
+		}%FinSi
+	}
+\end{algorithme}
+
+
 \section{La procédure \tt{jouer}}
 \begin{algorithme}
 	\procedure{jouer}
@@ -154,12 +191,34 @@
 	}
 \end{algorithme}
 
+\section{La procédure \tt{inverserLigne}}
+\begin{algorithme}
+	\procedure{inverserLigne}
+	{\paramEntree{pas : \entier, pos : Position, pionJoueur : Pion}, \paramEntreeSortie{plateau : Plateau}}
+	{i,j,k,l : \naturel \\
+	test : \booleen}
+	{
+		\affecter{i}{obtenirLigne(pos)}
+		\affecter{j}{obtenirColonne(pos)}
+		\affecter{k}{j $+$ pas}
+		\affecter{test}{FAUX}
+		\tantque{((k $>$ 0) et (k $\leqslant$ 8) et (test $=$ FAUX) et non(estCaseVide(plateau, fixerPosition(i,k))))}{
+		\sialorssinon{obtenirPion(plateau, fixerPosition(i, k)) = pionJoueur}
+		{\affecter{test}{VRAI}}
+		{\affecter{k}{k $+$ pas}}%FinSi
+		}%FinTantQue
+		\sialors{test}
+		{\pour{l}{k $-$ pas}{j $+$ pas}{}
+		{\instruction{inverserPion(plateau, fixerPosition(i, l))}}%FinPour
+		}%FinSi
+	}
+\end{algorithme}
 
 \section{La procédure \tt{inverserColonne}}
 \begin{algorithme}
 	\procedure{inverserColonne}
 	{\paramEntree{pas : \entier, pos : Position, pionJoueur : Pion}, \paramEntreeSortie{plateau : Plateau}, \paramSortie{test : \booleen}}
-	{i, j, k, l : \naturelNonNul \\
+	{i, j, k, l : \naturel \\
 	test : \booleen}
 	{
 		\affecter{i}{obtenirLigne(pos)}
@@ -179,41 +238,67 @@
 	}
 \end{algorithme}
 
-\section{La procédure \tt{faireUnePartie}}
+\section{La procédure \tt{inverserDiagMontante}}
 \begin{algorithme}
-	\procedure{faireUnePartie}
-	{\paramEntree{afficher : afficherPlateau, obtenirCoupJoueur1, obtenirCoupJoueur2 : getCoup}, \paramSortie{joueur : Couleur, estMatchNul : \booleen}}
-	{plateau : Plateau \\
-	aPuJouerJoueur1, aPuJouerJoueur2, estFinie, plateauModifie : \booleen\\
-	couleurJoueur1,couleurJoueur2 : Couleur \\
-	nbPionsBlancs, nbPionsNoirs : \naturel}
+	\procedure{inverserDiagMontante}
+	{\paramEntree{pas : \entier, pos : Position, pionJoueur : Pion}, \paramEntreeSortie{plateau : Plateau}}
+	{i, j, k, l, m, n : \naturel}
 	{
-		\affecter{aPuJouerJoueur1}{VRAI}
-		\affecter{aPuJouerJoueur2}{VRAI}
-		\affecter{couleurJoueur1}{blanc()}
-		\affecter{couleurJoueur2}{noir()}
-		\affecter{estFinie}{FAUX}
-		\affecter{nbPionsBlancs}{2}
-		\affecter{nbPionsNoirs}{2}
-		\affecter{plateau}{initialiserPlateau()}
-		\instruction{afficher(plateau)}
-		\tantque{non(estFinie)}{
-			\instruction{jouer(plateau, couleurJoueur1, obtenirCoupJoueur1, aPuJouerJoueur1, plateauModifie)}
-			\instruction{afficher(plateau)}		
-			\instruction{jouer(plateau, couleurJoueur2, obtenirCoupJoueur1, aPuJouerJoueur2, plateauModifie)}
-			\instruction{afficher(plateau)}		
-			\instruction{finPartie(aPuJouerJoueur1, aPuJouerJoueur2, plateau, estFinie, nbPionsBlancs, nbPionsNoirs)}
-		}%FinTantQue
-		\sialorssinon{nbPionsBlancs $=$ nbPionsNoirs}
-		{\affecter{joueur}{blanc()}
-		\affecter{estMatchNul}{VRAI}}
-		{\affecter{estMatchNul}{FAUX}
-			\sialorssinon{nbPionsBlancs $ > $ nbPionsNoirs}
-			{\affecter{joueur}{blanc()}}
-			{\affecter{joueur}{noir()}}%FinSi
-		}%FinSi
+		\affecter{i}{obtenirLigne(pos)}
+		\affecter{j}{obtenirColone(pos)}
+		\affecter{k}{j $+$ pas}
+		\affecter{m}{i $-$ 1}
+		\affecter{test}{FAUX}
+		\tantque{((k $>$ 0) et (k $\leqslant$ 8) et (m $>$ 0) et (test $=$ FAUX) et non(estCaseVide(plateau, fixerPosition(m, k))))}{
+			\sialorssinon{obtenirPion(plateau, fixerPosition(m, k)) $=$ pionJoueur}
+			{\affecter{test}{VRAI}}
+			{\affecter{k}{j $+$ pas}
+			\affecter{m}{m $-$ 1}}%FinSi
+		}%FinTantQue	
+		\sialors{test}
+		{
+			\affecter{l}{m $+$ 1}
+			\affecter{n}{k $-$ pas}
+			\repeter{
+				\instruction{inverserPion(plateau, fixerPosition(l, n))}
+				\affecter{l}{l $+$ 1}
+				\affecter{n}{n $-$ pas}
+			}{l $=$ i}%FinRepeter
+		} %FinSI
 	}
 \end{algorithme}
+
+
+\section{La procédure \tt{inverserDiagDescendante}}
+\begin{algorithme}
+	\procedure{inverserDiagDescendante}
+	{\paramEntree{pas : \entier, pos : Position, pionJoueur : Pion}, \paramEntreeSortie{plateau : Plateau}}
+	{i, j, k, l, m, n : \naturel}
+	{
+		\affecter{i}{obtenirLigne(pos)}
+		\affecter{j}{obtenirColone(pos)}
+		\affecter{k}{j $+$ pas}
+		\affecter{m}{i $+$ 1}
+		\affecter{test}{FAUX}
+		\tantque{((k $>$ 0) et (k $\leqslant$ 8) et (m $\leqslant$ 8) et (test $=$ FAUX) et non(estCaseVide(plateau, fixerPosition(m, k))))}{
+			\sialorssinon{obtenirPion(plateau, fixerPosition(m, k)) $=$ pionJoueur}
+			{\affecter{test}{VRAI}}
+			{\affecter{k}{j $+$ pas}
+			\affecter{m}{m $+$ 1}}%FinSi
+		}%FinTantQue	
+		\sialors{test}
+		{
+			\affecter{l}{m $-$ 1}
+			\affecter{n}{k $-$ pas}
+			\repeter{
+				\instruction{inverserPion(plateau, fixerPosition(l, n))}
+				\affecter{l}{l $-$ 1}
+				\affecter{n}{n $-$ pas}
+			}{l $=$ i}%FinRepeter
+		} %FinSI
+	}
+\end{algorithme}
+
 
 \part{Conception détaillée des algorithmes compliqués de l'analyse \tt{obtenirCoupIA}}
 \setcounter{section}{0}
@@ -233,7 +318,7 @@
 		{
 			\affecter{meilleurCoup}{iemeCoup(coupsPossibles,1)}
 			\affecter{meilleurScore}{scoreDUnCoup(plateau,meilleurCoup,couleur)}
-			\pour{i}{2}{nbCoups(coupsPossibles}{}{
+			\pour{i}{2}{nbCoups(coupsPossibles)}{}{
 				\affecter{coupCourant}{iemeCoup(coupsPossibles,i)}
 				\affecter{scoreCourant}{scoreDUnCoup(plateau,coupCourant,couleur)}
 				\sialors{scoreCourant $>$ meilleurScore}{
