@@ -165,22 +165,17 @@
 		\affecter{plateauDifferent}{FAUX}
 		\pour{i}{1}{3}{2}{
 			\affecter{pas}{i $-$ 2}
-			\instruction{inverserLigne(aModifie, pas, obtenirPositionCoup(coup), obtenirPionCoup(coup), plateau)}
+			\instruction{inverserLigne(pas, obtenirPositionCoup(coup), obtenirPionCoup(coup), plateau, aModifie)}
 			\sialors{aModifie}
 			{
 			      \affecter{plateauDifferent}{VRAI}
 			}%FinSi
-			\instruction{inverserColonne(aModifie, pas, obtenirPositionCoup(coup), obtenirPionCoup(coup), plateau)}
+			\instruction{inverserColonne(pas, obtenirPositionCoup(coup), obtenirPionCoup(coup), plateau, aModifie)}
 			\sialors{aModifie}
 			{
 			      \affecter{plateauDifferent}{VRAI}
 			}%FinSi
-			\instruction{inverserDiagMontante(aModifie, pas, obtenirPositionCoup(coup), obtenirPionCoup(coup), plateau)}
-			\sialors{aModifie}
-			{
-			      \affecter{plateauDifferent}{VRAI}
-			}%FinSi
-			\instruction{inverserDiagDescendante(aModifie, pas, obtenirPositionCoup(coup), obtenirPionCoup(coup), plateau)}
+			\instruction{inverserDiag(pas, obtenirPositionCoup(coup), obtenirPionCoup(coup), plateau, aModifie)}
 			\sialors{aModifie}
 			{
 			      \affecter{plateauDifferent}{VRAI}
@@ -242,70 +237,42 @@
 	}
 \end{algorithme}
 
-\section{La procédure \tt{inverserDiagMontante}}
+\section{La procédure \tt{inverserDiag}}
 \begin{algorithme}
-	\procedure{inverserDiagMontante}
+	\procedure{inverserDiag}
 	{\paramEntree{pas : \entier, pos : Position, pionJoueur : Pion}, \paramEntreeSortie{plateau : Plateau}, \paramSortie{aModifie : \booleen}}
-	{i, j, k, l, m, n : \naturel}
+	{i, j, k, l, m, n, o : \naturel \\
+	pasDiag : \entier}
 	{
 		\affecter{i}{obtenirLigne(pos)}
 		\affecter{j}{obtenirColone(pos)}
 		\affecter{k}{j $+$ pas}
-		\affecter{m}{i $-$ 1}
+		
 		\affecter{test}{FAUX}
-		\tantque{((k $>$ 0) et (k $\leqslant$ 8) et (m $>$ 0) et (test $=$ FAUX) et non(estCaseVide(plateau, fixerPosition(m, k))))}{
-			\sialorssinon{obtenirPion(plateau, fixerPosition(m, k)) $=$ pionJoueur}
-			{\affecter{test}{VRAI}
-			\sialors{(k>j+1) ou (k<j-1)}{
-			      \affecter{aModifie}{VRAI}
-			}}
-			{\affecter{k}{j $+$ pas}
-			\affecter{m}{m $-$ 1}}%FinSi
-		}%FinTantQue
-		\sialors{test}
-		{
-			\affecter{l}{m $+$ 1}
-			\affecter{n}{k $-$ pas}
-			\repeter{
-				\instruction{inverserPion(plateau, fixerPosition(l, n))}
-				\affecter{l}{l $+$ 1}
-				\affecter{n}{n $-$ pas}
-			}{l $=$ i}%FinRepeter
-		} %FinSI
-	}
-\end{algorithme}
-
-
-\section{La procédure \tt{inverserDiagDescendante}}
-\begin{algorithme}
-	\procedure{inverserDiagDescendante}
-	{\paramEntree{pas : \entier, pos : Position, pionJoueur : Pion}, \paramEntreeSortie{plateau : Plateau}, \paramSortie{aModifie : \booleen}}
-	{i, j, k, l, m, n : \naturel}
-	{
-		\affecter{i}{obtenirLigne(pos)}
-		\affecter{j}{obtenirColone(pos)}
-		\affecter{k}{j $+$ pas}
-		\affecter{m}{i $+$ 1}
-		\affecter{test}{FAUX}
-		\tantque{((k $>$ 0) et (k $\leqslant$ 8) et (m $\leqslant$ 8) et (test $=$ FAUX) et non(estCaseVide(plateau, fixerPosition(m, k))))}{
-			\sialorssinon{obtenirPion(plateau, fixerPosition(m, k)) $=$ pionJoueur}
-			{\affecter{test}{VRAI}
-			\sialors{(k>j+1) ou (k<j-1)}{
-			      \affecter{aModifie}{VRAI}
-			}}
-			{\affecter{k}{j $+$ pas}
-			\affecter{m}{m $+$ 1}}%FinSi
-		}%FinTantQue
-		\sialors{test}
-		{
-			\affecter{l}{m $-$ 1}
-			\affecter{n}{k $-$ pas}
-			\repeter{
-				\instruction{inverserPion(plateau, fixerPosition(l, n))}
-				\affecter{l}{l $-$ 1}
-				\affecter{n}{n $-$ pas}
-			}{l $=$ i}%FinRepeter
-		} %FinSI
+		
+		\pour{o}{1}{3}{2}{
+		  \affecter{pasDiag}{o $-$ 2}
+		  \affecter{m}{i $+$ pasDiag}
+		  \tantque{((k $>$ 0) et (k $\leqslant$ 8) et (m $>$ 0) et (test $=$ FAUX) et non(estCaseVide(plateau, fixerPosition(m, k))))}{
+			  \sialorssinon{obtenirPion(plateau, fixerPosition(m, k)) $=$ pionJoueur}
+			  {\affecter{test}{VRAI}
+			  \sialors{(k>j+1) ou (k<j-1)}{
+				\affecter{aModifie}{VRAI}
+			  }}
+			  {\affecter{k}{j $+$ pas}
+			  \affecter{m}{m $-$ 1}}%FinSi
+		  }%FinTantQue
+		  \sialors{test}
+		  {
+			  \affecter{l}{m $+$ 1}
+			  \affecter{n}{k $-$ pas}
+			  \repeter{
+				  \instruction{inverserPion(plateau, fixerPosition(l, n))}
+				  \affecter{l}{l $+$ 1}
+				   \affecter{n}{n $-$ pas}
+			  }{l $=$ i}%FinRepeter
+		  } %FinSI
+		}
 	}
 \end{algorithme}
 

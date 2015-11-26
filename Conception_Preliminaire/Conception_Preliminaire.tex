@@ -105,10 +105,9 @@
 \signaturefonction{plateauRempli}{plateau : Plateau}{\booleen}
 \signatureprocedure{nbPions}{\paramEntree{plateau : Plateau}, \paramSortie{nbPionsBlancs, nbPionsNoirs : \naturel}}
 \signatureprocedure{jouerCoup}{\paramEntree{coup : Coup}, \paramEntreeSortie{plateau : Plateau}, \paramSortie{plateauModifie : \booleen}}
-\signatureprocedure{inverserLigne}{\paramEntree{position : Position, pionJoueur : Pion}, \paramEntreeSortie{plateau : Plateau}, \paramSortie{test : \booleen}}
-\signatureprocedure{inverserDiagMontante}{\paramEntree{position : Position, pionJoueur : Pion}, \paramEntreeSortie{plateau : Plateau}, \paramSortie{test : \booleen}}
-\signatureprocedure{inverserDiagDescendante}{\paramEntree{position : Position, pionJoueur : Pion}, \paramEntreeSortie{plateau : Plateau}, \paramSortie{test : \booleen}}
-\signatureprocedure{inverserColonne}{\paramEntree{position : Position, pionJoueur : Pion}, \paramEntreeSortie{plateau : Plateau}, \paramSortie{test : \booleen}}
+\signatureprocedure{inverserLigne}{\paramEntree{position : Position, pionJoueur : Pion}, \paramEntreeSortie{plateau : Plateau}, \paramSortie{aModifie : \booleen}}
+\signatureprocedure{inverserDiag}{\paramEntree{position : Position, pionJoueur : Pion}, \paramEntreeSortie{plateau : Plateau}, \paramSortie{aModifie : \booleen}}
+\signatureprocedure{inverserColonne}{\paramEntree{position : Position, pionJoueur : Pion}, \paramEntreeSortie{plateau : Plateau}, \paramSortie{aModifie : \booleen}}
 \end{itemize}
 
 \section{Conception préliminaire de l'analyse descendante de \tt{obtenirCoupIA}}
