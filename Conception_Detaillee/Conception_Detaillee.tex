@@ -49,13 +49,8 @@
 \end{itemize}
 
 \subsection{CD du type \tt{Pion}}
-\begin{itemize}\item
-\begin{algorithme}
-\begin{enregistrement}{Pion}
-\champEnregistrement{couleur}{Couleur}
-\end{enregistrement}
-\end{algorithme} 
-% Est-ce utile de faire un enregistrement juste pour ça ? 
+\begin{itemize}
+\type{Pion}{Couleur}
 \end{itemize}
 
 \subsection{CD du type \tt{Position}}
@@ -70,9 +65,14 @@
 \end{itemize}
 
 \subsection{CD du type \tt{Plateau}}
-\begin{itemize}\type{Case}{\{blanc, noir, vide\}}
-\type{Plateau}{\tableauDeuxDimensions{1..8}{1..8}{de}{Case}}
-% Pas terrible mais pas d'autre idées
+\begin{itemize}
+\item
+\begin{algorithme}
+\begin{enregistrement}{Position}
+\champEnregistrement{pions}{\tableauDeuxDimensions{1..8}{1..8}{de}{Pion}}
+\champEnregistrement{presencePions}{\tableauDeuxDimensions{1..8}{1..8}{de}{\booleen}}
+\end{enregistrement}
+\end{algorithme} 
 \end{itemize}
 
 \subsection{CD du type \tt{Coup}}
@@ -86,12 +86,8 @@
 \end{itemize}
 
 \subsection{CD du type \tt{Coups}}
-\begin{itemize}\item
-\begin{algorithme}
-\begin{enregistrement}{Coups}
-\champEnregistrement{listeDesCoups}{Liste<Coup>}
-\end{enregistrement}
-\end{algorithme}
+\begin{itemize}
+\type{Coups}{\tableauUneDimension{1..8}{de}{ Coup}}
 \end{itemize}
 
 \section{Conception détaillée des opérations des TAD}
