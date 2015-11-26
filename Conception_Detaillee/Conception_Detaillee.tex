@@ -100,7 +100,7 @@
 	\procedure{faireUnePartie}
 	{\paramEntree{afficher : afficherPlateau, obtenirCoupJoueur1, obtenirCoupJoueur2 : getCoup}, \paramSortie{joueur : Couleur, estMatchNul : \booleen}}
 	{plateau : Plateau \\
-	aPuJouerJoueur1, aPuJouerJoueur2, estFinie, plateauModifie : \booleen\\
+	aPuJouerJoueur1, aPuJouerJoueur2, estFinie : \booleen\\
 	couleurJoueur1,couleurJoueur2 : Couleur \\
 	nbPionsBlancs, nbPionsNoirs : \naturel}
 	{
@@ -114,9 +114,9 @@
 		\affecter{plateau}{initialiserPlateau()}
 		\instruction{afficher(plateau)}
 		\tantque{non(estFinie)}{
-			\instruction{jouer(plateau, couleurJoueur1, obtenirCoupJoueur1, aPuJouerJoueur1, plateauModifie)}
+			\instruction{jouer(plateau, couleurJoueur1, obtenirCoupJoueur1, aPuJouerJoueur1)}
 			\instruction{afficher(plateau)}
-			\instruction{jouer(plateau, couleurJoueur2, obtenirCoupJoueur1, aPuJouerJoueur2, plateauModifie)}
+			\instruction{jouer(plateau, couleurJoueur2, obtenirCoupJoueur1, aPuJouerJoueur2)}
 			\instruction{afficher(plateau)}
 			\instruction{finPartie(aPuJouerJoueur1, aPuJouerJoueur2, plateau, estFinie, nbPionsBlancs, nbPionsNoirs)}}%FinTantQue
 		\sialorssinon{nbPionsBlancs $=$ nbPionsNoirs}
@@ -143,11 +143,9 @@
 	{\affecter{coupJoueur}{obtenirCoupJoueur(plateau,couleurJoueur)}
 	\affecter{coups}{listeCoupsPossibles(plateau, couleurJoueur)}
 	\pour{i}{1}{nbCoups(coups)}{}{
-		\sialorssinon{iemeCoup(coups,i) $=$ coup}
-		{	\affecter{res}{VRAI}
-			\instruction{jouerCoup(coupJoueur,plateau)}
-		}
-		{\affecter{res}{FAUX}
+		\sialors{iemeCoup(coups,i) $=$ coup}
+		{
+			\instruction{jouerCoup(coupJoueur,plateau,res)}
 		} %FinSi
 	} %FinPour
 	\affecter{aPuJouer}{res}
@@ -194,7 +192,7 @@
 \section{La procédure \tt{inverserLigne}}
 \begin{algorithme}
 	\procedure{inverserLigne}
-	{\paramEntree{pas : \entier, pos : Position, pionJoueur : Pion}, \paramEntreeSortie{plateau : Plateau}}
+	{\paramEntree{pas : \entier, pos : Position, pionJoueur : Pion}, \paramEntreeSortie{plateau : Plateau}, \paramSortie{aModifie : \booleen}}
 	{i,j,k,l : \naturel \\
 	test : \booleen}
 	{
@@ -204,7 +202,10 @@
 		\affecter{test}{FAUX}
 		\tantque{((k $>$ 0) et (k $\leqslant$ 8) et (test $=$ FAUX) et non(estCaseVide(plateau, fixerPosition(i,k))))}{
 		\sialorssinon{obtenirPion(plateau, fixerPosition(i, k)) = pionJoueur}
-		{\affecter{test}{VRAI}}
+		{\affecter{test}{VRAI}
+		\sialors{(k>j+1) ou (k<j-1)}{
+			      \affecter{aModifie}{VRAI}
+			}}
 		{\affecter{k}{k $+$ pas}}%FinSi
 		}%FinTantQue
 		\sialors{test}
@@ -217,9 +218,9 @@
 \section{La procédure \tt{inverserColonne}}
 \begin{algorithme}
 	\procedure{inverserColonne}
-	{\paramEntree{pas : \entier, pos : Position, pionJoueur : Pion}, \paramEntreeSortie{plateau : Plateau}, \paramSortie{test : \booleen}}
+	{\paramEntree{pas : \entier, pos : Position, pionJoueur : Pion}, \paramEntreeSortie{plateau : Plateau}, \paramSortie{aModifie : \booleen}}
 	{i, j, k, l : \naturel \\
-	test : \booleen}
+	test, aModifie : \booleen}
 	{
 		\affecter{i}{obtenirLigne(pos)}
 		\affecter{j}{obtenirColonne(pos)}
@@ -227,7 +228,10 @@
 		\affecter{test}{FAUX}
 		\tantque{((k $ > $ 0) et (k $\leqslant $ 8) et (test $ = $ FAUX) et non(estCaseVide(plateau, fixerPosition(k,j))))}{
 			\sialorssinon{obtenirPion(plateau, fixerPosition(k,j)) = pionJoueur}
-			{\affecter{test}{VRAI}}
+			{\affecter{test}{VRAI}
+			\sialors{(k>j+1) ou (k<j-1)}{
+			      \affecter{aModifie}{VRAI}
+			}}
 			{\affecter{k}{k $+$ pas}}%FinSi
 		} %FinTantQue
 		\sialors{test}{
@@ -241,7 +245,7 @@
 \section{La procédure \tt{inverserDiagMontante}}
 \begin{algorithme}
 	\procedure{inverserDiagMontante}
-	{\paramEntree{pas : \entier, pos : Position, pionJoueur : Pion}, \paramEntreeSortie{plateau : Plateau}}
+	{\paramEntree{pas : \entier, pos : Position, pionJoueur : Pion}, \paramEntreeSortie{plateau : Plateau}, \paramSortie{aModifie : \booleen}}
 	{i, j, k, l, m, n : \naturel}
 	{
 		\affecter{i}{obtenirLigne(pos)}
@@ -251,7 +255,10 @@
 		\affecter{test}{FAUX}
 		\tantque{((k $>$ 0) et (k $\leqslant$ 8) et (m $>$ 0) et (test $=$ FAUX) et non(estCaseVide(plateau, fixerPosition(m, k))))}{
 			\sialorssinon{obtenirPion(plateau, fixerPosition(m, k)) $=$ pionJoueur}
-			{\affecter{test}{VRAI}}
+			{\affecter{test}{VRAI}
+			\sialors{(k>j+1) ou (k<j-1)}{
+			      \affecter{aModifie}{VRAI}
+			}}
 			{\affecter{k}{j $+$ pas}
 			\affecter{m}{m $-$ 1}}%FinSi
 		}%FinTantQue
@@ -272,7 +279,7 @@
 \section{La procédure \tt{inverserDiagDescendante}}
 \begin{algorithme}
 	\procedure{inverserDiagDescendante}
-	{\paramEntree{pas : \entier, pos : Position, pionJoueur : Pion}, \paramEntreeSortie{plateau : Plateau}}
+	{\paramEntree{pas : \entier, pos : Position, pionJoueur : Pion}, \paramEntreeSortie{plateau : Plateau}, \paramSortie{aModifie : \booleen}}
 	{i, j, k, l, m, n : \naturel}
 	{
 		\affecter{i}{obtenirLigne(pos)}
@@ -282,7 +289,10 @@
 		\affecter{test}{FAUX}
 		\tantque{((k $>$ 0) et (k $\leqslant$ 8) et (m $\leqslant$ 8) et (test $=$ FAUX) et non(estCaseVide(plateau, fixerPosition(m, k))))}{
 			\sialorssinon{obtenirPion(plateau, fixerPosition(m, k)) $=$ pionJoueur}
-			{\affecter{test}{VRAI}}
+			{\affecter{test}{VRAI}
+			\sialors{(k>j+1) ou (k<j-1)}{
+			      \affecter{aModifie}{VRAI}
+			}}
 			{\affecter{k}{j $+$ pas}
 			\affecter{m}{m $+$ 1}}%FinSi
 		}%FinTantQue
