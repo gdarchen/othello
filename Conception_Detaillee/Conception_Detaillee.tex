@@ -330,8 +330,44 @@
 				} %FinSi
 			} %FinPour
 		} %FinSi
+		\retourner{meilleurCoup}
 
 	}
+\end{algorithme}
+
+\section{La fonction \tt{coupValide}}
+\begin{algorithme}
+
+	\fonction{coupValide}
+	{plateau : Plateau, coup : Coup}
+	{\booleen}
+	{estValide, aVoisinAutreCouleur : \booleen \\
+	pos : Position \\
+	plateauTmp : Plateau \\
+	i,j : \naturel \\
+	couleurJoueur, autreCouleur : Couleur}
+	{
+	\affecter{couleurJoueur}{obtenirCouleurPion(obtenirPionCoup(coup))}	
+	\affecter{autreCouleur}{changerCouleur(couleurJoueur)}
+	\affecter{pos}{obtenirPositionCoup(coup)}
+	\affecter{i}{obtenirLigne(pos)}
+	\affecter{j}{obtenirColonne(pos)}
+	\affecter{aVoisinAutreCouleur}{obtenirCouleurPion(obtenirPion(plateau,fixerPosition(i-1,j-1)))=autreCouleur ou \\
+				      obtenirCouleurPion(obtenirPion(plateau,fixerPosition(i-1,j)))=autreCouleur ou \\
+				      obtenirCouleurPion(obtenirPion(plateau,fixerPosition(i-1,j+1)))=autreCouleur ou \\
+				      obtenirCouleurPion(obtenirPion(plateau,fixerPosition(i,j-1)))=autreCouleur ou \\
+				      obtenirCouleurPion(obtenirPion(plateau,fixerPosition(i,j+1)))=autreCouleur ou \\
+				      obtenirCouleurPion(obtenirPion(plateau,fixerPosition(i+1,j-1)))=autreCouleur ou \\
+				      obtenirCouleurPion(obtenirPion(plateau,fixerPosition(i+1,j)))=autreCouleur ou \\
+				      obtenirCouleurPion(obtenirPion(plateau,fixerPosition(i+1,j+1)))=autreCouleur}
+	\sialors{aVoisinAutreCouleur}{
+		\affecter{plateauTmp}{copierPlateau(plateau, plateauTmp}
+		\instruction{jouerCoup(coup, plateauTmp, estValide}
+	}
+	\retourner{estValide}	
+		
+	}
+
 \end{algorithme}
 
 \end{document}
