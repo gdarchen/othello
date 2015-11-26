@@ -334,4 +334,24 @@
 	}
 \end{algorithme}
 
+
+\section{La fonction \tt{scoreDUnCoup}}
+\begin{algorithme}
+	\fonction
+	{scoreDUnCoup}
+	{plateau : Plateau, coup : Coup, couleurRef, couleurCourante : Couleur, profondeurCourante : \naturel}
+	{\entier}
+	{}
+	{
+	\instruction{jouerCoup(coup,plateau)}
+	\sialorssinon{plateauRempli(plateau) ou profondeurCourante = 0}
+		{
+			\retourner{score(plateau,couleurRef)}
+		} % Sinon
+		{
+			\retourner{minMax(plateau,couleurRef,changerCouleur(CouleurCourante),profondeurCourante-1)}
+		} % FinSi
+	} % Fin
+\end{algorithme}
+
 \end{document}
