@@ -121,17 +121,35 @@
 \section{La procédure \tt{jouerCoup}}
 \begin{algorithme}
 	\procedure{jouerCoup}
-	{\paramEntree{coup : Coup}, \paramEntreeSortie{plateau : Plateau}}
+	{\paramEntree{coup : Coup}, \paramEntreeSortie{plateau : Plateau}, \paramSortie{plateauModifie : \booleen}}
 	{i : \naturelNonNul \\
+	aModifie,plateauDifferent : \booleen \\
 	pas : \entier}
 	{
 		\instruction{poserPion(plateau, obtenirPositionCoup(coup), obtenirPionCoup(coup))}
+		\affecter{plateauDifferent}{FAUX}
 		\pour{i}{1}{3}{2}{
 			\affecter{pas}{i $-$ 2}
-			\instruction{inverserLigne(pas, obtenirPositionCoup(coup), obtenirPionCoup(coup), plateau)}
-			\instruction{inverserColonne(pas, obtenirPositionCoup(coup), obtenirPionCoup(coup), plateau)}
-			\instruction{inverserDiagMontante(pas, obtenirPositionCoup(coup), obtenirPionCoup(coup), plateau)}
-			\instruction{inverserDiagDescendante(pas, obtenirPositionCoup(coup), obtenirPionCoup(coup), plateau)}
+			\instruction{inverserLigne(aModifie, pas, obtenirPositionCoup(coup), obtenirPionCoup(coup), plateau)}
+			\sialors{aModifie}
+			{
+			      \affecter{plateauDifferent}{VRAI}
+			}%FinSi
+			\instruction{inverserColonne(aModifie, pas, obtenirPositionCoup(coup), obtenirPionCoup(coup), plateau)}
+			\sialors{aModifie}
+			{
+			      \affecter{plateauDifferent}{VRAI}
+			}%FinSi
+			\instruction{inverserDiagMontante(aModifie, pas, obtenirPositionCoup(coup), obtenirPionCoup(coup), plateau)}
+			\sialors{aModifie}
+			{
+			      \affecter{plateauDifferent}{VRAI}
+			}%FinSi
+			\instruction{inverserDiagDescendante(aModifie, pas, obtenirPositionCoup(coup), obtenirPionCoup(coup), plateau)}
+			\sialors{aModifie}
+			{
+			      \affecter{plateauDifferent}{VRAI}
+			}%FinSi
 		}%FinPour
 	}
 \end{algorithme}
@@ -140,7 +158,7 @@
 \section{La procédure \tt{inverserColonne}}
 \begin{algorithme}
 	\procedure{inverserColonne}
-	{\paramEntree{pas : \entier, pos : Position, pionJoueur : Pion}, \paramEntreeSortie{plateau : Plateau}}
+	{\paramEntree{pas : \entier, pos : Position, pionJoueur : Pion}, \paramEntreeSortie{plateau : Plateau}, \paramSortie{test : \booleen}}
 	{i, j, k, l : \naturelNonNul \\
 	test : \booleen}
 	{
@@ -166,7 +184,7 @@
 	\procedure{faireUnePartie}
 	{\paramEntree{afficher : afficherPlateau, obtenirCoupJoueur1, obtenirCoupJoueur2 : getCoup}, \paramSortie{joueur : Couleur, estMatchNul : \booleen}}
 	{plateau : Plateau \\
-	aPuJouerJoueur1, aPuJouerJoueur2, estFinie : \booleen\\
+	aPuJouerJoueur1, aPuJouerJoueur2, estFinie, plateauModifie : \booleen\\
 	couleurJoueur1,couleurJoueur2 : Couleur \\
 	nbPionsBlancs, nbPionsNoirs : \naturel}
 	{
@@ -180,9 +198,9 @@
 		\affecter{plateau}{initialiserPlateau()}
 		\instruction{afficher(plateau)}
 		\tantque{non(estFinie)}{
-			\instruction{jouer(plateau, couleurJoueur1, obtenirCoupJoueur1, aPuJouerJoueur1)}
+			\instruction{jouer(plateau, couleurJoueur1, obtenirCoupJoueur1, aPuJouerJoueur1, plateauModifie)}
 			\instruction{afficher(plateau)}		
-			\instruction{jouer(plateau, couleurJoueur2, obtenirCoupJoueur1, aPuJouerJoueur2)}
+			\instruction{jouer(plateau, couleurJoueur2, obtenirCoupJoueur1, aPuJouerJoueur2, plateauModifie)}
 			\instruction{afficher(plateau)}		
 			\instruction{finPartie(aPuJouerJoueur1, aPuJouerJoueur2, plateau, estFinie, nbPionsBlancs, nbPionsNoirs)}
 		}%FinTantQue
