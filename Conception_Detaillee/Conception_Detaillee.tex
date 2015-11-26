@@ -45,7 +45,7 @@
 
 \subsection{CD du type \tt{Couleur}}
 \begin{itemize}
-\type{Couleur}{\{blanc, noir\}} 
+\type{Couleur}{\{blanc, noir\}}
 \end{itemize}
 
 \subsection{CD du type \tt{Pion}}
@@ -61,7 +61,7 @@
 \champEnregistrement{ligne}{\naturel}
 \champEnregistrement{colonne}{\naturel}
 \end{enregistrement}
-\end{algorithme} 
+\end{algorithme}
 \end{itemize}
 
 \subsection{CD du type \tt{Plateau}}
@@ -72,7 +72,7 @@
 \champEnregistrement{pions}{\tableauDeuxDimensions{1..8}{1..8}{de}{Pion}}
 \champEnregistrement{presencePions}{\tableauDeuxDimensions{1..8}{1..8}{de}{\booleen}}
 \end{enregistrement}
-\end{algorithme} 
+\end{algorithme}
 \end{itemize}
 
 \subsection{CD du type \tt{Coup}}
@@ -82,7 +82,7 @@
 \champEnregistrement{position}{Position}
 \champEnregistrement{pion}{Pion}
 \end{enregistrement}
-\end{algorithme} 
+\end{algorithme}
 \end{itemize}
 
 \subsection{CD du type \tt{Coups}}
@@ -115,9 +115,9 @@
 		\instruction{afficher(plateau)}
 		\tantque{non(estFinie)}{
 			\instruction{jouer(plateau, couleurJoueur1, obtenirCoupJoueur1, aPuJouerJoueur1, plateauModifie)}
-			\instruction{afficher(plateau)}		
+			\instruction{afficher(plateau)}
 			\instruction{jouer(plateau, couleurJoueur2, obtenirCoupJoueur1, aPuJouerJoueur2, plateauModifie)}
-			\instruction{afficher(plateau)}		
+			\instruction{afficher(plateau)}
 			\instruction{finPartie(aPuJouerJoueur1, aPuJouerJoueur2, plateau, estFinie, nbPionsBlancs, nbPionsNoirs)}}%FinTantQue
 		\sialorssinon{nbPionsBlancs $=$ nbPionsNoirs}
 		{\affecter{joueur}{blanc()}
@@ -151,7 +151,7 @@
 		} %FinSi
 	} %FinPour
 	\affecter{aPuJouer}{res}
-	
+
 	}
 \end{algorithme}
 
@@ -228,7 +228,7 @@
 		\tantque{((k $ > $ 0) et (k $\leqslant $ 8) et (test $ = $ FAUX) et non(estCaseVide(plateau, fixerPosition(k,j))))}{
 			\sialorssinon{obtenirPion(plateau, fixerPosition(k,j)) = pionJoueur}
 			{\affecter{test}{VRAI}}
-			{\affecter{k}{k $+$ pas}}%FinSi		
+			{\affecter{k}{k $+$ pas}}%FinSi
 		} %FinTantQue
 		\sialors{test}{
 			\pour{l}{k $-$ pas}{i $+$ pas}{}{
@@ -254,7 +254,7 @@
 			{\affecter{test}{VRAI}}
 			{\affecter{k}{j $+$ pas}
 			\affecter{m}{m $-$ 1}}%FinSi
-		}%FinTantQue	
+		}%FinTantQue
 		\sialors{test}
 		{
 			\affecter{l}{m $+$ 1}
@@ -285,7 +285,7 @@
 			{\affecter{test}{VRAI}}
 			{\affecter{k}{j $+$ pas}
 			\affecter{m}{m $+$ 1}}%FinSi
-		}%FinTantQue	
+		}%FinTantQue
 		\sialors{test}
 		{
 			\affecter{l}{m $-$ 1}
@@ -309,6 +309,7 @@
 	{plateau : Plateau, couleur : Couleur}
 	{Coup}{i, pronfondeurMinMax : \naturel \\
 	coupsPossibles : Coups \\
+	plateauTest : Plateau \\
 	scoreCourant, meilleurScore : \entier\\
 	coupCourant, meilleurCoup : Coup}
 	{
@@ -317,18 +318,20 @@
 	\sialors{nbCoups(coupsPossibles) $>$ 0}
 		{
 			\affecter{meilleurCoup}{iemeCoup(coupsPossibles,1)}
-			\affecter{meilleurScore}{scoreDUnCoup(plateau,meilleurCoup,couleur)}
+			\affecter{plateauTest}{copierPlateau(plateau)}
+			\affecter{meilleurScore}{scoreDUnCoup(plateauTest,meilleurCoup,couleur)}
 			\pour{i}{2}{nbCoups(coupsPossibles)}{}{
 				\affecter{coupCourant}{iemeCoup(coupsPossibles,i)}
-				\affecter{scoreCourant}{scoreDUnCoup(plateau,coupCourant,couleur)}
+				\affecter{plateauTest}{copierPlateau(plateau)}
+				\affecter{scoreCourant}{scoreDUnCoup(plateauTest,coupCourant,couleur)}
 				\sialors{scoreCourant $>$ meilleurScore}{
 					\affecter{meilleurCoup}{coupCourant}
 					\affecter{meilleurScore}{scoreCourant}
 				} %FinSi
-			} %FinPour		
+			} %FinPour
 		} %FinSi
-	
-	} 
+
+	}
 \end{algorithme}
 
 \end{document}
