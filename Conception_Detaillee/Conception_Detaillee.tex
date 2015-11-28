@@ -198,7 +198,7 @@
 		\tantque{((k $>$ 0) et (k $\leqslant$ 8) et (test $=$ FAUX) et non(estCaseVide(plateau, fixerPosition(i,k))))}{
 		\sialorssinon{obtenirPion(plateau, fixerPosition(i, k)) = pionJoueur}
 		{\affecter{test}{VRAI}
-		\sialors{(k>j+1) ou (k<j-1)}{
+		\sialors{(k$>$j$+$1) ou (k$<$j$-$1)}{
 			      \affecter{aModifie}{VRAI}
 			}}
 		{\affecter{k}{k $+$ pas}}%FinSi
@@ -224,14 +224,14 @@
 		\tantque{((k $ > $ 0) et (k $\leqslant $ 8) et (test $ = $ FAUX) et non(estCaseVide(plateau, fixerPosition(k,j))))}{
 			\sialorssinon{obtenirPion(plateau, fixerPosition(k,j)) = pionJoueur}
 			{\affecter{test}{VRAI}
-			\sialors{(k>j+1) ou (k<j-1)}{
+			\sialors{(k $>$ j$+$1) ou (k$<$ j$-$1)}{
 			      \affecter{aModifie}{VRAI}
 			}}
 			{\affecter{k}{k $+$ pas}}%FinSi
 		} %FinTantQue
 		\sialors{test}{
 			\pour{l}{k $-$ pas}{i $+$ pas}{}{
-			\instruction{inverserPion(plateau, fixerPosition(l,j))}
+			\instruction{inverserPion(plateau, fixerPosition(l, j))}
 			}%FinPour
 		}%FinSi
 	}
@@ -245,7 +245,7 @@
 	pasDiag : \entier}
 	{
 		\affecter{i}{obtenirLigne(pos)}
-		\affecter{j}{obtenirColone(pos)}
+		\affecter{j}{obtenirColonne(pos)}
 		\affecter{k}{j $+$ pas}
 		
 		\affecter{test}{FAUX}
@@ -291,16 +291,16 @@
 	coupCourant, meilleurCoup : Coup}
 	{
 	\affecter{profondeurMinMax}{profondeur()}
-	\affecter{coupsPossibles}{listeCoupsPossibles(plateau,couleur)}
+	\affecter{coupsPossibles}{listeCoupsPossibles(plateau, couleur)}
 	\sialors{nbCoups(coupsPossibles) $>$ 0}
 		{
-			\affecter{meilleurCoup}{iemeCoup(coupsPossibles,1)}
+			\affecter{meilleurCoup}{iemeCoup(coupsPossibles, 1)}
 			\affecter{plateauTest}{copierPlateau(plateau)}
-			\affecter{meilleurScore}{scoreDUnCoup(plateauTest,meilleurCoup,couleur)}
+			\affecter{meilleurScore}{scoreDUnCoup(plateauTest, meilleurCoup, couleur)}
 			\pour{i}{2}{nbCoups(coupsPossibles)}{}{
-				\affecter{coupCourant}{iemeCoup(coupsPossibles,i)}
+				\affecter{coupCourant}{iemeCoup(coupsPossibles, i)}
 				\affecter{plateauTest}{copierPlateau(plateau)}
-				\affecter{scoreCourant}{scoreDUnCoup(plateauTest,coupCourant,couleur)}
+				\affecter{scoreCourant}{scoreDUnCoup(plateauTest, coupCourant, couleur)}
 				\sialors{scoreCourant $>$ meilleurScore}{
 					\affecter{meilleurCoup}{coupCourant}
 					\affecter{meilleurScore}{scoreCourant}
@@ -322,13 +322,13 @@
 	{\entier}
 	{}
 	{
-	\instruction{jouerCoup(coup,plateau)}
-	\sialorssinon{plateauRempli(plateau) ou profondeurCourante = 0}
+	\instruction{jouerCoup(coup, plateau)}
+	\sialorssinon{plateauRempli(plateau) ou profondeurCourante $=$ 0}
 		{
-			\retourner{score(plateau,couleurRef)}
+			\retourner{score(plateau, couleurRef)}
 		} % Sinon
 		{
-			\retourner{minMax(plateau,couleurRef,changerCouleur(CouleurCourante),profondeurCourante-1)}
+			\retourner{minMax(plateau, couleurRef, changerCouleur(CouleurCourante), profondeurCourante $-$ 1)}
 		} % FinSi
 	} % Fin
 \end{algorithme}
@@ -352,14 +352,14 @@
 	\affecter{pos}{obtenirPositionCoup(coup)}
 	\affecter{i}{obtenirLigne(pos)}
 	\affecter{j}{obtenirColonne(pos)}
-	\affecter{aVoisinAutreCouleur}{obtenirCouleurPion(obtenirPion(plateau,fixerPosition(i-1,j-1)))=autreCouleur ou \\
-				      obtenirCouleurPion(obtenirPion(plateau,fixerPosition(i-1,j)))=autreCouleur ou \\
-				      obtenirCouleurPion(obtenirPion(plateau,fixerPosition(i-1,j+1)))=autreCouleur ou \\
-				      obtenirCouleurPion(obtenirPion(plateau,fixerPosition(i,j-1)))=autreCouleur ou \\
-				      obtenirCouleurPion(obtenirPion(plateau,fixerPosition(i,j+1)))=autreCouleur ou \\
-				      obtenirCouleurPion(obtenirPion(plateau,fixerPosition(i+1,j-1)))=autreCouleur ou \\
-				      obtenirCouleurPion(obtenirPion(plateau,fixerPosition(i+1,j)))=autreCouleur ou \\
-				      obtenirCouleurPion(obtenirPion(plateau,fixerPosition(i+1,j+1)))=autreCouleur}
+	\affecter{aVoisinAutreCouleur}{\\\Big[\big(obtenirCouleurPion(obtenirPion(plateau, fixerPosition(i$-$1, j$-$1))) $=$ autreCouleur\big) ou \\
+				      \big(obtenirCouleurPion(obtenirPion(plateau, fixerPosition(i$-$1, j))) $=$ autreCouleur\big) ou \\
+				      \big(obtenirCouleurPion(obtenirPion(plateau, fixerPosition(i$-$1, j$+$1))) $=$ autreCouleur\big) ou \\
+				      \big(obtenirCouleurPion(obtenirPion(plateau, fixerPosition(i, j$-$1))) $=$ autreCouleur\big) ou \\
+				      \big(obtenirCouleurPion(obtenirPion(plateau, fixerPosition(i, j$+$1))) $=$ autreCouleur\big) ou \\
+				      \big(obtenirCouleurPion(obtenirPion(plateau, fixerPosition(i$+$1, j$-$1))) $=$ autreCouleur\big) ou \\
+				     \big( obtenirCouleurPion(obtenirPion(plateau, fixerPosition(i$+$1, j))) $=$ autreCouleur\big) ou \\
+				      \big(obtenirCouleurPion(obtenirPion(plateau, fixerPosition(i$+$1, j$+$1))) $=$ autreCouleur\big)\Big]}
 	\sialors{aVoisinAutreCouleur}{
 		\affecter{plateauTmp}{copierPlateau(plateau, plateauTmp}
 		\instruction{jouerCoup(coup, plateauTmp, estValide}
