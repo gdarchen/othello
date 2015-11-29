@@ -247,9 +247,9 @@
 		\affecter{i}{obtenirLigne(pos)}
 		\affecter{j}{obtenirColonne(pos)}
 		\affecter{k}{j $+$ pas}
-		
+
 		\affecter{test}{FAUX}
-		
+
 		\pour{o}{1}{3}{2}{
 		  \affecter{pasDiag}{o $-$ 2}
 		  \affecter{m}{i $+$ pasDiag}
@@ -347,7 +347,7 @@
 	i,j : \naturel \\
 	couleurJoueur, autreCouleur : Couleur}
 	{
-	\affecter{couleurJoueur}{obtenirCouleurPion(obtenirPionCoup(coup))}	
+	\affecter{couleurJoueur}{obtenirCouleurPion(obtenirPionCoup(coup))}
 	\affecter{autreCouleur}{changerCouleur(couleurJoueur)}
 	\affecter{pos}{obtenirPositionCoup(coup)}
 	\affecter{i}{obtenirLigne(pos)}
@@ -364,7 +364,38 @@
 		\affecter{plateauTmp}{copierPlateau(plateau, plateauTmp}
 		\instruction{jouerCoup(coup, plateauTmp, estValide}
 	}
-	\retourner{estValide}		
+	\retourner{estValide}
+	}
+\end{algorithme}
+
+
+\section{La fonction \\tt{minMax}}
+\begin{algorithme}
+	\fonction{minMax}
+	{plateau : Plateau, couleurRef,couleurCourante : Couleur, profondeurCourante : \naturel}
+	{\entier}
+	{coupsPossibles : Coups \\
+	resultat,score : \entier \\
+	i : \naturel}
+	{
+	\affecter{coupsPossibles}{listeCoupsPossibles(plateau,couleurCourante)}
+	\sialorssinon{nbCoups(coupsPossibles) $>$ 0}
+		{
+		\affecter{resultat}{scoreDUnCoup(plateau,iemeCoup(coupsPossibles,1),couleurRef,couleurCourante,\\\big[profondeurCourante)}
+		\pour{i}{2}{nbCoups(coupsPossibles)}{}
+			{
+			\affecter{score}{scoreDUnCoup(plateau,iemeCoup(coupsPossibles,i),couleurRef,couleurCourante,\\\big[profondeurCourante)}
+			\sialorssinon{couleurCourante $=$ couleurRef}
+				{\affecter{resultat}{max(resultat,score)}}
+				{\affecter{resultat}{min(resultat,score)}}
+			}
+		}
+		{
+		\sialorssinon{couleurCourante $=$ couleurRef}
+			{\affecter{resultat}{INFINI}}
+			{\affecter{resultat}{$-$ INFINI}}
+		}
+	\retourner{resultat}
 	}
 \end{algorithme}
 
