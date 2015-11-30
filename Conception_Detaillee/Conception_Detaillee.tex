@@ -219,12 +219,12 @@
 	{
 		\affecter{i}{obtenirLigne(pos)}
 		\affecter{j}{obtenirColonne(pos)}
-		\affecter{k}{j $+$ pas}
+		\affecter{k}{i $+$ pas}
 		\affecter{test}{FAUX}
 		\tantque{((k $ > $ 0) et (k $\leqslant $ 8) et (test $ = $ FAUX) et non(estCaseVide(plateau, fixerPosition(k,j))))}{
 			\sialorssinon{obtenirPion(plateau, fixerPosition(k,j)) = pionJoueur}
 			{\affecter{test}{VRAI}
-			\sialors{(k $>$ j$+$1) ou (k$<$ j$-$1)}{
+			\sialors{(k $>$ i$+$1) ou (k $<$ i$-$1)}{
 			      \affecter{aModifie}{VRAI}
 			}}
 			{\affecter{k}{k $+$ pas}}%FinSi
@@ -256,21 +256,21 @@
 		  \tantque{((k $>$ 0) et (k $\leqslant$ 8) et (m $>$ 0) et (test $=$ FAUX) et non(estCaseVide(plateau, fixerPosition(m, k))))}{
 			  \sialorssinon{obtenirPion(plateau, fixerPosition(m, k)) $=$ pionJoueur}
 			  {\affecter{test}{VRAI}
-			  \sialors{(k>j+1) ou (k<j-1)}{
+			  \sialors{(k>j+1) ou (k<j-1) ou (m>i+1) ou (m<i-1)}{
 				\affecter{aModifie}{VRAI}
 			  }}
 			  {\affecter{k}{j $+$ pas}
-			  \affecter{m}{m $-$ 1}}%FinSi
+			  \affecter{m}{m $+$ pasDiag}}%FinSi
 		  }%FinTantQue
 		  \sialors{test}
 		  {
-			  \affecter{l}{m $+$ 1}
+			  \affecter{l}{m $-$ pasDiag}
 			  \affecter{n}{k $-$ pas}
 			  \repeter{
 				  \instruction{inverserPion(plateau, fixerPosition(l, n))}
-				  \affecter{l}{l $+$ 1}
+				  \affecter{l}{l $-$ pas}
 				   \affecter{n}{n $-$ pas}
-			  }{l $=$ i}%FinRepeter
+			  }{(l $=$ i) et (n $=$ j}%FinRepeter
 		  } %FinSI
 		}
 	}
