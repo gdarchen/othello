@@ -25,7 +25,7 @@
 * \param Couleur couleur, la couleur à donner au pion
 * \return Pion
  */
-Pion creerPion(Couleur couleur);
+Pion PION_creerPion(Couleur couleur);
 
 
 /**
@@ -35,7 +35,7 @@ Pion creerPion(Couleur couleur);
  * \param Pion pion; le pion dont on veut la couleur
 * \return Couleur
  */
-Couleur obtenirCouleur(Pion pion);
+Couleur PION_obtenirCouleur(Pion pion);
 
 /**
  * \fn void retournerPion(Pion* pion)
@@ -43,6 +43,6 @@ Couleur obtenirCouleur(Pion pion);
  *
 * \param Pion* pion, le pion à retourner
  */
-void retournerPion(Pion* pion);
+void PION_retournerPion(Pion* pion);
 
 #endif
