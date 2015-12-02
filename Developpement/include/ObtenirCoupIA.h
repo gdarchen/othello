@@ -7,8 +7,8 @@
  *
  */
 
-#ifndef OBTENIR_COUP_IA
-#define OBTENIR_COUP_IA
+#ifndef __OBTENIR_COUP_IA__
+#define __OBTENIR_COUP_IA__
 #include "TAD_Coup.h"
 #include "TAD_Plateau.h"
 #include "TAD_Couleur.h"

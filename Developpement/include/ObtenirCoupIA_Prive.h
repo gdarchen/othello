@@ -1,5 +1,5 @@
-#ifndef OBTENIR_COUP_IA_PRIVE
-#define OBTENIR_COUP_IA_PRIVE
+#ifndef __OBTENIR_COUP_IA_PRIVE__
+#define __OBTENIR_COUP_IA_PRIVE__
 #include "TAD_Plateau.h"
 #include "TAD_Couleur.h"
 

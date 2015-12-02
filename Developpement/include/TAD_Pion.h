@@ -9,6 +9,7 @@
 
 #ifndef __TAD_PION__
 #define __TAD_PION__
+#includde "TAD_Couleur"
 
 /**
  * \brief Le type Pion permet de représenter un pion

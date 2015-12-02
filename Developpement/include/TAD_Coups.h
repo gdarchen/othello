@@ -9,6 +9,7 @@
 
  #ifndef __TAD_COUPS__
  #define __TAD_COUPS__
+ #include "TAD_Coup"
 
 /**
  * \brief Le type Coups permet de représenter un tableau de Coup
@@ -20,7 +21,7 @@ typedef Coup Coups[10];
  * \fn Coups COUPS_creerCoups()
  * \brief Fonction qui retourne un Coups (tableau de Coup) vide
  *
- * \return Coups 
+ * \return Coups
  */
 Coups COUPS_creerCoups();
 
@@ -36,19 +37,19 @@ void COUPS_ajouterCoups(Coups* coups, Coup coup);
 /**
  * \fn unsigned int COUPS_nbCoups(Coups coups)
  * \brief Fonction qui renvoie le nombre de Coups d'une variable de type Coups
- * 
+ *
  * \param coups : la variable dont on veut compter le nombre de Coups
- * \return unsigned int : le nombre de Coups 
+ * \return unsigned int : le nombre de Coups
  */
 unsigned int COUPS_nbCoups(Coups coups);
 
 /**
  * \fn Coup COUPS_iemeCoup(Coups coups, unsigned int i)
  * \brief Fonction qui ieme Coup de la variable coups
- * 
+ *
  * \param coups : la variable dont on veut obtenir le ieme Coup
  * \param i : indice du Coup à obtenir
- * \return unsigned int : le nombre de Coups 
+ * \return unsigned int : le nombre de Coups
  */
 Coup COUPS_iemeCoup(Coups coups, unsigned int i);
 
