@@ -11,6 +11,7 @@
 #define __TAD_PLATEAU__
 #include "TAD_Position.h"
 #include "TAD_Pion.h"
+#include "TAD_Couleur.h"
 
 /**
  * \brief Le type Plateau permet de représenter un plateau
@@ -77,3 +78,6 @@ Pion obtenirPion(Plateau plateau, Position position);
  * \param Position position, la position de la case
  */
 void inverserPion(Plateau* plateau, Position position);
+
+
+#endif

@@ -14,7 +14,7 @@
  * \brief Le type Couleur représente les deux couleurs possibles
  *
  */
-typedef enum{'blanc','noir'} Couleur;
+typedef enum{blanc,noir} Couleur;
 
 /**
  * \fn Couleur COULEUR_blanc()
@@ -39,7 +39,7 @@ Couleur COULEUR_noir();
  * \param couleur : Couleur, la couleur à changer
  * \return Couleur
  */
-Couleur COULEUR_changerCouleur(couleur : Couleur);
+Couleur COULEUR_changerCouleur(Couleur couleur);
 
 
  #endif

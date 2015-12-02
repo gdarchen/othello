@@ -27,7 +27,7 @@
  * \param Position position, la position dont on veut la ligne
 * \return unsigned int
  */
-unsigned int obtenirLigne(position : Position);
+unsigned int obtenirLigne(Position position);
 
 /**
  * \fn unsigned int obtenirColonne(position : Position)
@@ -36,7 +36,7 @@ unsigned int obtenirLigne(position : Position);
  * \param Position position, la position dont on veut la colonne
 * \return unsigned int
  */
-unsigned int obtenirLigne(position : Position);
+unsigned int obtenirLigne(Position position);
 
 /**
  * \fn void fixerPosition(unsigned int ligne, unsigned int colonne, Position* position)
@@ -47,3 +47,5 @@ unsigned int obtenirLigne(position : Position);
  * \param Position* position, la position que l'on veut fixer
  */
 void fixerPosition(unsigned int ligne, unsigned int colonne, Position* position);
+
+#endif

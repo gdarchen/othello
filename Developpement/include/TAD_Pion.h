@@ -9,7 +9,7 @@
 
 #ifndef __TAD_PION__
 #define __TAD_PION__
-#includde "TAD_Couleur.h"
+#include "TAD_Couleur.h"
 
 /**
  * \brief Le type Pion permet de représenter un pion
@@ -44,3 +44,5 @@ Couleur obtenirCouleur(Pion pion);
 * \param Pion* pion, le pion à retourner
  */
 void retournerPion(Pion* pion);
+
+#endif

@@ -14,7 +14,7 @@
 #include "TAD_Couleur.h"
 
 
- Coup obtenirCoupIA(plateau Plateau, couleur Couleur);
+ Coup obtenirCoupIA(Plateau plateau, Couleur couleur);
 
 
  /**
