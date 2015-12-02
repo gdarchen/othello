@@ -9,8 +9,8 @@
 
  #ifndef __TAD_COUP__
  #define __TAD_COUP__
- #include "TAD_Position"
- #include "TAD_Pion"
+ #include "TAD_Position.h"
+ #include "TAD_Pion.h"
 
 /**
  * \brief Le type Coup permet de représenter le coup d'un joueur, en regroupant une position (sur le plateau) et un pion

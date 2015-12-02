@@ -9,8 +9,8 @@
 
 #ifndef __TAD_PLATEAU__
 #define __TAD_PLATEAU__
-#include "TAD_Position"
-#include "TAD_Pion"
+#include "TAD_Position.h"
+#include "TAD_Pion.h"
 
 /**
  * \brief Le type Plateau permet de représenter un plateau

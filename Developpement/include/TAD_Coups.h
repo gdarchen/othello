@@ -9,7 +9,7 @@
 
  #ifndef __TAD_COUPS__
  #define __TAD_COUPS__
- #include "TAD_Coup"
+ #include "TAD_Coup.h"
 
 /**
  * \brief Le type Coups permet de représenter un tableau de Coup
