@@ -50,13 +50,35 @@ void test_obtenirCouleur(void){
                 && PION_obtenirCouleur(PION_creerPion(noir()))==noir());
 }
 
-void test_retournerPion(void){
+void test_retournerPion(void){ // Axiome n.2 reformulé
     Pion pionTest;
     Couleur couleurAvant, couleurApres;
     couleurAvant = PION_obtenirCouleur(pionTest);
     couleurApres = PION_obtenirCouleur(PION_retournerPion(^pionTest));
     CU_ASSERT_TRUE(couleurAvant == couleurApres);
 }
+
+
+/* Tests relatifs au TAD Coup */
+void test_obtenirPositionCoup(void){
+    Position positionTest;
+    POS_fixerPosition(3,5,^positionTest);
+    Pion pionTest;
+    CU_ASSERT_TRUE(COUP_obtenirPositionCoup(COUP_creerCoup(positionTest,pionTest))
+                   == positionTest);
+}
+
+void test_obtenirPionCoup(void){
+    Position positionTest;
+    Pion pionTest;
+    PION_creerPion(blanc());
+    CU_ASSERT_TRUE(COUP_obtenirPionCoup(COUP_creerCoup(positionTest,pionTest))
+                   == pionTest);
+}
+
+
+/* Tests relatifs au TAD Coups */
+
 
 int main(int argc, char** argv){
   CU_pSuite pSuite = NULL;
