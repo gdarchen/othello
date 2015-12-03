@@ -15,7 +15,7 @@
  *
  */
 
- typedef struct {
+typedef struct {
   unsigned int ligne; /**< l'indice de la ligne du plateau */
   unsigned int colonne; /**< l'indice' de la colonne du plateau */
 } Position;

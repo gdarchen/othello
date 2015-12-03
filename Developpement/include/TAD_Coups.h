@@ -12,13 +12,16 @@
  #include "TAD_Coup.h"
  #include "TAD_Couleur.h"
 
-const int MAX_COUPS = 60;
+#define MAX_COUPS 60
 
 /**
- * \brief Le type Coups permet de représenter un tableau de Coup
+ * \brief Le type Coups permet de représenter un tableau de Coup et le nombre de Coup possibles
  *
  */
-typedef Coup Coups[MAX_COUPS];
+typedef struct {
+	Coup tabCoups[MAX_COUPS];
+	unsigned int nbCps;
+} Coups;
 
 /**
  * \fn Coups CPS_creerCoups()
@@ -26,7 +29,7 @@ typedef Coup Coups[MAX_COUPS];
  *
  * \return Coups
  */
-Coups CPS_creerCoups();
+void CPS_creerCoups(Coups* coups);
 
 /**
  * \fn void CPS_ajouterCoups(Coups* coups, Coup coup)

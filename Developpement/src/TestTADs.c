@@ -1,8 +1,5 @@
-#include<stdlib.h>
-#include<CUnit/Basic.h>
-#include"GrilleJeuDeLaVie.h"
-#include"JeuDeLaVie.h"
-#include"JeuDeLaViePrive.h"
+#include <stdlib.h>
+#include <CUnit/Basic.h>
 #define TRUE 1
 #define FALSE 0
 

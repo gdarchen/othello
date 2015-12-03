@@ -86,8 +86,13 @@
 \end{itemize}
 
 \subsection{CD du type \tt{Coups}}
-\begin{itemize}
-\type{Coups}{\tableauUneDimension{1..60}{de}{ Coup}}
+\begin{itemize} \item
+\begin{algorithme}
+\begin{enregistrement}{Coups}
+\champEnregistrement{tabCoups}{\tableauUneDimension{1..60}{de}{Coup}}
+\champEnregistrement{nbCps}{\naturel}
+\end{enregistrement}
+\end{algorithme}
 \end{itemize}
 
 \section{Conception détaillée des opérations des TAD}
