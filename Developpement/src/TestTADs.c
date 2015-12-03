@@ -19,8 +19,8 @@ int clean_suite_success(void) {
 
 /* Tests relatifs au TAD Couleur */
 void test_changerCouleur(void){
-    CU_ASSERT_TRUE((COULEUR_changerCouleur(COULEUR_noir())==COULEUR_blanc())
-                && (COULEUR_changerCouleur(COULEUR_blanc())==COULEUR_noir()));
+    CU_ASSERT_TRUE((CL_sontEgales(CL_changerCouleur(CL_noir()),CL_blanc()))
+                && (CL_sontEgales(CL_changerCouleur(CL_blanc()),CL_noir())));
 }
 
 
@@ -46,16 +46,16 @@ void test_obtenirColonne(void){
 
 /* Tests relatifs au TAD Pion */
 void test_obtenirCouleur(void){
-    CU_ASSERT_TRUE(PION_obtenirCouleur(PION_creerPion(blanc()))==blanc()
-                && PION_obtenirCouleur(PION_creerPion(noir()))==noir());
+    CU_ASSERT_TRUE((CL_sontEgales(PI_obtenirCouleur(PI_creerPion(blanc())),blanc()))
+                && (CL_sontEgales(PI_obtenirCouleur(PI_creerPion(noir()))==noir())));
 }
 
-void test_retournerPion(void){ // Axiome n.2 reformulé
+void test_retournerPion(void){  // Axiome n.2 reformulé
     Pion pionTest;
     Couleur couleurAvant, couleurApres;
-    couleurAvant = PION_obtenirCouleur(pionTest);
-    couleurApres = PION_obtenirCouleur(PION_retournerPion(&pionTest));
-    CU_ASSERT_TRUE(couleurAvant==couleurApres);
+    couleurAvant = PI_obtenirCouleur(pionTest);
+    couleurApres = PI_obtenirCouleur(PI_retournerPion(&pionTest));
+    CU_ASSERT_TRUE(CL_sontEgales(couleurAvant,couleurApres));
 }
 
 
@@ -64,16 +64,14 @@ void test_obtenirPositionCoup(void){
     Position positionTest;
     POS_fixerPosition(3,5,&positionTest);
     Pion pionTest;
-    CU_ASSERT_TRUE(COUP_obtenirPositionCoup(COUP_creerCoup(positionTest,pionTest))
-                   ==positionTest);
+    CU_ASSERT_TRUE(POS_sontEgales(CP_obtenirPositionCoup(CP_creerCoup(positionTest,pionTest)),positionTest));
 }
 
 void test_obtenirPionCoup(void){
     Position positionTest;
     Pion pionTest;
-    PION_creerPion(blanc());
-    CU_ASSERT_TRUE(COUP_obtenirPionCoup(COUP_creerCoup(positionTest,pionTest))
-                   ==pionTest);
+    pionTest = PI_creerPion(blanc());
+    CU_ASSERT_TRUE(PI_sontEgaux(CP_obtenirPionCoup(CP_creerCoup(positionTest,pionTest)),pionTest));
 }
 
 
@@ -83,8 +81,22 @@ void test_iemeCoup(void){
     Coups coupsTest;
     coupsTests = CPS_creerCoups();
     CPS_ajouterCoups(&coupsTest,cp);
-    CU_ASSERT_TRUE(CPS_ieme(coupsTest,CPS_nbCoups(coupsTest))==cp);
+    CU_ASSERT_TRUE(CP_sontEgaux(CPS_ieme(coupsTest,CPS_nbCoups(coupsTest)),cp));
 }
+
+void test_nbCoups(void){    // les 2 derniers axiomes du TAD Coups
+    Coup coupTest;
+    Coups coupsVide, coupsAjout;
+    coupsVide = CPS_creerCoups();
+    coupsAjout = CPS_creerCoups();
+    CPS_ajouterCoups(&coupsAjout,coupsTest);
+    CU_ASSERT_TRUE((CPS_nbCoups(coupsVide)==0)
+                && (CPS_nbCoups(coupsAjout)==1));
+}
+
+
+/* Tests relatifs au TAD Plateau */
+
 
 
 int main(int argc, char** argv){
