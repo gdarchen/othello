@@ -19,30 +19,30 @@
  typedef Couleur Pion; /**< les pions du plateau selon une couleur */
 
 /**
- * \fn Pion creerPion(Couleur couleur)
+ * \fn Pion PI_creerPion(Couleur couleur)
  * \brief Fonction de création d'un pion selon une couleur donnée
  *
-* \param Couleur couleur, la couleur à donner au pion
-* \return Pion
+ * \param Couleur couleur, la couleur à donner au pion
+ * \return Pion
  */
-Pion PION_creerPion(Couleur couleur);
+Pion PI_creerPion(Couleur couleur);
 
 
 /**
- * \fn Couleur obtenirCouleur(Pion pion)
+ * \fn Couleur PI_obtenirCouleur(Pion pion)
  * \brief Fonction permettant d'obtenir la couleur d'un pion
  *
  * \param Pion pion; le pion dont on veut la couleur
-* \return Couleur
+ * \return Couleur
  */
-Couleur PION_obtenirCouleur(Pion pion);
+Couleur PI_obtenirCouleur(Pion pion);
 
 /**
- * \fn void retournerPion(Pion* pion)
+ * \fn void PI_retournerPion(Pion* pion)
  * \brief Fonction permettant de retourner un pion
  *
-* \param Pion* pion, le pion à retourner
+ * \param Pion* pion, le pion à retourner
  */
-void PION_retournerPion(Pion* pion);
+void PI_retournerPion(Pion* pion);
 
 #endif
