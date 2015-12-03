@@ -20,3 +20,7 @@ void PI_retournerPion(Pion* pion){
   CL_changerCouleur(couleur);
   pion=&couleur;
 }
+
+int PI_sontEgaux(Pion pion1, Pion pion2){
+  return(pion1 == pion2);
+}

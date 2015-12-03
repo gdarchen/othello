@@ -19,8 +19,8 @@
  */
 
  typedef struct {
-  Pion pions[7][7]; /**< les pions du plateau */
-  int presencePions; /**< la case est remplie ou non : 0 si vide, 1 si remplie */
+  Pion pions[8][8]; /**< les pions du plateau */
+  int presencePions[8][8]; /**< la case est remplie ou non : 0 si vide, 1 si remplie */
 } Plateau;
 
 /**
