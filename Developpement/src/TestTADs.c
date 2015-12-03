@@ -47,7 +47,7 @@ void test_obtenirCouleur(void){
                 && (CL_sontEgales(PI_obtenirCouleur(PI_creerPion(noir()))==noir())));
 }
 
-void test_retournerPion(void){  // Axiome n.2 reformulé
+void test_retournerPion(void){  // Axiome 2 reformulé
     Pion pionTest;
     Couleur couleurAvant, couleurApres;
     couleurAvant = PI_obtenirCouleur(pionTest);
@@ -93,6 +93,44 @@ void test_nbCoups(void){    // les 2 derniers axiomes du TAD Coups
 
 
 /* Tests relatifs au TAD Plateau */
+void test_estCaseVide(void){
+    Plateau plateauTest;
+    Position positionCaseVide,positionCaseAVider,positionCaseNonVide;
+    Pion pionAPlacer;
+    POS_fixerPosition(0,0,&positionCaseVide);
+    POS_fixerPosition(0,1,&positionCaseAVider);
+    POS_fixerPosition(0,1,&positionCaseNonVide);
+    PL_poserPion(&plateauTest,positionCaseAVider,pionTest);
+    PL_viderCase(&plateauTest,positionCaseAVider);
+    PL_poserPion(&plateauTest,positionCaseAVider,pionTest);
+    CU_ASSERT_TRUE((PL_estCaseVide(plateauTest,positionTest))   // Axiome 1
+                && (PL_estCaseVide(plateauTest,positionCaseAVider)) // Axiome 2
+                && !(PL_estCaseVide(plateauTest,positionCaseNonVide))); // Axiome 3
+}
+
+void test_obtenirPion(void){
+    Plateau plateauTest;
+    Pion pionTest;
+    Position positionTest;
+    POS_fixerPosition(0,0,&positionTest);
+    pionTest = PI_creerPion(CL_blanc());
+    PL_poserPion(&plateauTest,positionTest,pionTest);
+    CU_ASSERT_TRUE(PI_sontEgaux(PL_obtenirPion(plateauTest,positionTest),pionTest));
+}
+
+void test_inverserPion(void){
+    Plateau plateauTest;
+    Pion pionTest;
+    Position positionTest;
+    POS_fixerPosition(0,0,&positionTest);
+    pionTest = PI_creerPion(CL_blanc());
+    PL_poserPion(&plateauTest,positionTest,pionTest);
+    PL_inverserPion(&plateauTest,positionTest);
+    PI_retournerPion(&pionTest);
+    CU_ASSERT_TRUE(PI_sontEgaux(PL_obtenirPion(plateauTest,positionTest),pionTest));
+}
+
+
 
 
 
