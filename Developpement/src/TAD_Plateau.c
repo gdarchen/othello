@@ -12,12 +12,13 @@ Plateau PL_creerPlateau(){
       plateau.presencePions[i-1][j-1]=0;
     }
   }
+  return(plateau);
 }
 
 Couleur PL_estCaseVide(Plateau plateau, Position position){
   unsigned int i,j;
-  POS_obtenirLigne(position);
-  POS_obtenirColonne(position);
+  i=POS_obtenirLigne(position);
+  j=POS_obtenirColonne(position);
   if(plateau.presencePions[i][j] == 1){
     return(1);
   }
@@ -27,11 +28,18 @@ Couleur PL_estCaseVide(Plateau plateau, Position position){
 }
 
 void PL_viderCase(Plateau* plateau, Position position){
-
+  unsigned int i,j;
+  i=POS_obtenirLigne(position);
+  j=POS_obtenirColonne(position);
+  plateau->presencePions[i][j]=0;
 }
 
 void PL_poserPion(Plateau* plateau, Position position, Pion pion){
-
+  unsigned int i,j;
+  i=POS_obtenirLigne(position);
+  j=POS_obtenirColonne(position);
+  plateau->pions[i][j]=pion;
+  plateau->presencePions[i][j]=1;  
 }
 
 Pion PL_obtenirPion(Plateau plateau, Position position){
