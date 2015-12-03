@@ -21,5 +21,5 @@ Pion CP_obtenirPionCoup(Coup coup){
 }
 
 int CP_sontEgaux(Coup coup1, Coup coup2){
-	return(PO_sontEgales(coup1.position,coup2.position) && PI_sontEgaux(coup1.pion,coup2.pion));
+	return(POS_sontEgales(coup1.position,coup2.position) && PI_sontEgaux(coup1.pion,coup2.pion));
 }
