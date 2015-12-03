@@ -31,7 +31,7 @@ void test_obtenirLigne(void){
     l = 3;
     c = 5;
     // la position (l,c) respectera les dimensions d'un plateau d'Othello
-    CU_ASSERT_TRUE((POS_obtenirLigne(POS_fixerPosition(l,c,^positionTest))==l));
+    CU_ASSERT_TRUE((POS_obtenirLigne(POS_fixerPosition(l,c,&positionTest))==l));
 }
 
 void test_obtenirColonne(void){
@@ -40,7 +40,7 @@ void test_obtenirColonne(void){
     l = 3;
     c = 5;
     // la position (l,c) respectera les dimensions d'un plateau d'Othello
-    CU_ASSERT_TRUE((POS_obtenirColonne(POS_fixerPosition(l,c,^positionTest))==c));
+    CU_ASSERT_TRUE((POS_obtenirColonne(POS_fixerPosition(l,c,&positionTest))==c));
 }
 
 
@@ -54,18 +54,18 @@ void test_retournerPion(void){ // Axiome n.2 reformulé
     Pion pionTest;
     Couleur couleurAvant, couleurApres;
     couleurAvant = PION_obtenirCouleur(pionTest);
-    couleurApres = PION_obtenirCouleur(PION_retournerPion(^pionTest));
-    CU_ASSERT_TRUE(couleurAvant == couleurApres);
+    couleurApres = PION_obtenirCouleur(PION_retournerPion(&pionTest));
+    CU_ASSERT_TRUE(couleurAvant==couleurApres);
 }
 
 
 /* Tests relatifs au TAD Coup */
 void test_obtenirPositionCoup(void){
     Position positionTest;
-    POS_fixerPosition(3,5,^positionTest);
+    POS_fixerPosition(3,5,&positionTest);
     Pion pionTest;
     CU_ASSERT_TRUE(COUP_obtenirPositionCoup(COUP_creerCoup(positionTest,pionTest))
-                   == positionTest);
+                   ==positionTest);
 }
 
 void test_obtenirPionCoup(void){
@@ -73,11 +73,18 @@ void test_obtenirPionCoup(void){
     Pion pionTest;
     PION_creerPion(blanc());
     CU_ASSERT_TRUE(COUP_obtenirPionCoup(COUP_creerCoup(positionTest,pionTest))
-                   == pionTest);
+                   ==pionTest);
 }
 
 
 /* Tests relatifs au TAD Coups */
+void test_iemeCoup(void){
+    Coup cp;
+    Coups coupsTest;
+    coupsTests = CPS_creerCoups();
+    CPS_ajouterCoups(&coupsTest,cp);
+    CU_ASSERT_TRUE(CPS_ieme(coupsTest,CPS_nbCoups(coupsTest))==cp);
+}
 
 
 int main(int argc, char** argv){
