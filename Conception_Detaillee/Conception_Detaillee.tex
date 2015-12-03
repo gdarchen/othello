@@ -270,9 +270,9 @@
 	\fonction
 	{obtenirCoupIA}
 	{plateau : Plateau, couleur : Couleur}
-	{Coup}{i, pronfondeurMinMax : \naturel \\
+	{Coup}
+	{i, pronfondeurMinMax : \naturel \\
 	coupsPossibles : Coups \\
-	plateauTest : Plateau \\
 	scoreCourant, meilleurScore : \entier\\
 	coupCourant, meilleurCoup : Coup}
 	{
@@ -281,12 +281,10 @@
 	\sialors{nbCoups(coupsPossibles) $>$ 0}
 		{
 			\affecter{meilleurCoup}{iemeCoup(coupsPossibles, 1)}
-			\affecter{plateauTest}{copierPlateau(plateau)}
-			\affecter{meilleurScore}{scoreDUnCoup(plateauTest, meilleurCoup, couleur)}
+			\affecter{meilleurScore}{scoreDUnCoup(plateau, meilleurCoup, couleur)}
 			\pour{i}{2}{nbCoups(coupsPossibles)}{}{
 				\affecter{coupCourant}{iemeCoup(coupsPossibles, i)}
-				\affecter{plateauTest}{copierPlateau(plateau)}
-				\affecter{scoreCourant}{scoreDUnCoup(plateauTest, coupCourant, couleur)}
+				\affecter{scoreCourant}{scoreDUnCoup(plateau, coupCourant, couleur)}
 				\sialors{scoreCourant $>$ meilleurScore}{
 					\affecter{meilleurCoup}{coupCourant}
 					\affecter{meilleurScore}{scoreCourant}
@@ -306,15 +304,16 @@
 	{scoreDUnCoup}
 	{plateau : Plateau, coup : Coup, couleurRef, couleurCourante : Couleur, profondeurCourante : \naturel}
 	{\entier}
-	{}
+	{plateauTest : Plateau \\}
 	{
-	\instruction{jouerCoup(coup, plateau)}
-	\sialorssinon{plateauRempli(plateau) ou profondeurCourante $=$ 0}
+	\affecter{plateauTest}{copierPlateau(plateau)}
+	\instruction{jouerCoup(coup, plateauTest)}
+	\sialorssinon{plateauRempli(plateauTest) ou profondeurCourante $=$ 0}
 		{
-			\retourner{score(plateau, couleurRef)}
+			\retourner{score(plateauTest, couleurRef)}
 		} % Sinon
 		{
-			\retourner{minMax(plateau, couleurRef, changerCouleur(CouleurCourante), profondeurCourante $-$ 1)}
+			\retourner{minMax(plateauTest, couleurRef, changerCouleur(CouleurCourante), profondeurCourante $-$ 1)}
 		} % FinSi
 	} % Fin
 \end{algorithme}
