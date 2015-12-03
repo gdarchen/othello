@@ -41,5 +41,16 @@ Couleur CL_noir();
  */
 Couleur CL_changerCouleur(Couleur couleur);
 
+/**
+ * \fn CL_sontEgales
+ * \brief Fonction testant l'égalité de deux couleurs
+ *
+ * \param Couleur couleur1
+ * \param Couleur couleur2
+ * \return int (Booleen)
+ */
+int CL_sontEgales(Couleur couleur1, Couleur couleur2);
+
+
 
  #endif
