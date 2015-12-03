@@ -8,14 +8,22 @@ Plateau PL_creerPlateau(){
   unsigned int i,j;
   for(i=1;i<9;i++){
     for(j=1;j<9;j++){
-      plateau.pions[i][j]=PI_creerPion(CL_blanc());
-      plateau.presencePions[i][j]=0;
+      plateau.pions[i-1][j-1]=PI_creerPion(CL_blanc());
+      plateau.presencePions[i-1][j-1]=0;
     }
   }
 }
 
 Couleur PL_estCaseVide(Plateau plateau, Position position){
-
+  unsigned int i,j;
+  POS_obtenirLigne(position);
+  POS_obtenirColonne(position);
+  if(plateau.presencePions[i][j] == 1){
+    return(1);
+  }
+  else{
+    return(0);
+  }
 }
 
 void PL_viderCase(Plateau* plateau, Position position){
