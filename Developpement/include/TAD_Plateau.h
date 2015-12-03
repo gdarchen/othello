@@ -29,7 +29,7 @@
  *
 * \return Plateau
  */
-Plateau PLATEAU_creerPlateau();
+Plateau PL_creerPlateau();
 
 /**
  * \fn Couleur estCaseVide(plateau : Plateau, position : Position)
@@ -39,7 +39,7 @@ Plateau PLATEAU_creerPlateau();
  * \param Position position, la position de la case
  * \return Couleur
  */
-Couleur estCaseVide(Plateau plateau, Position position);
+Couleur PL_estCaseVide(Plateau plateau, Position position);
 
 /**
  * \fn void viderCase(Plateau* plateau, Position position)
@@ -48,7 +48,7 @@ Couleur estCaseVide(Plateau plateau, Position position);
  * \param Plateau* plateau, le plateau
  * \param Position position, la position de la case
  */
-void viderCase(Plateau* plateau, Position position);
+void PL_viderCase(Plateau* plateau, Position position);
 
 /**
  * \fn void poserPion(Plateau* plateau, Position position, Pion pion)
@@ -58,7 +58,7 @@ void viderCase(Plateau* plateau, Position position);
  * \param Position position, la position de la case
  * \param Pion pion, le pion à poser
  */
-void poserPion(Plateau* plateau, Position position, Pion pion);
+void PL_poserPion(Plateau* plateau, Position position, Pion pion);
 
 /**
  * \fn Pion obtenirPion(Plateau plateau, Position position)
@@ -68,7 +68,7 @@ void poserPion(Plateau* plateau, Position position, Pion pion);
  * \param Position position, la position de la case
  * \return Pion
  */
-Pion obtenirPion(Plateau plateau, Position position);
+Pion PL_obtenirPion(Plateau plateau, Position position);
 
 /**
  * \fn  void inverserPion(Plateau* plateau, Position position)
@@ -77,7 +77,7 @@ Pion obtenirPion(Plateau plateau, Position position);
  * \param Plateau* plateau, le plateau
  * \param Position position, la position de la case
  */
-void inverserPion(Plateau* plateau, Position position);
+void PL_inverserPion(Plateau* plateau, Position position);
 
 
 #endif
