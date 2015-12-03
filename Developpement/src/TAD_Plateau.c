@@ -39,13 +39,24 @@ void PL_poserPion(Plateau* plateau, Position position, Pion pion){
   i=POS_obtenirLigne(position);
   j=POS_obtenirColonne(position);
   plateau->pions[i][j]=pion;
-  plateau->presencePions[i][j]=1;  
+  plateau->presencePions[i][j]=1;
 }
 
 Pion PL_obtenirPion(Plateau plateau, Position position){
-
+  Pion pion;
+  unsigned int i,j;
+  i=POS_obtenirLigne(position);
+  j=POS_obtenirColonne(position);
+  pion=plateau.pions[i][j];
+  return(pion);
 }
 
 void PL_inverserPion(Plateau* plateau, Position position){
-
+  Pion pion;
+  unsigned int i,j;
+  i=POS_obtenirLigne(position);
+  j=POS_obtenirColonne(position);
+  pion=plateau->pions[i][j];
+  PI_retournerPion(&pion);
+  plateau->pions[i][j]=pion;
 }
