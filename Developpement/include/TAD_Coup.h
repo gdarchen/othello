@@ -22,30 +22,30 @@ typedef struct {
 } Coup;
 
 /**
- * \fn Coup COUP_creerCoup(Position position, Pion pion)
+ * \fn Coup CP_creerCoup(Position position, Pion pion)
  * \brief Fonction qui retourne un coup à partir d'une position et d'un pion
  *
  * \return Coup
  */
-Coup COUP_creerCoup(Position position, Pion pion);
+Coup CP_creerCoup(Position position, Pion pion);
 
 /**
- * \fn Position COUP_obtenirPositionCoup(Coup coup)
+ * \fn Position CP_obtenirPositionCoup(Coup coup)
  * \brief Fonction qui retourne la position d'un coup
  *
  * \param position : la position à affecter au Coup
  * \param pion : le Pion à affecter au Coup
  * \return Coup
  */
-Position COUP_obtenirPositionCoup(Coup coup);
+Position CP_obtenirPositionCoup(Coup coup);
 
 /**
- * \fn Position COUP_obtenirPionCoup(Coup coup)
+ * \fn Position CP_obtenirPionCoup(Coup coup)
  * \brief Fonction qui retourne le pion d'un coup
  *
  * \return Coup
  */
-Pion COUP_obtenirPionCoup(Coup coup);
+Pion CP_obtenirPionCoup(Coup coup);
 
 
  #endif
