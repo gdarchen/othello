@@ -123,14 +123,15 @@ Pour la conception détaillée, nous avons ajouté la fonction de comparaison de
 \begin{itemize}
 \signatureprocedure{faireUnePartie}{\paramEntree{coupJoueur1, coupJoueur2 : getCoup, afficher : afficherPlateau}, \paramSortie{joueur : Couleur, estMatchNul : \booleen}}
 \signaturefonction{initialiserPlateau}{}{Plateau}
-\signatureprocedure{jouer}{\paramEntree{coupJoueur : getCoup}, \paramEntreeSortie{plateau : Plateau}, \paramSortie{aPuJouer : \booleen}}
+\signatureprocedure{jouer}{\paramEntreeSortie{plateau : Plateau, couleurJoueur : Couleur}, \paramEntree{coupJoueur : getCoup}, \paramSortie{aPuJouer : \booleen}}
 \signatureprocedure{finPartie}{\paramEntree{aPuJouerJoueur1,aPuJouerJoueur2 : \booleen, plateau : Plateau}, \paramSortie{estFinie : \booleen, nbPionsBlancs, nbPionsNoirs :\naturel}}
 \signaturefonction{plateauRempli}{plateau : Plateau}{\booleen}
 \signatureprocedure{nbPions}{\paramEntree{plateau : Plateau}, \paramSortie{nbPionsBlancs, nbPionsNoirs : \naturel}}
-\signatureprocedure{jouerCoup}{\paramEntree{coup : Coup}, \paramEntreeSortie{plateau : Plateau}, \paramSortie{plateauModifie : \booleen}}
-\signatureprocedure{inverserLigne}{\paramEntree{position : Position, pionJoueur : Pion}, \paramEntreeSortie{plateau : Plateau}, \paramSortie{aModifie : \booleen}}
-\signatureprocedure{inverserDiag}{\paramEntree{position : Position, pionJoueur : Pion}, \paramEntreeSortie{plateau : Plateau}, \paramSortie{aModifie : \booleen}}
-\signatureprocedure{inverserColonne}{\paramEntree{position : Position, pionJoueur : Pion}, \paramEntreeSortie{plateau : Plateau}, \paramSortie{aModifie : \booleen}}
+\signatureprocedure{jouerCoup}{\paramEntree{coup : Coup}, \paramEntreeSortie{plateau : Plateau}}
+\signatureprocedure{inverserPions}{\paramEntree{pos : Position, pionJoueur : Pion}, \paramEntreeSortie{plateau : Plateau}}
+\signatureprocedure{inverserPionsDir}{\paramEntreeSortie{plateau : Plateau}, \paramEntree{posInitiale, posCourante : Position, x, y : Entier}}
+\signatureprocedure{pionEstPresent}{\paramEntree{pionJoueur : Pion, x, y : Entier}, \paramEntreeSortie{pos : Position, plateau : Plateau}, \paramSortie{pionPresent : \booleen}}
+\signatureprocedure{pionEstPresentRecursif}{\paramEntree{pionJoueur : Pion, x, y : Entier}, \paramEntreeSortie{pos : Position, plateau : Plateau}, \paramSortie{pionPresent : \booleen}}
 \end{itemize}
 
 \section{Conception préliminaire de l'analyse descendante de \tt{obtenirCoupIA}}
