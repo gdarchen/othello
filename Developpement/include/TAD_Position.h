@@ -48,4 +48,14 @@ unsigned int POS_obtenirColonne(Position position);
  */
 void POS_fixerPosition(unsigned int ligne, unsigned int colonne, Position* position);
 
+/**
+ * \fn POS_sontEgales
+ * \brief Fonction testant l'égalité de deux positions
+ *
+ * \param Position pos1
+ * \param Position pos2
+ * \return int (Booleen)
+ */
+int POS_sontEgales(Position pos1, Position pos2);
+
 #endif

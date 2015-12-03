@@ -47,5 +47,14 @@ Position CP_obtenirPositionCoup(Coup coup);
  */
 Pion CP_obtenirPionCoup(Coup coup);
 
+/**
+ * \fn CP_sontEgaux
+ * \brief Fonction testant l'égalité de deux coups (type Coup)
+ *
+ * \param Coup coup1
+ * \param Coup coup2
+ * \return int (Booleen)
+ */
+ int CP_sontEgaux(Coup coup1, Coup coup2);
 
  #endif

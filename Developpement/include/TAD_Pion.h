@@ -45,4 +45,14 @@ Couleur PI_obtenirCouleur(Pion pion);
  */
 void PI_retournerPion(Pion* pion);
 
+/**
+ * \fn PI_sontEgaux
+ * \brief Fonction testant l'égalité de deux pions
+ *
+ * \param Pion pion1
+ * \param Pion pion2
+ * \return int (Booleen)
+ */
+ int PI_sontEgaux(Pion pion1, Pion pion2);
+
 #endif
