@@ -47,6 +47,12 @@
 \signaturefonction{changerCouleur}{couleur : Couleur}{Couleur}
 \end{itemize}
 
+~\\
+Pour la conception détaillée, nous avons ajouté la fonction de comparaison de deux \og Couleur \fg{}  :
+\begin{itemize}
+\signaturefonction{sontEgales}{couleur1, couleur2 : Couleur}{\booleen}
+\end{itemize}
+
 \section{Conception préliminaire du TAD \tt{Plateau}}
 \begin{itemize}
 \signaturefonction{creerPlateau}{}{Plateau}
@@ -64,11 +70,23 @@
 \signaturefonction{obtenirPionCoup}{coup : Coup}{Pion}
 \end{itemize}
 
+~\\
+Pour la conception détaillée, nous avons ajouté la fonction de comparaison de deux \og Coup \fg{}  :
+\begin{itemize}
+\signaturefonction{sontEgaux}{coup1, coup2 : Coup}{\booleen}
+\end{itemize}
+
 \section{Conception préliminaire du TAD \tt{Pion}}
 \begin{itemize}
 \signaturefonction{creerPion}{couleur : Couleur}{Pion}
 \signaturefonction{obtenirCouleurPion}{pion : Pion}{Couleur}
 \signatureprocedure{retournerPion}{\paramEntreeSortie{pion : Pion}}
+\end{itemize}
+
+~\\
+Pour la conception détaillée, nous avons ajouté la fonction de comparaison de deux \og Pion \fg{}  :
+\begin{itemize}
+\signaturefonction{sontEgaux}{pion1, pion2 : Pion}{\booleen}
 \end{itemize}
 
 \section{Conception préliminaire du TAD \tt{Coups}}
@@ -86,6 +104,11 @@
 \signatureProcedureAvecPreconditions{fixerPosition}{\paramEntree{ligne, colonne : \naturelNonNul}, {\paramSortie{position : Position}}}{1 $\leqslant$ ligne $\leqslant$ 8 \& 1$\leqslant$ colonne $\leqslant$ 8}
 \end{itemize}
 
+~\\
+Pour la conception détaillée, nous avons ajouté la fonction de comparaison de deux \og Position \fg{}  :
+\begin{itemize}
+\signaturefonction{sontEgales}{position1, position2: Position}{\booleen}
+\end{itemize}
 
 \part{Conception préliminaire des fonctions et procédures des analyses descendantes}
 \setcounter{section}{0}
