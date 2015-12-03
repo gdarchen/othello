@@ -16,3 +16,7 @@ Couleur CL_changerCouleur(Couleur couleur){
 	else
 		return BLANC;
 }
+
+int CL_sontEgales(Couleur couleur1, Couleur couleur2){
+	return(couleur1==couleur2);
+}
