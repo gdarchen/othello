@@ -84,8 +84,11 @@ void test_obtenirPionCoup(void){
 
 /* Tests relatifs au TAD Coups */
 void test_iemeCoup(void){
+    Position positionTest;
     Coup cp;
     Coups coupsTest;
+    POS_fixerPosition(0,0,&positionTest);
+    cp = CP_creerCoup(positionTest,CL_blanc());
     CPS_creerCoups(&coupsTest);
     CPS_ajouterCoups(&coupsTest,cp);
     CU_ASSERT_TRUE(CP_sontEgaux(CPS_iemeCoup(coupsTest,CPS_nbCoups(coupsTest)),cp));
