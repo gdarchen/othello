@@ -88,7 +88,7 @@ void test_iemeCoup(void){
     Coups coupsTest;
     CPS_creerCoups(&coupsTest);
     CPS_ajouterCoups(&coupsTest,cp);
-    CU_ASSERT_TRUE(CP_sontEgaux(CPS_iemeCoup(coupsTest,CPS_nbCoups(coupsTest)),cp));
+    CU_ASSERT_TRUE(CP_sontEgaux(CPS_iemeCoup(coupsTest,CPS_nbCoups(coupsTest)-1),cp));
 }
 
 void test_nbCoups(void){    // les 2 derniers axiomes du TAD Coups
