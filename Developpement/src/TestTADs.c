@@ -80,7 +80,7 @@ void test_obtenirPionCoup(void){
     pionTest = PI_creerPion(CL_blanc());
     CU_ASSERT_TRUE(PI_sontEgaux(CP_obtenirPionCoup(CP_creerCoup(positionTest,pionTest)),pionTest));
 }
-
+ //
 
 /* Tests relatifs au TAD Coups */
 void test_iemeCoup(void){
@@ -115,7 +115,7 @@ void test_estCaseVide(void){
     POS_fixerPosition(0,1,&positionCaseAVider);
     POS_fixerPosition(1,0,&positionCaseNonVide);
     PL_poserPion(&plateauTest,positionCaseAVider,pionTest);
-    PL_viderCase(&plateauTest,positionCaseAVider);    
+    PL_viderCase(&plateauTest,positionCaseAVider);
     PL_poserPion(&plateauTest,positionCaseNonVide,pionTest);
     CU_ASSERT_TRUE( (PL_estCaseVide(plateauTest,positionCaseVide))   // Axiome 1
                 && (PL_estCaseVide(plateauTest,positionCaseAVider)) // Axiome 2
