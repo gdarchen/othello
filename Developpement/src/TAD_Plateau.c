@@ -19,7 +19,7 @@ Couleur PL_estCaseVide(Plateau plateau, Position position){
   unsigned int i,j;
   i=POS_obtenirLigne(position);
   j=POS_obtenirColonne(position);
-  if(plateau.presencePions[i][j] == 1){
+  if((plateau.presencePions[i][j])==0){
     return(1);
   }
   else{
