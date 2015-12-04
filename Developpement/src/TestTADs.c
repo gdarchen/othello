@@ -105,16 +105,16 @@ void test_nbCoups(void){    // les 2 derniers axiomes du TAD Coups
 /* Tests relatifs au TAD Plateau */
 void test_estCaseVide(void){
     Plateau plateauTest;
-    Position positionCaseVide,positionCaseAVider,positionCaseNonVide;
+    Position positionCaseVide, positionCaseAVider, positionCaseNonVide;
     plateauTest=PL_creerPlateau();
-    Pion pionTest = PI_creerPion(CL_blanc());
+    Pion pionTest=PI_creerPion(CL_blanc());
     POS_fixerPosition(0,0,&positionCaseVide);
     POS_fixerPosition(0,1,&positionCaseAVider);
-    POS_fixerPosition(0,1,&positionCaseNonVide);
+    POS_fixerPosition(1,0,&positionCaseNonVide);
     PL_poserPion(&plateauTest,positionCaseAVider,pionTest);
-    PL_viderCase(&plateauTest,positionCaseAVider);
-    PL_poserPion(&plateauTest,positionCaseAVider,pionTest);
-    CU_ASSERT_TRUE((PL_estCaseVide(plateauTest,positionCaseVide))   // Axiome 1
+    PL_viderCase(&plateauTest,positionCaseAVider);    
+    PL_poserPion(&plateauTest,positionCaseNonVide,pionTest);
+    CU_ASSERT_TRUE( (PL_estCaseVide(plateauTest,positionCaseVide))   // Axiome 1
                 && (PL_estCaseVide(plateauTest,positionCaseAVider)) // Axiome 2
                 && !(PL_estCaseVide(plateauTest,positionCaseNonVide))); // Axiome 3
 }
