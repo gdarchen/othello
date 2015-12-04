@@ -8,7 +8,7 @@ void CPS_creerCoups(Coups* coups){
 }
 
 void CPS_ajouterCoups(Coups* coups, Coup coup){
-	coups->tabCoups[coups->nbCps+1] = coup;
+	coups->tabCoups[coups->nbCps] = coup;
 	coups->nbCps = (coups->nbCps)+1;
 }
 
