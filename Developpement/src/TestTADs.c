@@ -106,6 +106,7 @@ void test_nbCoups(void){    // les 2 derniers axiomes du TAD Coups
 void test_estCaseVide(void){
     Plateau plateauTest;
     Position positionCaseVide,positionCaseAVider,positionCaseNonVide;
+    plateauTest=PL_creerPlateau();
     Pion pionTest = PI_creerPion(CL_blanc());
     POS_fixerPosition(0,0,&positionCaseVide);
     POS_fixerPosition(0,1,&positionCaseAVider);
