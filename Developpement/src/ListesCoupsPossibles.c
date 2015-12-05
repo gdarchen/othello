@@ -19,7 +19,6 @@ int coupValide(Plateau plateau, Coup coup){
   return 0;
 };
 
-Plateau copierPlateau(Plateau plateau){
-  Plateau CopiePlateau;
-  return CopiePlateau;
+void copierPlateau(Plateau plateauACopier, Plateau* plateauCopie){
+
 };
