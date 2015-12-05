@@ -29,7 +29,7 @@
  *
  * \
  */
-Plateau InitialiserPlateau()
+Plateau InitialiserPlateau();
 
 /**
  * \procedure void jouer(Plateau* plateau , Couleur* couleurJoueur, GETCOUP(*obtenirCoupJoueur)(Plateau,Couleur,Coup), int* aPuJouer)
@@ -41,7 +41,7 @@ Plateau InitialiserPlateau()
  * \param int* aPuJouer, booleen qui permet de savoir si le joueur a pu placer son pion ou pas.
  * \
  */
-void jouer(Plateau* plateau , Couleur* couleurJoueur, GETCOUP(*obtenirCoupJoueur)(Plateau,Couleur,Coup), int* aPuJouer)
+void jouer(Plateau* plateau , Couleur* couleurJoueur, GETCOUP(*obtenirCoupJoueur)(Plateau,Couleur,Coup),        int* aPuJouer);
 
 
 /**
@@ -52,7 +52,7 @@ void jouer(Plateau* plateau , Couleur* couleurJoueur, GETCOUP(*obtenirCoupJoueur
  * \param Plateau* plateau, le plateau de l'othello
  * \
  */
-void jouerCoup (Coup coup, Plateau* plateau)
+void jouerCoup (Coup coup, Plateau* plateau);
 
 /**
  * \procedure void inverserPions(Position pos, Pion pionJoueur, Plateau* plateau)
@@ -63,7 +63,7 @@ void jouerCoup (Coup coup, Plateau* plateau)
  * \param  Plateau* plateau, le plateau sur lequel est joué le coup
  * \
  */
-void inverserPions(Position pos, Pion pionJoueur, Plateau* plateau)
+void inverserPions(Position pos, Pion pionJoueur, Plateau* plateau);
 
 /**
  * \procedure void inverserPionsDir(Plateau* plateau, Position posInitiale, Position posCourante, unsigned int x, unsigned int y)
@@ -76,7 +76,7 @@ void inverserPions(Position pos, Pion pionJoueur, Plateau* plateau)
  * \param unsigned int y, la direction selon l'axe des ordonnées
  * \
  */
-void inverserPionsDir(Plateau* plateau, Position posInitiale, Position posCourante, unsigned int x, unsigned int y)
+void inverserPionsDir(Plateau* plateau, Position posInitiale, Position posCourante, unsigned int x, unsigned int y);
 
 /**
  * \procedure void pionEstPresent(Pion pionJoueur, unsigned int x, unsigned int y, Position* pos, Plateau* plateau, int* pionPresent)
@@ -90,7 +90,7 @@ void inverserPionsDir(Plateau* plateau, Position posInitiale, Position posCouran
  * \param int* pionPresent, qui renvoit 0 si aucun pion conforme n'a été trouvé, 1 sinon
  * \
  */
-void pionEstPresent(Pion pionJoueur, unsigned int x, unsigned int y, Position* pos, Plateau* plateau, int* pionPresent)
+void pionEstPresent(Pion pionJoueur, unsigned int x, unsigned int y, Position* pos, Plateau* plateau, int* pionPresent);
 
 /**
  * \procedure void pionEstPresentRecursif(Pion pionJoueur, unsigned int x, unsigned int y, Position* pos, Plateau* plateau, int* pionPresent)
@@ -104,8 +104,7 @@ void pionEstPresent(Pion pionJoueur, unsigned int x, unsigned int y, Position* p
  * \param int* pionPresent, qui renvoit 0 si aucun pion conforme n'a été trouvé, 1 sinon
  * \
  */
-void pionEstPresentRecursif(Pion pionJoueur, unsigned int x, unsigned int y, Position* pos, Plateau* plateau, int* pionPresent)
-
+void pionEstPresentRecursif(Pion pionJoueur, unsigned int x, unsigned int y, Position* pos, Plateau* plateau, int* pionPresent);
 /**
  * \procedure finPartie (Plateau plateau, int aPuJouerJoueur1,aPuJouerJoueur2 , unsigned int* scoreJoueur1, unsigned int* scoreJoueur2 , int* estFinie)
  * \brief Procedure qui permet de déterminer si la partie est finie ou non.
@@ -119,7 +118,7 @@ void pionEstPresentRecursif(Pion pionJoueur, unsigned int x, unsigned int y, Pos
  * \
  */
 
-void finPartie (Plateau plateau, int aPuJouerJoueur1, int aPuJouerJoueur2 , unsigned int* nbPionsNoirs, unsigned int* nbPionsBlancs , int* estFinie)
+void finPartie (Plateau plateau, int aPuJouerJoueur1, int aPuJouerJoueur2 , unsigned int* nbPionsNoirs, unsigned int* nbPionsBlancs , int* estFinie);
 
 /**
  * \procedure void nbPions (Plateau plateau, unsigned int* scoreJoueur1, unsigned int* scoreJoueur2)
@@ -130,4 +129,4 @@ void finPartie (Plateau plateau, int aPuJouerJoueur1, int aPuJouerJoueur2 , unsi
  * \param unsigned int* nbPionsNoirs, le nombre de pions Noirs
  * \
  */
-void nbPions (Plateau plateau, unsigned int* nbPionsNoirs, unsigned int* nbPionsBlancs)
+void nbPions (Plateau plateau, unsigned int* nbPionsNoirs, unsigned int* nbPionsBlancs);

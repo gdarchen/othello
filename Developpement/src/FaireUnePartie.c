@@ -1,4 +1,5 @@
 #include "FaireUnePartie.h"
+#include <stddef.h>
 #define TRUE 1
 #define FALSE 0
 
