@@ -30,3 +30,5 @@
 
 
 void faireUnePartie(void(*afficherPlateau)(Plateau), GETCOUP(*obtenirCoupJoueur1)(Plateau,Couleur,Coup), GETCOUP(*obtenirCoupJoueur2)(Plateau,Couleur,Coup), Couleur* joueur, int* estMatchNul)
+
+#endif

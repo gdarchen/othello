@@ -130,3 +130,5 @@ void finPartie (Plateau plateau, int aPuJouerJoueur1, int aPuJouerJoueur2 , unsi
  * \
  */
 void nbPions (Plateau plateau, unsigned int* nbPionsNoirs, unsigned int* nbPionsBlancs);
+
+#endif
