@@ -8,10 +8,10 @@
 unsigned int profondeur(void);
 
 /* Score associé à un coup joué par le joueur de la couleur couleurCourante */
-int scoreDUnCoup(Plateau plateau, Couleur couleurRef, Couleur couleurCourante, unsigned int profondeurCourante);
+int scoreDUnCoup(Plateau plateau, Coup coup, Couleur couleurRef, Couleur couleurCourante, unsigned int profondeurCourante);
 
 /* Permet de "remonter" le score du meilleur coup dans l'arbre des possibilités de jeu */
-int minMax(Plateau plateau, Couleur couleurRef, Couleur couleurCourante, int profondeurCourante);
+int minMax(Plateau plateau, Couleur couleurRef, Couleur couleurCourante, unsigned int profondeurCourante);
 
 /* Permet d'obtenir le score de la partie pour la couleur donnée en entrée */
 int score(Plateau plateau, Couleur couleur);

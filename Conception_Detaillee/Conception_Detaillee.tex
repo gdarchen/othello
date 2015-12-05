@@ -313,7 +313,7 @@
 			\retourner{score(plateauTest, couleurRef)}
 		} % Sinon
 		{
-			\retourner{minMax(plateauTest, couleurRef, changerCouleur(CouleurCourante), profondeurCourante $-$ 1)}
+			\retourner{minMax(plateauTest, couleurRef, changerCouleur(couleurCourante), profondeurCourante $-$ 1)}
 		} % FinSi
 	} % Fin
 \end{algorithme}
@@ -372,7 +372,7 @@
 		\affecter{resultat}{scoreDUnCoup(plateau, iemeCoup(coupsPossibles, 1), couleurRef, couleurCourante, profondeurCourante)}
 		\pour{i}{2}{nbCoups(coupsPossibles)}{}
 			{
-			\affecter{score}{scoreDUnCoup(plateau,iemeCoup(coupsPossibles, i), couleurRef, couleurCourante, profondeurCourante)}
+			\affecter{score}{scoreDUnCoup(plateau, iemeCoup(coupsPossibles, i), couleurRef, couleurCourante, profondeurCourante)}
 			\sialorssinon{couleurCourante $=$ couleurRef}
 				{\affecter{resultat}{max(resultat, score)}}
 				{\affecter{resultat}{min(resultat, score)}}
