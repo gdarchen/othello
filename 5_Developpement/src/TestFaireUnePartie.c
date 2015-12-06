@@ -22,7 +22,28 @@ int clean_suite_success(void) {
 /* Tests relatifs à initialiserPlateau */
 
 void test_initialiserPlateau(void){
+  Plateau plateau;
+  int res=1;
+  Position pos;
+  unsigned int i,j;
+  plateau=PL_creerPlateau();
+  plateau=initialiserPlateau();
 
+  for(i=1;i<9;i++){
+    for(j=1;j<9;j++){
+      POS_fixerPosition(i,j,&pos);
+      if ((i==3 && j==3) || (i==4 && j==4)){
+        if (PL_estCaseVide(plateau,pos)){
+          res=0;
+        }
+        else if(PI_obtenirCouleur(PL_obtenirPion(plateau,pos))){
+          res=0;
+        }
+      }
+    }
+  } /* PAS FINI !*/
+
+  CU_ASSERT_TRUE(res==1);
 }
 
 int main(int argc, char** argv){
