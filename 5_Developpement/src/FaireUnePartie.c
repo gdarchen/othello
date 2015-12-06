@@ -6,7 +6,7 @@
 
 /* Partie publique */
 
-void faireUnePartie(void(*afficherPlateau)(Plateau), GETCOUP(*obtenirCoupJoueur1)(Plateau,Couleur,Coup), GETCOUP(*obtenirCoupJoueur2)(Plateau,Couleur,Coup), Couleur* joueur, int* estMatchNul)
+void faireUnePartie(void(*afficherPlateau)(Plateau), Coup(*getCoup1)(Plateau,Pion), Coup(*getCoup2)(Plateau,Pion), Couleur* joueur, int* estMatchNul)
 {   Plateau *plateau=InitialiserPlateau();
     int *aPuJouerJoueur1=TRUE;
     int *aPuJouerJoueur2=TRUE;
@@ -17,11 +17,11 @@ void faireUnePartie(void(*afficherPlateau)(Plateau), GETCOUP(*obtenirCoupJoueur1
     unsigned int *nbPionsNoirs=2;
     afficherPlateau(plateau);
     while (!(estFinie)) {
-        jouer(&plateau,couleurJoueur1,obtenirCoupJoueur1,&aPuJouerJoueur1);
+        jouer(&plateau,couleurJoueur1,getCoup1,&aPuJouerJoueur1);
         afficherPlateau(*plateau);
-        jouer(&plateau,couleurJoueur2,obtenirCoupJoueur2,&aPuJouerJoueur2);
+        jouer(&plateau,couleurJoueur2,getCoup2,&aPuJouerJoueur2);
         finPartie(plateau,aPuJouerJoueur1,aPuJouerJoueur2,&nbPionsNoirs,&nbPionsBlancs,&estFinie);
-        
+
     }
     if (*nbPionsBlancs==*nbPionsNoirs){
         *joueur=CL_blanc();
@@ -31,14 +31,14 @@ void faireUnePartie(void(*afficherPlateau)(Plateau), GETCOUP(*obtenirCoupJoueur1
             *joueur=CL_blanc();
             else *joueur=CL_blanc();
         }
-        
+
     }
 }
 
 /* Partie privée */
 
 
-Plateau InitialiserPlateau(){
+Plateau initialiserPlateau(){
     Plateau plateaudejeu;
     Pion pionnoir;
     Pion pionblanc;
@@ -58,14 +58,16 @@ Plateau InitialiserPlateau(){
 }
 
 
-void jouer(Plateau* plateau , Couleur* couleurJoueur, GETCOUP(*obtenirCoupJoueur)(Plateau,Couleur,Coup), int* aPuJouer)
+void jouer(Plateau* plateau , Couleur* couleurJoueur, Coup(*getCoup)(Plateau,Pion), int* aPuJouer)
 {
     unsigned int i;
     int res;
     Coups coups;
     Coup coupJoueur;
     res=FALSE;
-    coupJoueur=obtenirCoupJoueur(*plateau,*couleurJoueur);
+    Pion pionJoueur;
+    pionJoueur=PI_creerPion(couleurJoueur);
+    coupJoueur=getCoup(plateau,pionJoueur);
     coups=listeCoupsPossibles(*plateau,*couleurJoueur);
     for(i=1;i<CPS_nbCoups(coups);i++){
         if (CPS_iemeCoup(coups,i)==coupJoueur) {
@@ -80,12 +82,12 @@ void jouerCoup (Coup coup, Plateau* plateau)
 { unsigned int i;
     Position pos;
     Pion  pionJoueur;
-    
+
     PL_poserPion(plateau,CP_obtenirPositionCoup(coup),CP_obtenirPionCoup(coup));
     pos=CP_obtenirPositionCoup(coup);
     pionJoueur=CP_obtenirPionCoup(coup);
     inverserPions(pos,pionJoueur,&plateau);
-    
+
 }
 
 void inverserPions(Position pos, Pion pionJoueur, Plateau* plateau)
@@ -106,9 +108,9 @@ void inverserPions(Position pos, Pion pionJoueur, Plateau* plateau)
             }
             }
                   }
-                  
+
                   }
-                  
+
 void inverserPionsDir(Plateau* plateau, Position posInitiale, Position posCourante, unsigned int x, unsigned int y)
 {       Position *poscour =&posCourante;
     if (! (posInitiale==posCourante)){
@@ -132,8 +134,8 @@ void pionEstPresent(Pion pionJoueur, unsigned int x, unsigned int y, Position* p
                     pionEstPresentRecursif(pionJoueur,&pos,&plateau,&pionPresent);
                 }
 }
-                
-                  
+
+
 void pionEstPresentRecursif(Pion pionJoueur, unsigned int x, unsigned int y, Position* pos, Plateau* plateau, int* pionPresent)
 {
                 unsigned int i,j;
@@ -156,7 +158,7 @@ void pionEstPresentRecursif(Pion pionJoueur, unsigned int x, unsigned int y, Pos
                         }
                 }
 }
-                  
+
 void finPartie (Plateau plateau, int aPuJouerJoueur1, int aPuJouerJoueur2 , unsigned int* nbPionsNoirs, unsigned int* nbPionsBlancs , int* estFinie)
 {
                 if (((aPuJouerJoueur1=FALSE) && ( aPuJouerJoueur2=FALSE))) || (plateauRempli(plateau)){
@@ -164,20 +166,22 @@ void finPartie (Plateau plateau, int aPuJouerJoueur1, int aPuJouerJoueur2 , unsi
                     *estFinie=TRUE;
                 }
             }
-                  
-                  
+
+
 void nbPions (Plateau plateau, unsigned int* nbPionsNoirs, unsigned int* nbPionsBlancs)
 {
                 Position *pos;
+                Couelur couleur=CL_noir();
+                unsigned int i,j;
                 for(i=1;i<9;i++){
                     for(j=1;j<9;j++){
                         POS_fixerPosition(i,j,pos);
-                        if PI_obtenirCouleur(PL_obtenirPion(plateau,pos)==CL_noir(){
+                        if (CL_sontEgales(PI_obtenirCouleur(PL_obtenirPion(plateau,pos)),couleur){
                             *nbPionsNoirs=++;
-                            else *nbPionsBlancs=++;
+                          }
+                        else {
+                          *nbPionsBlancs=++;
                         }
-                                             }
-                                             }
+                    }
+                }
 }
-                                             
-                                             

@@ -2,6 +2,6 @@
 #include <stdlib.h>
 #include "FaireUnePartie.h"
 
-int main() {
+int main(){
   return EXIT_SUCCESS;
 }

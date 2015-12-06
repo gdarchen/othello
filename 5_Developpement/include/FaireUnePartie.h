@@ -17,18 +17,18 @@
  */
 
 /**
- * \procedure faireUnePartie(void(*afficherPlateau)(Plateau), GETCOUP(*obtenirCoupJoueur1)(Plateau,Couleur,Coup), GETCOUP(*obtenirCoupJoueur2)(Plateau,Couleur,Coup), Couleur* joueur, int* estMatchNul)
- * \brief Procedure permmettant de jouer au jeu de l'othello
+ * \procedure faireUnePartie(void(*afficherPlateau)(Plateau), Coup(*getCoup)(Plateau,Pion), Coup(*getCoup)(Plateau,Pion), Couleur* joueur, int* estMatchNul)
+ * \brief Procedure permettant de jouer au jeu de l'othello
  *
  * \param void(*afficherPlateau)(Plateau) POINTEUR sur une fonction qui permet d'afficher le plateau a chaque tour
- * \param GETCOUP(*obtenirCoupJoueur1)(Plateau,Couleur,Coup) permer d'obtenir le coup du joueur 1
- * \param GETCOUP(*obtenirCoupJoueur2)(Plateau,Couleur,Coup) permet d'obtenir le coup du joueur 2
+ * \param Coup(*getCoup1)(Plateau,Pion) permet d'obtenir le coup du joueur 1
+ * \param Coup(*getCoup2)(Plateau,Pion) permet d'obtenir le coup du joueur 2
  * \param  Couleur* joueur permet de determiner le gagnant de la partie
  * \param int* estMatchNul booléen qui permet de savoir si aucun joueur n'a gagné la partie ou il y'a un gagnant
  * \
  */
 
 
-void faireUnePartie(void(*afficherPlateau)(Plateau), GETCOUP(*obtenirCoupJoueur1)(Plateau,Couleur,Coup), GETCOUP(*obtenirCoupJoueur2)(Plateau,Couleur,Coup), Couleur* joueur, int* estMatchNul)
+void faireUnePartie(void(*afficherPlateau)(Plateau), Coup(*getCoup1)(Plateau,Pion), Coup(*getCoup2)(Plateau,Pion), Couleur* joueur, int* estMatchNul);
 
 #endif

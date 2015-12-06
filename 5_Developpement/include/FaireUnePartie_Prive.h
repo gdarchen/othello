@@ -1,4 +1,4 @@
-/**
+ /**
  * \file FaireUnePartie_Prive.h
  * \brief Implantation de faireunepartie-prive pour le projet othello
  * \author groupe 1.5
@@ -29,7 +29,7 @@
  *
  * \
  */
-Plateau InitialiserPlateau();
+Plateau initialiserPlateau();
 
 /**
  * \procedure void jouer(Plateau* plateau , Couleur* couleurJoueur, GETCOUP(*obtenirCoupJoueur)(Plateau,Couleur,Coup), int* aPuJouer)
@@ -41,7 +41,7 @@ Plateau InitialiserPlateau();
  * \param int* aPuJouer, booleen qui permet de savoir si le joueur a pu placer son pion ou pas.
  * \
  */
-void jouer(Plateau* plateau , Couleur* couleurJoueur, GETCOUP(*obtenirCoupJoueur)(Plateau,Couleur,Coup),        int* aPuJouer);
+void jouer(Plateau* plateau , Couleur* couleurJoueur, Coup(*obtenirCoupJoueur)(Plateau,Pion), int* aPuJouer);
 
 
 /**
@@ -52,7 +52,7 @@ void jouer(Plateau* plateau , Couleur* couleurJoueur, GETCOUP(*obtenirCoupJoueur
  * \param Plateau* plateau, le plateau de l'othello
  * \
  */
-void jouerCoup (Coup coup, Plateau* plateau);
+void jouerCoup(Coup coup, Plateau* plateau);
 
 /**
  * \procedure void inverserPions(Position pos, Pion pionJoueur, Plateau* plateau)
