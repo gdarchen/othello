@@ -1,59 +1,18 @@
-\documentclass[11pt]{article}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Fichier de la Conception Détaillée %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%PRéAMBULE
-\usepackage[french]{babel}
-\usepackage[utf8]{inputenc}
-\usepackage[table]{xcolor}
-\usepackage[T1]{fontenc}
-\usepackage[normalem]{ulem}
-\usepackage{verbatim}
-\usepackage{xcolor}
-\usepackage{graphicx}
-\usepackage{graphics}
-\usepackage{fancybox}
-\usepackage{amsfonts}
-\usepackage{xcolor}
-\usepackage{amsmath}
-\usepackage{ulem}
-\usepackage{adjustbox}
-\usepackage{amssymb,amsmath,latexsym}
-\usepackage{mathrsfs}
-\usepackage[a4paper]{geometry}
-\usepackage{subfig}
-\usepackage[bottom]{footmisc}
-%%\usepackage{mathpazo}
+\chapter{Conception détaillée des TAD}
 
-\usepackage{algorithmeUTF8}
-
-
-
-%TITRE
-\geometry{hscale=0.8,vscale=0.8,centering}
-\title{Projet Othello - \textsc{La conception détaillée}}
-\author{Groupe 1.5}
-\date{\today}
-
-\begin{document}
-\maketitle
-\noindent\rule{\textwidth}{1.3pt}
-
-\renewcommand{\tt}[1]{\og \texttt{#1} \fg}
-
-\part{Conception détaillée des TAD}
-
-\section{Conception détaillée des types}
-
-\subsection{CD du type \tt{Couleur}}
+\section{CD du type \tt{Couleur}}
 \begin{itemize}
 \type{Couleur}{\{blanc, noir\}}
 \end{itemize}
 
-\subsection{CD du type \tt{Pion}}
+\section{CD du type \tt{Pion}}
 \begin{itemize}
 \type{Pion}{Couleur}
 \end{itemize}
 
-\subsection{CD du type \tt{Position}}
+\section{CD du type \tt{Position}}
 \begin{itemize}
 \item
 \begin{algorithme}
@@ -64,7 +23,7 @@
 \end{algorithme}
 \end{itemize}
 
-\subsection{CD du type \tt{Plateau}}
+\section{CD du type \tt{Plateau}}
 \begin{itemize}
 \item
 \begin{algorithme}
@@ -75,7 +34,7 @@
 \end{algorithme}
 \end{itemize}
 
-\subsection{CD du type \tt{Coup}}
+\section{CD du type \tt{Coup}}
 \begin{itemize}\item
 \begin{algorithme}
 \begin{enregistrement}{Coup}
@@ -85,7 +44,7 @@
 \end{algorithme}
 \end{itemize}
 
-\subsection{CD du type \tt{Coups}}
+\section{CD du type \tt{Coups}}
 \begin{itemize} \item
 \begin{algorithme}
 \begin{enregistrement}{Coups}
@@ -95,9 +54,8 @@
 \end{algorithme}
 \end{itemize}
 
-\section{Conception détaillée des opérations des TAD}
 
-\part{Conception détaillée des algorithmes compliqués de l'analyse \tt{faireUnePartie}}
+\chapter{Conception détaillée des algorithmes compliqués de l'analyse \tt{faireUnePartie}}
 \setcounter{section}{0}
 
 \section{La procédure \tt{faireUnePartie}}
@@ -263,7 +221,7 @@
 \end{algorithme}
 
 
-\part{Conception détaillée des algorithmes compliqués de l'analyse \tt{obtenirCoupIA}}
+\chapter{Conception détaillée des algorithmes compliqués de l'analyse \tt{obtenirCoupIA}}
 \setcounter{section}{0}
 \section{La fonction \tt{obtenirCoupIA}}
 \begin{algorithme}
@@ -388,5 +346,3 @@
 	
 	\remarque{On utilise ici une constante \tt{INFINI}, qui représentera un score supérieur à tout autre score, c'est-à-dire un coup gagnant.}
 \end{algorithme}
-
-\end{document}

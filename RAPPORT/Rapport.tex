@@ -1,0 +1,131 @@
+\documentclass[11pt]{report}
+
+%%%%%%%%%%%%%%%%%%%%%%%% PREAMBULE (packages) %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[francais]{babel}
+\usepackage[normalem]{ulem}
+\usepackage{verbatim}
+\usepackage[usenames,dvipsnames,table]{xcolor}
+\usepackage{graphicx}
+\usepackage{graphics}
+\usepackage[bottom]{footmisc}
+\usepackage{fancyhdr}
+\usepackage{amsfonts}
+\usepackage{xcolor}
+\usepackage{amsmath}
+\usepackage{ulem}
+\usepackage{adjustbox}
+\usepackage{amssymb,amsmath,latexsym}
+\usepackage{mathrsfs}
+\usepackage[top=2cm, bottom=2cm, right=2cm, left=2cm, headheight=13.6pt]{geometry}
+\usepackage{subfig}
+\usepackage{default}
+\usepackage{hyperref}
+\usepackage{lscape}
+\usepackage[tikz]{bclogo}
+\usepackage{verbatim}
+\usepackage{tikz}
+\usepackage{placeins}
+\usepackage{lmodern}
+\usepackage{listings}
+\usepackage{algorithmeUTF8}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%% En-têtes et pieds de page %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\pagestyle{fancy}
+\renewcommand\headrulewidth{0.2pt}
+\fancyhead[L]{\leftmark}
+\fancyhead[R]{Groupe 1.5}
+\renewcommand\footrulewidth{0pt}
+\fancyfoot[C]{\thepage}
+\fancyfoot[L]{\includegraphics[scale=0.2]{Illustrations/Insa.png}}
+\fancyfoot[R]{\textsf{Projet d'Algorithmique Avancée}}
+
+
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Renewcommand %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\renewcommand{\tt}[1]{\og \texttt{#1} \fg}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Page de titre %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{titlepage}
+\thispagestyle{empty}
+\begin{figure}
+	\includegraphics[width=5cm]{Illustrations/Insa.png}\hfill
+	\includegraphics[width=5cm]{Illustrations/ASI.png}\
+\end{figure}
+
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}} 
+\center 
+\vspace*{\stretch{1}}\textsc{\huge Institut National des Sciences Appliqu\'{e}es de Rouen}\\[1.5cm] 
+\textsc{\Large EC Algorithmique avancée et programmation C}\\[2cm] 
+
+\HRule \\[0.4cm]
+{ \huge \bfseries Rapport de projet d'algorithmique}\\[0.2cm] 
+\HRule \\[2.5cm]
+ 
+\LARGE \emph{\textbf{Titre du projet : }}\\
+\LARGE{ \og Jeu d'Othello \fg}\\
+~\\[2cm] 
+
+
+\large \emph{\textbf{Auteurs :}}\\
+Gautier \textsc{Darchen}\\ 
+Romain \textsc{Judic}\\
+Riadh \textsc{Kilani}\\
+Claire \textsc{Lovisa}\\
+Sandratra \textsc{Rasendrasoa}\\
+
+~\\ ~\\[1cm]
+
+\vfill{\today}\\[3cm]
+
+\end{titlepage}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Fin - Page de titre %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Page Vierge %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\thispagestyle{empty}
+\clearpage\mbox{}\clearpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Introduction %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\thispagestyle{plain}
+\addcontentsline{toc}{part}{Introduction}
+\chapter*{Introduction}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Sommaire %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\tableofcontents
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Analyse Descentante %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\part{Analyse}
+\chapter{Analyse des TAD}
+\input{./../TAD/TAD.tex}
+
+\chapter{Analyse descendante}
+\vspace*{\stretch{1}} {\huge \textbf{ \textcolor{red}{On insérera ici les images des analyses descendantes (une fois qu'elles seront finies et qu'on n'y touchera plus).}} }\vspace*{\stretch{1}}
+
+\setcounter{chapter}{0}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Conception préliminaire %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\part{Conception préliminaire}
+\input{./../Conception_Preliminaire/Conception_Preliminaire.tex}
+
+\setcounter{chapter}{0}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Conception détaillée %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\part{Conception détaillée}
+\input{./../Conception_Detaillee/Conception_Detaillee.tex}
+
+\setcounter{chapter}{0}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Developpement %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\part{Développement}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Conclusion %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\thispagestyle{plain}
+\addcontentsline{toc}{part}{Conclusion}
+\chapter*{Conclusion}
+
+\end{document}
