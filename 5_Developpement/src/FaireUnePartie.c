@@ -1,5 +1,6 @@
 #include "FaireUnePartie.h"
 #include "FaireUnePartie_Prive.h"
+#include "ListeCoupsPossibles.h"
 #include <stddef.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -45,18 +46,19 @@ Plateau initialiserPlateau(){
     Plateau plateaudejeu;
     Pion pionnoir;
     Pion pionblanc;
-    Position* positionpion;
+    Position positionpion;
+
     plateaudejeu=PL_creerPlateau();
     pionnoir=PI_creerPion(CL_noir());
     pionblanc=PI_creerPion(CL_blanc());
-    POS_fixerPosition(3,3,positionpion);
-    PL_poserPion(&plateaudejeu, *positionpion, pionblanc);
-    POS_fixerPosition(3,4,positionpion);
-    PL_poserPion(&plateaudejeu, *positionpion, pionnoir);
-    POS_fixerPosition(4,3,positionpion);
-    PL_poserPion(&plateaudejeu, *positionpion, pionnoir);
-    POS_fixerPosition(4,4,positionpion);
-    PL_poserPion(&plateaudejeu, *positionpion, pionblanc);
+    POS_fixerPosition(3,3,&positionpion);
+    PL_poserPion(&plateaudejeu, positionpion, pionblanc);
+    POS_fixerPosition(3,4,&positionpion);
+    PL_poserPion(&plateaudejeu, positionpion, pionnoir);
+    POS_fixerPosition(4,3,&positionpion);
+    PL_poserPion(&plateaudejeu, positionpion, pionnoir);
+    POS_fixerPosition(4,4,&positionpion);
+    PL_poserPion(&plateaudejeu, positionpion, pionblanc);
     return(plateaudejeu);
 }
 
@@ -73,7 +75,7 @@ void jouer(Plateau* plateau , Couleur* couleurJoueur, Coup(*getCoup)(Plateau,Pio
     coupJoueur=getCoup(*plateau,pionJoueur);
     coups=listeCoupsPossibles(*plateau,*couleurJoueur);
     for(i=1;i<CPS_nbCoups(coups);i++){
-        if (CPS_iemeCoup(coups,i)==coupJoueur) {
+        if (CP_sontEgaux(CPS_iemeCoup(coups,i),coupJoueur)) {
             jouerCoup(coupJoueur,plateau);
             res=TRUE;
         }
@@ -82,8 +84,7 @@ void jouer(Plateau* plateau , Couleur* couleurJoueur, Coup(*getCoup)(Plateau,Pio
 }
 
 void jouerCoup (Coup coup, Plateau* plateau)
-{ unsigned int i;
-    Position pos;
+{   Position pos;
     Pion  pionJoueur;
     
     PL_poserPion(plateau,CP_obtenirPositionCoup(coup),CP_obtenirPionCoup(coup));
@@ -115,9 +116,12 @@ void inverserPions(Position pos, Pion pionJoueur, Plateau* plateau)
 }
 
 void inverserPionsDir(Plateau* plateau, Position posInitiale, Position posCourante, unsigned int x, unsigned int y)
-{       Position *poscour =&posCourante;
+{       Position *poscour=&posCourante;
     unsigned int i,j;
-    if (! (posInitiale==*poscour)){
+    i=POS_obtenirLigne(*poscour);
+    j=POS_obtenirColonne(*poscour);
+
+    if (!(POS_sontEgales(posInitiale,*poscour))){
         PL_inverserPion(plateau,*poscour);
         POS_fixerPosition(x+i,y+j,poscour);
         inverserPionsDir(plateau,posInitiale,*poscour,x,y);
@@ -165,8 +169,8 @@ void pionEstPresentRecursif(Pion pionJoueur, unsigned int x, unsigned int y, Pos
 
 void finPartie (Plateau plateau, int aPuJouerJoueur1, int aPuJouerJoueur2 , unsigned int* nbPionsNoirs, unsigned int* nbPionsBlancs , int* estFinie)
 {
-    if (((aPuJouerJoueur1=FALSE) && ( aPuJouerJoueur2=FALSE))) || (plateauRempli(plateau)=TRUE){
-        nbPions(plateau,&nbPionsNoirs,&nbPionsBlancs);
+    if(((aPuJouerJoueur1==FALSE) && (aPuJouerJoueur2==FALSE)) || (plateauRempli(plateau)==TRUE)){
+        nbPions(plateau,nbPionsNoirs,nbPionsBlancs);
         *estFinie=TRUE;
     }
 }
@@ -174,13 +178,13 @@ void finPartie (Plateau plateau, int aPuJouerJoueur1, int aPuJouerJoueur2 , unsi
 
 void nbPions (Plateau plateau, unsigned int* nbPionsNoirs, unsigned int* nbPionsBlancs)
 {
-    Position *pos;
+    Position pos;
     Couleur couleur=CL_noir();
     unsigned int i,j;
     for(i=1;i<9;i++){
         for(j=1;j<9;j++){
-            POS_fixerPosition(i,j,pos);
-            if (CL_sontEgales(PI_obtenirCouleur(PL_obtenirPion(plateau,*pos)),couleur)){
+            POS_fixerPosition(i,j,&pos);
+            if (CL_sontEgales(PI_obtenirCouleur(PL_obtenirPion(plateau,pos)),couleur)){
                 *nbPionsNoirs=*nbPionsNoirs+1;
             }
             else {
@@ -189,3 +193,8 @@ void nbPions (Plateau plateau, unsigned int* nbPionsNoirs, unsigned int* nbPions
         }
     }
 }
+
+int plateauRempli(Plateau plateau){
+   return(0);
+}
+
