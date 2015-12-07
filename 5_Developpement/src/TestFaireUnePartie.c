@@ -36,10 +36,11 @@ void test_initialiserPlateau(void){
         if (PL_estCaseVide(plateau,pos)){
           res=0;
         }
-        else if(PI_obtenirCouleur(PL_obtenirPion(plateau,pos))){
+        else if(CL_sontEgales(PI_obtenirCouleur(PL_obtenirPion(plateau,pos)),CL_blanc())){
           res=0;
         }
       }
+
     }
   } /* PAS FINI !*/
 
