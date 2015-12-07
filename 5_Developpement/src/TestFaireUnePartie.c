@@ -40,7 +40,19 @@ void test_initialiserPlateau(void){
           res=0;
         }
       }
-
+      else if ((i==3 && j==4) || (i==4 && j==3)){
+        if (PL_estCaseVide(plateau,pos)){
+          res=0;
+        }
+        else if(CL_sontEgales(PI_obtenirCouleur(PL_obtenirPion(plateau,pos)),CL_noir())){
+          res=0;
+        }
+      }
+      else{
+        if (!PL_estCaseVide(plateau,pos)){
+          res=0;
+        }
+      }
     }
   } /* PAS FINI !*/
 
