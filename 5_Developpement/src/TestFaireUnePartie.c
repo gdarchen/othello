@@ -25,14 +25,16 @@ void test_initialiserPlateau(void){
   Plateau plateau;
   int res=1;
   Position pos;
-  unsigned int i,j;
+  unsigned int i,j,x,y;
   plateau=PL_creerPlateau();
   plateau=initialiserPlateau();
 
   for(i=1;i<9;i++){
     for(j=1;j<9;j++){
-      POS_fixerPosition(i,j,&pos);
-      if ((i==3 && j==3) || (i==4 && j==4)){
+      x=i-1;
+      y=j-1;
+      POS_fixerPosition(x,y,&pos);
+      if ((x==3 && y==3) || (x==4 && y==4)){
         if (PL_estCaseVide(plateau,pos)){
           res=0;
         }
@@ -40,7 +42,7 @@ void test_initialiserPlateau(void){
           res=0;
         }
       }
-      else if ((i==3 && j==4) || (i==4 && j==3)){
+      else if ((x==3 && y==4) || (x==4 && y==3)){
         if (PL_estCaseVide(plateau,pos)){
           res=0;
         }
@@ -54,13 +56,41 @@ void test_initialiserPlateau(void){
         }
       }
     }
-  } /* PAS FINI !*/
-
-  CU_ASSERT_TRUE(res==1);
+  }
+  CU_ASSERT_TRUE(res==TRUE);
 }
+
+/* Tests relatifs à plateauRempli */
+void test_plateauRempliVrai(void){
+  unsigned int i,j,x,y;
+  Position position;
+  Pion pion=CL_noir();
+  Plateau plateau;
+  plateau=PL_creerPlateau();
+  for(i=1;i<9;i++){
+    for(j=1;j<9;j++){
+      x=i-1;
+      y=j-1;
+      POS_fixerPosition(x, y, &position);
+      PL_poserPion(&plateau,position,pion);
+    }
+  }
+  CU_ASSERT_TRUE(plateauRempli(plateau)==TRUE);
+}
+
+void test_plateauRempliFaux(void){
+  Plateau plateau;
+  plateau=PL_creerPlateau();
+  plateau=initialiserPlateau();
+
+  CU_ASSERT_TRUE(plateauRempli(plateau)==FALSE);
+}
+
+
 
 int main(int argc, char** argv){
     CU_pSuite pSuite_initialiserPlateau;
+    CU_pSuite pSuite_plateauRempli;
 
     /* initialisation du registre de tests */
     if (CUE_SUCCESS != CU_initialize_registry())
@@ -68,9 +98,10 @@ int main(int argc, char** argv){
 
     /* ajout des suites de tests */
     pSuite_initialiserPlateau = CU_add_suite("Tests boite noire : copierPlateau", init_suite_success, clean_suite_success);
+    pSuite_plateauRempli = CU_add_suite("Tests boite noire : plateauRempli", init_suite_success, clean_suite_success);
     if ((NULL == pSuite_initialiserPlateau)
-        /*|| (NULL == pSuite_coupValide)
-        || (NULL == pSuite_listeCoupsPossibles)*/
+        || (NULL == pSuite_plateauRempli)
+        /*|| (NULL == pSuite_listeCoupsPossibles)*/
         ){
     CU_cleanup_registry();
     return CU_get_error();
@@ -78,9 +109,9 @@ int main(int argc, char** argv){
 
     /* Ajout des tests à la suite de tests boite noire */
     if ((NULL == CU_add_test(pSuite_initialiserPlateau, "Plateau de départ", test_initialiserPlateau))
-        /*|| (NULL == CU_add_test(pSuite_copierPlateau, "Pions sur les bords", test_copierPlateauBords))
-        || (NULL == CU_add_test(pSuite_copierPlateau, "Pions dans les coins", test_copierPlateauCoins))
-        || (NULL == CU_add_test(pSuite_coupValide, "Pion entouré de cases vides", test_coupValideEntoureCasesVides))
+        || (NULL == CU_add_test(pSuite_plateauRempli, "Plateau réellement rempli", test_plateauRempliVrai))
+        || (NULL == CU_add_test(pSuite_plateauRempli, "Plateau non rempli", test_plateauRempliFaux))
+        /*|| (NULL == CU_add_test(pSuite_coupValide, "Pion entouré de cases vides", test_coupValideEntoureCasesVides))
         || (NULL == CU_add_test(pSuite_coupValide, "Pion entouré de cases de même couleur", test_coupValideEntoureCasesMemeCouleur))
         || (NULL == CU_add_test(pSuite_coupValide, "Pion entouré de cases de l'autre couleur mais vides après", test_coupValideQueCasesAutreCouleurPuisVide))
         || (NULL == CU_add_test(pSuite_coupValide, "Coup valide, pos initiale dans un coin", test_coupValideCoin))
