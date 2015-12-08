@@ -4,6 +4,7 @@
 #include <stddef.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <ncurses.h>
 #define TRUE 1
 #define FALSE 0
 

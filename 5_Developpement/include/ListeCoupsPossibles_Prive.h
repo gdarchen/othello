@@ -3,6 +3,7 @@
 #include "ListeCoupsPossibles.h"
 #include "TAD_Coup.h"
 #include "TAD_Plateau.h"
+#include "FaireUnePartie_Prive.h"
 
 int coupValide(Plateau plateau, Coup coup);
 void copierPlateau(Plateau plateauACopier, Plateau* plateauCopie);
