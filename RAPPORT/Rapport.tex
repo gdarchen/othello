@@ -30,7 +30,7 @@
 \usepackage{lmodern}
 \usepackage{listings}
 \usepackage{algorithmeUTF8}
-
+\usepackage{slashbox}
 
 
 
@@ -124,6 +124,114 @@ Sandratra \textsc{Rasendrasoa}\\
 \part{Développement}
 
 
+\setcounter{chapter}{0}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Repartition %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\part{Répartition du travail}
+
+\chapter{Analyse descendante}
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|}
+	
+  \hline 
+  \backslashbox{\textbf{Sous-programme}}{\textbf{Responsables}} & \textbf{Claire} & \textbf{Riadh} & \textbf{Sandratra} & \textbf{Gautier} & \textbf{Romain} \\\hline
+	\textbf{\texttt{faireUnePartie}} & \cellcolor{lightgray} & \cellcolor{lightgray} & \cellcolor{lightgray} & & \\\hline
+  	\textbf{\texttt{initialiserPlateau}} & \cellcolor{lightgray} & \cellcolor{lightgray} & \cellcolor{lightgray} & & \\\hline
+  		\textbf{\texttt{jouer}} & \cellcolor{lightgray} & \cellcolor{lightgray} & \cellcolor{lightgray} & & \\\hline
+ 	\textbf{\texttt{finPartie}} & \cellcolor{lightgray} & \cellcolor{lightgray} & \cellcolor{lightgray} & & \\\hline
+ 		\textbf{\texttt{plateauRempli}} & \cellcolor{lightgray} & \cellcolor{lightgray} & \cellcolor{lightgray} & & \\\hline
+ 			\textbf{\texttt{nbPions}} & \cellcolor{lightgray} & \cellcolor{lightgray} & \cellcolor{lightgray} & & \\\hline
+ 			\textbf{\texttt{jouerCoup}} & \cellcolor{lightgray} & \cellcolor{lightgray} & \cellcolor{lightgray} & & \\\hline
+ 		\textbf{\texttt{inverserPions}} & \cellcolor{lightgray} & \cellcolor{lightgray} & \cellcolor{lightgray} & & \\\hline
+ 			\textbf{\texttt{inverserPionsDir}} & \cellcolor{lightgray} & \cellcolor{lightgray} & \cellcolor{lightgray} & & \\\hline
+ 	\textbf{\texttt{pionEstPresent}} & \cellcolor{lightgray} & \cellcolor{lightgray} & \cellcolor{lightgray} & & \\\hline
+ 		\textbf{\texttt{pionEstPresentRecursif}} & \cellcolor{lightgray} & \cellcolor{lightgray} & \cellcolor{lightgray} & & \\\hline
+ 		\textbf{\texttt{obtenirCoupIA}} & & & &  \cellcolor{lightgray}&  \cellcolor{lightgray}  \\\hline
+ 		 		\textbf{\texttt{profondeur}} & & & &  \cellcolor{lightgray}&  \cellcolor{lightgray}  \\\hline
+ 		 		 		\textbf{\texttt{listeCoupsPossibles}} & & & &  \cellcolor{lightgray}&  \cellcolor{lightgray}  \\\hline
+ 		  		\textbf{\texttt{coupValide}} & & & &  \cellcolor{lightgray}&  \cellcolor{lightgray}  \\\hline
+  		\textbf{\texttt{copierPlateau}} & & & &  \cellcolor{lightgray}&  \cellcolor{lightgray}  \\\hline
+   		\textbf{\texttt{minMax}} & & & &  \cellcolor{lightgray}&  \cellcolor{lightgray}  \\\hline
+   		 		\textbf{\texttt{scoreDUnCoup}} & & & &  \cellcolor{lightgray}&  \cellcolor{lightgray}  \\\hline
+   	 		\textbf{\texttt{score}} & & & &  \cellcolor{lightgray}&  \cellcolor{lightgray}  \\\hline
+   	 		 		\textbf{\texttt{evaluerPlateau}} & & & &  \cellcolor{lightgray}&  \cellcolor{lightgray}  \\\hline
+\end{tabular}
+\end{center}
+\caption{Répartition des tâches dans la phase d'analyse descendante}
+\end{table}
+
+
+\chapter{Conception préliminaire}
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|}
+	
+  \hline 
+  \backslashbox{\textbf{Sous-programme}}{\textbf{Responsables}} & \textbf{Claire} & \textbf{Riadh} & \textbf{Sandratra} & \textbf{Gautier} & \textbf{Romain} \\\hline
+	\textbf{\texttt{faireUnePartie}} & \cellcolor{lightgray} & \cellcolor{lightgray} & \cellcolor{lightgray} & & \\\hline
+  	\textbf{\texttt{initialiserPlateau}} & \cellcolor{lightgray} & \cellcolor{lightgray} & \cellcolor{lightgray} & & \\\hline
+  		\textbf{\texttt{jouer}} & \cellcolor{lightgray} & \cellcolor{lightgray} & \cellcolor{lightgray} & & \\\hline
+ 	\textbf{\texttt{finPartie}} & \cellcolor{lightgray} & \cellcolor{lightgray} & \cellcolor{lightgray} & & \\\hline
+ 		\textbf{\texttt{plateauRempli}} & \cellcolor{lightgray} & \cellcolor{lightgray} & \cellcolor{lightgray} & & \\\hline
+ 			\textbf{\texttt{nbPions}} & \cellcolor{lightgray} & \cellcolor{lightgray} & \cellcolor{lightgray} & & \\\hline
+ 			\textbf{\texttt{jouerCoup}} & \cellcolor{lightgray} & \cellcolor{lightgray} & \cellcolor{lightgray} & & \\\hline
+ 		\textbf{\texttt{inverserPions}} & \cellcolor{lightgray} & \cellcolor{lightgray} & \cellcolor{lightgray} & & \\\hline
+ 			\textbf{\texttt{inverserPionsDir}} & \cellcolor{lightgray} & \cellcolor{lightgray} & \cellcolor{lightgray} & & \\\hline
+ 	\textbf{\texttt{pionEstPresent}} & \cellcolor{lightgray} & \cellcolor{lightgray} & \cellcolor{lightgray} & & \\\hline
+ 		\textbf{\texttt{pionEstPresentRecursif}} & \cellcolor{lightgray} & \cellcolor{lightgray} & \cellcolor{lightgray} & & \\\hline
+ 		\textbf{\texttt{obtenirCoupIA}} & & & &  \cellcolor{lightgray}&  \cellcolor{lightgray}  \\\hline
+ 		 		\textbf{\texttt{profondeur}} & & & &  \cellcolor{lightgray}&  \cellcolor{lightgray}  \\\hline
+ 		 		 		\textbf{\texttt{listeCoupsPossibles}} & & & &  \cellcolor{lightgray}&  \cellcolor{lightgray}  \\\hline
+ 		  		\textbf{\texttt{coupValide}} & & & &  \cellcolor{lightgray}&  \cellcolor{lightgray}  \\\hline
+  		\textbf{\texttt{copierPlateau}} & & & &  \cellcolor{lightgray}&  \cellcolor{lightgray}  \\\hline
+   		\textbf{\texttt{minMax}} & & & &  \cellcolor{lightgray}&  \cellcolor{lightgray}  \\\hline
+   		 		\textbf{\texttt{scoreDUnCoup}} & & & &  \cellcolor{lightgray}&  \cellcolor{lightgray}  \\\hline
+   	 		\textbf{\texttt{score}} & & & &  \cellcolor{lightgray}&  \cellcolor{lightgray}  \\\hline
+   	 		 		\textbf{\texttt{evaluerPlateau}} & & & &  \cellcolor{lightgray}&  \cellcolor{lightgray}  \\\hline
+   	\textbf{Type \texttt{afficherPlateau}} & \cellcolor{lightgray} & \cellcolor{lightgray} & \cellcolor{lightgray} & & \\\hline
+   	 		 \textbf{Type \texttt{getCoup}} & & & & \cellcolor{lightgray}& \cellcolor{lightgray}\\\hline
+\end{tabular}
+\end{center}
+\caption{Répartition des tâches dans la phase de conception préliminaire}
+\end{table}
+
+\chapter{Conception détaillée}
+
+\chapter{Développement}
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{c|c|c|}
+  \cline{2-3}
+   & \textbf{Fonction en C} & \textbf{Test unitaire associé} \\ \hline
+  \multicolumn{1}{|l|}{\textbf{\texttt{afficher}}} & Gautier & \cellcolor{lightgray} \\ \hline
+  \multicolumn{1}{|l|}{\textbf{TAD \texttt{Couleur}, \texttt{Coups}, \texttt{Coup}}} & Gautier & Romain \\ \hline
+  \multicolumn{1}{|l|}{\textbf{TAD \texttt{Pion}, \texttt{Position}, \texttt{Plateau}}} & Claire & Romain \\ \hline
+  \multicolumn{1}{|l|}{\textbf{\texttt{faireUnePartie}}} & Riadh & \cellcolor{lightgray} \\ \hline
+  \multicolumn{1}{|l|}{\textbf{\texttt{initialiserPlateau}}} & Riadh & Claire \\ \hline
+ \multicolumn{1}{|l|}{ \textbf{\texttt{jouer}}} & Riadh & \cellcolor{lightgray} \\ \hline
+ \multicolumn{1}{|l|}{ \textbf{\texttt{finPartie}}} & Riadh & Gautier \\ \hline
+  \multicolumn{1}{|l|}{\textbf{\texttt{plateauRempli}}} & Riadh & Claire \\ \hline
+  \multicolumn{1}{|l|}{\textbf{\texttt{nbPions}}} & Riadh & Claire \\ \hline
+  \multicolumn{1}{|l|}{\textbf{\texttt{jouerCoup}}} & Riadh & Claire \\ \hline
+  \multicolumn{1}{|l|}{\textbf{\texttt{inverserPion}}} & Riadh & Sandratra \\ \hline
+  \multicolumn{1}{|l|}{\textbf{\texttt{inverserPionDir}}} & Riadh & Sandratra\\ \hline
+  \multicolumn{1}{|l|}{\textbf{\texttt{pionEstPresent}}} & Riadh & Sandratra \\ \hline
+ \multicolumn{1}{|l|}{ \textbf{\texttt{pionEstPresentRecursif}}} & Riadh & \cellcolor{lightgray} \\ \hline
+  \multicolumn{1}{|l|}{\textbf{\texttt{obtenirCoupHumain}}} & Claire & Sandratra\\ \hline
+ \multicolumn{1}{|l|}{ \textbf{\texttt{obtenirCoupIA}}} & Romain & Riadh \\ \hline
+  \multicolumn{1}{|l|}{\textbf{\texttt{profondeur}}} & Romain & \cellcolor{lightgray} \\ \hline
+  \multicolumn{1}{|l|}{\textbf{\texttt{listeCoupsPossibles}}} & Sandratra & Claire \\ \hline
+ \multicolumn{1}{|l|}{ \textbf{\texttt{coupValide}}} & Sandratra & Claire\\ \hline
+  \multicolumn{1}{|l|}{\textbf{\texttt{copierPlateau}}} & Sandratra & Claire \\ \hline
+  \multicolumn{1}{|l|}{\textbf{\texttt{minMax}}} & Gautier & \cellcolor{lightgray} \\ \hline
+  \multicolumn{1}{|l|}{\textbf{\texttt{scoreDUnCoup}}} & Gautier & \textcolor{red}{?} \\ \hline
+  \multicolumn{1}{|l|}{\textbf{\texttt{score}}} & Romain & \textcolor{red}{?} \\ \hline
+ \multicolumn{1}{|l|}{ \textbf{\texttt{evaluerPlateau}}} & Claire & \textcolor{red}{?}\\ \hline
+ \multicolumn{1}{|l|}{ \textbf{\texttt{main}}} & Gautier & \cellcolor{lightgray} \\ \hline
+\end{tabular}
+\end{center}
+\caption{Répartition des tâches dans la phase de développement}
+\end{table}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Conclusion %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \thispagestyle{plain}
 \addcontentsline{toc}{part}{Conclusion}
