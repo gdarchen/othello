@@ -196,6 +196,17 @@ void nbPions (Plateau plateau, unsigned int* nbPionsNoirs, unsigned int* nbPions
 }
 
 int plateauRempli(Plateau plateau){
-   return(0);
+    Coups coupsJoueurBlanc;
+    Coups coupsJoueurNoir;
+    
+    Couleur couleurNoir=CL_noir();
+    Couleur CouleurBlanc=CL_blanc();
+    
+    coupsJoueurNoir=listeCoupsPossibles(plateau,couleurNoir);
+    coupsJoueurBlanc=listeCoupsPossibles(plateau,CouleurBlanc);
+    
+    if ((CPS_nbCoups(coupsJoueurNoir)=0) && (CPS_nbCoups(coupsJoueurBlanc)=0)){
+        return (1) ; }
+    else { return (0) ; }
 }
 
