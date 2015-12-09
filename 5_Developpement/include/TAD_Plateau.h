@@ -37,9 +37,9 @@ Plateau PL_creerPlateau();
  *
  * \param Plateau plateau, le plateau
  * \param Position position, la position de la case
- * \return Couleur
+ * \return int
  */
-Couleur PL_estCaseVide(Plateau plateau, Position position);
+int PL_estCaseVide(Plateau plateau, Position position);
 
 /**
  * \fn void viderCase(Plateau* plateau, Position position)
