@@ -75,7 +75,7 @@ int minMax(Plateau plateau, Couleur couleurRef, Couleur couleurCourante, unsigne
 
 int score(Plateau plateau, Couleur couleur){
 
-    return 0;
+    return evaluerPlateau(plateau,couleur);
 }
 
 int evaluerPlateau(Plateau plateau, Couleur couleur){
