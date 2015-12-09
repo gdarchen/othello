@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "FaireUnePartie.h"
+//#include "FaireUnePartie.h"
 #include "TAD_Couleur.h"
 #include "TAD_Pion.h"
 #include "TAD_Plateau.h"
@@ -20,7 +20,7 @@ void afficherAide(){
       "\t\t par defaut la profondeur d’analyse est egale a 5\n\n");
 }
 
-void afficher (Plateau plateau){
+void afficherPlateau (Plateau plateau){
   int i,j;
   Couleur couleurBlanc, couleurNoir;
   couleurBlanc=CL_blanc();
@@ -68,7 +68,7 @@ int main(int argc, char const *argv[]){
   PL_poserPion(&plateau,pos2,pBlanc);
   PL_poserPion(&plateau,pos3,pNoir);
   PL_poserPion(&plateau,pos4,pNoir);
-  afficher(plateau);
+  afficherPlateau(plateau);
   afficherAide();
   return 0;
 }

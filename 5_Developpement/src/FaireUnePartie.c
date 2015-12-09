@@ -200,10 +200,10 @@ int plateauRempli(Plateau plateau){
     Coups coupsJoueurNoir;
     
     Couleur couleurNoir=CL_noir();
-    Couleur CouleurBlanc=CL_blanc();
+    Couleur couleurBlanc=CL_blanc();
     
     coupsJoueurNoir=listeCoupsPossibles(plateau,couleurNoir);
-    coupsJoueurBlanc=listeCoupsPossibles(plateau,CouleurBlanc);
+    coupsJoueurBlanc=listeCoupsPossibles(plateau,couleurBlanc);
     
     if ((CPS_nbCoups(coupsJoueurNoir)==0) && (CPS_nbCoups(coupsJoueurBlanc)==0)){
         return (1) ; }

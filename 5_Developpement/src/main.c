@@ -2,6 +2,9 @@
 #include <stdlib.h>
 #include "FaireUnePartie.h"
 
-int main(){
-  return EXIT_SUCCESS;
+int main(int argc, char** argv){
+	if(argc==0){
+		
+	}
+	return EXIT_SUCCESS;
 }
