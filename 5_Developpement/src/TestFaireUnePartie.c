@@ -116,11 +116,31 @@ void test_nbPionsPlateauInitial(void){
   CU_ASSERT_TRUE((nbPionsBlancs==2) && (nbPionsNoirs==2));
 }
 
+/* Tests relatifs à jouerCoup */
+
+void test_jouerCoup(void){
+  Plateau plateau;
+  Coup coup;
+  Position position;
+  Pion pion;
+  Couleur blanc=CL_blanc();
+  plateau=PL_creerPlateau();
+  plateau=initialiserPlateau();
+  pion=PI_creerPion(blanc);
+  POS_fixerPosition(2,4,&position);
+  coup=CP_creerCoup(position, pion);
+
+  jouerCoup(coup,&plateau);
+
+  CU_ASSERT_TRUE( !(PL_estCaseVide(plateau,position)) && PI_sontEgaux(PL_obtenirPion(plateau,position),pion) );
+}
+
 
 int main(int argc, char** argv){
     CU_pSuite pSuite_initialiserPlateau;
     CU_pSuite pSuite_plateauRempli;
     CU_pSuite pSuite_nbPions;
+    CU_pSuite pSuite_jouerCoup;
 
     /* initialisation du registre de tests */
     if (CUE_SUCCESS != CU_initialize_registry())
@@ -130,9 +150,11 @@ int main(int argc, char** argv){
     pSuite_initialiserPlateau = CU_add_suite("Tests boite noire : copierPlateau", init_suite_success, clean_suite_success);
     pSuite_plateauRempli = CU_add_suite("Tests boite noire : plateauRempli", init_suite_success, clean_suite_success);
     pSuite_nbPions = CU_add_suite("Tests boite noire : nbPions", init_suite_success, clean_suite_success);
+    pSuite_jouerCoup = CU_add_suite("Tests boite noire : jouerCoup", init_suite_success, clean_suite_success);
     if ((NULL == pSuite_initialiserPlateau)
         || (NULL == pSuite_plateauRempli)
         || (NULL == pSuite_nbPions)
+        || (NULL == pSuite_jouerCoup)
         ){
     CU_cleanup_registry();
     return CU_get_error();
@@ -144,8 +166,8 @@ int main(int argc, char** argv){
         || (NULL == CU_add_test(pSuite_plateauRempli, "Plateau non rempli", test_plateauRempliFaux))
         || (NULL == CU_add_test(pSuite_nbPions, "Plateau rempli de pions noirs", test_nbPionsPlateauRempli))
         || (NULL == CU_add_test(pSuite_nbPions, "Plateau initial", test_nbPionsPlateauInitial))
-        /*|| (NULL == CU_add_test(pSuite_coupValide, "Pion entouré de cases de l'autre couleur mais vides après", test_coupValideQueCasesAutreCouleurPuisVide))
-        || (NULL == CU_add_test(pSuite_coupValide, "Coup valide, pos initiale dans un coin", test_coupValideCoin))
+        || (NULL == CU_add_test(pSuite_jouerCoup, "Jouer un coup", test_jouerCoup))
+        /*|| (NULL == CU_add_test(pSuite_coupValide, "Coup valide, pos initiale dans un coin", test_coupValideCoin))
         || (NULL == CU_add_test(pSuite_coupValide, "Coup valide, pos initiale quelconque", test_coupValideQuelconque))
         || (NULL == CU_add_test(pSuite_listeCoupsPossibles, "Liste des coups possibles au début de jeu", test_listeCoupsPossibles))
         || (NULL == CU_add_test(pSuite_listeCoupsPossibles, "Liste de coups possibles vide", test_listeCoupsPossiblesPlateauVide))*/
