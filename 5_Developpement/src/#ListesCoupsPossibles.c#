@@ -3,6 +3,7 @@
 #include "TAD_Couleur.h"
 #include "ListeCoupsPossibles_Prive.h"
 #include "ListeCoupsPossibles.h"
+#include "FaireUnePartie_Prive.h"
 #include <math.h>
 
 /* Partie publique  */

@@ -15,6 +15,7 @@
 #include "TAD_Pion.h"
 #include "TAD_Coup.h"
 #include "TAD_Coups.h"
+#include "FaireUnePartie.h"
 
 /**
  * \brief FaireUnePartie-prive regroupe seulement les fonctions et procédures qu'on va utiliser dans FAIREUNEPARTIE
@@ -77,20 +78,6 @@ void inverserPions(Position pos, Pion pionJoueur, Plateau* plateau);
  * \
  */
 void inverserPionsDir(Plateau* plateau, Position posInitiale, Position posCourante, unsigned int x, unsigned int y);
-
-/**
- * \procedure void pionEstPresent(Pion pionJoueur, unsigned int x, unsigned int y, Position* pos, Plateau* plateau, int* pionPresent)
- * \brief Procedure qui permet de savoir si un pion est présent sur le plateau selon une direction, et si oui quelle est sa position
- *
- * \param Pion pionJoueur, le pion représentant le joueur
- * \param unsigned int x, la direction selon l'axe des abscisses
- * \param unsigned int y, la direction selon l'axe des ordonnées
- * \param Position* pos, la position initiale du pion qui, à la fin de l'exécution de la procédure, renvoit la position du pion trouvé
- * \param Plateau* plateau, le plateau de jeu
- * \param int* pionPresent, qui renvoit 0 si aucun pion conforme n'a été trouvé, 1 sinon
- * \
- */
-void pionEstPresent(Pion pionJoueur, unsigned int x, unsigned int y, Position* pos, Plateau* plateau, int* pionPresent);
 
 /**
  * \procedure void pionEstPresentRecursif(Pion pionJoueur, unsigned int x, unsigned int y, Position* pos, Plateau* plateau, int* pionPresent)

@@ -10,6 +10,7 @@
 #include "TAD_Plateau.h"
 #include "ListeCoupsPossibles.h"
 #include "ListeCoupsPossibles_Prive.h"
+#include "FaireUnePartie.h"
 
 int init_suite_success(void) {
   return 0;

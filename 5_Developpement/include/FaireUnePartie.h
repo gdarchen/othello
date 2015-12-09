@@ -31,4 +31,18 @@
 
 void faireUnePartie(void(*afficherPlateau)(Plateau), Coup(*getCoup1)(Plateau,Pion), Coup(*getCoup2)(Plateau,Pion), Couleur* joueur, int* estMatchNul);
 
+/**
+ * \procedure void pionEstPresent(Pion pionJoueur, unsigned int x, unsigned int y, Position* pos, Plateau* plateau, int* pionPresent)
+ * \brief Procedure qui permet de savoir si un pion est présent sur le plateau selon une direction, et si oui quelle est sa position
+ *
+ * \param Pion pionJoueur, le pion représentant le joueur
+ * \param unsigned int x, la direction selon l'axe des abscisses
+ * \param unsigned int y, la direction selon l'axe des ordonnées
+ * \param Position* pos, la position initiale du pion qui, à la fin de l'exécution de la procédure, renvoit la position du pion trouvé
+ * \param Plateau* plateau, le plateau de jeu
+ * \param int* pionPresent, qui renvoit 0 si aucun pion conforme n'a été trouvé, 1 sinon
+ * \
+ */
+void pionEstPresent(Pion pionJoueur, unsigned int x, unsigned int y, Position* pos, Plateau* plateau, int* pionPresent);
+
 #endif
