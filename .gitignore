@@ -1,3 +1,9 @@
 # Contient tous les fichiers de ce dossier à ignorer (le git ne les prendra pas en compte)
+
+# Fichiers crees lors de la compilation LaTeX
 *.aux
 *.log
+*.dvi
+
+# Fichiers crees lors de la compilation des fichiers C
+*.o
