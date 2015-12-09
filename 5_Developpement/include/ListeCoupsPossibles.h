@@ -13,6 +13,7 @@
 #include "TAD_Coups.h"
 #include "TAD_Plateau.h"
 #include "TAD_Couleur.h"
+#include "FaireUnePartie.h"
 
 /**
  * \fn Coups listeCoupsPossibles(Plateau plateau, Couleur couleur)

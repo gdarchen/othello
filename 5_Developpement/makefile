@@ -22,11 +22,11 @@ $(SRCDIR)/%.o : $(SRCDIR)/%.c
 
 tests:  $(TESTDIR)/$(TEST1) $(TESTDIR)/$(TEST2)
 	
-$(TESTDIR)/$(TEST1):$(SRCDIR)/TestListeCoupsPossibles.o $(SRCDIR)/ListesCoupsPossibles.o  $(SRCDIR)/TAD_Couleur.o  $(SRCDIR)/TAD_Coup.o  $(SRCDIR)/TAD_Coups.o  $(SRCDIR)/TAD_Pion.o  $(SRCDIR)/TAD_Plateau.o  $(SRCDIR)/TAD_Position.o  
-	$(CC) -o $(TESTDIR)/$(TEST1)/TestListeCoupsPossibles $(SRCDIR)/TestListeCoupsPossibles.o $(SRCDIR)/ListesCoupsPossibles.o  $(SRCDIR)/TAD_Couleur.o  $(SRCDIR)/TAD_Coup.o  $(SRCDIR)/TAD_Coups.o  $(SRCDIR)/TAD_Pion.o  $(SRCDIR)/TAD_Plateau.o  $(SRCDIR)/TAD_Position.o  $(LDFLAGS) -lcunit
+$(TESTDIR)/$(TEST1):$(SRCDIR)/TestListeCoupsPossibles.o $(SRCDIR)/ListesCoupsPossibles.o $(SRCDIR)/FaireUnePartie.o $(SRCDIR)/TAD_Couleur.o  $(SRCDIR)/TAD_Coup.o  $(SRCDIR)/TAD_Coups.o  $(SRCDIR)/TAD_Pion.o  $(SRCDIR)/TAD_Plateau.o  $(SRCDIR)/TAD_Position.o  
+	$(CC) -o $(TESTDIR)/$(TEST1)/TestListeCoupsPossibles $(SRCDIR)/TestListeCoupsPossibles.o $(SRCDIR)/ListesCoupsPossibles.o $(SRCDIR)/FaireUnePartie.o $(SRCDIR)/TAD_Couleur.o  $(SRCDIR)/TAD_Coup.o  $(SRCDIR)/TAD_Coups.o  $(SRCDIR)/TAD_Pion.o  $(SRCDIR)/TAD_Plateau.o  $(SRCDIR)/TAD_Position.o  $(LDFLAGS) -lcunit
 
-$(TESTDIR)/$(TEST2):$(SRCDIR)/TestTADs.o $(SRCDIR)/ListesCoupsPossibles.o  $(SRCDIR)/TAD_Couleur.o  $(SRCDIR)/TAD_Coup.o  $(SRCDIR)/TAD_Coups.o  $(SRCDIR)/TAD_Pion.o  $(SRCDIR)/TAD_Plateau.o  $(SRCDIR)/TAD_Position.o  
-	$(CC) -o $(TESTDIR)/$(TEST2)/TestTADs $(SRCDIR)/TestTADs.o  $(SRCDIR)/ListesCoupsPossibles.o  $(SRCDIR)/TAD_Couleur.o  $(SRCDIR)/TAD_Coup.o  $(SRCDIR)/TAD_Coups.o  $(SRCDIR)/TAD_Pion.o  $(SRCDIR)/TAD_Plateau.o  $(SRCDIR)/TAD_Position.o  $(LDFLAGS) -lcunit
+$(TESTDIR)/$(TEST2):$(SRCDIR)/TestTADs.o $(SRCDIR)/ListesCoupsPossibles.o $(SRCDIR)/FaireUnePartie.o $(SRCDIR)/TAD_Couleur.o  $(SRCDIR)/TAD_Coup.o  $(SRCDIR)/TAD_Coups.o  $(SRCDIR)/TAD_Pion.o  $(SRCDIR)/TAD_Plateau.o  $(SRCDIR)/TAD_Position.o  
+	$(CC) -o $(TESTDIR)/$(TEST2)/TestTADs $(SRCDIR)/TestTADs.o  $(SRCDIR)/ListesCoupsPossibles.o $(SRCDIR)/FaireUnePartie.o $(SRCDIR)/TAD_Couleur.o  $(SRCDIR)/TAD_Coup.o  $(SRCDIR)/TAD_Coups.o  $(SRCDIR)/TAD_Pion.o  $(SRCDIR)/TAD_Plateau.o  $(SRCDIR)/TAD_Position.o  $(LDFLAGS) -lcunit
 
 clean :
 	rm -rf $(BINDIR)/*
