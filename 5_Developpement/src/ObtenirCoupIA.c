@@ -7,7 +7,7 @@
 
 Coup obtenirCoupIA(Plateau plateau, Couleur couleur){
     Coups coupsPossibles;
-    unsigned int i, profondeurMinMax;
+    unsigned int i;
     int scoreCourant, meilleurScore;
     Coup coupCourant, meilleurCoup;
     coupsPossibles = listeCoupsPossibles(plateau,couleur);
