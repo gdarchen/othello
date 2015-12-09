@@ -15,7 +15,7 @@ Plateau PL_creerPlateau(){
   return(plateau);
 }
 
-Couleur PL_estCaseVide(Plateau plateau, Position position){
+int PL_estCaseVide(Plateau plateau, Position position){
   unsigned int i,j;
   i=POS_obtenirLigne(position);
   j=POS_obtenirColonne(position);
