@@ -15,10 +15,10 @@ TEST2=TestTADs
 all :  $(BINDIR)/$(EXEC)
 
 $(BINDIR)/$(EXEC) : $(SRCDIR)/main.o $(SRCDIR)/FaireUnePartie.o
-	$(CC)  -o $@ $^ $(LDFLAGS)
+	$(CC)  -o $@ $^ $(LDFLAGS) 
 
 $(SRCDIR)/%.o : $(SRCDIR)/%.c
-	$(CC) -o $@ -c $< $(CFLAGS)
+	$(CC) $(CFLAGS) -o $@ -c $< 
 
 tests:  $(TESTDIR)/*
 	
@@ -33,5 +33,6 @@ clean :
 	rm -rf $(LIBDIR)/*
 	rm -rf $(SRCDIR)/*.o
 	rm -rf $(TESTDIR)/*
+
 	
 	
