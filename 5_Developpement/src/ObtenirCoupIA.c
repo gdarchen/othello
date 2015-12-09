@@ -6,8 +6,24 @@
 /* Partie publique */
 
 Coup obtenirCoupIA(Plateau plateau, Couleur couleur){
-    Coup coupBidon;
-    return coupBidon;
+    Coups coupsPossibles;
+    unsigned int i;
+    int scoreCourant, meilleurScore;
+    Coup coupCourant, meilleurCoup;
+    coupsPossibles = listeCoupsPossibles(plateau,couleur);
+    if (nbCoups(coupsPossibles) > 0) {
+        meilleurCoup = iemeCoup(coupsPossibles,1);
+        meilleurScore = scoreDUnCoup(plateau,meilleurCoup,couleur,couleur,profondeurMinMax);
+        for (i=2;nbCoups(coupsPossibles);i++) {
+            coupCourant = iemeCoup(coupsPossibles,i);
+            scoreCourant = scoreDUnCoup(plateau,scoreCourant,couleur,couleur,profondeurMinMax);
+            if (scoreCourant > meilleurScore) {
+                meilleurCoup = coupCourant;
+                meilleurScore = scoreCourant;
+            }
+        }
+    }
+    return meilleurCoup;
 }
 
 
@@ -15,10 +31,10 @@ Coup obtenirCoupIA(Plateau plateau, Couleur couleur){
 
 unsigned int profondeur(void){
 
-    return 0;
+    return PROFONDEUR;
 }
 
-int scoreDUnCoup(Plateau plateau,Coup coup, Couleur couleurRef, Couleur couleurCourante, unsigned int profondeurCourante){
+int scoreDUnCoup(Plateau plateau, Coup coup, Couleur couleurRef, Couleur couleurCourante, unsigned int profondeurCourante){
 	Plateau plateauTest;
 	plateauTest = copierPlateau(plateau);
 	jouerCoup(coup, plateauTest);
@@ -26,7 +42,7 @@ int scoreDUnCoup(Plateau plateau,Coup coup, Couleur couleurRef, Couleur couleurC
 		return score(plateauTest, couleurRef);
 	else
 		return minMax(plateauTest, couleurRef, changerCouleur(couleurCourante), profondeurCourante-1);
-	
+
 }
 
 int minMax(Plateau plateau, Couleur couleurRef, Couleur couleurCourante, unsigned int profondeurCourante){

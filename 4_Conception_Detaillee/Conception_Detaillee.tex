@@ -148,7 +148,7 @@
 				\affecter{posTmp}{pos}
 				\instruction{pionEstPresent(pionJoueur, x, y, posTmp, plateau, pionPresent)}
 				\sialors{pionPresent}{
-				      \instruction{inverserPionsDir(plateau, pos, posTmp, -x, -y, pionJoueur)}
+				      \instruction{inverserPionsDir(plateau, pos, posTmp, -x, -y)}
 				}%FinSi
 			  }%FinSi
 		    }%FinPour
@@ -239,10 +239,10 @@
 	\sialors{nbCoups(coupsPossibles) $>$ 0}
 		{
 			\affecter{meilleurCoup}{iemeCoup(coupsPossibles, 1)}
-			\affecter{meilleurScore}{scoreDUnCoup(plateau, meilleurCoup, couleur)}
+			\affecter{meilleurScore}{scoreDUnCoup(plateau, meilleurCoup, couleur, couleur, profondeurMinMax)}
 			\pour{i}{2}{nbCoups(coupsPossibles)}{}{
 				\affecter{coupCourant}{iemeCoup(coupsPossibles, i)}
-				\affecter{scoreCourant}{scoreDUnCoup(plateau, coupCourant, couleur)}
+				\affecter{scoreCourant}{scoreDUnCoup(plateau, coupCourant, couleur, couleur, profondeurMinMax)}
 				\sialors{scoreCourant $>$ meilleurScore}{
 					\affecter{meilleurCoup}{coupCourant}
 					\affecter{meilleurScore}{scoreCourant}
