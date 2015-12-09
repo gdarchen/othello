@@ -205,7 +205,7 @@ int plateauRempli(Plateau plateau){
     coupsJoueurNoir=listeCoupsPossibles(plateau,couleurNoir);
     coupsJoueurBlanc=listeCoupsPossibles(plateau,CouleurBlanc);
     
-    if ((CPS_nbCoups(coupsJoueurNoir)=0) && (CPS_nbCoups(coupsJoueurBlanc)=0)){
+    if ((CPS_nbCoups(coupsJoueurNoir)==0) && (CPS_nbCoups(coupsJoueurBlanc)==0)){
         return (1) ; }
     else { return (0) ; }
 }
