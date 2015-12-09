@@ -15,7 +15,7 @@ Coup obtenirCoupIA(Plateau plateau, Couleur couleur){
 
 unsigned int profondeur(void){
 
-    return 0;
+    return PROFONDEUR;
 }
 
 int scoreDUnCoup(Plateau plateau,Coup coup, Couleur couleurRef, Couleur couleurCourante, unsigned int profondeurCourante){
@@ -26,7 +26,7 @@ int scoreDUnCoup(Plateau plateau,Coup coup, Couleur couleurRef, Couleur couleurC
 		return score(plateauTest, couleurRef);
 	else
 		return minMax(plateauTest, couleurRef, changerCouleur(couleurCourante), profondeurCourante-1);
-	
+
 }
 
 int minMax(Plateau plateau, Couleur couleurRef, Couleur couleurCourante, unsigned int profondeurCourante){
