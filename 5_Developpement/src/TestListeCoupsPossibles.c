@@ -265,8 +265,7 @@ void test_listeCoupsPossibles(void){
   coup4=CP_creerCoup(positionCoup4,pionCoup4);
 
   listeCoups=listeCoupsPossibles(plateau,couleurJoueur);
-
-  /* Je suppose qu'il existe le coup 0 correspondant au premier coup du tableau */
+  
   CU_ASSERT_TRUE(CP_sontEgaux(CPS_iemeCoup(listeCoups, 0),coup1)
                 && CP_sontEgaux(CPS_iemeCoup(listeCoups, 1),coup2)
                 && CP_sontEgaux(CPS_iemeCoup(listeCoups, 2),coup3)
