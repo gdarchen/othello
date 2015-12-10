@@ -179,16 +179,24 @@
 \begin{algorithme}
 	\procedure{pionEstPresent}
 	{\paramEntree{pionJoueur : Pion, x, y : \entier}, \paramEntreeSortie{pos : Position, plateau : Plateau}, \paramSortie{pionPresent : \booleen}}
-	{i,j : \naturelNonNul}
+	{i,j : \naturelNonNul
+	couleurAdversaire : Couleur}
 	{
 		\affecter{i}{obtenirLigne(pos)}
 		\affecter{j}{obtenirColonne(pos)}
+		\affecter{couleurAdversaire}{changerCouleur(obtenirCouleur(pionJoueur))}
 		\sialorssinon{((x+i)<1) ou ((x+i)>8) ou ((y+j)<1) ou ((y+j)>8)}{
 		      \affecter{pionPresent}{FAUX}
 		}
 		{
 		      \affecter{pos}{fixerPosition(x+i, y+j)}
-		      \instruction{pionEstPresentRecursif(pionJoueur, x, y, pos, plateau, pionPresent)}
+		      \sialorssinon{sontEgales(obtenirCouleur(obtenirPion(plateau,pos)),couleurAdversaire)}{
+			\affecter{pos}{fixerPosition(2*x+i, 2*y+j)}
+			\instruction{pionEstPresentRecursif(pionJoueur, x, y, pos, plateau, pionPresent)}
+		      }
+		      {
+			\affecter{pionPresent}{FAUX}
+		      }
 		}%FinSi
 	}
 \end{algorithme}
@@ -301,11 +309,6 @@
 			  \sialors{non((x $=$ 0) et (y $=$ 0))}{
 				\affecter{posTmp}{pos}
 				\instruction{pionEstPresent(pionJoueur, x, y, posTmp, plateau, pionPresent)}
-				\sialors{pionPresent}{
-				      \sialors{(|obtenirLigne(posTmp) - obtenirLigne(pos)|<2) ou (|obtenirColonne(posTmp) - obtenirColonne(pos)|<2)}{
-					    \affecter{pionPresent}{FAUX}
-				      }%FinSi
-				}%FinSi
 			  }%FinSi
 			  \affecter{y}{y+1}
 		    }%FinTantQue

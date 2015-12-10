@@ -37,7 +37,7 @@
 \contentsline {section}{\numberline {2.4}La proc\IeC {\'e}dure \FB@og \texttt {inverserPions} \FB@fg }{16}{section.2.4}
 \contentsline {section}{\numberline {2.5}La proc\IeC {\'e}dure \FB@og \texttt {inverserPionsDir} \FB@fg }{17}{section.2.5}
 \contentsline {section}{\numberline {2.6}La proc\IeC {\'e}dure \FB@og \texttt {pionEstPresent} \FB@fg }{17}{section.2.6}
-\contentsline {section}{\numberline {2.7}La proc\IeC {\'e}dure \FB@og \texttt {pionEstPresentRecursif} \FB@fg }{17}{section.2.7}
+\contentsline {section}{\numberline {2.7}La proc\IeC {\'e}dure \FB@og \texttt {pionEstPresentRecursif} \FB@fg }{18}{section.2.7}
 \contentsline {chapter}{\numberline {3}Conception d\IeC {\'e}taill\IeC {\'e}e des algorithmes compliqu\IeC {\'e}s de l'analyse \FB@og \texttt {obtenirCoupIA} \FB@fg }{19}{chapter.3}
 \contentsline {section}{\numberline {3.1}La fonction \FB@og \texttt {obtenirCoupIA} \FB@fg }{19}{section.3.1}
 \contentsline {section}{\numberline {3.2}La fonction \FB@og \texttt {scoreDUnCoup} \FB@fg }{19}{section.3.2}
