@@ -2,7 +2,7 @@
 #include "ObtenirCoupIA_Prive.h"
 #include "FaireUnePartie.h"
 
-#define INFINI 1000 /* Valeur affectée pour signifier qu'un coup est gagnant. */
+#define INFINI 10000 /* Valeur affectée pour signifier qu'un coup est gagnant. */
 
 /* Partie publique */
 
@@ -115,16 +115,21 @@ int evaluerPositionsPionsPlateau(Plateau plateau, Couleur couleur){
   int grilleScore[8][8];
   unsigned int i,j,x,y;
   Position pos;
+  int resJoueur,resAdversaire,res;
 
   grilleScore=initialiserGrilleScore();
   for(i=1;i<9;i++){
     for(j=1;j<9;j++){
       POS_fixerPosition(i-1,j-1,&pos);
-      if(!PL_estCaseVide(plateau,pos)) {
-        res=res+grilleScore[i-1][j-1];
+      if(!PL_estCaseVide(plateau,pos) && CL_sontEgales(PI_obtenirCouleur(PL_obtenirPion(pos)),couleur)) {
+        resJoueur=resJoueur+grilleScore[i-1][j-1];
+      }
+      else if(!PL_estCaseVide(plateau,pos)) {
+        resAdversaire=resAdversaire+grilleScore[i-1][j-1];
       }
     }
   }
+  res=resJoueur-resAdversaire;
   return(res);
 }
 
