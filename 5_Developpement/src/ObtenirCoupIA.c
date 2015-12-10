@@ -112,7 +112,36 @@ int evaluerNbPionsCouleur(Plateau plateau, Couleur couleur){
 }
 
 int evaluerPositionsPionsPlateau(Plateau plateau, Couleur couleur){
+  int grilleScore[8][8];
+  unsigned int i,j,x,y;
 
+  grilleScore=initialiserGrilleScore();
+}
+
+/* Tirée de http://emmanuel.adam.free.fr/site/IMG/pdf/jeuP.pdf */
+int[8][8] initialiserGrilleScore(){
+  for(i=1;i<9;i++){
+    for(j=1;j<9;j++){
+      if(((i=1) && (j=1)) || ((i=1) && (j=8)) || ((i=8) && (j=1)) || ((i=8) && (j=8))){
+        grilleScore[i][j]=500;
+      }
+      else{
+        if(((i=1) && (j=2)) || ((i=2) && (j=1)) || ((i=8) && (j=7)) || ((i=7) && (j=8))
+          || ((i=7) && (j=1)) || ((i=8) && (j=2)) || ((i=1) && (j=7)) || ((i=2) && (j=8))){
+          grilleScore[i][j]=-150;
+        }
+        else {
+          if(((i=1) && (j=3)) || ((i=3) && (j=1)) || ((i=8) && (j=6)) || ((i=6) && (j=8))
+          || ((i=6) && (j=1)) || ((i=8) && (j=3)) || ((i=1) && (j=6)) || ((i=3) && (j=8))){
+          grilleScore[i][j]=30;
+          }
+          else {
+
+          } /*FinSi*/
+        } /*FinSi*/
+      } /*FinSi*/
+    } /*FinPour*/
+  } /*FinPour*/
 }
 
 int min(int a, int b){

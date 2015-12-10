@@ -102,8 +102,8 @@ void inverserPions(Position pos, Pion pionJoueur, Plateau* plateau)
     int pionPresent;
     for (i=1; i<4; i++){
         x=i-2;
-        for (j=1; j<3; j++){
-            y=i-2;
+        for (j=1; j<4; j++){
+            y=j-2;
             if ((x!=0) && (y!=0)){
                 posTmp=pos;
                 pionEstPresent(pionJoueur,x,y,&posTmp,plateau,&pionPresent);
@@ -184,7 +184,7 @@ void nbPions (Plateau plateau, unsigned int* nbPionsNoirs, unsigned int* nbPions
     unsigned int i,j;
     for(i=1;i<9;i++){
         for(j=1;j<9;j++){
-            POS_fixerPosition(i,j,&pos);
+            POS_fixerPosition(i-1,j-1,&pos);
             if (CL_sontEgales(PI_obtenirCouleur(PL_obtenirPion(plateau,pos)),couleur)){
                 *nbPionsNoirs=*nbPionsNoirs+1;
             }
