@@ -25,7 +25,7 @@ void faireUnePartie(void(*afficherPlateau)(Plateau), Coup(*getCoup1)(Plateau,Pio
         afficherPlateau(plateau);
         jouer(&plateau,&couleurJoueur2,getCoup2,&aPuJouerJoueur2);
         finPartie(plateau,aPuJouerJoueur1,aPuJouerJoueur2,&nbPionsNoirs,&nbPionsBlancs,estFinie);
-        
+
     }
     if (nbPionsBlancs==nbPionsNoirs){
         *joueur=CL_blanc();
@@ -34,9 +34,9 @@ void faireUnePartie(void(*afficherPlateau)(Plateau), Coup(*getCoup1)(Plateau,Pio
         if (nbPionsBlancs>nbPionsNoirs){
             *joueur=CL_blanc();}
         else {*joueur=CL_blanc();}
-        
-        
-        
+
+
+
     }
 }
 
@@ -87,33 +87,33 @@ void jouer(Plateau* plateau , Couleur* couleurJoueur, Coup(*getCoup)(Plateau,Pio
 void jouerCoup (Coup coup, Plateau* plateau)
 {   Position pos;
     Pion  pionJoueur;
-    
+
     PL_poserPion(plateau,CP_obtenirPositionCoup(coup),CP_obtenirPionCoup(coup));
     pos=CP_obtenirPositionCoup(coup);
     pionJoueur=CP_obtenirPionCoup(coup);
     inverserPions(pos,pionJoueur,plateau);
-    
+
 }
 
 void inverserPions(Position pos, Pion pionJoueur, Plateau* plateau)
-{ Position *posTmp=NULL;
+{ Position posTmp;
     int x,y;
     unsigned int i,j;
-    int* pionPresent=NULL;
-    for (i=1; i<4; i++)
-    { x=i-2;
-        for (j=1; j<3; j++)
-        {    y=i-2;
-            if (!((x==0) && (y==0))){
-                *posTmp=pos;
-                pionEstPresent(pionJoueur,x,y,posTmp,plateau,pionPresent);
-                if (*pionPresent) {
-                    inverserPionsDir(plateau,pos,*posTmp,-x,-y);
+    int pionPresent;
+    for (i=1; i<4; i++){
+        x=i-2;
+        for (j=1; j<3; j++){
+            y=i-2;
+            if ((x!=0) && (y!=0)){
+                posTmp=pos;
+                pionEstPresent(pionJoueur,x,y,&posTmp,plateau,&pionPresent);
+                if (pionPresent) {
+                    inverserPionsDir(plateau,pos,posTmp,-x,-y);
                 }
             }
         }
     }
-    
+
 }
 
 void inverserPionsDir(Plateau* plateau, Position posInitiale, Position posCourante, unsigned int x, unsigned int y)
@@ -136,7 +136,7 @@ void pionEstPresent(Pion pionJoueur, unsigned int x, unsigned int y, Position* p
     unsigned int i,j;
     i=POS_obtenirLigne(*pos);
     j=POS_obtenirColonne(*pos);
-    if (((x+i)<1) || ((x+i)>8) || ((y+j)<1) || ((y+j)>8)) {
+    if (((x+i)<0) || ((x+i)>7) || ((y+j)<0) || ((y+j)>7)) {
         *pionPresent=FALSE;}
     else {
         POS_fixerPosition(x+i,y+j,pos);
@@ -155,10 +155,10 @@ void pionEstPresentRecursif(Pion pionJoueur, unsigned int x, unsigned int y, Pos
     if (PL_estCaseVide(*plateau,*pos)) {
         *pionPresent=FALSE;}
     else {
-        if (PI_obtenirCouleur(PL_obtenirPion(*plateau,*pos))==couleurJoueur) {
+        if (CL_sontEgales(PI_obtenirCouleur(PL_obtenirPion(*plateau,*pos)),couleurJoueur)) {
             *pionPresent=TRUE;}
         else {
-            if (((x+i)<1) || ((x+i)>8) || ((y+j)<1) || ((y+j)>8)) {
+            if (((x+i)<0) || ((x+i)>7) || ((y+j)<0) || ((y+j)>7)) {
                 *pionPresent=FALSE;}
             else {
                 POS_fixerPosition(x+i,y+j,pos);
@@ -198,15 +198,14 @@ void nbPions (Plateau plateau, unsigned int* nbPionsNoirs, unsigned int* nbPions
 int plateauRempli(Plateau plateau){
     Coups coupsJoueurBlanc;
     Coups coupsJoueurNoir;
-    
+
     Couleur couleurNoir=CL_noir();
     Couleur couleurBlanc=CL_blanc();
-    
+
     coupsJoueurNoir=listeCoupsPossibles(plateau,couleurNoir);
     coupsJoueurBlanc=listeCoupsPossibles(plateau,couleurBlanc);
-    
+
     if ((CPS_nbCoups(coupsJoueurNoir)==0) && (CPS_nbCoups(coupsJoueurBlanc)==0)){
         return (1) ; }
     else { return (0) ; }
 }
-

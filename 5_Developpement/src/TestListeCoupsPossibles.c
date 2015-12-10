@@ -201,7 +201,6 @@ void test_coupValideCoin(void){
   POS_fixerPosition(2,0,&positionAutreCouleur2);
   POS_fixerPosition(3,0,&positionMemeCouleur);
 
-  PL_poserPion(&plateau,positionTest,pionTest);
   PL_poserPion(&plateau,positionAutreCouleur1,pionAutreCouleur1);
   PL_poserPion(&plateau,positionAutreCouleur2,pionAutreCouleur2);
   PL_poserPion(&plateau,positionMemeCouleur,pionMemeCouleur);
@@ -265,7 +264,7 @@ void test_listeCoupsPossibles(void){
   coup4=CP_creerCoup(positionCoup4,pionCoup4);
 
   listeCoups=listeCoupsPossibles(plateau,couleurJoueur);
-  
+
   CU_ASSERT_TRUE(CP_sontEgaux(CPS_iemeCoup(listeCoups, 0),coup1)
                 && CP_sontEgaux(CPS_iemeCoup(listeCoups, 1),coup2)
                 && CP_sontEgaux(CPS_iemeCoup(listeCoups, 2),coup3)
