@@ -83,9 +83,9 @@ Pour la conception détaillée, nous avons ajouté la fonction de comparaison de
 \subsection{Sous-programmes}
 \begin{itemize}
 \signatureprocedure{faireUnePartie}{\paramEntree{coupJoueur1, coupJoueur2 : getCoup, afficher : afficherPlateau}, \paramSortie{joueur : Couleur, estMatchNul : \booleen}}
-\signaturefonction{initialiserPlateau}{}{Plateau}
+\signatureprocedure{initialiserPlateau}{\paramEntreeSortie{plateau : Plateau}}
 \signatureprocedure{jouer}{\paramEntreeSortie{plateau : Plateau, couleurJoueur : Couleur}, \paramEntree{coupJoueur : getCoup}, \paramSortie{aPuJouer : \booleen}}
-\signatureprocedure{finPartie}{\paramEntree{aPuJouerJoueur1,aPuJouerJoueur2 : \booleen, plateau : Plateau}, \paramSortie{estFinie : \booleen, nbPionsBlancs, nbPionsNoirs :\naturel}}
+\signatureprocedure{finPartie}{\paramEntree{aPuJouerJoueur1,aPuJouerJoueur2 : \booleen, plateau : Plateau}, \paramSortie{estFinie : \booleen, nbPionsBlancs, nbPionsNoirs : \naturel}}
 \signaturefonction{plateauRempli}{plateau : Plateau}{\booleen}
 \signatureprocedure{nbPions}{\paramEntree{plateau : Plateau}, \paramSortie{nbPionsBlancs, nbPionsNoirs : \naturel}}
 \signatureprocedure{jouerCoup}{\paramEntree{coup : Coup}, \paramEntreeSortie{plateau : Plateau}}
