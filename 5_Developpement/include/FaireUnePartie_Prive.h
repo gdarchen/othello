@@ -107,16 +107,6 @@ void pionEstPresentRecursif(Pion pionJoueur, unsigned int x, unsigned int y, Pos
 
 void finPartie (Plateau plateau, int aPuJouerJoueur1, int aPuJouerJoueur2 , unsigned int* nbPionsNoirs, unsigned int* nbPionsBlancs , int* estFinie);
 
-/**
- * \procedure void nbPions (Plateau plateau, unsigned int* scoreJoueur1, unsigned int* scoreJoueur2)
- * \brief Procedure qui permet de compter le nombre de pions des joueurs 1 et 2 sur le plateau
- *
- * \param Plateau plateau, le plateau de jeu
- * \param unsigned int* nbPionsBlancs, le nombre de pions Blanc
- * \param unsigned int* nbPionsNoirs, le nombre de pions Noirs
- * \
- */
-void nbPions (Plateau plateau, unsigned int* nbPionsNoirs, unsigned int* nbPionsBlancs);
 
 int plateauRempli(Plateau plateau);
 

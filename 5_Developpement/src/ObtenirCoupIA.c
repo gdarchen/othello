@@ -1,5 +1,6 @@
 #include "ObtenirCoupIA.h"
 #include "ObtenirCoupIA_Prive.h"
+#include "FaireUnePartie.h"
 
 #define INFINI 1000 /* Valeur affectée pour signifier qu'un coup est gagnant. */
 
@@ -97,7 +98,17 @@ int evaluerNbCoupsPossiblesAdversaire(Plateau plateau, Couleur couleur){
 }
 
 int evaluerNbPionsCouleur(Plateau plateau, Couleur couleur){
+  unsigned int nbPionsNoirs,nbPionsBlancs;
+  int res;
 
+  nbPions(plateau,&nbPionsNoirs,&nbPionsBlancs);
+  if (CL_sontEgales(couleur,CL_noir())) {
+    res=nbPionsNoirs-nbPionsBlancs;
+  }
+  else {
+    res=nbPionsBlancs-nbPionsNoirs;
+  }
+  return res;
 }
 
 int evaluerPositionsPionsPlateau(Plateau plateau, Couleur couleur){

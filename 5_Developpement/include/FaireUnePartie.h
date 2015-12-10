@@ -45,4 +45,15 @@ void faireUnePartie(void(*afficherPlateau)(Plateau), Coup(*getCoup1)(Plateau,Pio
  */
 void pionEstPresent(Pion pionJoueur, unsigned int x, unsigned int y, Position* pos, Plateau* plateau, int* pionPresent);
 
+/**
+ * \procedure void nbPions (Plateau plateau, unsigned int* scoreJoueur1, unsigned int* scoreJoueur2)
+ * \brief Procedure qui permet de compter le nombre de pions des joueurs 1 et 2 sur le plateau
+ *
+ * \param Plateau plateau, le plateau de jeu
+ * \param unsigned int* nbPionsBlancs, le nombre de pions Blanc
+ * \param unsigned int* nbPionsNoirs, le nombre de pions Noirs
+ * \
+ */
+void nbPions (Plateau plateau, unsigned int* nbPionsNoirs, unsigned int* nbPionsBlancs);
+
 #endif
