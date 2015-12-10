@@ -93,7 +93,7 @@ int evaluerNbCoupsPossiblesAdversaire(Plateau plateau, Couleur couleur){
   coupsAdversaire=listeCoupsPossibles(plateau, couleurAdversaire)
   nbCoupsAdversaire=CPS_nbCoups(coupsAdversaire);
 
-  res=60-10*nbCoupsAdversaire; /* Le mieux est que l'adversaire ait 0 coups possibles. Plus il en a, moins l'évaluation est bonne. */
+  res=(60-10*nbCoupsAdversaire); /* Le mieux est que l'adversaire ait 0 coups possibles. Plus il en a, moins l'évaluation est bonne. */
   return(res);
 }
 
@@ -114,8 +114,18 @@ int evaluerNbPionsCouleur(Plateau plateau, Couleur couleur){
 int evaluerPositionsPionsPlateau(Plateau plateau, Couleur couleur){
   int grilleScore[8][8];
   unsigned int i,j,x,y;
+  Position pos;
 
   grilleScore=initialiserGrilleScore();
+  for(i=1;i<9;i++){
+    for(j=1;j<9;j++){
+      POS_fixerPosition(i-1,j-1,&pos);
+      if(!PL_estCaseVide(plateau,pos)) {
+        res=res+grilleScore[i-1][j-1];
+      }
+    }
+  }
+  return(res);
 }
 
 /* Tirée de http://emmanuel.adam.free.fr/site/IMG/pdf/jeuP.pdf */
@@ -123,20 +133,47 @@ int[8][8] initialiserGrilleScore(){
   for(i=1;i<9;i++){
     for(j=1;j<9;j++){
       if(((i=1) && (j=1)) || ((i=1) && (j=8)) || ((i=8) && (j=1)) || ((i=8) && (j=8))){
-        grilleScore[i][j]=500;
+        grilleScore[i-1][j-1]=500;
       }
       else{
         if(((i=1) && (j=2)) || ((i=2) && (j=1)) || ((i=8) && (j=7)) || ((i=7) && (j=8))
           || ((i=7) && (j=1)) || ((i=8) && (j=2)) || ((i=1) && (j=7)) || ((i=2) && (j=8))){
-          grilleScore[i][j]=-150;
+          grilleScore[i-1][j-1]=-150;
         }
         else {
           if(((i=1) && (j=3)) || ((i=3) && (j=1)) || ((i=8) && (j=6)) || ((i=6) && (j=8))
           || ((i=6) && (j=1)) || ((i=8) && (j=3)) || ((i=1) && (j=6)) || ((i=3) && (j=8))){
-          grilleScore[i][j]=30;
+          grilleScore[i-1][j-1]=30;
           }
           else {
-
+            if(((i=1) && (j=4)) || ((i=4) && (j=1)) || ((i=8) && (j=5)) || ((i=5) && (j=8))
+            || ((i=5) && (j=1)) || ((i=8) && (j=4)) || ((i=1) && (j=5)) || ((i=4) && (j=8))){
+            grilleScore[i-1][j-1]=10;
+            }
+            else {
+              if(((i=2) && (j=2)) || ((i=2) && (j=7)) || ((i=7) && (j=2)) || ((i=7) && (j=7))){
+                grilleScore[i-1][j-1]=-250;
+              }
+              else {
+                if(((i=3) && (j=3)) || ((i=3) && (j=6)) || ((i=6) && (j=3)) || ((i=6) && (j=6))){
+                  grilleScore[i-1][j-1]=1;
+                }
+                else {
+                  if(((i=4) && (j=4)) || ((i=4) && (j=5)) || ((i=5) && (j=4)) || ((i=5) && (j=5))){
+                    grilleScore[i-1][j-1]=16;
+                  }
+                  else {
+                    if(((i=4) && (j=3)) || ((i=5) && (j=3)) || ((i=3) && (j=4)) || ((i=3) && (j=5))
+                    || ((i=6) && (j=4)) || ((i=6) && (j=5)) || ((i=4) && (j=6)) || ((i=5) && (j=6))){
+                      grilleScore[i-1][j-1]=2;
+                    }
+                    else {
+                      grilleScore[i-1][j-1]=0;
+                    } /*FinSi*/
+                  } /*FinSi*/
+                } /*FinSi*/
+              } /*FinSi*/
+            } /*FinSi*/
           } /*FinSi*/
         } /*FinSi*/
       } /*FinSi*/
