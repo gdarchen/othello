@@ -162,12 +162,15 @@
 \begin{algorithme}
 	\procedure{inverserPionsDir}
 	{\paramEntreeSortie{plateau : Plateau}, \paramEntree{posInitiale, posCourante : Position, x, y : \entier}}
-	{}
-	{\sialors{non (posInitiale $=$ posCourante)}{
-	      \instruction{inverserPion(plateau,posCourante)}
-	      \affecter{posCourante}{fixerPosition(x+i, y+j)}
-	      \instruction{inverserPionsDir(plateau, posInitiale, posCourante, x, y)}
-	}%FinSi
+	{i,j : \naturelNonNul}
+	{	
+		\affecter{i}{obtenirLigne(posCourante)}
+		\affecter{j}{obtenirColonne(posCourante)}
+		\sialors{non (posInitiale $=$ posCourante)}{
+			\instruction{inverserPion(plateau,posCourante)}
+      			\affecter{posCourante}{fixerPosition(x+i, y+j)}
+      			\instruction{inverserPionsDir(plateau, posInitiale, posCourante, x, y)}
+		}%FinSi
 	}
 \end{algorithme}
 
