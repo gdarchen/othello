@@ -1,7 +1,7 @@
 #include "ObtenirCoupIA.h"
 #include "ObtenirCoupIA_Prive.h"
 
-#define INFINI 100 /* Valeur affectée pour signifier qu'un coup est gagnant. */
+#define INFINI 1000 /* Valeur affectée pour signifier qu'un coup est gagnant. */
 
 /* Partie publique */
 
@@ -81,6 +81,27 @@ int score(Plateau plateau, Couleur couleur){
 int evaluerPlateau(Plateau plateau, Couleur couleur){
 
     return 0;
+}
+
+int evaluerNbCoupsPossiblesAdversaire(Plateau plateau, Couleur couleur){
+  Coups coupsAdversaire;
+  Couleur couleurAdversaire;
+  int nbCoupsAdversaire,res;
+
+  couleurAdversaire=CL_changerCouleur(couleur);
+  coupsAdversaire=listeCoupsPossibles(plateau, couleurAdversaire)
+  nbCoupsAdversaire=CPS_nbCoups(coupsAdversaire);
+
+  res=60-10*nbCoupsAdversaire; /* Le mieux est que l'adversaire ait 0 coups possibles. Plus il en a, moins l'évaluation est bonne. */
+  return(res);
+}
+
+int evaluerNbPionsCouleur(Plateau plateau, Couleur couleur){
+
+}
+
+int evaluerPositionsPionsPlateau(Plateau plateau, Couleur couleur){
+
 }
 
 int min(int a, int b){

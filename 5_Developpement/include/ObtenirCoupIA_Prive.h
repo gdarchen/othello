@@ -19,4 +19,13 @@ int score(Plateau plateau, Couleur couleur);
 /* Evaluation du plateau selon différentes règles de jeu et de priorité */
 int evaluerPlateau(Plateau plateau, Couleur couleur);
 
+/* Evaluation du nombre de coups possibles de l'adversaire*/
+int evaluerNbCoupsPossiblesAdversaire(Plateau plateau, Couleur couleur);
+
+/* Evaluation de la différence du nombre de pions possédés et du nombre de pions possédés par l'adversaire */
+int evaluerNbPionsCouleur(Plateau plateau, Couleur couleur);
+
+/* Evaluation du plateau selon la position des différents pions */
+int evaluerPositionsPionsPlateau(Plateau plateau, Couleur couleur);
+
 #endif
