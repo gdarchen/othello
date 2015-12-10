@@ -8,10 +8,10 @@ Coup obtenirCoupHumain(Plateau plateau, Couleur couleur){
   Coup coup;
   Position position;
   Pion pion;
-  printf("Veuillez saisir un numéro de ligne (de 0 à 7) :");
-  scanf("%d",&x);
-  printf("Veuillez saisir un numéro de colonne (de 0 à 7) :");
-  scanf("%d",&y);
+  printf("Veuillez saisir un numéro de ligne (de 0 à 7) : \n");
+  scanf("%d \n",&x);
+  printf("Veuillez saisir un numéro de colonne (de 0 à 7) : \n");
+  scanf("%d \n",&y);
   POS_fixerPosition(x,y,&position);
   pion=PI_creerPion(couleur);
   coup=CP_creerCoup(position,pion);

@@ -15,7 +15,7 @@ TEST3=TestFaireUnePartie
 
 all :  $(BINDIR)/$(EXEC)
 
-$(BINDIR)/$(EXEC) : $(SRCDIR)/main.o $(SRCDIR)/FaireUnePartie.o $(SRCDIR)/ListesCoupsPossibles.o  $(SRCDIR)/TAD_Couleur.o  $(SRCDIR)/TAD_Coup.o  $(SRCDIR)/TAD_Coups.o  $(SRCDIR)/TAD_Pion.o  $(SRCDIR)/TAD_Plateau.o  $(SRCDIR)/TAD_Position.o $(SRCDIR)/Affichage.o
+$(BINDIR)/$(EXEC) : $(SRCDIR)/main.o $(SRCDIR)/FaireUnePartie.o $(SRCDIR)/ListesCoupsPossibles.o  $(SRCDIR)/TAD_Couleur.o  $(SRCDIR)/TAD_Coup.o  $(SRCDIR)/TAD_Coups.o  $(SRCDIR)/TAD_Pion.o  $(SRCDIR)/TAD_Plateau.o  $(SRCDIR)/TAD_Position.o $(SRCDIR)/Affichage.o $(SRCDIR)/ObtenirCoupHumain.o
 	$(CC)  -o $@ $^ $(LDFLAGS) 
 
 $(SRCDIR)/%.o : $(SRCDIR)/%.c
