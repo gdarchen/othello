@@ -11,7 +11,8 @@
 /* Partie publique */
 
 void faireUnePartie(void(*afficherPlateau)(Plateau), Coup(*getCoup1)(Plateau,Pion), Coup(*getCoup2)(Plateau,Pion), Couleur *joueur, int* estMatchNul)
-{   Plateau plateau=initialiserPlateau();
+{   Plateau plateau=PL_creerPlateau();
+    initialiserPlateau(&plateau);
     int aPuJouerJoueur1=TRUE;
     int aPuJouerJoueur2=TRUE;
     int *estFinie=FALSE;
@@ -43,24 +44,22 @@ void faireUnePartie(void(*afficherPlateau)(Plateau), Coup(*getCoup1)(Plateau,Pio
 /* Partie privée */
 
 
-Plateau initialiserPlateau(){
-    Plateau plateaudejeu;
-    Pion pionnoir;
-    Pion pionblanc;
-    Position positionpion;
+void initialiserPlateau(Plateau *plateauDeJeu){
+    Pion pionNoir;
+    Pion pionBlanc;
+    Position positionPion;
 
-    plateaudejeu=PL_creerPlateau();
-    pionnoir=PI_creerPion(CL_noir());
-    pionblanc=PI_creerPion(CL_blanc());
-    POS_fixerPosition(3,3,&positionpion);
-    PL_poserPion(&plateaudejeu, positionpion, pionblanc);
-    POS_fixerPosition(3,4,&positionpion);
-    PL_poserPion(&plateaudejeu, positionpion, pionnoir);
-    POS_fixerPosition(4,3,&positionpion);
-    PL_poserPion(&plateaudejeu, positionpion, pionnoir);
-    POS_fixerPosition(4,4,&positionpion);
-    PL_poserPion(&plateaudejeu, positionpion, pionblanc);
-    return(plateaudejeu);
+    *plateauDeJeu=PL_creerPlateau();
+    pionNoir=PI_creerPion(CL_noir());
+    pionBlanc=PI_creerPion(CL_blanc());
+    POS_fixerPosition(3,3,&positionPion);
+    PL_poserPion(plateauDeJeu, positionPion, pionBlanc);
+    POS_fixerPosition(3,4,&positionPion);
+    PL_poserPion(plateauDeJeu, positionPion, pionNoir);
+    POS_fixerPosition(4,3,&positionPion);
+    PL_poserPion(plateauDeJeu, positionPion, pionNoir);
+    POS_fixerPosition(4,4,&positionPion);
+    PL_poserPion(plateauDeJeu, positionPion, pionBlanc);
 }
 
 
@@ -187,24 +186,42 @@ void finPartie (Plateau plateau, int aPuJouerJoueur1, int aPuJouerJoueur2 , unsi
 
 void nbPions (Plateau plateau, unsigned int* nbPionsNoirs, unsigned int* nbPionsBlancs)
 {
+    *nbPionsNoirs=0;
+    *nbPionsBlancs=0;
     Position pos;
     Couleur couleur=CL_noir();
     unsigned int i,j;
-    for(i=1;i<9;i++){
-        for(j=1;j<9;j++){
-            POS_fixerPosition(i-1,j-1,&pos);
-            if (CL_sontEgales(PI_obtenirCouleur(PL_obtenirPion(plateau,pos)),couleur)){
+    for(i=0;i<8;i++){
+        for(j=0;j<8;j++){
+            POS_fixerPosition(i,j,&pos);
+            if (CL_sontEgales(PI_obtenirCouleur(PL_obtenirPion(plateau,pos)),couleur) && (plateau.presencePions[i][j]==1)){
                 *nbPionsNoirs=*nbPionsNoirs+1;
             }
             else {
-                *nbPionsBlancs=*nbPionsBlancs+1;
+                if (plateau.presencePions[i][j]==1){
+                    *nbPionsBlancs=*nbPionsBlancs+1;
+                }
             }
         }
     }
 }
 
 int plateauRempli(Plateau plateau){
-    Coups coupsJoueurBlanc;
+    int res = TRUE;
+    int i,j;
+    Position position;
+    for(i=0;i<8;i++){
+        for(j=0;j<8;j++){
+            POS_fixerPosition(i,j,&position);
+            if (PL_estCaseVide(plateau,position)){
+                res = FALSE;
+            }
+        }
+    }
+
+    return res;
+
+    /*Coups coupsJoueurBlanc;
     Coups coupsJoueurNoir;
 
     Couleur couleurNoir=CL_noir();
@@ -215,5 +232,5 @@ int plateauRempli(Plateau plateau){
 
     if ((CPS_nbCoups(coupsJoueurNoir)==0) && (CPS_nbCoups(coupsJoueurBlanc)==0)){
         return (1) ; }
-    else { return (0) ; }
+    else { return (0) ; }*/
 }

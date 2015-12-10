@@ -30,7 +30,7 @@
  *
  * \
  */
-Plateau initialiserPlateau();
+void initialiserPlateau(Plateau *plateau);
 
 /**
  * \procedure void jouer(Plateau* plateau , Couleur* couleurJoueur, GETCOUP(*obtenirCoupJoueur)(Plateau,Couleur,Coup), int* aPuJouer)

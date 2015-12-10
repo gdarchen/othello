@@ -23,11 +23,11 @@ int clean_suite_success(void) {
 
 void test_initialiserPlateau(void){
   Plateau plateau;
-  int res=1;
+  int res=TRUE;
   Position pos;
   unsigned int i,j,x,y;
   plateau=PL_creerPlateau();
-  plateau=initialiserPlateau();
+  initialiserPlateau(&plateau);
 
   for(i=1;i<9;i++){
     for(j=1;j<9;j++){
@@ -36,23 +36,23 @@ void test_initialiserPlateau(void){
       POS_fixerPosition(x,y,&pos);
       if ((x==3 && y==3) || (x==4 && y==4)){
         if (PL_estCaseVide(plateau,pos)){
-          res=0;
+          res=FALSE;
         }
         else if(CL_sontEgales(PI_obtenirCouleur(PL_obtenirPion(plateau,pos)),CL_blanc())){
-          res=0;
+          res=FALSE;
         }
       }
       else if ((x==3 && y==4) || (x==4 && y==3)){
         if (PL_estCaseVide(plateau,pos)){
-          res=0;
+          res=FALSE;
         }
         else if(CL_sontEgales(PI_obtenirCouleur(PL_obtenirPion(plateau,pos)),CL_noir())){
-          res=0;
+          res=FALSE;
         }
       }
       else{
         if (!PL_estCaseVide(plateau,pos)){
-          res=0;
+          res=FALSE;
         }
       }
     }
@@ -81,7 +81,7 @@ void test_plateauRempliVrai(void){
 void test_plateauRempliFaux(void){
   Plateau plateau;
   plateau=PL_creerPlateau();
-  plateau=initialiserPlateau();
+  initialiserPlateau(&plateau);
 
   CU_ASSERT_TRUE(plateauRempli(plateau)==FALSE);
 }
@@ -89,28 +89,28 @@ void test_plateauRempliFaux(void){
 /* Tests relatifs à nbPions */
 
 void test_nbPionsPlateauRempli(void){
-unsigned int i,j,x,y;
-unsigned int nbPionsNoirs,nbPionsBlancs;
-Position position;
-Pion pion=CL_noir();
-Plateau plateau;
-plateau=PL_creerPlateau();
-for(i=1;i<9;i++){
-  for(j=1;j<9;j++){
-    x=i-1;
-    y=j-1;
-    POS_fixerPosition(x, y, &position);
-    PL_poserPion(&plateau,position,pion);
+  unsigned int i,j;
+  unsigned int nbPionsNoirs=0,nbPionsBlancs=0;
+  Position position;
+  Pion pion=PI_creerPion(CL_noir());
+  Plateau plateau;
+  PL_creerPlateau(&plateau);
+  for(i=0;i<8;i++){
+    for(j=0;j<8;j++){
+      POS_fixerPosition(i, j, &position);
+      PL_poserPion(&plateau,position,pion);
+    }
   }
-}
-CU_ASSERT_TRUE((nbPionsBlancs==0) && (nbPionsNoirs==64));
+  nbPions(plateau,&nbPionsNoirs, &nbPionsBlancs);
+
+  CU_ASSERT_TRUE((nbPionsBlancs==0) && (nbPionsNoirs==64));
 }
 
 void test_nbPionsPlateauInitial(void){
   Plateau plateau;
-  unsigned int nbPionsNoirs,nbPionsBlancs;
+  unsigned int nbPionsNoirs=0,nbPionsBlancs=0;
   plateau=PL_creerPlateau();
-  plateau=initialiserPlateau();
+  initialiserPlateau(&plateau);
   nbPions(plateau,&nbPionsNoirs,&nbPionsBlancs);
 
   CU_ASSERT_TRUE((nbPionsBlancs==2) && (nbPionsNoirs==2));
@@ -120,12 +120,42 @@ void test_nbPionsPlateauInitial(void){
 
 void test_finPartieJoueursBloques(void){
   Plateau plateau=PL_creerPlateau();
-  int aPuJouerJoueur1 = FALSE, aPuJouerJoueur2 =FALSE;
+  int aPuJouerJoueur1 = FALSE, aPuJouerJoueur2 = FALSE;
   unsigned int nbPionsNoirs = 0, nbPionsBlancs = 0;
   int estFinie = FALSE;
   finPartie(plateau,aPuJouerJoueur1,aPuJouerJoueur2,&nbPionsNoirs,&nbPionsBlancs,&estFinie);
 
-  CU_ASSERT_TRUE(estFinie==FALSE)
+  CU_ASSERT_TRUE(estFinie==TRUE);
+}
+
+void test_finPartieUnSeulJoueurBloque(void){
+  Plateau plateau=PL_creerPlateau();
+  initialiserPlateau(&plateau);
+  int aPuJouerJoueur1 = TRUE, aPuJouerJoueur2 = FALSE;
+  unsigned int nbPionsNoirs = 4, nbPionsBlancs = 4;
+  int estFinie = FALSE;
+  finPartie(plateau,aPuJouerJoueur1,aPuJouerJoueur2,&nbPionsNoirs,&nbPionsBlancs,&estFinie);
+
+  CU_ASSERT_TRUE(estFinie==FALSE);
+}
+
+void test_finPartiePlateauRempli(void){
+  Plateau plateau=PL_creerPlateau();
+  Pion pionBlanc=PI_creerPion(CL_blanc());
+  Position pos;
+  int aPuJouerJoueur1 = TRUE, aPuJouerJoueur2 = TRUE;
+  int estFinie = FALSE;
+  unsigned int nbPionsNoirs = 0, nbPionsBlancs = 0;
+  int i,j;
+  for(i=0;i<8;i++){
+    for(j=0;j<8;j++){
+      POS_fixerPosition(i,j,&pos);
+      PL_poserPion(&plateau,pos,pionBlanc);
+    }
+  }
+  finPartie(plateau,aPuJouerJoueur1,aPuJouerJoueur2,&nbPionsNoirs,&nbPionsBlancs,&estFinie);
+
+  CU_ASSERT_TRUE(estFinie==TRUE);
 }
 
 /* Tests relatifs à jouerCoup */
@@ -137,7 +167,7 @@ void test_jouerCoup(void){
   Pion pion;
   Couleur blanc=CL_blanc();
   plateau=PL_creerPlateau();
-  plateau=initialiserPlateau();
+  initialiserPlateau(&plateau);
   pion=PI_creerPion(blanc);
   POS_fixerPosition(2,4,&position);
   coup=CP_creerCoup(position, pion);
@@ -182,6 +212,8 @@ int main(int argc, char** argv){
         || (NULL == CU_add_test(pSuite_nbPions, "Plateau rempli de pions noirs", test_nbPionsPlateauRempli))
         || (NULL == CU_add_test(pSuite_nbPions, "Plateau initial", test_nbPionsPlateauInitial))
         || (NULL == CU_add_test(pSuite_finPartie, "Joueurs bloqués", test_finPartieJoueursBloques)) 
+        || (NULL == CU_add_test(pSuite_finPartie, "Plateau rempli", test_finPartiePlateauRempli)) 
+        || (NULL == CU_add_test(pSuite_finPartie, "Un seul joueur bloqué", test_finPartieUnSeulJoueurBloque)) 
         || (NULL == CU_add_test(pSuite_jouerCoup, "Jouer un coup", test_jouerCoup))
         /*|| (NULL == CU_add_test(pSuite_coupValide, "Coup valide, pos initiale dans un coin", test_coupValideCoin))
         || (NULL == CU_add_test(pSuite_coupValide, "Coup valide, pos initiale quelconque", test_coupValideQuelconque))
