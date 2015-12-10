@@ -33,11 +33,6 @@ int coupValide(Plateau plateau, Coup coup) {
       if((x!=0) && (y!=0)) {
 	        posTmp = pos;
 	        pionEstPresent(pionJoueur,x,y,&posTmp,&plateau,&pionPresent);
-	        if(pionPresent) {
-		          if(fabs(POS_obtenirLigne(posTmp)-POS_obtenirLigne(pos))<2 || fabs(POS_obtenirColonne(posTmp)-POS_obtenirColonne(pos))<2) {
-		              pionPresent = 0;
-		          }
-	        }
 	    }
       y = y+1;
     }
