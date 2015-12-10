@@ -43,7 +43,7 @@ void faireUnePartie(void(*afficherPlateau)(Plateau), Coup(*getCoup1)(Plateau,Pio
  * \param int* pionPresent, qui renvoit 0 si aucun pion conforme n'a été trouvé, 1 sinon
  * \
  */
-void pionEstPresent(Pion pionJoueur, unsigned int x, unsigned int y, Position* pos, Plateau* plateau, int* pionPresent);
+void pionEstPresent(Pion pionJoueur, Direction dirATester, Position* pos, Plateau* plateau, int* pionPresent);
 
 /**
  * \procedure void nbPions (Plateau plateau, unsigned int* scoreJoueur1, unsigned int* scoreJoueur2)

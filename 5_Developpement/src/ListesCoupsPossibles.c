@@ -4,6 +4,7 @@
 #include "ListeCoupsPossibles_Prive.h"
 #include "ListeCoupsPossibles.h"
 #include "FaireUnePartie.h"
+#include "FaireUnePartie_Prive.h"
 #include <math.h>
 
 /* Partie publique  */
@@ -18,27 +19,19 @@ Coups listeCoupsPossibles(Plateau plateau, Couleur couleur){
 /* Partie privee  */
 
 int coupValide(Plateau plateau, Coup coup) {
-  int pionPresent;
-  Position pos,posTmp;
-  Pion pionJoueur;
-  unsigned int x,y;
-
-  x = -1;
-  pionPresent = 0;
-  pos = CP_obtenirPositionCoup(coup);
-  pionJoueur = CP_obtenirPionCoup(coup);
-  while(!(pionPresent) && (x<2)) {
-    y = -1;
-    while(!(pionPresent) && (y<2)) {
-      if((x!=0) && (y!=0)) {
-	        posTmp = pos;
-	        pionEstPresent(pionJoueur,x,y,&posTmp,&plateau,&pionPresent);
-	    }
-      y = y+1;
+    int pionPresent;
+    Position pos,posTmp;
+    Pion pionJoueur;
+    pionPresent = 0;
+    pos = CP_obtenirPositionCoup(coup);
+    pionJoueur = CP_obtenirPionCoup(coup);
+    Direction dir = GAUCHE;
+    while(!(pionPresent) && (dir <= DIAGDB)) {
+        posTmp = pos;
+        pionEstPresent(pionJoueur,dir,&posTmp,&plateau,&pionPresent);
+        dir++;
     }
-    x = x+1;
-  }
-return pionPresent;
+    return pionPresent;
 }
 
 

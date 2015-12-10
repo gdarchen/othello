@@ -23,6 +23,17 @@
  */
 
 
+ /* Introduction d'un TAD privé Direction */
+
+ typedef enum {GAUCHE,DROITE,HAUT,BAS,DIAGGH,DIAGGB,DIAGDH,DIAGDB} Direction;
+
+ Position DIR_positionSelonDirection(Position posInit, Direction dirDeplacement);
+ Direction DIR_inverserDirection(Direction dirInit);
+ int DIR_deplacementValide(Position pos, Direction dirDeplacement);
+
+
+
+
 
 /**
  * \procedure Plateau InitialiserPlateau()
@@ -77,7 +88,7 @@ void inverserPions(Position pos, Pion pionJoueur, Plateau* plateau);
  * \param unsigned int y, la direction selon l'axe des ordonnées
  * \
  */
-void inverserPionsDir(Plateau* plateau, Position posInitiale, Position posCourante, unsigned int x, unsigned int y);
+void inverserPionsDir(Plateau* plateau, Position posInitiale, Position posCourante, Direction dirInversion);
 
 /**
  * \procedure void pionEstPresentRecursif(Pion pionJoueur, unsigned int x, unsigned int y, Position* pos, Plateau* plateau, int* pionPresent)
@@ -91,7 +102,7 @@ void inverserPionsDir(Plateau* plateau, Position posInitiale, Position posCouran
  * \param int* pionPresent, qui renvoit 0 si aucun pion conforme n'a été trouvé, 1 sinon
  * \
  */
-void pionEstPresentRecursif(Pion pionJoueur, unsigned int x, unsigned int y, Position* pos, Plateau* plateau, int* pionPresent);
+void pionEstPresentRecursif(Pion pionJoueur, Direction dirATester, Position* pos, Plateau* plateau, int* pionPresent);
 /**
  * \procedure finPartie (Plateau plateau, int aPuJouerJoueur1,aPuJouerJoueur2 , unsigned int* scoreJoueur1, unsigned int* scoreJoueur2 , int* estFinie)
  * \brief Procedure qui permet de déterminer si la partie est finie ou non.
@@ -109,6 +120,7 @@ void finPartie (Plateau plateau, int aPuJouerJoueur1, int aPuJouerJoueur2 , unsi
 
 
 int plateauRempli(Plateau plateau);
+
 
 
 #endif

@@ -94,56 +94,47 @@ void jouerCoup (Coup coup, Plateau* plateau)
 
 }
 
-void inverserPions(Position pos, Pion pionJoueur, Plateau* plateau)
-{ Position posTmp;
-    int x,y;
-    unsigned int i,j;
+
+void inverserPions(Position pos, Pion pionJoueur, Plateau* plateau){
+    Position posTmp;
+    Direction dir;
     int pionPresent;
-    for (i=1; i<4; i++){
-        x=i-2;
-        for (j=1; j<4; j++){
-            y=j-2;
-            if ((x!=0) && (y!=0)){
-                posTmp=pos;
-                pionEstPresent(pionJoueur,x,y,&posTmp,plateau,&pionPresent);
-                if (pionPresent) {
-                    inverserPionsDir(plateau,pos,posTmp,-x,-y);
-                }
-            }
+    for (dir = GAUCHE; dir <= DIAGDB; dir++){
+        posTmp = pos;
+        pionEstPresent(pionJoueur,dir,&posTmp,plateau,&pionPresent);
+        if (pionPresent) {
+            inverserPionsDir(plateau,pos,posTmp,DIR_inverserDirection(dir));
         }
     }
-
 }
 
-void inverserPionsDir(Plateau* plateau, Position posInitiale, Position posCourante, unsigned int x, unsigned int y)
-{       Position *poscour=&posCourante;
-    unsigned int i,j;
-    i=POS_obtenirLigne(*poscour);
-    j=POS_obtenirColonne(*poscour);
 
-    if (!(POS_sontEgales(posInitiale,*poscour))){
-        PL_inverserPion(plateau,*poscour);
-        POS_fixerPosition(x+i,y+j,poscour);
-        inverserPionsDir(plateau,posInitiale,*poscour,x,y);
+void inverserPionsDir(Plateau* plateau, Position posInitiale, Position posCourante, Direction dirInversion){
+    Position posSuivante = posCourante;
+    unsigned int inew,jnew;
+    inew=POS_obtenirLigne(DIR_positionSelonDirection(posSuivante,dirInversion));
+    jnew=POS_obtenirColonne(DIR_positionSelonDirection(posSuivante,dirInversion));
+    if (!(POS_sontEgales(posInitiale,posCourante))){
+        PL_inverserPion(plateau,posCourante);
+        POS_fixerPosition(inew,jnew,&posSuivante);
+        inverserPionsDir(plateau,posInitiale,posSuivante,dirInversion);
     }
 }
 
 
-
-void pionEstPresent(Pion pionJoueur, unsigned int x, unsigned int y, Position* pos, Plateau* plateau, int* pionPresent)
-{
+void pionEstPresent(Pion pionJoueur, Direction dirATester, Position* pos, Plateau* plateau, int* pionPresent){
     unsigned int i,j;
     i=POS_obtenirLigne(*pos);
     j=POS_obtenirColonne(*pos);
     Couleur couleurAdversaire;
-    couleurAdversaire=CL_changerCouleur(PI_obtenirCouleur(pionJoueur));
-    if (((x+i)<0) || ((x+i)>7) || ((y+j)<0) || ((y+j)>7)) {
-        *pionPresent=FALSE;}
+    couleurAdversaire = CL_changerCouleur(PI_obtenirCouleur(pionJoueur));
+    if (!DIR_deplacementValide(*pos,dirATester)) {
+        *pionPresent = FALSE;}
     else {
-        POS_fixerPosition(x+i,y+j,pos);
+        *pos = DIR_positionSelonDirection(*pos,dirATester);
         if(CL_sontEgales(PI_obtenirCouleur(PL_obtenirPion(*plateau,*pos)),couleurAdversaire)){
-          POS_fixerPosition(2*x+i,2*y+j,pos);
-          pionEstPresentRecursif(pionJoueur,x,y,pos,plateau,pionPresent);
+          *pos = DIR_positionSelonDirection(*pos,dirATester);
+          pionEstPresentRecursif(pionJoueur,dirATester,pos,plateau,pionPresent);
         }
         else {
           *pionPresent=FALSE;
@@ -152,7 +143,7 @@ void pionEstPresent(Pion pionJoueur, unsigned int x, unsigned int y, Position* p
 }
 
 
-void pionEstPresentRecursif(Pion pionJoueur, unsigned int x, unsigned int y, Position* pos, Plateau* plateau, int* pionPresent)
+void pionEstPresentRecursif(Pion pionJoueur, Direction dirATester, Position* pos, Plateau* plateau, int* pionPresent)
 {
     unsigned int i,j;
     Couleur couleurJoueur;
@@ -165,15 +156,16 @@ void pionEstPresentRecursif(Pion pionJoueur, unsigned int x, unsigned int y, Pos
         if (CL_sontEgales(PI_obtenirCouleur(PL_obtenirPion(*plateau,*pos)),couleurJoueur)) {
             *pionPresent=TRUE;}
         else {
-            if (((x+i)<0) || ((x+i)>7) || ((y+j)<0) || ((y+j)>7)) {
+            if (!DIR_deplacementValide(*pos,dirATester)) {
                 *pionPresent=FALSE;}
             else {
-                POS_fixerPosition(x+i,y+j,pos);
-                pionEstPresentRecursif(pionJoueur,x,y,pos,plateau,pionPresent);
+                *pos = DIR_positionSelonDirection(*pos,dirATester);
+                pionEstPresentRecursif(pionJoueur,dirATester,pos,plateau,pionPresent);
             }
         }
     }
 }
+
 
 void finPartie (Plateau plateau, int aPuJouerJoueur1, int aPuJouerJoueur2 , unsigned int* nbPionsNoirs, unsigned int* nbPionsBlancs , int* estFinie)
 {
@@ -206,6 +198,7 @@ void nbPions (Plateau plateau, unsigned int* nbPionsNoirs, unsigned int* nbPions
     }
 }
 
+
 int plateauRempli(Plateau plateau){
     int res = TRUE;
     int i,j;
@@ -234,3 +227,109 @@ int plateauRempli(Plateau plateau){
         return (1) ; }
     else { return (0) ; }*/
 }
+
+
+/* Introduction d'un TAD privé Direction */
+
+Direction DIR_inverserDirection(Direction dirInit){
+    Direction newDir;
+    switch(dirInit){
+        case GAUCHE :
+            newDir = DROITE;
+            break;
+        case DROITE :
+            newDir = GAUCHE;
+            break;
+        case HAUT :
+            newDir = HAUT;
+            break;
+        case BAS :
+            newDir = BAS;
+            break;
+        case DIAGGH :
+            newDir = DIAGGH;
+            break;
+        case DIAGGB :
+            newDir = DIAGGB;
+            break;
+        case DIAGDH :
+            newDir = DIAGDH;
+            break;
+        case DIAGDB :
+            newDir = DIAGDB;
+            break;
+    }
+    return newDir;
+}
+
+
+Position DIR_positionSelonDirection(Position posInit, Direction dirDeplacement){
+    Position newPos;
+    unsigned int i,j;
+    i = POS_obtenirLigne(posInit);
+    j = POS_obtenirColonne(posInit);
+    switch(dirDeplacement){
+        case GAUCHE :
+            POS_fixerPosition(i-1,j, &newPos);
+            break;
+        case DROITE :
+            POS_fixerPosition(i+1,j, &newPos);
+            break;
+        case HAUT :
+            POS_fixerPosition(i,j+1, &newPos);
+            break;
+        case BAS :
+            POS_fixerPosition(i,j-1, &newPos);
+            break;
+        case DIAGGH :
+            POS_fixerPosition(i-1,j+1, &newPos);
+            break;
+        case DIAGGB :
+            POS_fixerPosition(i-1,j-1, &newPos);
+            break;
+        case DIAGDH :
+            POS_fixerPosition(i+1,j+1, &newPos);
+            break;
+        case DIAGDB :
+            POS_fixerPosition(i+1,j-1, &newPos);
+            break;
+    }
+    return newPos;
+}
+
+
+int DIR_deplacementValide(Position pos, Direction dirDeplacement){
+    int valide;
+    unsigned int i,j;
+    i = POS_obtenirLigne(pos);
+    j = POS_obtenirColonne(pos);
+    switch(dirDeplacement){
+        case GAUCHE :
+            valide = (i >= 1);
+            break;
+        case DROITE :
+            valide = (i <= 6);
+            break;
+        case HAUT :
+            valide = (j <= 6);
+            break;
+        case BAS :
+            valide = (j >= 1);
+            break;
+        case DIAGGH :
+            valide = ((i >= 1) && (j <= 6));
+            break;
+        case DIAGGB :
+            valide = ((i >= 1) && (j >= 1));
+            break;
+        case DIAGDH :
+            valide = ((i <= 6) && (j <= 6));
+            break;
+        case DIAGDB :
+            valide = ((i <= 6) && (j >= 1));
+            break;
+    }
+    return valide;
+}
+
+/* Fin du TAD privé Direction */
