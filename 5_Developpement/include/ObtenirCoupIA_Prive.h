@@ -28,4 +28,7 @@ int evaluerNbPionsCouleur(Plateau plateau, Couleur couleur);
 /* Evaluation du plateau selon la position des différents pions */
 int evaluerPositionsPionsPlateau(Plateau plateau, Couleur couleur);
 
+/* Initialisation de la grille qui attribue à chaque position un poids */
+int[8][8] initialiserGrilleScore();
+
 #endif
