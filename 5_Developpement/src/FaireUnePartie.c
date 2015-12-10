@@ -136,11 +136,19 @@ void pionEstPresent(Pion pionJoueur, unsigned int x, unsigned int y, Position* p
     unsigned int i,j;
     i=POS_obtenirLigne(*pos);
     j=POS_obtenirColonne(*pos);
+    Couleur couleurAdversaire;
+    couleurAdversaire=CL_changerCouleur(PI_obtenirCouleur(pionJoueur));
     if (((x+i)<0) || ((x+i)>7) || ((y+j)<0) || ((y+j)>7)) {
         *pionPresent=FALSE;}
     else {
         POS_fixerPosition(x+i,y+j,pos);
-        pionEstPresentRecursif(pionJoueur,x,y,pos,plateau,pionPresent);
+        if(CL_sontEgales(PI_obtenirCouleur(PL_obtenirPion(*plateau,*pos)),couleurAdversaire)){
+          POS_fixerPosition(2*x+i,2*y+j,pos);
+          pionEstPresentRecursif(pionJoueur,x,y,pos,plateau,pionPresent);
+        }
+        else {
+          *pionPresent=FALSE;
+        }
     }
 }
 
