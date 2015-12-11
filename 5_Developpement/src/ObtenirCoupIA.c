@@ -76,12 +76,17 @@ int minMax(Plateau plateau, Couleur couleurRef, Couleur couleurCourante, unsigne
 
 int score(Plateau plateau, Couleur couleur){
 
-    return evaluerPlateau(plateau,couleur);
+  return evaluerPlateau(plateau,couleur);
 }
 
 int evaluerPlateau(Plateau plateau, Couleur couleur){
+  int evaluer1,evaluer2,evaluer3;
+  evaluer1=evaluerNbCoupsPossiblesAdversaire(plateau,couleur);
+  evaluer2=evaluerNbPionsCouleur(plateau,couleur);
+  evaluer3=evaluerPositionsPionsPlateau(plateau,couleur);
 
-    return 0;
+
+  return 0;
 }
 
 int evaluerNbCoupsPossiblesAdversaire(Plateau plateau, Couleur couleur){
