@@ -8,7 +8,6 @@
 int main(int argc, char** argv){
 	Couleur vainqueur=CL_blanc();
 	int matchNul = 0;
-	faireUnePartie(afficherPlateau,obtenirCoupHumain,obtenirCoupIA,&vainqueur,&matchNul);
 
 	if(argc!=2){
 		afficherAide();
