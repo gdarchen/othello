@@ -7,12 +7,14 @@
  *
  */
 
+#define MAX_COUPS 60
+
  #ifndef __TAD_COUPS__
  #define __TAD_COUPS__
  #include "TAD_Coup.h"
  #include "TAD_Couleur.h"
 
-#define MAX_COUPS 60
+
 
 /**
  * \brief Le type Coups permet de représenter un tableau de Coup et le nombre de Coup possibles

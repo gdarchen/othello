@@ -29,6 +29,5 @@ int evaluerNbPionsCouleur(Plateau plateau, Couleur couleur);
 int evaluerPositionsPionsPlateau(Plateau plateau, Couleur couleur);
 
 /* Initialisation de la grille qui attribue à chaque position un poids */
-int[8][8] initialiserGrilleScore();
-
+initialiserGrilleScore(int grilleScore[][8]);
 #endif

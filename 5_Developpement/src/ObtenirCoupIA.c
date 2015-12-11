@@ -1,6 +1,7 @@
 #include "ObtenirCoupIA.h"
 #include "ObtenirCoupIA_Prive.h"
 #include "FaireUnePartie.h"
+#include "ListeCoupsPossibles.h"
 
 #define INFINI 10000 /* Valeur affectée pour signifier qu'un coup est gagnant. */
 
@@ -11,7 +12,7 @@ Coup obtenirCoupIA(Plateau plateau, Couleur couleur){
     unsigned int i;
     int scoreCourant, meilleurScore;
     Coup coupCourant, meilleurCoup;
-    coupsPossibles = listeCoupsPossibles(plateau,couleur);
+    coupsPossibles=listeCoupsPossibles(plateau,couleur);
     if (nbCoups(coupsPossibles) > 0) {
         meilleurCoup = iemeCoup(coupsPossibles,1);
         meilleurScore = scoreDUnCoup(plateau,meilleurCoup,couleur,couleur,profondeurMinMax);
@@ -72,6 +73,7 @@ int minMax(Plateau plateau, Couleur couleurRef, Couleur couleurCourante, unsigne
 			resultat = -1*INFINI;
 		}
 	}
+  return(resultat);
 }
 
 int score(Plateau plateau, Couleur couleur){
@@ -122,7 +124,7 @@ int evaluerPositionsPionsPlateau(Plateau plateau, Couleur couleur){
   Position pos;
   int resJoueur,resAdversaire,res;
 
-  grilleScore=initialiserGrilleScore();
+  initialiserGrilleScore(grilleScore[][8]);
   resJoueur=0;
   resAdversaire=0;
   for(i=1;i<9;i++){
@@ -141,7 +143,8 @@ int evaluerPositionsPionsPlateau(Plateau plateau, Couleur couleur){
 }
 
 /* Tirée de http://emmanuel.adam.free.fr/site/IMG/pdf/jeuP.pdf */
-int[8][8] initialiserGrilleScore(){
+initialiserGrilleScore(int grilleScore[][8]){
+  unsigned int i,j;
   for(i=1;i<9;i++){
     for(j=1;j<9;j++){
       if(((i=1) && (j=1)) || ((i=1) && (j=8)) || ((i=8) && (j=1)) || ((i=8) && (j=8))){

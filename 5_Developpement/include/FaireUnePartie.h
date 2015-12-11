@@ -54,6 +54,6 @@ void pionEstPresent(Pion pionJoueur, Direction dirATester, Position* pos, Platea
  * \param unsigned int* nbPionsNoirs, le nombre de pions Noirs
  * \
  */
-void nbPions (Plateau plateau, unsigned int* nbPionsNoirs, unsigned int* nbPionsBlancs);
+void nbPions(Plateau plateau, unsigned int* nbPionsNoirs, unsigned int* nbPionsBlancs);
 
 #endif
