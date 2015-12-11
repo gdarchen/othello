@@ -3,6 +3,7 @@
 #include "FaireUnePartie.h"
 #include "ListeCoupsPossibles.h"
 #include "TAD_Coups.h"
+#include <stdlib.h>
 
 #define INFINI 10000 /* Valeur affectée pour signifier qu'un coup est gagnant. */
 
@@ -10,7 +11,7 @@
 
 Coup obtenirCoupIA(Plateau plateau, Couleur couleur){
     Coups coupsPossibles;
-    unsigned int i,profondeurMinMax;
+    unsigned int i,profondeurMinMax=profondeur();
     int scoreCourant, meilleurScore;
     Coup coupCourant, meilleurCoup;
     coupsPossibles=listeCoupsPossibles(plateau,couleur);
@@ -120,12 +121,11 @@ int evaluerNbPionsCouleur(Plateau plateau, Couleur couleur){
 }
 
 int evaluerPositionsPionsPlateau(Plateau plateau, Couleur couleur){
-  int grilleScore[8][8];
+  int** grilleScore=initialiserGrilleScore();
   unsigned int i,j;
   Position pos;
   int resJoueur,resAdversaire,res;
 
-  initialiserGrilleScore(grilleScore[8][8]);
   resJoueur=0;
   resAdversaire=0;
   for(i=1;i<9;i++){
@@ -144,8 +144,14 @@ int evaluerPositionsPionsPlateau(Plateau plateau, Couleur couleur){
 }
 
 /* Tirée de http://emmanuel.adam.free.fr/site/IMG/pdf/jeuP.pdf */
-initialiserGrilleScore(int grilleScore[8][8]){
+int** initialiserGrilleScore(){
   unsigned int i,j;
+  int** grilleScore=(int**)malloc(8*sizeof(int*)); /* allocation des colonnes */
+
+  for(i=0;i<8;i++)
+		grilleScore[i] = (int*) malloc(8*sizeof(int)); /* allocation du nombre de cases par colonnes */
+
+
   for(i=1;i<9;i++){
     for(j=1;j<9;j++){
       if(((i=1) && (j=1)) || ((i=1) && (j=8)) || ((i=8) && (j=1)) || ((i=8) && (j=8))){
@@ -195,6 +201,7 @@ initialiserGrilleScore(int grilleScore[8][8]){
       } /*FinSi*/
     } /*FinPour*/
   } /*FinPour*/
+  return(grilleScore);
 }
 
 int min(int a, int b){
