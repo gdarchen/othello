@@ -350,3 +350,83 @@
 	
 	\remarque{On utilise ici une constante \tt{INFINI}, qui représentera un score supérieur à tout autre score, c'est-à-dire un coup gagnant.}
 \end{algorithme}
+
+
+\section{La fonction \tt{evaluerPlateau}}
+\begin{algorithme}
+
+\fonction{evaluerPlateau}
+	{plateau : Plateau, couleur : Couleur}
+	{\entier}
+	{evaluer1, evaluer2, evaluer3, res : \entier}
+	{
+	  \affecter{evaluer1}{evaluerNbCoupsPossiblesAdversaire(plateau,couleur)}
+	  \affecter{evaluer2}{evaluerNbPionsCouleur(plateau,couleur)}
+	  \affecter{evaluer3}{evaluerPositionsPionsPlateau(plateau,couleur)}
+	  \affecter{res}{evaluer1 $+$ evaluer2 $+$ evaluer3}
+	  \retourner{res}  
+	}
+
+\end{algorithme}
+
+\section{La fonction \tt{evaluerNbCoupsPossiblesAdversaire}}
+\begin{algorithme}
+
+\fonction{evaluerNbCoupsPossiblesAdversaire}
+	{plateau : Plateau, couleur : Couleur}
+	{\entier}
+	{nbCoupsAdversaire, res : \entier \\
+	coupsAdversire : Coups \\
+	couleurAdversaire : Couleur}
+	{
+	  \affecter{couleurAdversaire}{changerCouleur(couleur)}
+	  \affecter{coupsAdversaire}{listeCoupsPossibles(plateau, couleurAdversaire)}
+	  \affecter{nbCoupsAdversaire}{nbCoups(coupsAdversaire)}
+	  \affecter{res}{60-10*nbCoupsAdversaire}
+	  \retourner{res}  
+	}
+
+\end{algorithme}
+
+\section{La fonction \tt{evaluerNbPionsCouleur}}
+\begin{algorithme}
+
+\fonction{evaluerNbPionsCouleur}
+	{plateau : Plateau, couleur : Couleur}
+	{\entier}
+	{res : \entier \\
+	nbPionsNoirs, nbPionsBlancs : \naturel}
+	{
+	  \instruction{nbPions(plateau,nbPionsNoirs,nbPionsBlancs)}
+	  \sialorssinon{sontEgales(couleur,noir())}{
+	    \affecter{res}{nbPionsNoirs-nbPionsBlancs}
+	  }
+	  {
+	    \affecter{res}{nbPionsBlancs-nbPionsNoirs}
+	  }
+	  \retourner{res}  
+	}
+
+\end{algorithme}
+
+\section{La fonction \tt{evaluerPositionsPionsPlateau}}
+\begin{algorithme}
+
+\fonction{evaluerPositionsPionsPlateau}
+	{plateau : Plateau, couleur : Couleur}
+	{\entier}
+	{res, resJoueur, resAdversaire : \entier \\
+	i, j, x, y : \naturel \\
+	pos : Position \\
+	grilleScore : Tableau[1..8][1..8] d'\entier}
+	{
+	  \affecter{grilleScore}{initialiserGrilleScore()}
+	  \pour{i}{1}{8}{
+	    \pour{j}{1}{8}{
+	    
+	    }
+	  }
+	  \retourner{res}  
+	}
+
+\end{algorithme}

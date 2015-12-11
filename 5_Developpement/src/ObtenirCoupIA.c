@@ -95,7 +95,7 @@ int evaluerNbCoupsPossiblesAdversaire(Plateau plateau, Couleur couleur){
   int nbCoupsAdversaire,res;
 
   couleurAdversaire=CL_changerCouleur(couleur);
-  coupsAdversaire=listeCoupsPossibles(plateau, couleurAdversaire)
+  coupsAdversaire=listeCoupsPossibles(plateau, couleurAdversaire);
   nbCoupsAdversaire=CPS_nbCoups(coupsAdversaire);
 
   res=(60-10*nbCoupsAdversaire); /* Le mieux est que l'adversaire ait 0 coups possibles. Plus il en a, moins l'évaluation est bonne. */
@@ -123,6 +123,8 @@ int evaluerPositionsPionsPlateau(Plateau plateau, Couleur couleur){
   int resJoueur,resAdversaire,res;
 
   grilleScore=initialiserGrilleScore();
+  resJoueur=0;
+  resAdversaire=0;
   for(i=1;i<9;i++){
     for(j=1;j<9;j++){
       POS_fixerPosition(i-1,j-1,&pos);
