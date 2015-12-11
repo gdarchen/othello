@@ -8,6 +8,4 @@
 
 int coupValide(Plateau plateau, Coup coup);
 
-void copierPlateau(Plateau plateauACopier, Plateau* plateauCopie);
-
 #endif

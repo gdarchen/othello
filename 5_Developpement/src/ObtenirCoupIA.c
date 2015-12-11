@@ -2,6 +2,7 @@
 #include "ObtenirCoupIA_Prive.h"
 #include "FaireUnePartie.h"
 #include "ListeCoupsPossibles.h"
+#include "TAD_Coups.h"
 
 #define INFINI 10000 /* Valeur affectée pour signifier qu'un coup est gagnant. */
 
@@ -9,16 +10,16 @@
 
 Coup obtenirCoupIA(Plateau plateau, Couleur couleur){
     Coups coupsPossibles;
-    unsigned int i;
+    unsigned int i,profondeurMinMax;
     int scoreCourant, meilleurScore;
     Coup coupCourant, meilleurCoup;
     coupsPossibles=listeCoupsPossibles(plateau,couleur);
-    if (nbCoups(coupsPossibles) > 0) {
-        meilleurCoup = iemeCoup(coupsPossibles,1);
+    if (CPS_nbCoups(coupsPossibles) > 0) {
+        meilleurCoup = CPS_iemeCoup(coupsPossibles,1);
         meilleurScore = scoreDUnCoup(plateau,meilleurCoup,couleur,couleur,profondeurMinMax);
-        for (i=2;nbCoups(coupsPossibles);i++) {
-            coupCourant = iemeCoup(coupsPossibles,i);
-            scoreCourant = scoreDUnCoup(plateau,scoreCourant,couleur,couleur,profondeurMinMax);
+        for (i=2;CPS_nbCoups(coupsPossibles);i++) {
+            coupCourant = CPS_iemeCoup(coupsPossibles,i);
+            scoreCourant = scoreDUnCoup(plateau,coupCourant,couleur,couleur,profondeurMinMax);
             if (scoreCourant > meilleurScore) {
                 meilleurCoup = coupCourant;
                 meilleurScore = scoreCourant;
@@ -38,12 +39,12 @@ unsigned int profondeur(void){
 
 int scoreDUnCoup(Plateau plateau, Coup coup, Couleur couleurRef, Couleur couleurCourante, unsigned int profondeurCourante){
 	Plateau plateauTest;
-	plateauTest = copierPlateau(plateau);
-	jouerCoup(coup, plateauTest);
+	copierPlateau(plateau,&plateauTest);
+	jouerCoup(coup, &plateauTest);
 	if (plateauRempli(plateauTest) || profondeurCourante==0)
 		return score(plateauTest, couleurRef);
 	else
-		return minMax(plateauTest, couleurRef, changerCouleur(couleurCourante), profondeurCourante-1);
+		return minMax(plateauTest, couleurRef, CL_changerCouleur(couleurCourante), profondeurCourante-1);
 
 }
 
@@ -53,10 +54,10 @@ int minMax(Plateau plateau, Couleur couleurRef, Couleur couleurCourante, unsigne
 	unsigned int i;
 
 	coupsPossibles = listeCoupsPossibles(plateau, couleurCourante);
-	if (nbCoups(coupsPossibles) > 0){
-		resultat = scoreDUnCoup(plateau, iemeCoup(coupsPossibles, 1), couleurRef, couleurCourante, profondeurCourante);
-		for (i=2 ; i<nbCoups(coupsPossibles)){ // nbCoups(coupsPossibles) + 1 ???
-			score = scoreDUnCoup(plateau, iemeCoup(coupsPossibles, i), couleurRef, couleurCourante, profondeurCourante);
+	if (CPS_nbCoups(coupsPossibles) > 0){
+		resultat = scoreDUnCoup(plateau, CPS_iemeCoup(coupsPossibles, 1), couleurRef, couleurCourante, profondeurCourante);
+		for (i=2 ; i<CPS_nbCoups(coupsPossibles);i++){ // nbCoups(coupsPossibles) + 1 ???
+			score = scoreDUnCoup(plateau, CPS_iemeCoup(coupsPossibles, i), couleurRef, couleurCourante, profondeurCourante);
 			if (couleurCourante == couleurRef){
 				resultat = max(resultat, score);
 			}
@@ -120,17 +121,17 @@ int evaluerNbPionsCouleur(Plateau plateau, Couleur couleur){
 
 int evaluerPositionsPionsPlateau(Plateau plateau, Couleur couleur){
   int grilleScore[8][8];
-  unsigned int i,j,x,y;
+  unsigned int i,j;
   Position pos;
   int resJoueur,resAdversaire,res;
 
-  initialiserGrilleScore(grilleScore[][8]);
+  initialiserGrilleScore(grilleScore[8][8]);
   resJoueur=0;
   resAdversaire=0;
   for(i=1;i<9;i++){
     for(j=1;j<9;j++){
       POS_fixerPosition(i-1,j-1,&pos);
-      if(!PL_estCaseVide(plateau,pos) && CL_sontEgales(PI_obtenirCouleur(PL_obtenirPion(pos)),couleur)) {
+      if(!PL_estCaseVide(plateau,pos) && CL_sontEgales(PI_obtenirCouleur(PL_obtenirPion(plateau,pos)),couleur)) {
         resJoueur=resJoueur+grilleScore[i-1][j-1];
       }
       else if(!PL_estCaseVide(plateau,pos)) {
@@ -143,7 +144,7 @@ int evaluerPositionsPionsPlateau(Plateau plateau, Couleur couleur){
 }
 
 /* Tirée de http://emmanuel.adam.free.fr/site/IMG/pdf/jeuP.pdf */
-initialiserGrilleScore(int grilleScore[][8]){
+initialiserGrilleScore(int grilleScore[8][8]){
   unsigned int i,j;
   for(i=1;i<9;i++){
     for(j=1;j<9;j++){

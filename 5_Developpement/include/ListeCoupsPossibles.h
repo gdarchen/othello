@@ -25,4 +25,13 @@
  */
 Coups listeCoupsPossibles(Plateau plateau, Couleur couleur);
 
+/**
+ * \fn void copierPlateau(Plateau plateauACopier, Plateau* plateauCopie)
+ * \brief Procédure qui copie un plateau sur un autre
+ *
+ * \param Plateau plateauACopier, le plateau à copier
+ * \param Plateau* plateauCopie, le plateau copié
+ */
+void copierPlateau(Plateau plateauACopier, Plateau* plateauCopie);
+
 #endif
