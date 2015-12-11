@@ -80,13 +80,13 @@ int score(Plateau plateau, Couleur couleur){
 }
 
 int evaluerPlateau(Plateau plateau, Couleur couleur){
-  int evaluer1,evaluer2,evaluer3;
+  int evaluer1,evaluer2,evaluer3,res;
   evaluer1=evaluerNbCoupsPossiblesAdversaire(plateau,couleur);
   evaluer2=evaluerNbPionsCouleur(plateau,couleur);
   evaluer3=evaluerPositionsPionsPlateau(plateau,couleur);
+  res=evaluer1+evaluer2+evaluer3; /* Il serait peut-être utile de donner un coefficient à chaque evaluation ? */
 
-
-  return 0;
+  return (res);
 }
 
 int evaluerNbCoupsPossiblesAdversaire(Plateau plateau, Couleur couleur){

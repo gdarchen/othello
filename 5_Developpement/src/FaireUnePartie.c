@@ -123,9 +123,6 @@ void inverserPionsDir(Plateau* plateau, Position posInitiale, Position posCouran
 
 
 void pionEstPresent(Pion pionJoueur, Direction dirATester, Position* pos, Plateau* plateau, int* pionPresent){
-    unsigned int i,j;
-    i=POS_obtenirLigne(*pos);
-    j=POS_obtenirColonne(*pos);
     Couleur couleurAdversaire;
     couleurAdversaire = CL_changerCouleur(PI_obtenirCouleur(pionJoueur));
     if (!DIR_deplacementValide(*pos,dirATester)) {
@@ -145,10 +142,7 @@ void pionEstPresent(Pion pionJoueur, Direction dirATester, Position* pos, Platea
 
 void pionEstPresentRecursif(Pion pionJoueur, Direction dirATester, Position* pos, Plateau* plateau, int* pionPresent)
 {
-    unsigned int i,j;
     Couleur couleurJoueur;
-    i=POS_obtenirLigne(*pos);
-    j=POS_obtenirColonne(*pos);
     couleurJoueur=PI_obtenirCouleur(pionJoueur);
     if (PL_estCaseVide(*plateau,*pos)) {
         *pionPresent=FALSE;}
