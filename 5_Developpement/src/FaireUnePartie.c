@@ -186,11 +186,11 @@ void nbPions (Plateau plateau, unsigned int* nbPionsNoirs, unsigned int* nbPions
     for(i=0;i<8;i++){
         for(j=0;j<8;j++){
             POS_fixerPosition(i,j,&pos);
-            if (CL_sontEgales(PI_obtenirCouleur(PL_obtenirPion(plateau,pos)),couleur) && (plateau.presencePions[i][j]==1)){
+            if (CL_sontEgales(PI_obtenirCouleur(PL_obtenirPion(plateau,pos)),couleur) && (!PL_estCaseVide(plateau,pos))){
                 *nbPionsNoirs=*nbPionsNoirs+1;
             }
             else {
-                if (plateau.presencePions[i][j]==1){
+                if (PL_estCaseVide(plateau,pos)){
                     *nbPionsBlancs=*nbPionsBlancs+1;
                 }
             }
@@ -213,19 +213,6 @@ int plateauRempli(Plateau plateau){
     }
 
     return res;
-
-    /*Coups coupsJoueurBlanc;
-    Coups coupsJoueurNoir;
-
-    Couleur couleurNoir=CL_noir();
-    Couleur couleurBlanc=CL_blanc();
-
-    coupsJoueurNoir=listeCoupsPossibles(plateau,couleurNoir);
-    coupsJoueurBlanc=listeCoupsPossibles(plateau,couleurBlanc);
-
-    if ((CPS_nbCoups(coupsJoueurNoir)==0) && (CPS_nbCoups(coupsJoueurBlanc)==0)){
-        return (1) ; }
-    else { return (0) ; }*/
 }
 
 
@@ -241,22 +228,22 @@ Direction DIR_inverserDirection(Direction dirInit){
             newDir = GAUCHE;
             break;
         case HAUT :
-            newDir = HAUT;
-            break;
-        case BAS :
             newDir = BAS;
             break;
+        case BAS :
+            newDir = HAUT;
+            break;
         case DIAGGH :
-            newDir = DIAGGH;
+            newDir = DIAGDB;
             break;
         case DIAGGB :
-            newDir = DIAGGB;
-            break;
-        case DIAGDH :
             newDir = DIAGDH;
             break;
+        case DIAGDH :
+            newDir = DIAGGB;
+            break;
         case DIAGDB :
-            newDir = DIAGDB;
+            newDir = DIAGGH;
             break;
     }
     return newDir;
