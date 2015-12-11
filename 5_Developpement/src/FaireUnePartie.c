@@ -184,7 +184,7 @@ void nbPions (Plateau plateau, unsigned int* nbPionsNoirs, unsigned int* nbPions
                 *nbPionsNoirs=*nbPionsNoirs+1;
             }
             else {
-                if (PL_estCaseVide(plateau,pos)){
+                if (!PL_estCaseVide(plateau,pos)){
                     *nbPionsBlancs=*nbPionsBlancs+1;
                 }
             }

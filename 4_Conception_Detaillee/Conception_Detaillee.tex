@@ -148,7 +148,7 @@
 				\affecter{posTmp}{pos}
 				\instruction{pionEstPresent(pionJoueur, x, y, posTmp, plateau, pionPresent)}
 				\sialors{pionPresent}{
-				      \instruction{inverserPionsDir(plateau, pos, posTmp, -x, -y)}
+				      \instruction{inverserPionsDir(plateau, pos, posTmp, $-$x, $-$y)}
 				}%FinSi
 			  }%FinSi
 		    }%FinPour
@@ -168,7 +168,7 @@
 		\affecter{j}{obtenirColonne(posCourante)}
 		\sialors{non (posInitiale $=$ posCourante)}{
 			\instruction{inverserPion(plateau,posCourante)}
-      			\affecter{posCourante}{fixerPosition(x+i, y+j)}
+      			\affecter{posCourante}{fixerPosition(x$+$i, y$+$j)}
       			\instruction{inverserPionsDir(plateau, posInitiale, posCourante, x, y)}
 		}%FinSi
 	}
@@ -179,19 +179,19 @@
 \begin{algorithme}
 	\procedure{pionEstPresent}
 	{\paramEntree{pionJoueur : Pion, x, y : \entier}, \paramEntreeSortie{pos : Position, plateau : Plateau}, \paramSortie{pionPresent : \booleen}}
-	{i,j : \naturelNonNul
+	{i,j : \naturelNonNul \\
 	couleurAdversaire : Couleur}
 	{
 		\affecter{i}{obtenirLigne(pos)}
 		\affecter{j}{obtenirColonne(pos)}
 		\affecter{couleurAdversaire}{changerCouleur(obtenirCouleur(pionJoueur))}
-		\sialorssinon{((x+i)<1) ou ((x+i)>8) ou ((y+j)<1) ou ((y+j)>8)}{
+		\sialorssinon{((x$+$i)$<$1) ou ((x$+$i)$>$8) ou ((y$+$j)$<$1) ou ((y$+$j)$>$8)}{
 		      \affecter{pionPresent}{FAUX}
 		}
 		{
-		      \affecter{pos}{fixerPosition(x+i, y+j)}
+		      \affecter{pos}{fixerPosition(x$+$i, y$+$j)}
 		      \sialorssinon{sontEgales(obtenirCouleur(obtenirPion(plateau,pos)),couleurAdversaire)}{
-			\affecter{pos}{fixerPosition(2*x+i, 2*y+j)}
+			\affecter{pos}{fixerPosition(2$\times$x$+$i, 2$\times$y$+$j)}
 			\instruction{pionEstPresentRecursif(pionJoueur, x, y, pos, plateau, pionPresent)}
 		      }
 		      {
@@ -219,11 +219,11 @@
 			    \affecter{pionPresent}{VRAI}
 		      }
 		      {
-			    \sialorssinon{((x+i)<1) ou ((x+i)>8) ou ((y+j)<1) ou ((y+j)>8)}{
+			    \sialorssinon{((x$+$i)$<$1) ou ((x$+$i)$>$8) ou ((y$+$j)$<$1) ou ((y$+$j)$>$8)}{
 				  \affecter{pionPresent}{FAUX}
 			    }
 			    {
-				  \affecter{pos}{fixerPosition(x+i, y+j)}
+				  \affecter{pos}{fixerPosition(x$+$i, y$+$j)}
 				  \instruction{pionEstPresentRecursif(pionJoueur, x, y, pos, plateau, pionPresent)}
 			    }%FinSi
 		      }%FinSi
@@ -303,16 +303,16 @@
 	      \affecter{pionPresent}{FAUX}
 	      \affecter{pos}{obtenirPositionCoup(coup)}
 	      \affecter{pionJoueur}{obtenirPionCoup(coup)}
-	      \tantque{non(pionPresent) et (x<2)}{
-		    \affecter{y}{-1}
-		    \tantque{non(pionPresent) et (y<2)}{
+	      \tantque{non(pionPresent) et (x$<$2)}{
+		    \affecter{y}{$-$1}
+		    \tantque{non(pionPresent) et (y$<$2)}{
 			  \sialors{non((x $=$ 0) et (y $=$ 0))}{
 				\affecter{posTmp}{pos}
 				\instruction{pionEstPresent(pionJoueur, x, y, posTmp, plateau, pionPresent)}
 			  }%FinSi
-			  \affecter{y}{y+1}
+			  \affecter{y}{y$+$1}
 		    }%FinTantQue
-		    \affecter{x}{x+1}
+		    \affecter{x}{x$+$1}
 	      }%FinTantQue
 	\retourner{pionPresent}  
 	}
@@ -382,7 +382,7 @@
 	  \affecter{couleurAdversaire}{changerCouleur(couleur)}
 	  \affecter{coupsAdversaire}{listeCoupsPossibles(plateau, couleurAdversaire)}
 	  \affecter{nbCoupsAdversaire}{nbCoups(coupsAdversaire)}
-	  \affecter{res}{60-10*nbCoupsAdversaire}
+	  \affecter{res}{60$-$10$\times$nbCoupsAdversaire}
 	  \retourner{res}  
 	}
 
@@ -399,10 +399,10 @@
 	{
 	  \instruction{nbPions(plateau,nbPionsNoirs,nbPionsBlancs)}
 	  \sialorssinon{sontEgales(couleur,noir())}{
-	    \affecter{res}{nbPionsNoirs-nbPionsBlancs}
+	    \affecter{res}{nbPionsNoirs$-$nbPionsBlancs}
 	  }
 	  {
-	    \affecter{res}{nbPionsBlancs-nbPionsNoirs}
+	    \affecter{res}{nbPionsBlancs$-$nbPionsNoirs}
 	  }
 	  \retourner{res}  
 	}
@@ -418,20 +418,17 @@
 	{res, resJoueur, resAdversaire : \entier \\
 	i, j, x, y : \naturel \\
 	pos : Position \\
-	grilleScore : Tableau[1..8][1..8] d'\entier}
+	grilleScore : \tableauDeuxDimensions{1..8}{1..8}{de}{\entier}}
 	{
 	  \affecter{grilleScore}{initialiserGrilleScore()}
 	  \affecter{resJoueur}{0}
 	  \affecter{resAdversaire}{0}
 	  \pour{i}{1}{8}{}{
 	    \pour{j}{1}{8}{}{
-	      \instruction{fixerPosition(i-1,j-1,pos)}
-	      \sialorssinon{non estCaseVide(plateau,pos) et sontEgales(obtenirCouleur(obtenirPion(pos)),couleur)}{
-		\affecter{resJoueur}{resJoueur+grilleScore[i-1][j-1]}
-	      }
-	      {
-		\sialors{non estCaseVide(plateau,pos)}{
-		  \affecter{resAdversaire}{resAdversaire+grilleScore[i-1][j-1]}
+	      \instruction{fixerPosition(i$-$1,j$-$1,pos)}
+	      \sialorssinon{{\small non estCaseVide(plateau, pos) et  sontEgales(obtenirCouleur(obtenirPion(pos)), couleur)}}{\affecter{resJoueur}{resJoueur+grilleScore[i$-$1][j$-$1]}}
+	      {\sialors{non estCaseVide(plateau,pos)}{
+		  \affecter{resAdversaire}{resAdversaire+grilleScore[i$-$1][j$-$1]}
 		}%Finsi
 	      }%Finsi
 	    }%FinPour
