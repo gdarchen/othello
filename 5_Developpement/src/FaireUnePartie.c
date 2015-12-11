@@ -210,7 +210,7 @@ int plateauRempli(Plateau plateau){
 }
 
 
-/* Introduction d'un TAD privé Direction */
+/* Introduction d'un type privé Direction */
 
 Direction DIR_inverserDirection(Direction dirInit){
     Direction newDir;
@@ -313,4 +313,4 @@ int DIR_deplacementValide(Position pos, Direction dirDeplacement){
     return valide;
 }
 
-/* Fin du TAD privé Direction */
+/* Fin du type privé Direction */

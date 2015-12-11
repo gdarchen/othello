@@ -1,11 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
-//#include "FaireUnePartie.h"
 #include "TAD_Couleur.h"
 #include "TAD_Pion.h"
 #include "TAD_Plateau.h"
 #include "TAD_Position.h"
-
+#include "Affichage.h"
 
 void afficherAide(){
   printf("Aide du programme othello \n"
