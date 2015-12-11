@@ -421,11 +421,21 @@
 	grilleScore : Tableau[1..8][1..8] d'\entier}
 	{
 	  \affecter{grilleScore}{initialiserGrilleScore()}
-	  \pour{i}{1}{8}{
-	    \pour{j}{1}{8}{
-	    
-	    }
-	  }
+	  \affecter{resJoueur}{0}
+	  \affecter{resAdversaire}{0}
+	  \pour{i}{1}{8}{}{
+	    \pour{j}{1}{8}{}{
+	      \instruction{fixerPosition(i-1,j-1,pos)}
+	      \sialorssinon{non estCaseVide(plateau,pos) et sontEgales(obtenirCouleur(obtenirPion(pos)),couleur)}{
+		\affecter{resJoueur}{resJoueur+grilleScore[i-1][j-1]}
+	      }
+	      {
+		\sialors{non estCaseVide(plateau,pos)}{
+		  \affecter{resAdversaire}{resAdversaire+grilleScore[i-1][j-1]}
+		}%Finsi
+	      }%Finsi
+	    }%FinPour
+	  }%FinPour
 	  \retourner{res}  
 	}
 

@@ -42,10 +42,14 @@
 \BOOKMARK [1][-]{section.3.2}{La fonction \253 scoreDUnCoup \273}{chapter.3}% 42
 \BOOKMARK [1][-]{section.3.3}{La fonction \253 coupValide \273}{chapter.3}% 43
 \BOOKMARK [1][-]{section.3.4}{La fonction \253 minMax \273}{chapter.3}% 44
-\BOOKMARK [-1][-]{part.4}{IV D\351veloppement}{}% 45
-\BOOKMARK [-1][-]{part.5}{V R\351partition du travail}{}% 46
-\BOOKMARK [0][-]{chapter.1}{Analyse descendante}{part.5}% 47
-\BOOKMARK [0][-]{chapter.2}{Conception pr\351liminaire}{part.5}% 48
-\BOOKMARK [0][-]{chapter.3}{Conception d\351taill\351e}{part.5}% 49
-\BOOKMARK [0][-]{chapter.4}{D\351veloppement}{part.5}% 50
-\BOOKMARK [-1][-]{table.caption.6}{Conclusion}{}% 51
+\BOOKMARK [1][-]{section.3.5}{La fonction \253 evaluerPlateau \273}{chapter.3}% 45
+\BOOKMARK [1][-]{section.3.6}{La fonction \253 evaluerNbCoupsPossiblesAdversaire \273}{chapter.3}% 46
+\BOOKMARK [1][-]{section.3.7}{La fonction \253 evaluerNbPionsCouleur \273}{chapter.3}% 47
+\BOOKMARK [1][-]{section.3.8}{La fonction \253 evaluerPositionsPionsPlateau \273}{chapter.3}% 48
+\BOOKMARK [-1][-]{part.4}{IV D\351veloppement}{}% 49
+\BOOKMARK [-1][-]{part.5}{V R\351partition du travail}{}% 50
+\BOOKMARK [0][-]{chapter.1}{Analyse descendante}{part.5}% 51
+\BOOKMARK [0][-]{chapter.2}{Conception pr\351liminaire}{part.5}% 52
+\BOOKMARK [0][-]{chapter.3}{Conception d\351taill\351e}{part.5}% 53
+\BOOKMARK [0][-]{chapter.4}{D\351veloppement}{part.5}% 54
+\BOOKMARK [-1][-]{table.caption.6}{Conclusion}{}% 55
