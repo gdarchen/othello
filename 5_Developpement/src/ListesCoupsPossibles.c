@@ -24,15 +24,17 @@ Coups listeCoupsPossibles(Plateau plateau, Couleur couleur){
     i = 0;
     j = 0;
     k = 0;
-    while ((i < 7) && (j < 7) && (k < nbPionsAParcourir)){
-        POS_fixerPosition(i,j,&positionTest);
-        coupTest = CP_creerCoup(positionTest,pionJoueur);
-        if (PL_estCaseVide(plateau,positionTest) && coupValide(plateau,coupTest)){
-            CPS_ajouterCoups(&coupsPossibles,coupTest);
+    for (i = 0; i < 8; i++){
+        for (j = 0;j < 8; j++){
+            if (k < nbPionsAParcourir){
+                POS_fixerPosition(i,j,&positionTest);
+                coupTest = CP_creerCoup(positionTest,pionJoueur);
+                if (PL_estCaseVide(plateau,positionTest) && coupValide(plateau,coupTest)){
+                    CPS_ajouterCoups(&coupsPossibles,coupTest);
+                }
+            }
+
         }
-        k = k+1;
-        i = i+1;
-        j = j+1;
     }
   return coupsPossibles;
 }
