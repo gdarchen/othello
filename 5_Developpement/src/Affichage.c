@@ -5,6 +5,7 @@
 #include "TAD_Plateau.h"
 #include "TAD_Position.h"
 #include "Affichage.h"
+#include "FaireUnePartie.h"
 
 void afficherAide(){
   printf("Aide du programme othello \n"
@@ -20,7 +21,66 @@ void afficherAide(){
 }
 
 void afficherTournoi(Plateau plateau, Coup coup, int aPuJouer,int estPartieFinie){
+  unsigned int nbPionsNoirs,nbPionsBlancs,i,j,ligne;
+  char colonne;
 
+  if(estPartieFinie){
+    nbPions(plateau, &nbPionsNoirs, &nbPionsBlancs);
+    if(nbPionsNoirs==nbPionsBlancs){
+      printf("nulle\n");
+    }
+    else{
+      if(nbPionsNoirs>nbPionsBlancs){
+        printf("noir\n");
+      }
+      else{
+        printf("blanc\n");
+      }
+    }
+  }
+  else{
+    if(!aPuJouer){
+      printf("passe\n");
+    }
+    else{
+      i=POS_obtenirLigne(CP_obtenirPositionCoup(coup));
+      j=POS_obtenirColonne(CP_obtenirPositionCoup(coup));
+      colonne=intToChar(i);
+      ligne=j+1;
+      printf("%c%d\n",colonne,ligne);
+    }
+  }
+}
+
+char intToChar(unsigned int i){
+  char res;
+        switch(i){
+          case 0 :
+            res='a';
+          break;
+          case 1 :
+            res='b';
+          break;
+          case 2 :
+            res='c';
+          break;
+          case 3 :
+            res='d';
+          break;
+          case 4 :
+            res='e';
+          break;
+          case 5 :
+            res='f';
+          break;
+          case 6 :
+            res='g';
+          break;
+          case 7 :
+            res='h';
+          break;
+        }
+    return(res);
 }
 
 void afficherPlateau(Plateau plateau, Coup coup, int aPuJouer,int estPartieFinie){

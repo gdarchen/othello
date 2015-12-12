@@ -33,6 +33,15 @@ void afficherAide();
 void afficherTournoi(Plateau plateau, Coup coup, int aPuJouer,int estPartieFinie);
 
  /**
+  * \fn char intToChar(unsigned int i)
+  * \brief Fonction qui convertit un entier en une lettre
+  *
+  * \param unsigned int i, l'entier à convertir
+  * \return char
+  */
+char intToChar(unsigned int i);
+
+ /**
   * \fn void afficherPlateau(Plateau plateau)
   * \brief Fonction qui affiche l'état du plateau à un instant donné
   *
