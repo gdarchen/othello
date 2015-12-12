@@ -10,21 +10,21 @@
 
 /* Partie publique */
 
-void faireUnePartie(void(*afficherPlateau)(Plateau,Coup), Coup(*getCoup1)(Plateau,Pion), Coup(*getCoup2)(Plateau,Pion), Couleur *joueur, int* estMatchNul)
+void faireUnePartie(void(*afficherPlateau)(Plateau,Coup,int,int), Coup(*getCoup1)(Plateau,Pion), Coup(*getCoup2)(Plateau,Pion), Couleur *joueur, int* estMatchNul)
 {   Plateau plateau=PL_creerPlateau();
     initialiserPlateau(&plateau);
     int aPuJouerJoueur1=TRUE, aPuJouerJoueur2=TRUE;
-    int *estFinie=FALSE;
+    int estFinie=FALSE;
     Couleur couleurJoueur1=CL_blanc(), couleurJoueur2=CL_noir();
     unsigned int nbPionsBlancs=2, nbPionsNoirs=2;
     Coup coupJoueur1, coupJoueur2;
-    afficherPlateau(plateau,coupJoueur1);
+    afficherPlateau(plateau,coupJoueur1,aPuJouerJoueur1,estFinie);
     while (!(estFinie)) {
         jouer(&plateau,&couleurJoueur1,getCoup1,&aPuJouerJoueur1,&coupJoueur1);
-        afficherPlateau(plateau,coupJoueur1);
+        afficherPlateau(plateau,coupJoueur1,aPuJouerJoueur1,estFinie);
         jouer(&plateau,&couleurJoueur2,getCoup2,&aPuJouerJoueur2,&coupJoueur2);
-	       afficherPlateau(plateau,coupJoueur2);
-        finPartie(plateau,aPuJouerJoueur1,aPuJouerJoueur2,&nbPionsNoirs,&nbPionsBlancs,estFinie);
+	      afficherPlateau(plateau,coupJoueur2,aPuJouerJoueur2,estFinie);
+        finPartie(plateau,aPuJouerJoueur1,aPuJouerJoueur2,&nbPionsNoirs,&nbPionsBlancs,&estFinie);
 
     }
     if (nbPionsBlancs==nbPionsNoirs){

@@ -19,11 +19,11 @@ void afficherAide(){
       "\t\t par defaut la profondeur d’analyse est egale a 5\n\n");
 }
 
-void afficherTournoi(Plateau plateau, Coup coup){
+void afficherTournoi(Plateau plateau, Coup coup, int aPuJouer,int estPartieFinie){
 
 }
 
-void afficherPlateau(Plateau plateau, Coup coup){
+void afficherPlateau(Plateau plateau, Coup coup, int aPuJouer,int estPartieFinie){
   int i,j;
   Couleur couleurBlanc, couleurNoir;
   couleurBlanc=CL_blanc();

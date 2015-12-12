@@ -30,7 +30,7 @@ void afficherAide();
   * \param Plateau plateau, le plateau du jeu en cours
   * \param Coup coup, le coup joué
   */
-void afficherTournoi(Plateau plateau, Coup coup);
+void afficherTournoi(Plateau plateau, Coup coup, int aPuJouer,int estPartieFinie);
 
  /**
   * \fn void afficherPlateau(Plateau plateau)
@@ -39,6 +39,6 @@ void afficherTournoi(Plateau plateau, Coup coup);
   * \param Plateau plateau, le plateau du jeu en cours
   * \param Coup coup, le coup joué
   */
-void afficherPlateau(Plateau plateau, Coup coup);
+void afficherPlateau(Plateau plateau, Coup coup, int aPuJouer,int estPartieFinie);
 
   #endif
