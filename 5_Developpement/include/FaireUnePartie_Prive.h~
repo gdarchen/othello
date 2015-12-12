@@ -79,23 +79,25 @@ void jouerCoup(Coup coup, Plateau* plateau);
 void inverserPions(Position pos, Pion pionJoueur, Plateau* plateau);
 
 /**
- * \procedure inverserPionsDir(Plateau* plateau, Position posInitiale, Position posCourante, Direction dirInversion);
+ * \procedure void inverserPionsDir(Plateau* plateau, Position posInitiale, Position posCourante, unsigned int x, unsigned int y)
  * \brief Procedure qui permet de retourner les pions sur le plateau selon une direction donnée
  *
  * \param Plateau* plateau, le plateau de jeu
  * \param Position posInitiale, la position du coup joué
  * \param Position posCourante, la position courante sur le plateau
- * \param  Direction dirInversion, la direction d'inversion
+ * \param unsigned int x, la direction selon l'axe des abscisses
+ * \param unsigned int y, la direction selon l'axe des ordonnées
  * \
  */
 void inverserPionsDir(Plateau* plateau, Position posInitiale, Position posCourante, Direction dirInversion);
 
 /**
- * \procedure void pionEstPresentRecursif(Pion pionJoueur, Direction dirATester, Position* pos, Plateau* plateau, int* pionPresent);
+ * \procedure void pionEstPresentRecursif(Pion pionJoueur, unsigned int x, unsigned int y, Position* pos, Plateau* plateau, int* pionPresent)
  * \brief Procedure qui permet de savoir si un pion est présent sur le plateau selon une direction, et si oui quelle est sa position, de manière récursive à partir de la case à côté de la position initiale
  *
  * \param Pion pionJoueur, le pion représentant le joueur
- * \param Direction dirATester, la direction de recherche
+ * \param unsigned int x, la direction selon l'axe des abscisses
+ * \param unsigned int y, la direction selon l'axe des ordonnées
  * \param Position* pos, la position initiale du pion qui, à la fin de l'exécution de la procédure, renvoit la position du pion trouvé
  * \param Plateau* plateau, le plateau de jeu
  * \param int* pionPresent, qui renvoit 0 si aucun pion conforme n'a été trouvé, 1 sinon
