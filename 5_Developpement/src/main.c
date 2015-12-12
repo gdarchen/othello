@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "FaireUnePartie.h"
 #include "Affichage.h"
 #include "ObtenirCoupIA.h"
@@ -14,12 +15,12 @@ int main(int argc, char** argv){
 	}
 	else
 	{
-		if (argc==2 && argv[1]=="standard"){
+		if (argc==2 && (strcmp(argv[1],"standard")==0)){
 			faireUnePartie(afficherPlateau,obtenirCoupHumain,obtenirCoupIA,&vainqueur,&matchNul);
 		}
 		else
 		{
-			if (argc==2 && argv[1]=="tournoi"){
+			if (argc==2 && (strcmp(argv[1],"tournoi")==0)){
 				faireUnePartie(afficherPlateau,obtenirCoupIA,obtenirCoupIA,&vainqueur,&matchNul);
 			}
 		}

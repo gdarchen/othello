@@ -7,7 +7,7 @@ CC = gcc
 AR = ar
 CFLAGS=-Wall -pedantic -g -std=c99  -I$(INCLUDEDIR)  
 LDFLAGS=-lm -lcurses
-EXEC=faireUnePartie
+EXEC=Othello
 TEST1=TestListeCoupsPossibles
 TEST2=TestTADs
 TEST3=TestFaireUnePartie
