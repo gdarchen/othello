@@ -259,7 +259,7 @@ int main(int argc, char** argv){
         || (NULL == pSuite_finPartie)
         || (NULL == pSuite_jouerCoup)
         || (NULL == pSuite_inverserPionsDir)
-	|| (NULL == pSuite_inverserPions)
+	      || (NULL == pSuite_inverserPions)
         ){
     CU_cleanup_registry();
     return CU_get_error();
@@ -276,7 +276,7 @@ int main(int argc, char** argv){
         || (NULL == CU_add_test(pSuite_finPartie, "Un seul joueur bloqué", test_finPartieUnSeulJoueurBloque)) 
         || (NULL == CU_add_test(pSuite_jouerCoup, "Jouer un coup", test_jouerCoup))
        	|| (NULL == CU_add_test(pSuite_inverserPionsDir, "Inverser pions vers la gauche",test_inverserPionsDir))
-	|| (NULL == CU_add_test(pSuite_inverserPions, "Inverser pions ",test_inverserPions))
+	      || (NULL == CU_add_test(pSuite_inverserPions, "Inverser pions ",test_inverserPions))
         /*|| (NULL == CU_add_test(pSuite_coupValide, "Coup valide, pos initiale dans un coin", test_coupValideCoin))
         || (NULL == CU_add_test(pSuite_coupValide, "Coup valide, pos initiale quelconque", test_coupValideQuelconque))
         || (NULL == CU_add_test(pSuite_listeCoupsPossibles, "Liste des coups possibles au début de jeu", test_listeCoupsPossibles))
