@@ -11,6 +11,8 @@
 #include "ListeCoupsPossibles.h"
 #include "ListeCoupsPossibles_Prive.h"
 #include "FaireUnePartie.h"
+#include "ObtenirCoupIA.h"
+#include "ObtenirCoupIA_Prive.h"
 
 int init_suite_success(void) {
   return 0;
