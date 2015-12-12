@@ -85,35 +85,52 @@ char intToChar(unsigned int i){
 
 void afficherPlateau(Plateau plateau, Coup coup, int aPuJouer,int estPartieFinie){
   int i,j;
+  unsigned int nbPionsNoirs,nbPionsBlancs;
   Couleur couleurBlanc, couleurNoir;
   couleurBlanc=CL_blanc();
   couleurNoir=CL_noir();
-  printf("    0   1   2   3   4   5   6   7 \n");
-  printf("   ———————————————————————————————\n");
-  Position position;
-  for(i=0;i<8;i++){
-    printf("%d |", i);
-    for (j=0;j<8;j++){
-      POS_fixerPosition(i,j,&position);
-      if (!PL_estCaseVide(plateau,position)){
-        if (CL_sontEgales((PI_obtenirCouleur(PL_obtenirPion(plateau,position))),couleurBlanc)){
-          printf("\033[35m" ); // Remplacer 35 par 37 pour du blanc
-          printf(" ● ");
-          printf("\033[0m" );
-          printf("|");
+  if(!estPartieFinie){
+    printf("    0   1   2   3   4   5   6   7 \n");
+    printf("   ———————————————————————————————\n");
+    Position position;
+    for(i=0;i<8;i++){
+      printf("%d |", i);
+      for (j=0;j<8;j++){
+        POS_fixerPosition(i,j,&position);
+        if (!PL_estCaseVide(plateau,position)){
+          if (CL_sontEgales((PI_obtenirCouleur(PL_obtenirPion(plateau,position))),couleurBlanc)){
+            printf("\033[35m" ); // Remplacer 35 par 37 pour du blanc
+            printf(" ● ");
+            printf("\033[0m" );
+            printf("|");
+          }
+          else
+          {
+            if (CL_sontEgales((PI_obtenirCouleur(PL_obtenirPion(plateau,position))),couleurNoir))
+              printf(" ● |");
+          }
         }
         else
         {
-          if (CL_sontEgales((PI_obtenirCouleur(PL_obtenirPion(plateau,position))),couleurNoir))
-            printf(" ● |");
+          printf("   |");
         }
       }
-      else
-      {
-        printf("   |");
+  	  printf("\n   ———————————————————————————————\n");
+    }
+  }
+  else{
+    nbPions(plateau, &nbPionsNoirs, &nbPionsBlancs);
+    if(nbPionsNoirs==nbPionsBlancs){
+      printf("La partie est nulle\n");
+    }
+    else{
+      if(nbPionsNoirs>nbPionsBlancs){
+        printf("Le joueur ayant les pions noirs a gagné\n");
+      }
+      else{
+        printf("Le joueur ayant les pions blancs a gagné\n");
       }
     }
-	  printf("\n   ———————————————————————————————\n");
   }
 }
 

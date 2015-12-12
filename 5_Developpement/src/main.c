@@ -25,8 +25,5 @@ int main(int argc, char** argv){
 		}
 	}
 
-	if (matchNul){
-		printf("MATCH NUL !\n");
-	}
 	return EXIT_SUCCESS;
 }
