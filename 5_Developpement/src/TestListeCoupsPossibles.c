@@ -299,27 +299,27 @@ void test_ObtenirCoupIA(void)
     Position position1,position2,position3,position4,positionCoup1,positionMeilleurcoup;
     Pion pion1=CL_blanc(), pion2=CL_noir(), pion3=CL_noir(), pion4=CL_blanc(),pionCoup1=CL_blanc(),
     pionMeilleurcoup=CL_blanc();
-    
+
     /* Configuration initiale du plateau */
-    
+
     POS_fixerPosition(3,3,&position1);
     POS_fixerPosition(3,4,&position2);
     POS_fixerPosition(4,3,&position3);
     POS_fixerPosition(4,4,&position4);
     POS_fixerPosition(3,2,&positionCoup1);
     POS_fixerPosition(4,2,&positionMeilleurcoup);
-    
+
     PL_poserPion(&plateau,position1,pion1);
     PL_poserPion(&plateau,position2,pion2);
     PL_poserPion(&plateau,position3,pion3);
     PL_poserPion(&plateau,position4,pion4);
-    
+
     coup1=CP_creerCoup(positionCoup1,pionCoup1);
     Meilleurcoup=CP_creerCoup(positionMeilleurcoup,pionMeilleurcoup);
-    
+
     meilleurScore = scoreDUnCoup(plateau,Meilleurcoup,couleurJoueur,couleurJoueur,profondeurMinMax);
     scoreCourant = scoreDUnCoup(plateau,coup1,couleurJoueur,couleurJoueur,profondeurMinMax);
-    
+
     CU_ASSERT_TRUE    ((coupValide(plateau, coup1))
                        && (coupValide(plateau, Meilleurcoup))
                        && (meilleurScore>scoreCourant)
@@ -332,16 +332,16 @@ int main(int argc, char** argv){
     CU_pSuite pSuite_coupValide;
     CU_pSuite pSuite_listeCoupsPossibles;
     CU_pSuite pSuite_ObtenirCoupIA;
-    
+
     /* initialisation du registre de tests */
     if (CUE_SUCCESS != CU_initialize_registry())
         return CU_get_error();
-    
+
     /* ajout des suites de tests */
     pSuite_copierPlateau = CU_add_suite("Tests boite noire : copierPlateau", init_suite_success, clean_suite_success);
     pSuite_coupValide = CU_add_suite("Tests boite noire : coupValide", init_suite_success, clean_suite_success);
     pSuite_listeCoupsPossibles = CU_add_suite("Tests boite noire : listeCoupsPossibles", init_suite_success, clean_suite_success);
-    pSuite_copierPlateau = CU_add_suite("Tests boite noire : ObtenirCoupIA", init_suite_success, clean_suite_success);
+    pSuite_ObtenirCoupIA = CU_add_suite("Tests boite noire : ObtenirCoupIA", init_suite_success, clean_suite_success);
     if ((NULL == pSuite_copierPlateau)
         || (NULL == pSuite_coupValide)
         || (NULL == pSuite_listeCoupsPossibles)
@@ -350,7 +350,7 @@ int main(int argc, char** argv){
         CU_cleanup_registry();
         return CU_get_error();
     }
-    
+
     /* Ajout des tests à la suite de tests boite noire */
     if ((NULL == CU_add_test(pSuite_copierPlateau, "Pions à l'intérieur", test_copierPlateauInterieur))
         || (NULL == CU_add_test(pSuite_copierPlateau, "Pions sur les bords", test_copierPlateauBords))
@@ -363,19 +363,19 @@ int main(int argc, char** argv){
         || (NULL == CU_add_test(pSuite_listeCoupsPossibles, "Liste des coups possibles au début de jeu", test_listeCoupsPossibles))
         || (NULL == CU_add_test(pSuite_listeCoupsPossibles, "Liste de coups possibles vide", test_listeCoupsPossiblesPlateauVide))
         || (NULL == CU_add_test(pSuite_ObtenirCoupIA, "Renvoie le bon coup", test_ObtenirCoupIA))
-        
+
         ){
         CU_cleanup_registry();
         return CU_get_error();
     }
-    
+
     /* Lancement des tests */
     CU_basic_set_mode(CU_BRM_VERBOSE);
     CU_basic_run_tests();
     printf("\n");
     CU_basic_show_failures(CU_get_failure_list());
     printf("\n\n");
-    
+
     /* Nettoyage du registre */
     CU_cleanup_registry();
     return CU_get_error();

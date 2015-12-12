@@ -24,7 +24,7 @@ $(SRCDIR)/%.o : $(SRCDIR)/%.c
 tests:  $(TESTDIR)/$(TEST1) $(TESTDIR)/$(TEST2) $(TESTDIR)/$(TEST3)
 	
 $(TESTDIR)/$(TEST1):$(SRCDIR)/TestListeCoupsPossibles.o $(SRCDIR)/ListesCoupsPossibles.o $(SRCDIR)/FaireUnePartie.o $(SRCDIR)/TAD_Couleur.o  $(SRCDIR)/TAD_Coup.o  $(SRCDIR)/TAD_Coups.o  $(SRCDIR)/TAD_Pion.o  $(SRCDIR)/TAD_Plateau.o  $(SRCDIR)/TAD_Position.o  
-	$(CC) -o $(TESTDIR)/TestListeCoupsPossibles $(SRCDIR)/TestListeCoupsPossibles.o $(SRCDIR)/ListesCoupsPossibles.o $(SRCDIR)/FaireUnePartie.o $(SRCDIR)/TAD_Couleur.o  $(SRCDIR)/TAD_Coup.o  $(SRCDIR)/TAD_Coups.o  $(SRCDIR)/TAD_Pion.o  $(SRCDIR)/TAD_Plateau.o  $(SRCDIR)/TAD_Position.o  $(LDFLAGS) -lcunit
+	$(CC) -o $(TESTDIR)/TestListeCoupsPossibles $(SRCDIR)/TestListeCoupsPossibles.o $(SRCDIR)/ObtenirCoupIA.o $(SRCDIR)/ListesCoupsPossibles.o $(SRCDIR)/FaireUnePartie.o $(SRCDIR)/TAD_Couleur.o  $(SRCDIR)/TAD_Coup.o  $(SRCDIR)/TAD_Coups.o  $(SRCDIR)/TAD_Pion.o  $(SRCDIR)/TAD_Plateau.o  $(SRCDIR)/TAD_Position.o  $(LDFLAGS) -lcunit
 
 $(TESTDIR)/$(TEST2):$(SRCDIR)/TestTADs.o $(SRCDIR)/ListesCoupsPossibles.o $(SRCDIR)/FaireUnePartie.o $(SRCDIR)/TAD_Couleur.o  $(SRCDIR)/TAD_Coup.o  $(SRCDIR)/TAD_Coups.o  $(SRCDIR)/TAD_Pion.o  $(SRCDIR)/TAD_Plateau.o  $(SRCDIR)/TAD_Position.o  
 	$(CC) -o $(TESTDIR)/TestTADs $(SRCDIR)/TestTADs.o  $(SRCDIR)/ListesCoupsPossibles.o $(SRCDIR)/FaireUnePartie.o $(SRCDIR)/TAD_Couleur.o  $(SRCDIR)/TAD_Coup.o  $(SRCDIR)/TAD_Coups.o  $(SRCDIR)/TAD_Pion.o  $(SRCDIR)/TAD_Plateau.o  $(SRCDIR)/TAD_Position.o  $(LDFLAGS) -lcunit
