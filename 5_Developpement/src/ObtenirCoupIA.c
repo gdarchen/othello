@@ -139,6 +139,7 @@ int evaluerPositionsPionsPlateau(Plateau plateau, Couleur couleur){
       }
     }
   }
+  free(grilleScore);
   res=resJoueur-resAdversaire;
   return(res);
 }
