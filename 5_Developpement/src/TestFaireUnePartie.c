@@ -19,6 +19,60 @@ int clean_suite_success(void) {
   return 0;
 }
 
+/* Tests relatifs à inverserPionsDir */
+
+void test_inverserPionsDir(void) {
+  int res;
+  Plateau plateau;
+  Position positionPion,positionTeste;
+  unsigned int x,y;
+  x = 4;
+  y = 5;
+  Pion pionNoir=PI_creerPion(CL_noir());
+  Direction dirTest = GAUCHE;
+  plateau=PL_creerPlateau();
+  initialiserPlateau(&plateau);
+  POS_fixerPosition(x,y,&positionPion);
+  POS_fixerPosition(x,y-1,&positionTeste);
+  PL_poserPion(&plateau, positionPion, pionNoir);
+  inverserPionsDir(&plateau,positionPion,positionTeste,dirTest);
+  res = (CL_sontEgales(PI_obtenirCouleur(PL_obtenirPion(plateau,positionTeste)),CL_noir()));
+
+  CU_ASSERT_TRUE(res==TRUE);
+}
+
+/* Tests relatifs à inverserPions */
+
+void test_inverserPions(void){
+  Position positionPion;
+  Position positionTest1,positionTest2,positionJoue;
+  int res;
+  /* Initialisation situation */
+  Pion pionNoir=PI_creerPion(CL_noir());
+  Pion pionBlanc=PI_creerPion(CL_blanc());
+  Plateau plateau=PL_creerPlateau();
+  initialiserPlateau(&plateau);
+  POS_fixerPosition(3,2,&positionPion);
+  PL_poserPion(&plateau, positionPion, pionNoir);
+  POS_fixerPosition(3,3,&positionPion);
+  PL_poserPion(&plateau, positionPion, pionNoir);
+  POS_fixerPosition(4,2,&positionPion);
+  PL_poserPion(&plateau, positionPion, pionBlanc);
+  POS_fixerPosition(4,3,&positionPion);
+  PL_poserPion(&plateau, positionPion, pionBlanc);
+  /* Test */
+  POS_fixerPosition(2,2,&positionJoue);
+  PL_poserPion(&plateau, positionJoue, pionBlanc);
+  inverserPions(positionJoue, pionBlanc,&plateau);
+  POS_fixerPosition(3,2,&positionTest1);
+  POS_fixerPosition(3,3,&positionTest2);
+  res = (CL_sontEgales(PI_obtenirCouleur(PL_obtenirPion(plateau,positionTest1)),CL_blanc())) && (CL_sontEgales(PI_obtenirCouleur(PL_obtenirPion(plateau,positionTest2)),CL_blanc()));
+
+  CU_ASSERT_TRUE(res==TRUE);
+}
+
+/* Tests relatifs à pionEstPresent */
+
 /* Tests relatifs à initialiserPlateau */
 
 void test_initialiserPlateau(void){
