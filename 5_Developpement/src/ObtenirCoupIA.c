@@ -16,9 +16,9 @@ Coup obtenirCoupIA(Plateau plateau, Couleur couleur){
     Coup coupCourant, meilleurCoup;
     coupsPossibles=listeCoupsPossibles(plateau,couleur);
     if (CPS_nbCoups(coupsPossibles) > 0) {
-        meilleurCoup = CPS_iemeCoup(coupsPossibles,1);
+        meilleurCoup = CPS_iemeCoup(coupsPossibles,0); // Le premier coup de la liste à l'indice 0 ici, contrairement au pseudo-code
         meilleurScore = scoreDUnCoup(plateau,meilleurCoup,couleur,couleur,profondeurMinMax);
-        for (i=2;CPS_nbCoups(coupsPossibles);i++) {
+        for (i=1;CPS_nbCoups(coupsPossibles);i++) { // cf remarque précédente : le 2nd coup est à l'indice 1 etc...
             coupCourant = CPS_iemeCoup(coupsPossibles,i);
             scoreCourant = scoreDUnCoup(plateau,coupCourant,couleur,couleur,profondeurMinMax);
             if (scoreCourant > meilleurScore) {
