@@ -35,7 +35,6 @@ Coups listeCoupsPossibles(Plateau plateau, Couleur couleur){
         j = j+1;
     }
   return coupsPossibles;
-
 }
 
 /* Partie privee  */
