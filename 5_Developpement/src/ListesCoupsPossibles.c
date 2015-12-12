@@ -6,6 +6,7 @@
 #include "FaireUnePartie.h"
 #include "FaireUnePartie_Prive.h"
 #include <math.h>
+#include <string.h>
 
 /* Partie publique  */
 
@@ -38,6 +39,6 @@ int coupValide(Plateau plateau, Coup coup) {
 
 
 void copierPlateau(Plateau plateauACopier, Plateau* plateauCopie){
-  /*plateauCopie = PL_creerPlateau();
-    memcpy(plateauCopie.pions,plateauACopier.pions,sizeof()*/
+    *plateauCopie = PL_creerPlateau();
+    memcpy(plateauCopie,&plateauACopier, sizeof(plateauACopier));
 }
