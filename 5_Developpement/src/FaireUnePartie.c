@@ -10,21 +10,20 @@
 
 /* Partie publique */
 
-void faireUnePartie(void(*afficherPlateau)(Plateau), Coup(*getCoup1)(Plateau,Pion), Coup(*getCoup2)(Plateau,Pion), Couleur *joueur, int* estMatchNul)
+void faireUnePartie(void(*afficherPlateau)(Plateau,Coup), Coup(*getCoup1)(Plateau,Pion), Coup(*getCoup2)(Plateau,Pion), Couleur *joueur, int* estMatchNul)
 {   Plateau plateau=PL_creerPlateau();
     initialiserPlateau(&plateau);
-    int aPuJouerJoueur1=TRUE;
-    int aPuJouerJoueur2=TRUE;
+    int aPuJouerJoueur1=TRUE, aPuJouerJoueur2=TRUE;
     int *estFinie=FALSE;
-    Couleur couleurJoueur1=CL_blanc();
-    Couleur couleurJoueur2=CL_noir();
-    unsigned int nbPionsBlancs=2;
-    unsigned int nbPionsNoirs=2;
-    afficherPlateau(plateau);
+    Couleur couleurJoueur1=CL_blanc(), couleurJoueur2=CL_noir();
+    unsigned int nbPionsBlancs=2, nbPionsNoirs=2;
+    Coup coupJoueur1, coupJoueur2;
+    afficherPlateau(plateau,coupJoueur1);
     while (!(estFinie)) {
-        jouer(&plateau,&couleurJoueur1,getCoup1,&aPuJouerJoueur1);
-        afficherPlateau(plateau);
-        jouer(&plateau,&couleurJoueur2,getCoup2,&aPuJouerJoueur2);
+        jouer(&plateau,&couleurJoueur1,getCoup1,&aPuJouerJoueur1,&coupJoueur1);
+        afficherPlateau(plateau,coupJoueur1);
+        jouer(&plateau,&couleurJoueur2,getCoup2,&aPuJouerJoueur2,&coupJoueur2);
+	       afficherPlateau(plateau,coupJoueur2);
         finPartie(plateau,aPuJouerJoueur1,aPuJouerJoueur2,&nbPionsNoirs,&nbPionsBlancs,estFinie);
 
     }
@@ -63,20 +62,19 @@ void initialiserPlateau(Plateau *plateauDeJeu){
 }
 
 
-void jouer(Plateau* plateau , Couleur* couleurJoueur, Coup(*getCoup)(Plateau,Pion), int* aPuJouer)
+void jouer(Plateau* plateau , Couleur* couleurJoueur, Coup(*getCoup)(Plateau,Pion), int* aPuJouer, Coup* coupJoueur)
 {
     unsigned int i;
     int res;
     Coups coups;
-    Coup coupJoueur;
     res=FALSE;
     Pion pionJoueur;
     pionJoueur=PI_creerPion(*couleurJoueur);
-    coupJoueur=getCoup(*plateau,pionJoueur);
+    *coupJoueur=getCoup(*plateau,pionJoueur);
     coups=listeCoupsPossibles(*plateau,*couleurJoueur);
     for(i=1;i<CPS_nbCoups(coups);i++){
-        if (CP_sontEgaux(CPS_iemeCoup(coups,i),coupJoueur)) {
-            jouerCoup(coupJoueur,plateau);
+        if (CP_sontEgaux(CPS_iemeCoup(coups,i),*coupJoueur)) {
+            jouerCoup(*coupJoueur,plateau);
             res=TRUE;
         }
     }

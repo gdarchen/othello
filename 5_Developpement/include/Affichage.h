@@ -14,6 +14,7 @@
 #include "TAD_Pion.h"
 #include "TAD_Plateau.h"
 #include "TAD_Position.h"
+#include "TAD_Coup.h"
 
  /**
   * \fn void afficherAide()
@@ -23,11 +24,21 @@
 void afficherAide();
 
  /**
+  * \fn void afficherTournoi(Plateau plateau)
+  * \brief Fonction qui joue en mode tournoi en affichant les coups choisis
+  *
+  * \param Plateau plateau, le plateau du jeu en cours
+  * \param Coup coup, le coup joué
+  */
+void afficherTournoi(Plateau plateau, Coup coup);
+
+ /**
   * \fn void afficherPlateau(Plateau plateau)
   * \brief Fonction qui affiche l'état du plateau à un instant donné
   *
   * \param Plateau plateau, le plateau du jeu en cours
+  * \param Coup coup, le coup joué
   */
-void afficherPlateau(Plateau plateau);
+void afficherPlateau(Plateau plateau, Coup coup);
 
   #endif

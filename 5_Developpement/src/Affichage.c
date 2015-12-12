@@ -11,7 +11,7 @@ void afficherAide(){
   "Les options possibles sont : \n"
     "\t othello standard blanc|noir [profondeur>2] \n"
       "\t\t permet de jouer contre l’ordinateur en lui donnant les blancs \n"
-      "\t\t ou les noirs \n" 
+      "\t\t ou les noirs \n"
       "\t\t par defaut la profondeur d’analyse est egale a 5 \n \n"
     "\t othello tournoi blanc|noir [profondeur>2] \n"
       "\t\t permet de faire jouer le programme dans un mode ’tournoi’ en \n"
@@ -19,7 +19,11 @@ void afficherAide(){
       "\t\t par defaut la profondeur d’analyse est egale a 5\n\n");
 }
 
-void afficherPlateau (Plateau plateau){
+void afficherTournoi(Plateau plateau, Coup coup){
+
+}
+
+void afficherPlateau(Plateau plateau, Coup coup){
   int i,j;
   Couleur couleurBlanc, couleurNoir;
   couleurBlanc=CL_blanc();
@@ -75,7 +79,6 @@ int main(int argc, char const *argv[]){
 // Lignes de code pour executer et tester ce fichier :
 // gcc -o src/Affichage.o -c src/Affichage.c -Iinclude -Wall -pedantic -std=c99
 // gcc -o src/TESTTTT src/Affichage.o src/TAD_Couleur.o src/TAD_Pion.o src/TAD_Plateau.o src/TAD_Position.o
-// ./src/TESTTTT 
+// ./src/TESTTTT
 
 */
-

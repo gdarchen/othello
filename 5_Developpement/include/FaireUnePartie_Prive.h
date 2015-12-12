@@ -51,9 +51,10 @@ void initialiserPlateau(Plateau *plateau);
  * \param Couleur* couleurJoueur, la couleur du joueur qui joue le tour
  * \param GETCOUP(*obtenirCoupJoueur)(Plateau,Couleur,Coup), permet d'obtenir le coup du joueur
  * \param int* aPuJouer, booleen qui permet de savoir si le joueur a pu placer son pion ou pas.
+ * \param Coup* coupJoueur, le coup choisi et joué
  * \
  */
-void jouer(Plateau* plateau , Couleur* couleurJoueur, Coup(*obtenirCoupJoueur)(Plateau,Pion), int* aPuJouer);
+void jouer(Plateau* plateau , Couleur* couleurJoueur, Coup(*obtenirCoupJoueur)(Plateau,Pion), int* aPuJouer, Coup* coupJoueur);
 
 
 /**
