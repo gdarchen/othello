@@ -11,9 +11,30 @@
 /* Partie publique  */
 
 Coups listeCoupsPossibles(Plateau plateau, Couleur couleur){
-  Coups ListeCoups;
+    Coups coupsPossibles;
+    Position positionTest;
+    Coup coupTest;
+    Pion pionJoueur;
+    unsigned int nbPionsBlancs,nbPionsNoirs,nbPionsAParcourir,k,i,j;
 
-  return ListeCoups;
+    CPS_creerCoups(&coupsPossibles);
+    pionJoueur = PI_creerPion(couleur);
+    nbPions(plateau,&nbPionsNoirs,&nbPionsBlancs);
+    nbPionsAParcourir = 64-(nbPionsBlancs+nbPionsBlancs);
+    i = 0;
+    j = 0;
+    k = 0;
+    while ((i < 7) && (j < 7) && (k < nbPionsAParcourir)){
+        POS_fixerPosition(i,j,&positionTest);
+        coupTest = CP_creerCoup(positionTest,pionJoueur);
+        if (PL_estCaseVide(plateau,positionTest) && coupValide(plateau,coupTest)){
+            CPS_ajouterCoups(&coupsPossibles,coupTest);
+        }
+        k = k+1;
+        i = i+1;
+        j = j+1;
+    }
+  return coupsPossibles;
 
 }
 
