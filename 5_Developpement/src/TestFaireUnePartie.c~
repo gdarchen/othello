@@ -238,7 +238,8 @@ int main(int argc, char** argv){
     CU_pSuite pSuite_nbPions;
     CU_pSuite pSuite_finPartie;
     CU_pSuite pSuite_jouerCoup;
-    CU_pSuite_inverserPionsDir;
+    CU_pSuite pSuite_inverserPionsDir;
+    CU_pSuite pSuite_inverserPions;
 
     /* initialisation du registre de tests */
     if (CUE_SUCCESS != CU_initialize_registry())
@@ -251,12 +252,14 @@ int main(int argc, char** argv){
     pSuite_finPartie = CU_add_suite("Tests boite noire : finPartie", init_suite_success, clean_suite_success);
     pSuite_jouerCoup = CU_add_suite("Tests boite noire : jouerCoup", init_suite_success, clean_suite_success);
     pSuite_inverserPionsDir = CU_add_suite("Tests boite noire : inverserPionsDir", init_suite_success, clean_suite_success);
+    pSuite_inverserPions = CU_add_suite("Tests boite noire : inverserPions", init_suite_success, clean_suite_success);
     if ((NULL == pSuite_initialiserPlateau)
         || (NULL == pSuite_plateauRempli)
         || (NULL == pSuite_nbPions)
         || (NULL == pSuite_finPartie)
         || (NULL == pSuite_jouerCoup)
-        || (NULL == pSuite__inverserPionsDir)
+        || (NULL == pSuite_inverserPionsDir)
+	|| (NULL == pSuite_inverserPions)
         ){
     CU_cleanup_registry();
     return CU_get_error();
@@ -272,7 +275,8 @@ int main(int argc, char** argv){
         || (NULL == CU_add_test(pSuite_finPartie, "Plateau rempli", test_finPartiePlateauRempli)) 
         || (NULL == CU_add_test(pSuite_finPartie, "Un seul joueur bloqué", test_finPartieUnSeulJoueurBloque)) 
         || (NULL == CU_add_test(pSuite_jouerCoup, "Jouer un coup", test_jouerCoup))
-	|| (NULL == CU_add_test(pSuite_inverserPionsDir, "Inverser pions vers la gauche",test_inverserPionsDir))
+       	|| (NULL == CU_add_test(pSuite_inverserPionsDir, "Inverser pions vers la gauche",test_inverserPionsDir))
+	|| (NULL == CU_add_test(pSuite_inverserPions, "Inverser pions ",test_inverserPions))
         /*|| (NULL == CU_add_test(pSuite_coupValide, "Coup valide, pos initiale dans un coin", test_coupValideCoin))
         || (NULL == CU_add_test(pSuite_coupValide, "Coup valide, pos initiale quelconque", test_coupValideQuelconque))
         || (NULL == CU_add_test(pSuite_listeCoupsPossibles, "Liste des coups possibles au début de jeu", test_listeCoupsPossibles))
