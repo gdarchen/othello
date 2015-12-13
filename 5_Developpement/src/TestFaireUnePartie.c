@@ -41,7 +41,7 @@ void test_inverserPionsDir(void) {
   PL_poserPion(&plateau, positionTeste, pionBlanc);
   PL_poserPion(&plateau, positionPion2, pionNoir);
 
-  inverserPionsDir(&plateau,positionPion2,positionPion,dirTest);
+  inverserPionsDir(&plateau,positionPion,positionPion2,dirTest);
   res = (CL_sontEgales(PI_obtenirCouleur(PL_obtenirPion(plateau,positionTeste)),CL_noir()));
 
   CU_ASSERT_TRUE(res==TRUE);
