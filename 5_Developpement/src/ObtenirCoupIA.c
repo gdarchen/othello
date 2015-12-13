@@ -4,6 +4,7 @@
 #include "ListeCoupsPossibles.h"
 #include "TAD_Coups.h"
 #include <stdlib.h>
+#include <stdio.h>
 
 #define INFINI 10000 /* Valeur affectée pour signifier qu'un coup est gagnant. */
 
@@ -121,10 +122,24 @@ int evaluerNbPionsCouleur(Plateau plateau, Couleur couleur){
 }
 
 int evaluerPositionsPionsPlateau(Plateau plateau, Couleur couleur){
-  int** grilleScore=initialiserGrilleScore();
+  int grilleScore[8][8];
   unsigned int i,j;
   Position pos;
   int resJoueur,resAdversaire,res;
+
+
+  for(i=1;i<9;i++){
+    printf("i=%d \n",i);
+    for(j=1;j<9;j++){
+      printf("j=%d \n",j);
+      grilleScore[i-1][j-1]=500;
+      printf("Fait \n");
+    } /*FinPour*/
+  } /*FinPour*/
+
+
+
+  printf("Fait : 1");
 
   resJoueur=0;
   resAdversaire=0;
@@ -139,7 +154,6 @@ int evaluerPositionsPionsPlateau(Plateau plateau, Couleur couleur){
       }
     }
   }
-  free(grilleScore);
   res=resJoueur-resAdversaire;
   return(res);
 }
@@ -148,9 +162,6 @@ int evaluerPositionsPionsPlateau(Plateau plateau, Couleur couleur){
 int** initialiserGrilleScore(){
   unsigned int i,j;
   int** grilleScore=(int**)malloc(8*sizeof(int*)); /* allocation des colonnes */
-
-  for(i=0;i<8;i++)
-		grilleScore[i] = (int*) malloc(8*sizeof(int)); /* allocation du nombre de cases par colonnes */
 
 
   for(i=1;i<9;i++){
@@ -202,6 +213,7 @@ int** initialiserGrilleScore(){
       } /*FinSi*/
     } /*FinPour*/
   } /*FinPour*/
+
   return(grilleScore);
 }
 

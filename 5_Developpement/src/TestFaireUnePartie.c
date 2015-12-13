@@ -262,10 +262,7 @@ int main(int argc, char** argv){
         || (NULL == pSuite_jouerCoup)
         || (NULL == pSuite_inverserPions)
         || (NULL == pSuite_inverserPionsDir)
-<<<<<<< HEAD
 	      || (NULL == pSuite_inverserPions)
-=======
->>>>>>> accc1afcf822dda92aedf8646cc39638565c25ee
         ){
     CU_cleanup_registry();
     return CU_get_error();
@@ -281,13 +278,10 @@ int main(int argc, char** argv){
         || (NULL == CU_add_test(pSuite_finPartie, "Plateau rempli", test_finPartiePlateauRempli))
         || (NULL == CU_add_test(pSuite_finPartie, "Un seul joueur bloqué", test_finPartieUnSeulJoueurBloque))
         || (NULL == CU_add_test(pSuite_jouerCoup, "Jouer un coup", test_jouerCoup))
-<<<<<<< HEAD
        	|| (NULL == CU_add_test(pSuite_inverserPionsDir, "Inverser pions vers la gauche",test_inverserPionsDir))
 	      || (NULL == CU_add_test(pSuite_inverserPions, "Inverser pions ",test_inverserPions))
-=======
         || (NULL == CU_add_test(pSuite_inverserPions, "Inverser pions ",test_inverserPions))
        	|| (NULL == CU_add_test(pSuite_inverserPionsDir, "Inverser pions vers le bas",test_inverserPionsDir))
->>>>>>> accc1afcf822dda92aedf8646cc39638565c25ee
         /*|| (NULL == CU_add_test(pSuite_coupValide, "Coup valide, pos initiale dans un coin", test_coupValideCoin))
         || (NULL == CU_add_test(pSuite_coupValide, "Coup valide, pos initiale quelconque", test_coupValideQuelconque))
         || (NULL == CU_add_test(pSuite_listeCoupsPossibles, "Liste des coups possibles au début de jeu", test_listeCoupsPossibles))
