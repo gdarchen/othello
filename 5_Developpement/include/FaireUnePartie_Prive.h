@@ -23,7 +23,7 @@
  */
 
 
- /* Introduction d'un TAD privé Direction */
+ /* Introduction d'un type privé Direction */
 
  typedef enum {GAUCHE,DROITE,HAUT,BAS,DIAGGH,DIAGGB,DIAGDH,DIAGDB} Direction;
 
