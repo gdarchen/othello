@@ -202,7 +202,7 @@ void test_finPartiePlateauRempli(void){
   int aPuJouerJoueur1 = TRUE, aPuJouerJoueur2 = TRUE;
   int estFinie = FALSE;
   unsigned int nbPionsNoirs = 0, nbPionsBlancs = 0;
-  int i,j;
+  unsigned int i,j;
   for(i=0;i<8;i++){
     for(j=0;j<8;j++){
       POS_fixerPosition(i,j,&pos);
