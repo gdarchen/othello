@@ -248,7 +248,7 @@ int main(int argc, char** argv){
         return CU_get_error();
 
     /* ajout des suites de tests */
-    pSuite_initialiserPlateau = CU_add_suite("Tests boite noire : copierPlateau", init_suite_success, clean_suite_success);
+    pSuite_initialiserPlateau = CU_add_suite("Tests boite noire : initialiserPlateau", init_suite_success, clean_suite_success);
     pSuite_plateauRempli = CU_add_suite("Tests boite noire : plateauRempli", init_suite_success, clean_suite_success);
     pSuite_nbPions = CU_add_suite("Tests boite noire : nbPions", init_suite_success, clean_suite_success);
     pSuite_finPartie = CU_add_suite("Tests boite noire : finPartie", init_suite_success, clean_suite_success);
