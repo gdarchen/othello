@@ -24,19 +24,20 @@ int clean_suite_success(void) {
 void test_inverserPionsDir(void) {
   int res;
   Plateau plateau;
-  Position positionPion,positionTeste;
-  unsigned int x,y;
-  x = 4;
-  y = 5;
-  Pion pionNoir=PI_creerPion(CL_noir());
-  Direction dirTest = GAUCHE;
+  Position positionPion,positionTeste,positionChangee;
+  Pion pionBlanc=PI_creerPion(CL_blanc());
+  Direction dirTest = BAS;
+
   plateau=PL_creerPlateau();
   initialiserPlateau(&plateau);
-  POS_fixerPosition(x,y,&positionPion);
-  POS_fixerPosition(x,y-1,&positionTeste);
-  PL_poserPion(&plateau, positionPion, pionNoir);
+
+  POS_fixerPosition(2,4,&positionTeste);
+  PL_poserPion(&plateau, positionTeste, pionBlanc);
+
+  POS_fixerPosition(3,4,&positionChangee);
+
   inverserPionsDir(&plateau,positionPion,positionTeste,dirTest);
-  res = (CL_sontEgales(PI_obtenirCouleur(PL_obtenirPion(plateau,positionTeste)),CL_noir()));
+  res = (CL_sontEgales(PI_obtenirCouleur(PL_obtenirPion(plateau,positionChangee)),CL_blanc()));
 
   CU_ASSERT_TRUE(res==TRUE);
 }
@@ -60,10 +61,11 @@ void test_inverserPions(void){
   PL_poserPion(&plateau, positionPion, pionBlanc);
   POS_fixerPosition(4,3,&positionPion);
   PL_poserPion(&plateau, positionPion, pionBlanc);
+
   /* Test */
   POS_fixerPosition(2,2,&positionJoue);
   PL_poserPion(&plateau, positionJoue, pionBlanc);
-  inverserPions(positionJoue, pionBlanc,&plateau);
+  inverserPions(positionJoue,pionBlanc,&plateau);
   POS_fixerPosition(3,2,&positionTest1);
   POS_fixerPosition(3,3,&positionTest2);
   res = (CL_sontEgales(PI_obtenirCouleur(PL_obtenirPion(plateau,positionTest1)),CL_blanc())) && (CL_sontEgales(PI_obtenirCouleur(PL_obtenirPion(plateau,positionTest2)),CL_blanc()));
@@ -251,15 +253,19 @@ int main(int argc, char** argv){
     pSuite_nbPions = CU_add_suite("Tests boite noire : nbPions", init_suite_success, clean_suite_success);
     pSuite_finPartie = CU_add_suite("Tests boite noire : finPartie", init_suite_success, clean_suite_success);
     pSuite_jouerCoup = CU_add_suite("Tests boite noire : jouerCoup", init_suite_success, clean_suite_success);
-    pSuite_inverserPionsDir = CU_add_suite("Tests boite noire : inverserPionsDir", init_suite_success, clean_suite_success);
     pSuite_inverserPions = CU_add_suite("Tests boite noire : inverserPions", init_suite_success, clean_suite_success);
+    pSuite_inverserPionsDir = CU_add_suite("Tests boite noire : inverserPionsDir", init_suite_success, clean_suite_success);
     if ((NULL == pSuite_initialiserPlateau)
         || (NULL == pSuite_plateauRempli)
         || (NULL == pSuite_nbPions)
         || (NULL == pSuite_finPartie)
         || (NULL == pSuite_jouerCoup)
+        || (NULL == pSuite_inverserPions)
         || (NULL == pSuite_inverserPionsDir)
+<<<<<<< HEAD
 	      || (NULL == pSuite_inverserPions)
+=======
+>>>>>>> accc1afcf822dda92aedf8646cc39638565c25ee
         ){
     CU_cleanup_registry();
     return CU_get_error();
@@ -271,12 +277,17 @@ int main(int argc, char** argv){
         || (NULL == CU_add_test(pSuite_plateauRempli, "Plateau non rempli", test_plateauRempliFaux))
         || (NULL == CU_add_test(pSuite_nbPions, "Plateau rempli de pions noirs", test_nbPionsPlateauRempli))
         || (NULL == CU_add_test(pSuite_nbPions, "Plateau initial", test_nbPionsPlateauInitial))
-        || (NULL == CU_add_test(pSuite_finPartie, "Joueurs bloqués", test_finPartieJoueursBloques)) 
-        || (NULL == CU_add_test(pSuite_finPartie, "Plateau rempli", test_finPartiePlateauRempli)) 
-        || (NULL == CU_add_test(pSuite_finPartie, "Un seul joueur bloqué", test_finPartieUnSeulJoueurBloque)) 
+        || (NULL == CU_add_test(pSuite_finPartie, "Joueurs bloqués", test_finPartieJoueursBloques))
+        || (NULL == CU_add_test(pSuite_finPartie, "Plateau rempli", test_finPartiePlateauRempli))
+        || (NULL == CU_add_test(pSuite_finPartie, "Un seul joueur bloqué", test_finPartieUnSeulJoueurBloque))
         || (NULL == CU_add_test(pSuite_jouerCoup, "Jouer un coup", test_jouerCoup))
+<<<<<<< HEAD
        	|| (NULL == CU_add_test(pSuite_inverserPionsDir, "Inverser pions vers la gauche",test_inverserPionsDir))
 	      || (NULL == CU_add_test(pSuite_inverserPions, "Inverser pions ",test_inverserPions))
+=======
+        || (NULL == CU_add_test(pSuite_inverserPions, "Inverser pions ",test_inverserPions))
+       	|| (NULL == CU_add_test(pSuite_inverserPionsDir, "Inverser pions vers le bas",test_inverserPionsDir))
+>>>>>>> accc1afcf822dda92aedf8646cc39638565c25ee
         /*|| (NULL == CU_add_test(pSuite_coupValide, "Coup valide, pos initiale dans un coin", test_coupValideCoin))
         || (NULL == CU_add_test(pSuite_coupValide, "Coup valide, pos initiale quelconque", test_coupValideQuelconque))
         || (NULL == CU_add_test(pSuite_listeCoupsPossibles, "Liste des coups possibles au début de jeu", test_listeCoupsPossibles))
