@@ -412,6 +412,7 @@ void test_evaluerNbPionsCouleur(void){
 
 
 void test_evaluerPositionsPionsPlateau(void){
+    int** grilleScore=initialiserGrilleScore();
     Plateau plateau=PL_creerPlateau();
     Couleur couleurJoueur=CL_blanc();
     Position position1,position2,position3,position4,positionCoup1,positionCoup2;
@@ -435,10 +436,10 @@ void test_evaluerPositionsPionsPlateau(void){
     PL_poserPion(&plateau,positionCoup1,pionCoup1);
     PL_poserPion(&plateau,positionCoup2,pionCoup2);
 
-    resJoueurTEST=34;
-    resAdversaireTEST=32;
+    resJoueurTEST=grilleScore[3][3]+grilleScore[4][4]+grilleScore[3][2]+grilleScore[4][2];
+    resAdversaireTEST=grilleScore[3][4]+grilleScore[4][3];
 
-    CU_ASSERT_TRUE(evaluerPositionsPionsPlateau(plateau,couleurJoueur)==(resJoueurTEST-resAdversaireTEST));
+    CU_ASSERT_TRUE ( evaluerPositionsPionsPlateau(plateau,couleurJoueur)==(resJoueurTEST-resAdversaireTEST));
 
 }
 
@@ -461,14 +462,14 @@ int main(int argc, char** argv){
     pSuite_copierPlateau = CU_add_suite("Tests boite noire : copierPlateau", init_suite_success, clean_suite_success);
     pSuite_coupValide = CU_add_suite("Tests boite noire : coupValide", init_suite_success, clean_suite_success);
     pSuite_listeCoupsPossibles = CU_add_suite("Tests boite noire : listeCoupsPossibles", init_suite_success, clean_suite_success);
-    /*pSuite_ObtenirCoupIA = CU_add_suite("Tests boite noire : ObtenirCoupIA", init_suite_success, clean_suite_success);
-    pSuite_scoreDUnCoup = CU_add_suite("Tests boite noire : scoreDUnCoup", init_suite_success, clean_suite_success);*/
+    pSuite_ObtenirCoupIA = CU_add_suite("Tests boite noire : ObtenirCoupIA", init_suite_success, clean_suite_success);
+    pSuite_scoreDUnCoup = CU_add_suite("Tests boite noire : scoreDUnCoup", init_suite_success, clean_suite_success);
     pSuite_evaluerPlateau = CU_add_suite("Tests boite noire : evaluerPlateau", init_suite_success, clean_suite_success);
     if ((NULL == pSuite_copierPlateau)
         || (NULL == pSuite_coupValide)
         || (NULL == pSuite_listeCoupsPossibles)
-        /*|| (NULL == pSuite_ObtenirCoupIA)
-        || (NULL == pSuite_scoreDUnCoup)*/
+        || (NULL == pSuite_ObtenirCoupIA)
+        || (NULL == pSuite_scoreDUnCoup)
         || (NULL == pSuite_evaluerPlateau)
         ){
         CU_cleanup_registry();
@@ -486,8 +487,8 @@ int main(int argc, char** argv){
         || (NULL == CU_add_test(pSuite_coupValide, "Coup valide, pos initiale quelconque", test_coupValideQuelconque))
         || (NULL == CU_add_test(pSuite_listeCoupsPossibles, "Liste des coups possibles au début de jeu", test_listeCoupsPossibles))
         || (NULL == CU_add_test(pSuite_listeCoupsPossibles, "Liste de coups possibles vide", test_listeCoupsPossiblesPlateauVide))
-        /*|| (NULL == CU_add_test(pSuite_ObtenirCoupIA, "Renvoie le bon coup", test_ObtenirCoupIA))
-        || (NULL == CU_add_test(pSuite_scoreDUnCoup, "calcul le bon score du coup", test_scoreDUnCoup))*/
+        || (NULL == CU_add_test(pSuite_ObtenirCoupIA, "Renvoie le bon coup", test_ObtenirCoupIA))
+        || (NULL == CU_add_test(pSuite_scoreDUnCoup, "calcul le bon score du coup", test_scoreDUnCoup))
         || (NULL == CU_add_test(pSuite_evaluerPlateau, "evaluer le nombre de coups possibles de l'adversaire", test_evaluerNbCoupsPossiblesAdversaire))
         || (NULL == CU_add_test(pSuite_evaluerPlateau, "evaluer le nombre de pions de la meme couleur", test_evaluerNbPionsCouleur))
         || (NULL == CU_add_test(pSuite_evaluerPlateau, "evaluer la position des pions sur le plateau", test_evaluerPositionsPionsPlateau))

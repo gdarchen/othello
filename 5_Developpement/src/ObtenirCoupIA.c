@@ -122,24 +122,10 @@ int evaluerNbPionsCouleur(Plateau plateau, Couleur couleur){
 }
 
 int evaluerPositionsPionsPlateau(Plateau plateau, Couleur couleur){
-  int grilleScore[8][8];
+  int** grilleScore=initialiserGrilleScore();
   unsigned int i,j;
   Position pos;
   int resJoueur,resAdversaire,res;
-
-
-  for(i=1;i<9;i++){
-    printf("i=%d \n",i);
-    for(j=1;j<9;j++){
-      printf("j=%d \n",j);
-      grilleScore[i-1][j-1]=500;
-      printf("Fait \n");
-    } /*FinPour*/
-  } /*FinPour*/
-
-
-
-  printf("Fait : 1");
 
   resJoueur=0;
   resAdversaire=0;
@@ -154,6 +140,7 @@ int evaluerPositionsPionsPlateau(Plateau plateau, Couleur couleur){
       }
     }
   }
+  free(grilleScore);
   res=resJoueur-resAdversaire;
   return(res);
 }
@@ -163,42 +150,45 @@ int** initialiserGrilleScore(){
   unsigned int i,j;
   int** grilleScore=(int**)malloc(8*sizeof(int*)); /* allocation des colonnes */
 
+  for(i=0;i<8;i++)
+		grilleScore[i] = (int*) malloc(8*sizeof(int)); /* allocation du nombre de cases par colonnes */
+
 
   for(i=1;i<9;i++){
     for(j=1;j<9;j++){
-      if(((i=1) && (j=1)) || ((i=1) && (j=8)) || ((i=8) && (j=1)) || ((i=8) && (j=8))){
+      if(((i==1) && (j==1)) || ((i==1) && (j==8)) || ((i==8) && (j==1)) || ((i==8) && (j==8))){
         grilleScore[i-1][j-1]=500;
       }
       else{
-        if(((i=1) && (j=2)) || ((i=2) && (j=1)) || ((i=8) && (j=7)) || ((i=7) && (j=8))
-          || ((i=7) && (j=1)) || ((i=8) && (j=2)) || ((i=1) && (j=7)) || ((i=2) && (j=8))){
+        if(((i==1) && (j==2)) || ((i==2) && (j==1)) || ((i==8) && (j==7)) || ((i==7) && (j==8))
+          || ((i==7) && (j==1)) || ((i==8) && (j==2)) || ((i==1) && (j==7)) || ((i==2) && (j==8))){
           grilleScore[i-1][j-1]=-150;
         }
         else {
-          if(((i=1) && (j=3)) || ((i=3) && (j=1)) || ((i=8) && (j=6)) || ((i=6) && (j=8))
-          || ((i=6) && (j=1)) || ((i=8) && (j=3)) || ((i=1) && (j=6)) || ((i=3) && (j=8))){
+          if(((i==1) && (j==3)) || ((i==3) && (j==1)) || ((i==8) && (j==6)) || ((i==6) && (j==8))
+          || ((i==6) && (j==1)) || ((i==8) && (j==3)) || ((i==1) && (j==6)) || ((i==3) && (j==8))){
           grilleScore[i-1][j-1]=30;
           }
           else {
-            if(((i=1) && (j=4)) || ((i=4) && (j=1)) || ((i=8) && (j=5)) || ((i=5) && (j=8))
-            || ((i=5) && (j=1)) || ((i=8) && (j=4)) || ((i=1) && (j=5)) || ((i=4) && (j=8))){
+            if(((i==1) && (j==4)) || ((i==4) && (j==1)) || ((i==8) && (j==5)) || ((i==5) && (j==8))
+            || ((i==5) && (j==1)) || ((i==8) && (j==4)) || ((i==1) && (j==5)) || ((i==4) && (j==8))){
             grilleScore[i-1][j-1]=10;
             }
             else {
-              if(((i=2) && (j=2)) || ((i=2) && (j=7)) || ((i=7) && (j=2)) || ((i=7) && (j=7))){
+              if(((i==2) && (j==2)) || ((i==2) && (j==7)) || ((i==7) && (j==2)) || ((i==7) && (j==7))){
                 grilleScore[i-1][j-1]=-250;
               }
               else {
-                if(((i=3) && (j=3)) || ((i=3) && (j=6)) || ((i=6) && (j=3)) || ((i=6) && (j=6))){
+                if(((i==3) && (j==3)) || ((i==3) && (j==6)) || ((i==6) && (j==3)) || ((i==6) && (j==6))){
                   grilleScore[i-1][j-1]=1;
                 }
                 else {
-                  if(((i=4) && (j=4)) || ((i=4) && (j=5)) || ((i=5) && (j=4)) || ((i=5) && (j=5))){
+                  if(((i==4) && (j==4)) || ((i==4) && (j==5)) || ((i==5) && (j==4)) || ((i==5) && (j==5))){
                     grilleScore[i-1][j-1]=16;
                   }
                   else {
-                    if(((i=4) && (j=3)) || ((i=5) && (j=3)) || ((i=3) && (j=4)) || ((i=3) && (j=5))
-                    || ((i=6) && (j=4)) || ((i=6) && (j=5)) || ((i=4) && (j=6)) || ((i=5) && (j=6))){
+                    if(((i==4) && (j==3)) || ((i==5) && (j==3)) || ((i==3) && (j==4)) || ((i==3) && (j==5))
+                    || ((i==6) && (j==4)) || ((i==6) && (j==5)) || ((i==4) && (j==6)) || ((i==5) && (j==6))){
                       grilleScore[i-1][j-1]=2;
                     }
                     else {
@@ -213,7 +203,6 @@ int** initialiserGrilleScore(){
       } /*FinSi*/
     } /*FinPour*/
   } /*FinPour*/
-
   return(grilleScore);
 }
 
