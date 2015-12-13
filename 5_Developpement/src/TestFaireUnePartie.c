@@ -24,7 +24,7 @@ int clean_suite_success(void) {
 void test_inverserPionsDir(void) {
   int res;
   Plateau plateau;
-  Position positionPion,positionTeste,positionChangee;
+  Position positionTeste,positionChangee;
   Pion pionBlanc=PI_creerPion(CL_blanc());
   Direction dirTest = BAS;
 

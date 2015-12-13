@@ -62,14 +62,10 @@ int coupValide(Plateau plateau, Coup coup) {
 
 
 void copierPlateau(Plateau plateauACopier, Plateau* plateauCopie){
-<<<<<<< HEAD
-    *plateauCopie = PL_creerPlateau();
-    memcpy(plateauCopie,&plateauACopier, sizeof(Plateau));
-=======
+
     *plateauCopie=PL_creerPlateau();
-    unsigned int i,j;
     memcpy(&(plateauCopie->pions),&(plateauACopier.pions),sizeof(Pion)*8*8);
     memcpy(&(plateauCopie->presencePions),&(plateauACopier.presencePions),sizeof(int)*8*8);
 
->>>>>>> 97f4437ef69f6ebbda5b702febff82bab6e05d18
+
 }
