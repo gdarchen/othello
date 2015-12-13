@@ -108,14 +108,20 @@ void inverserPions(Position pos, Pion pionJoueur, Plateau* plateau){
 
 
 void inverserPionsDir(Plateau* plateau, Position posInitiale, Position posCourante, Direction dirInversion){
-    Position posSuivante = posCourante;
+    Position posSuivante=posCourante;
     unsigned int inew,jnew;
     inew=POS_obtenirLigne(DIR_positionSelonDirection(posSuivante,dirInversion));
+    printf("1");
     jnew=POS_obtenirColonne(DIR_positionSelonDirection(posSuivante,dirInversion));
+    printf("2");
     if (!(POS_sontEgales(posInitiale,posCourante))){
+        printf("3");
         PL_inverserPion(plateau,posCourante);
+        printf("4");
         POS_fixerPosition(inew,jnew,&posSuivante);
+        printf("5");
         inverserPionsDir(plateau,posInitiale,posSuivante,dirInversion);
+        printf("6\n");
     }
 }
 
