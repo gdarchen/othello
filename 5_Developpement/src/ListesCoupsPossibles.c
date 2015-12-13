@@ -62,5 +62,5 @@ int coupValide(Plateau plateau, Coup coup) {
 
 void copierPlateau(Plateau plateauACopier, Plateau* plateauCopie){
     *plateauCopie = PL_creerPlateau();
-    memcpy(plateauCopie,&plateauACopier, sizeof(plateauACopier));
+    memcpy(plateauCopie,&plateauACopier, sizeof(Plateau));
 }

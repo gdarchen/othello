@@ -94,7 +94,7 @@ void test_initialiserPlateau(void){
         if (PL_estCaseVide(plateau,pos)){
           res=FALSE;
         }
-        else if(CL_sontEgales(PI_obtenirCouleur(PL_obtenirPion(plateau,pos)),CL_blanc())){
+        else if(!CL_sontEgales(PI_obtenirCouleur(PL_obtenirPion(plateau,pos)),CL_blanc())){
           res=FALSE;
         }
       }
@@ -102,7 +102,7 @@ void test_initialiserPlateau(void){
         if (PL_estCaseVide(plateau,pos)){
           res=FALSE;
         }
-        else if(CL_sontEgales(PI_obtenirCouleur(PL_obtenirPion(plateau,pos)),CL_noir())){
+        else if(!CL_sontEgales(PI_obtenirCouleur(PL_obtenirPion(plateau,pos)),CL_noir())){
           res=FALSE;
         }
       }

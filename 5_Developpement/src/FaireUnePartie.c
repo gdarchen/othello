@@ -199,7 +199,7 @@ void nbPions (Plateau plateau, unsigned int* nbPionsNoirs, unsigned int* nbPions
 
 int plateauRempli(Plateau plateau){
     int res = TRUE;
-    int i,j;
+    unsigned int i,j;
     Position position;
     for(i=0;i<8;i++){
         for(j=0;j<8;j++){
