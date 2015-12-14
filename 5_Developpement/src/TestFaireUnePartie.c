@@ -220,18 +220,21 @@ void test_finPartiePlateauRempli(void){
 void test_jouerCoup(void){
   Plateau plateau;
   Coup coup;
-  Position position;
+  Position position,positionPionRetourne;
   Pion pion;
   Couleur blanc=CL_blanc();
   plateau=PL_creerPlateau();
   initialiserPlateau(&plateau);
   pion=PI_creerPion(blanc);
   POS_fixerPosition(2,4,&position);
+  POS_fixerPosition(3,4,&positionPionRetourne);
   coup=CP_creerCoup(position, pion);
 
   jouerCoup(coup,&plateau);
 
-  CU_ASSERT_TRUE( !(PL_estCaseVide(plateau,position)) && PI_sontEgaux(PL_obtenirPion(plateau,position),pion) );
+  CU_ASSERT_TRUE( !(PL_estCaseVide(plateau,position))
+                  && PI_sontEgaux(PL_obtenirPion(plateau,position),pion)
+                  && CL_sontEgales(PI_obtenirCouleur(PL_obtenirPion(plateau,positionPionRetourne)),CL_blanc()));
 }
 
 
