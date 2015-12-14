@@ -121,7 +121,7 @@ void test_initialiserPlateau(void){
 void test_plateauRempliVrai(void){
   unsigned int i,j,x,y;
   Position position;
-  Pion pion=CL_noir();
+  Pion pion=PI_creerPion(CL_noir());
   Plateau plateau;
   plateau=PL_creerPlateau();
   for(i=1;i<9;i++){

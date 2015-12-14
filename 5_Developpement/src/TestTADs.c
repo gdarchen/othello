@@ -88,7 +88,7 @@ void test_iemeCoup(void){
     Coup cp;
     Coups coupsTest;
     POS_fixerPosition(0,0,&positionTest);
-    cp = CP_creerCoup(positionTest,CL_blanc());
+    cp = CP_creerCoup(positionTest,PI_creerPion(CL_blanc()));
     CPS_creerCoups(&coupsTest);
     CPS_ajouterCoups(&coupsTest,cp);
     CU_ASSERT_TRUE(CP_sontEgaux(CPS_iemeCoup(coupsTest,CPS_nbCoups(coupsTest)-1),cp));
