@@ -285,28 +285,28 @@ int DIR_deplacementValide(Position pos, Direction dirDeplacement){
     j = POS_obtenirColonne(pos);
     switch(dirDeplacement){
         case GAUCHE :
-            valide = (i >= 1);
-            break;
-        case DROITE :
-            valide = (i <= 6);
-            break;
-        case HAUT :
-            valide = (j <= 6);
-            break;
-        case BAS :
             valide = (j >= 1);
             break;
-        case DIAGGH :
-            valide = ((i >= 1) && (j <= 6));
+        case DROITE :
+            valide = (j <= 6);
             break;
-        case DIAGGB :
+        case HAUT :
+            valide = (i >= 1);
+            break;
+        case BAS :
+            valide = (i <= 6);
+            break;
+        case DIAGGH :
             valide = ((i >= 1) && (j >= 1));
             break;
+        case DIAGGB :
+            valide = ((i <= 6) && (j >= 1));
+            break;
         case DIAGDH :
-            valide = ((i <= 6) && (j <= 6));
+            valide = ((i >= 1) && (j <= 6));
             break;
         case DIAGDB :
-            valide = ((i <= 6) && (j >= 1));
+            valide = ((i <= 6) && (j <= 6));
             break;
     }
     return valide;
