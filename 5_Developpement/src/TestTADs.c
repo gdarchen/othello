@@ -62,7 +62,7 @@ void test_retournerPion(void){  // Axiome 2 reformulé
     couleurAvant = PI_obtenirCouleur(pionTest);
     PI_retournerPion(&pionTest);
     couleurApres = PI_obtenirCouleur(pionTest);
-    CU_ASSERT_TRUE(CL_sontEgales(couleurAvant,couleurApres));
+    CU_ASSERT_TRUE(!CL_sontEgales(couleurAvant,couleurApres));
 }
 
 

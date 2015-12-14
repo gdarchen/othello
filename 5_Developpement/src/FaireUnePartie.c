@@ -111,9 +111,8 @@ void inverserPionsDir(Plateau* plateau, Position posInitiale, Position posCouran
     Position posSuivante=posCourante;
     unsigned int inew,jnew;
     inew=POS_obtenirLigne(DIR_positionSelonDirection(posSuivante,dirInversion));
-    printf("inew : %d \n",inew);
     jnew=POS_obtenirColonne(DIR_positionSelonDirection(posSuivante,dirInversion));
-    printf("jnew : %d \n",jnew);
+
     if (!(POS_sontEgales(posInitiale,posCourante))){
         PL_inverserPion(plateau,posCourante);
         POS_fixerPosition(inew,jnew,&posSuivante);

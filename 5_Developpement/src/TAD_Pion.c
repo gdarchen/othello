@@ -18,7 +18,7 @@ void PI_retournerPion(Pion* pion){
   Couleur couleur;
   couleur=PI_obtenirCouleur(*pion);
   CL_changerCouleur(couleur);
-  pion=&couleur;
+  *pion=PI_creerPion(couleur);
 }
 
 int PI_sontEgaux(Pion pion1, Pion pion2){
