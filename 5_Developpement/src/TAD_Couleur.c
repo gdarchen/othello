@@ -11,10 +11,12 @@ Couleur CL_noir(){
 }
 
 Couleur CL_changerCouleur(Couleur couleur){
-	if (couleur==BLANC)
-		return NOIR;
-	else
-		return BLANC;
+	if (CL_sontEgales(couleur,CL_blanc())){
+		return CL_noir();
+	}
+	else {
+		return CL_blanc();
+	}
 }
 
 int CL_sontEgales(Couleur couleur1, Couleur couleur2){

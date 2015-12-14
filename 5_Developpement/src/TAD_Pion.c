@@ -1,5 +1,6 @@
 #include "TAD_Couleur.h"
 #include "TAD_Pion.h"
+#include <stdio.h>
 
 /* Partie publique */
 
@@ -14,10 +15,10 @@ Couleur PI_obtenirCouleur(Pion pion){
 }
 
 void PI_retournerPion(Pion* pion){
-  Couleur couleurAChanger;
+  Couleur couleurAChanger,nouvelleCouleur;
   couleurAChanger=PI_obtenirCouleur(*pion);
-  CL_changerCouleur(couleurAChanger);
-  pion->couleur=couleurAChanger;
+  nouvelleCouleur=CL_changerCouleur(couleurAChanger);
+  pion->couleur=nouvelleCouleur;
 }
 
 int PI_sontEgaux(Pion pion1, Pion pion2){
