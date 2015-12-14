@@ -19,6 +19,34 @@ int clean_suite_success(void) {
   return 0;
 }
 
+/* Tests relatifs à pionEstPresent */
+
+void test_pionEstPresent(void) {
+  int pionPresent;
+  Plateau plateau;
+  Direction dirTest = BAS;
+  Pion pionJoueurCourant,pionATrouver,pionAdverse;
+  Position posJoueurCourant,posATrouver,posAdverse;
+
+  plateau=PL_creerPlateau();
+  initialiserPlateau(&plateau);
+  pionJoueurCourant=PI_creerPion(CL_blanc());
+  pionAdverse=PI_creerPion(CL_noir());
+  pionATrouver=PI_creerPion(CL_blanc());
+  pionPresent = 0;
+
+  POS_fixerPosition(0,1,&posJoueurCourant);
+  PL_poserPion(&plateau, posJoueurCourant, pionJoueurCourant);
+  POS_fixerPosition(1,1,&posAdverse);
+  PL_poserPion(&plateau, posAdverse, pionAdverse);
+  POS_fixerPosition(2,1,&posATrouver);
+  PL_poserPion(&plateau, posATrouver, pionATrouver);
+
+  pionEstPresent(pionJoueurCourant,dirTest,&posJoueurCourant,&plateau,&pionPresent);
+
+  CU_ASSERT_TRUE(pionPresent==TRUE);
+}
+
 /* Tests relatifs à inverserPionsDir */
 
 void test_inverserPionsDir(void) {
@@ -246,6 +274,7 @@ int main(int argc, char** argv){
     CU_pSuite pSuite_jouerCoup;
     CU_pSuite pSuite_inverserPionsDir;
     CU_pSuite pSuite_inverserPions;
+    CU_pSuite pSuite_pionEstPresent;
 
     /* initialisation du registre de tests */
     if (CUE_SUCCESS != CU_initialize_registry())
@@ -259,13 +288,15 @@ int main(int argc, char** argv){
     pSuite_jouerCoup = CU_add_suite("Tests boite noire : jouerCoup", init_suite_success, clean_suite_success);
     pSuite_inverserPionsDir = CU_add_suite("Tests boite noire : inverserPionsDir", init_suite_success, clean_suite_success);
     pSuite_inverserPions = CU_add_suite("Tests boite noire : inverserPions", init_suite_success, clean_suite_success);
+    pSuite_pionEstPresent = CU_add_suite("Tests boite noire : pionEstPresent", init_suite_success, clean_suite_success);
     if ((NULL == pSuite_initialiserPlateau)
         || (NULL == pSuite_plateauRempli)
         || (NULL == pSuite_nbPions)
         || (NULL == pSuite_finPartie)
         || (NULL == pSuite_jouerCoup)
         || (NULL == pSuite_inverserPionsDir)
-	      || (NULL == pSuite_inverserPions)
+	|| (NULL == pSuite_inverserPions)
+	|| (NULL ==  pSuite_pionEstPresent)
         ){
     CU_cleanup_registry();
     return CU_get_error();
@@ -282,7 +313,8 @@ int main(int argc, char** argv){
         || (NULL == CU_add_test(pSuite_finPartie, "Un seul joueur bloqué", test_finPartieUnSeulJoueurBloque))
         || (NULL == CU_add_test(pSuite_jouerCoup, "Jouer un coup", test_jouerCoup))
        	|| (NULL == CU_add_test(pSuite_inverserPionsDir, "Inverser pions vers le bas",test_inverserPionsDir))
-	      || (NULL == CU_add_test(pSuite_inverserPions, "Inverser pions ",test_inverserPions))
+	|| (NULL == CU_add_test(pSuite_inverserPions, "Inverser pions ",test_inverserPions))
+	|| (NULL == CU_add_test(pSuite_pionEstPresent, "pion trouvé ",test_pionEstPresent))
         /*|| (NULL == CU_add_test(pSuite_coupValide, "Coup valide, pos initiale dans un coin", test_coupValideCoin))
         || (NULL == CU_add_test(pSuite_coupValide, "Coup valide, pos initiale quelconque", test_coupValideQuelconque))
         || (NULL == CU_add_test(pSuite_listeCoupsPossibles, "Liste des coups possibles au début de jeu", test_listeCoupsPossibles))
