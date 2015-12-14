@@ -24,7 +24,7 @@ int clean_suite_success(void) {
 void test_inverserPionsDir(void) {
   int res;
   Plateau plateau;
-  Position positionTeste,positionChangee;
+  Position positionTeste,positionChangee,positionArret;
   Pion pionBlanc=PI_creerPion(CL_blanc());
   Direction dirTest = BAS;
 
@@ -35,8 +35,9 @@ void test_inverserPionsDir(void) {
   PL_poserPion(&plateau, positionTeste, pionBlanc);
 
   POS_fixerPosition(3,4,&positionChangee);
+  POS_fixerPosition(4,4,&positionArret);
 
-  inverserPionsDir(&plateau,positionTeste,positionTeste,dirTest);
+  inverserPionsDir(&plateau,positionArret,positionTeste,dirTest);
   res = (CL_sontEgales(PI_obtenirCouleur(PL_obtenirPion(plateau,positionChangee)),CL_blanc()));
 
   CU_ASSERT_TRUE(res==TRUE);

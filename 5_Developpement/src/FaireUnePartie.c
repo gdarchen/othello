@@ -111,17 +111,13 @@ void inverserPionsDir(Plateau* plateau, Position posInitiale, Position posCouran
     Position posSuivante=posCourante;
     unsigned int inew,jnew;
     inew=POS_obtenirLigne(DIR_positionSelonDirection(posSuivante,dirInversion));
-    printf("1");
+    printf("inew : %d \n",inew);
     jnew=POS_obtenirColonne(DIR_positionSelonDirection(posSuivante,dirInversion));
-    printf("2");
+    printf("jnew : %d \n",jnew);
     if (!(POS_sontEgales(posInitiale,posCourante))){
-        printf("3");
         PL_inverserPion(plateau,posCourante);
-        printf("4");
         POS_fixerPosition(inew,jnew,&posSuivante);
-        printf("5");
         inverserPionsDir(plateau,posInitiale,posSuivante,dirInversion);
-        printf("6\n");
     }
 }
 
@@ -255,28 +251,28 @@ Position DIR_positionSelonDirection(Position posInit, Direction dirDeplacement){
     j = POS_obtenirColonne(posInit);
     switch(dirDeplacement){
         case GAUCHE :
-            POS_fixerPosition(i-1,j, &newPos);
-            break;
-        case DROITE :
-            POS_fixerPosition(i+1,j, &newPos);
-            break;
-        case HAUT :
-            POS_fixerPosition(i,j+1, &newPos);
-            break;
-        case BAS :
             POS_fixerPosition(i,j-1, &newPos);
             break;
-        case DIAGGH :
-            POS_fixerPosition(i-1,j+1, &newPos);
+        case DROITE :
+            POS_fixerPosition(i,j+1, &newPos);
             break;
-        case DIAGGB :
+        case HAUT :
+            POS_fixerPosition(i-1,j, &newPos);
+            break;
+        case BAS :
+            POS_fixerPosition(i+1,j, &newPos);
+            break;
+        case DIAGGH :
             POS_fixerPosition(i-1,j-1, &newPos);
             break;
+        case DIAGGB :
+            POS_fixerPosition(i+1,j-1, &newPos);
+            break;
         case DIAGDH :
-            POS_fixerPosition(i+1,j+1, &newPos);
+            POS_fixerPosition(i-1,j+1, &newPos);
             break;
         case DIAGDB :
-            POS_fixerPosition(i+1,j-1, &newPos);
+            POS_fixerPosition(i+1,j+1, &newPos);
             break;
     }
     return newPos;
