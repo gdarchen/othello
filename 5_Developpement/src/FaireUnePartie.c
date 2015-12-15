@@ -62,15 +62,13 @@ void initialiserPlateau(Plateau *plateauDeJeu){
 }
 
 
-void jouer(Plateau* plateau , Couleur* couleurJoueur, Coup(*getCoup)(Plateau,Pion), int* aPuJouer, Coup* coupJoueur)
+void jouer(Plateau* plateau , Couleur* couleurJoueur, Coup(*getCoup)(Plateau,Couleur), int* aPuJouer, Coup* coupJoueur)
 {
     unsigned int i;
     int res;
     Coups coups;
     res=FALSE;
-    Pion pionJoueur;
-    pionJoueur=PI_creerPion(*couleurJoueur);
-    *coupJoueur=getCoup(*plateau,pionJoueur);
+    *coupJoueur=getCoup(*plateau,*couleurJoueur);
     coups=listeCoupsPossibles(*plateau,*couleurJoueur);
     for(i=0;i<CPS_nbCoups(coups);i++){
         if (CP_sontEgaux(CPS_iemeCoup(coups,i),*coupJoueur)) {

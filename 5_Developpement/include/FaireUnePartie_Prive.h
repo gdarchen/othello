@@ -54,7 +54,7 @@ void initialiserPlateau(Plateau *plateau);
  * \param Coup* coupJoueur, le coup choisi et joué
  * \
  */
-void jouer(Plateau* plateau , Couleur* couleurJoueur, Coup(*obtenirCoupJoueur)(Plateau,Pion), int* aPuJouer, Coup* coupJoueur);
+void jouer(Plateau* plateau , Couleur* couleurJoueur, Coup(*obtenirCoupJoueur)(Plateau,Couleur), int* aPuJouer, Coup* coupJoueur);
 
 
 /**
