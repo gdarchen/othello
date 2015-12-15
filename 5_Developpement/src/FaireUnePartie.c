@@ -70,10 +70,12 @@ void jouer(Plateau* plateau , Couleur* couleurJoueur, Coup(*getCoup)(Plateau,Cou
     res=FALSE;
     *coupJoueur=getCoup(*plateau,*couleurJoueur);
     coups=listeCoupsPossibles(*plateau,*couleurJoueur);
-    for(i=0;i<CPS_nbCoups(coups);i++){
-        if (CP_sontEgaux(CPS_iemeCoup(coups,i),*coupJoueur)) {
-            jouerCoup(*coupJoueur,plateau);
-            res=TRUE;
+    if (CPS_nbCoups(coups)>0){
+        for(i=0;i<CPS_nbCoups(coups);i++){
+            if (CP_sontEgaux(CPS_iemeCoup(coups,i),*coupJoueur)) {
+                jouerCoup(*coupJoueur,plateau);
+                res=TRUE;
+            }
         }
     }
     *aPuJouer=res;
