@@ -32,9 +32,9 @@ Coups listeCoupsPossibles(Plateau plateau, Couleur couleur){
                 coupTest = CP_creerCoup(positionTest,pionJoueur);
                 if (PL_estCaseVide(plateau,positionTest) && coupValide(plateau,coupTest)){
                     CPS_ajouterCoups(&coupsPossibles,coupTest);
+                    k=k+1;
                 }
             }
-
         }
     }
   return coupsPossibles;
