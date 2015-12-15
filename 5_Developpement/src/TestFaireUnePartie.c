@@ -66,7 +66,9 @@ void test_inverserPionsDir(void) {
   POS_fixerPosition(4,4,&positionArret);
 
   inverserPionsDir(&plateau,positionArret,positionTeste,dirTest);
-  res = (CL_sontEgales(PI_obtenirCouleur(PL_obtenirPion(plateau,positionChangee)),CL_blanc()));
+  res = (CL_sontEgales(PI_obtenirCouleur(PL_obtenirPion(plateau,positionChangee)),CL_blanc())
+        && CL_sontEgales(PI_obtenirCouleur(PL_obtenirPion(plateau,positionArret)),CL_blanc())
+        && CL_sontEgales(PI_obtenirCouleur(PL_obtenirPion(plateau,positionTeste)),CL_blanc()));
 
   CU_ASSERT_TRUE(res==TRUE);
 }
@@ -97,7 +99,8 @@ void test_inverserPions(void){
   inverserPions(positionJoue,pionBlanc,&plateau);
   POS_fixerPosition(3,2,&positionTest1);
   POS_fixerPosition(3,3,&positionTest2);
-  res = (CL_sontEgales(PI_obtenirCouleur(PL_obtenirPion(plateau,positionTest1)),CL_blanc())) && (CL_sontEgales(PI_obtenirCouleur(PL_obtenirPion(plateau,positionTest2)),CL_blanc()));
+  res = (CL_sontEgales(PI_obtenirCouleur(PL_obtenirPion(plateau,positionTest1)),CL_blanc()))
+        && (CL_sontEgales(PI_obtenirCouleur(PL_obtenirPion(plateau,positionTest2)),CL_blanc()));
 
   CU_ASSERT_TRUE(res==TRUE);
 }
