@@ -65,7 +65,7 @@ void test_inverserPionsDir(void) {
   POS_fixerPosition(3,4,&positionChangee);
   POS_fixerPosition(4,4,&positionArret);
 
-  inverserPionsDir(&plateau,positionArret,positionTeste,dirTest);
+  inverserPionsDir(&plateau,positionArret,DIR_positionSelonDirection(positionTeste,dirTest),dirTest);
   res = (CL_sontEgales(PI_obtenirCouleur(PL_obtenirPion(plateau,positionChangee)),CL_blanc())
         && CL_sontEgales(PI_obtenirCouleur(PL_obtenirPion(plateau,positionArret)),CL_blanc())
         && CL_sontEgales(PI_obtenirCouleur(PL_obtenirPion(plateau,positionTeste)),CL_blanc()));

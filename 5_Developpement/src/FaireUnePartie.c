@@ -101,7 +101,7 @@ void inverserPions(Position pos, Pion pionJoueur, Plateau* plateau){
         posTmp = pos;
         pionEstPresent(pionJoueur,dir,&posTmp,plateau,&pionPresent);
         if (pionPresent) {
-            inverserPionsDir(plateau,pos,posTmp,DIR_inverserDirection(dir));
+            inverserPionsDir(plateau,pos,DIR_positionSelonDirection(posTmp,DIR_inverserDirection(dir)),DIR_inverserDirection(dir));
         }
     }
 }
