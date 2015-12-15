@@ -17,7 +17,6 @@ unsigned int CPS_nbCoups(Coups coups){
 }
 
 Coup CPS_iemeCoup(Coups coups, unsigned int i){
-	assert(i>=0 && i<coups.nbCps); /* //////////A CONFIRMER //////////////*/ 
+	assert(i>=0 && i<coups.nbCps);
 	return coups.tabCoups[i];
 }
-
