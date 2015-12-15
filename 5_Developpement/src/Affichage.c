@@ -106,8 +106,9 @@ void afficherPlateau(Plateau plateau, Coup coup, int aPuJouer,int estPartieFinie
           }
           else
           {
-            if (CL_sontEgales((PI_obtenirCouleur(PL_obtenirPion(plateau,position))),couleurNoir))
+            if (CL_sontEgales((PI_obtenirCouleur(PL_obtenirPion(plateau,position))),couleurNoir)){
               printf(" ● |");
+            }
           }
         }
         else
