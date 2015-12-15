@@ -127,7 +127,7 @@ void test_obtenirPion(void){
     Pion pionTest;
     Position positionTest;
     POS_fixerPosition(0,0,&positionTest);
-    pionTest = PI_creerPion(CL_blanc());
+    pionTest = PI_creerPion(CL_noir());
     PL_poserPion(&plateauTest,positionTest,pionTest);
     CU_ASSERT_TRUE(PI_sontEgaux(PL_obtenirPion(plateauTest,positionTest),pionTest));
 }
