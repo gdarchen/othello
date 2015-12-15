@@ -10,7 +10,7 @@
 
 /* Partie publique */
 
-void faireUnePartie(void(*afficherPlateau)(Plateau,Coup,int,int), Coup(*getCoup1)(Plateau,Pion), Coup(*getCoup2)(Plateau,Pion), Couleur *joueur, int* estMatchNul)
+void faireUnePartie(void(*afficherPlateau)(Plateau,Coup,int,int), Coup(*getCoup1)(Plateau,Couleur), Coup(*getCoup2)(Plateau,Couleur), Couleur *joueur, int* estMatchNul)
 {   Plateau plateau=PL_creerPlateau();
     initialiserPlateau(&plateau);
     int aPuJouerJoueur1=TRUE, aPuJouerJoueur2=TRUE;
