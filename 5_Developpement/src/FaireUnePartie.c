@@ -72,7 +72,7 @@ void jouer(Plateau* plateau , Couleur* couleurJoueur, Coup(*getCoup)(Plateau,Pio
     pionJoueur=PI_creerPion(*couleurJoueur);
     *coupJoueur=getCoup(*plateau,pionJoueur);
     coups=listeCoupsPossibles(*plateau,*couleurJoueur);
-    for(i=1;i<CPS_nbCoups(coups);i++){
+    for(i=0;i<CPS_nbCoups(coups);i++){
         if (CP_sontEgaux(CPS_iemeCoup(coups,i),*coupJoueur)) {
             jouerCoup(*coupJoueur,plateau);
             res=TRUE;
@@ -111,17 +111,12 @@ void inverserPionsDir(Plateau* plateau, Position posInitiale, Position posCouran
     Position posSuivante=posCourante;
     unsigned int inew,jnew;
     inew=POS_obtenirLigne(DIR_positionSelonDirection(posSuivante,dirInversion));
-    printf("1");
     jnew=POS_obtenirColonne(DIR_positionSelonDirection(posSuivante,dirInversion));
-    printf("2");
+
     if (!(POS_sontEgales(posInitiale,posCourante))){
-        printf("3");
         PL_inverserPion(plateau,posCourante);
-        printf("4");
         POS_fixerPosition(inew,jnew,&posSuivante);
-        printf("5");
         inverserPionsDir(plateau,posInitiale,posSuivante,dirInversion);
-        printf("6\n");
     }
 }
 
@@ -199,7 +194,7 @@ void nbPions (Plateau plateau, unsigned int* nbPionsNoirs, unsigned int* nbPions
 
 int plateauRempli(Plateau plateau){
     int res = TRUE;
-    int i,j;
+    unsigned int i,j;
     Position position;
     for(i=0;i<8;i++){
         for(j=0;j<8;j++){
@@ -255,28 +250,28 @@ Position DIR_positionSelonDirection(Position posInit, Direction dirDeplacement){
     j = POS_obtenirColonne(posInit);
     switch(dirDeplacement){
         case GAUCHE :
-            POS_fixerPosition(i-1,j, &newPos);
-            break;
-        case DROITE :
-            POS_fixerPosition(i+1,j, &newPos);
-            break;
-        case HAUT :
-            POS_fixerPosition(i,j+1, &newPos);
-            break;
-        case BAS :
             POS_fixerPosition(i,j-1, &newPos);
             break;
-        case DIAGGH :
-            POS_fixerPosition(i-1,j+1, &newPos);
+        case DROITE :
+            POS_fixerPosition(i,j+1, &newPos);
             break;
-        case DIAGGB :
+        case HAUT :
+            POS_fixerPosition(i-1,j, &newPos);
+            break;
+        case BAS :
+            POS_fixerPosition(i+1,j, &newPos);
+            break;
+        case DIAGGH :
             POS_fixerPosition(i-1,j-1, &newPos);
             break;
+        case DIAGGB :
+            POS_fixerPosition(i+1,j-1, &newPos);
+            break;
         case DIAGDH :
-            POS_fixerPosition(i+1,j+1, &newPos);
+            POS_fixerPosition(i-1,j+1, &newPos);
             break;
         case DIAGDB :
-            POS_fixerPosition(i+1,j-1, &newPos);
+            POS_fixerPosition(i+1,j+1, &newPos);
             break;
     }
     return newPos;
@@ -290,28 +285,28 @@ int DIR_deplacementValide(Position pos, Direction dirDeplacement){
     j = POS_obtenirColonne(pos);
     switch(dirDeplacement){
         case GAUCHE :
-            valide = (i >= 1);
-            break;
-        case DROITE :
-            valide = (i <= 6);
-            break;
-        case HAUT :
-            valide = (j <= 6);
-            break;
-        case BAS :
             valide = (j >= 1);
             break;
-        case DIAGGH :
-            valide = ((i >= 1) && (j <= 6));
+        case DROITE :
+            valide = (j <= 6);
             break;
-        case DIAGGB :
+        case HAUT :
+            valide = (i >= 1);
+            break;
+        case BAS :
+            valide = (i <= 6);
+            break;
+        case DIAGGH :
             valide = ((i >= 1) && (j >= 1));
             break;
+        case DIAGGB :
+            valide = ((i <= 6) && (j >= 1));
+            break;
         case DIAGDH :
-            valide = ((i <= 6) && (j <= 6));
+            valide = ((i >= 1) && (j <= 6));
             break;
         case DIAGDB :
-            valide = ((i <= 6) && (j >= 1));
+            valide = ((i <= 6) && (j <= 6));
             break;
     }
     return valide;

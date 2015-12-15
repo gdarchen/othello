@@ -26,8 +26,8 @@ int clean_suite_success(void) {
 
 void test_copierPlateauInterieur(void){
   Position positionInter1,positionInter2,positionInter3,positionInter4;
-  Pion pionN=CL_noir();
-  Pion pionB=CL_blanc();
+  Pion pionN=PI_creerPion(CL_noir());
+  Pion pionB=PI_creerPion(CL_blanc());
   Plateau plateau1,plateau2;
   plateau1=PL_creerPlateau();
   plateau2=PL_creerPlateau();
@@ -44,10 +44,10 @@ void test_copierPlateauInterieur(void){
 
   copierPlateau(plateau1,&plateau2);
 
-  CU_ASSERT_TRUE(PL_obtenirPion(plateau2,positionInter1)==pionN
-                && PL_obtenirPion(plateau2,positionInter3)==pionN
-                && PL_obtenirPion(plateau2,positionInter2)==pionB
-                && PL_obtenirPion(plateau2,positionInter4)==pionB
+  CU_ASSERT_TRUE(PI_sontEgaux(PL_obtenirPion(plateau2,positionInter1),pionN)
+                && PI_sontEgaux(PL_obtenirPion(plateau2,positionInter3),pionN)
+                && PI_sontEgaux(PL_obtenirPion(plateau2,positionInter2),pionB)
+                && PI_sontEgaux(PL_obtenirPion(plateau2,positionInter4),pionB)
                 && !PL_estCaseVide(plateau2,positionInter1)
                 && !PL_estCaseVide(plateau2,positionInter2)
                 && !PL_estCaseVide(plateau2,positionInter3)
@@ -56,8 +56,8 @@ void test_copierPlateauInterieur(void){
 
 void test_copierPlateauBords(void){
   Position positionBord1,positionBord2,positionBord3,positionBord4;
-  Pion pionN=CL_noir();
-  Pion pionB=CL_blanc();
+  Pion pionN=PI_creerPion(CL_noir());
+  Pion pionB=PI_creerPion(CL_blanc());
   Plateau plateau1,plateau2;
   plateau1=PL_creerPlateau();
   plateau2=PL_creerPlateau();
@@ -74,10 +74,10 @@ void test_copierPlateauBords(void){
 
   copierPlateau(plateau1,&plateau2);
 
-  CU_ASSERT_TRUE(PL_obtenirPion(plateau2,positionBord1)==pionN
-                && PL_obtenirPion(plateau2,positionBord3)==pionN
-                && PL_obtenirPion(plateau2,positionBord2)==pionB
-                && PL_obtenirPion(plateau2,positionBord4)==pionB
+  CU_ASSERT_TRUE(PI_sontEgaux(PL_obtenirPion(plateau2,positionBord1),pionN)
+                && PI_sontEgaux(PL_obtenirPion(plateau2,positionBord3),pionN)
+                && PI_sontEgaux(PL_obtenirPion(plateau2,positionBord2),pionB)
+                && PI_sontEgaux(PL_obtenirPion(plateau2,positionBord4),pionB)
                 && !PL_estCaseVide(plateau2,positionBord1)
                 && !PL_estCaseVide(plateau2,positionBord2)
                 && !PL_estCaseVide(plateau2,positionBord3)
@@ -86,8 +86,8 @@ void test_copierPlateauBords(void){
 
 void test_copierPlateauCoins(void){
   Position positionCoin1,positionCoin2,positionCoin3,positionCoin4;
-  Pion pionN=CL_noir();
-  Pion pionB=CL_blanc();
+  Pion pionN=PI_creerPion(CL_noir());
+  Pion pionB=PI_creerPion(CL_blanc());
   Plateau plateau1,plateau2;
   plateau1=PL_creerPlateau();
   plateau2=PL_creerPlateau();
@@ -104,10 +104,10 @@ void test_copierPlateauCoins(void){
 
   copierPlateau(plateau1,&plateau2);
 
-  CU_ASSERT_TRUE(PL_obtenirPion(plateau2,positionCoin1)==pionN
-                && PL_obtenirPion(plateau2,positionCoin3)==pionN
-                && PL_obtenirPion(plateau2,positionCoin2)==pionB
-                && PL_obtenirPion(plateau2,positionCoin4)==pionB
+  CU_ASSERT_TRUE(PI_sontEgaux(PL_obtenirPion(plateau2,positionCoin1),pionN)
+                && PI_sontEgaux(PL_obtenirPion(plateau2,positionCoin3),pionN)
+                && PI_sontEgaux(PL_obtenirPion(plateau2,positionCoin2),pionB)
+                && PI_sontEgaux(PL_obtenirPion(plateau2,positionCoin4),pionB)
                 && !PL_estCaseVide(plateau2,positionCoin1)
                 && !PL_estCaseVide(plateau2,positionCoin2)
                 && !PL_estCaseVide(plateau2,positionCoin3)
@@ -120,7 +120,7 @@ void test_coupValideEntoureCasesVides(void){
   Plateau plateau;
   Coup coup;
   Position positionTest;
-  Pion pionTest=CL_noir();
+  Pion pionTest=PI_creerPion(CL_noir());
 
   plateau=PL_creerPlateau();
   POS_fixerPosition(4,5,&positionTest);
@@ -133,7 +133,10 @@ void test_coupValideEntoureCasesMemeCouleur(void){
   Plateau plateau;
   Coup coup;
   Position positionTest,positionAutour1,positionAutour2,positionAutour3,positionAutour4,positionAutour5,positionAutour6,positionAutour7,positionAutour8;
-  Pion pionTest=CL_blanc(), pionAutour1=CL_blanc(), pionAutour2=CL_blanc(), pionAutour3=CL_blanc(), pionAutour4=CL_blanc(), pionAutour5=CL_blanc(), pionAutour6=CL_blanc(), pionAutour7=CL_blanc(), pionAutour8=CL_blanc();
+  Pion pionTest=PI_creerPion(CL_blanc()), pionAutour1=PI_creerPion(CL_blanc()),
+        pionAutour2=PI_creerPion(CL_blanc()), pionAutour3=PI_creerPion(CL_blanc()),
+        pionAutour4=PI_creerPion(CL_blanc()), pionAutour5=PI_creerPion(CL_blanc()),
+        pionAutour6=PI_creerPion(CL_blanc()), pionAutour7=PI_creerPion(CL_blanc()), pionAutour8=PI_creerPion(CL_blanc());
 
   plateau=PL_creerPlateau();
   POS_fixerPosition(4,5,&positionTest);
@@ -164,7 +167,9 @@ void test_coupValideQueCasesAutreCouleurPuisVide(void){
   Plateau plateau;
   Coup coup;
   Position positionTest,positionAutour1,positionAutour2,positionAutour3,positionAutour4,positionAutour5,positionAutour6,positionAutour7,positionAutour8;
-  Pion pionTest=CL_noir(), pionAutour1=CL_blanc(), pionAutour2=CL_blanc(), pionAutour3=CL_blanc(), pionAutour4=CL_blanc(), pionAutour5=CL_blanc(), pionAutour6=CL_blanc(), pionAutour7=CL_blanc(), pionAutour8=CL_blanc();
+  Pion pionTest=PI_creerPion(CL_noir()), pionAutour1=PI_creerPion(CL_blanc()), pionAutour2=PI_creerPion(CL_blanc()),
+        pionAutour3=PI_creerPion(CL_blanc()), pionAutour4=PI_creerPion(CL_blanc()), pionAutour5=PI_creerPion(CL_blanc()),
+        pionAutour6=PI_creerPion(CL_blanc()), pionAutour7=PI_creerPion(CL_blanc()), pionAutour8=PI_creerPion(CL_blanc());
 
   plateau=PL_creerPlateau();
   POS_fixerPosition(4,5,&positionTest);
@@ -195,7 +200,8 @@ void test_coupValideCoin(void){
   Plateau plateau;
   Coup coup;
   Position positionTest,positionAutreCouleur1,positionAutreCouleur2,positionMemeCouleur;
-  Pion pionTest=CL_noir(), pionAutreCouleur1=CL_blanc(), pionAutreCouleur2=CL_blanc(), pionMemeCouleur=CL_noir();
+  Pion pionTest=PI_creerPion(CL_noir()), pionAutreCouleur1=PI_creerPion(CL_blanc()), pionAutreCouleur2=PI_creerPion(CL_blanc()),
+        pionMemeCouleur=PI_creerPion(CL_noir());
 
   plateau=PL_creerPlateau();
   POS_fixerPosition(0,0,&positionTest);
@@ -215,7 +221,8 @@ void test_coupValideQuelconque(void){
   Plateau plateau;
   Coup coup;
   Position positionTest,positionAutreCouleur1,positionAutreCouleur2,positionMemeCouleur;
-  Pion pionTest=CL_noir(), pionAutreCouleur1=CL_blanc(), pionAutreCouleur2=CL_blanc(), pionMemeCouleur=CL_noir();
+  Pion pionTest=PI_creerPion(CL_noir()), pionAutreCouleur1=PI_creerPion(CL_blanc()), pionAutreCouleur2=PI_creerPion(CL_blanc()),
+        pionMemeCouleur=PI_creerPion(CL_noir());
 
   plateau=PL_creerPlateau();
   POS_fixerPosition(4,3,&positionTest);
@@ -240,8 +247,8 @@ void test_listeCoupsPossibles(void){
   Coups listeCoups;
   Couleur couleurJoueur=CL_blanc();
   Position position1,position2,position3,position4,positionCoup1,positionCoup2,positionCoup3,positionCoup4;
-  Pion pion1=CL_blanc(), pion2=CL_noir(), pion3=CL_noir(), pion4=CL_blanc(); /* Configuration initiale du plateau */
-  Pion pionCoup1=CL_blanc(), pionCoup2=CL_blanc(), pionCoup3=CL_blanc(), pionCoup4=CL_blanc();
+  Pion pion1=PI_creerPion(CL_blanc()), pion2=PI_creerPion(CL_noir()), pion3=PI_creerPion(CL_noir()), pion4=PI_creerPion(CL_blanc()); /* Configuration initiale du plateau */
+  Pion pionCoup1=PI_creerPion(CL_blanc()), pionCoup2=PI_creerPion(CL_blanc()), pionCoup3=PI_creerPion(CL_blanc()), pionCoup4=PI_creerPion(CL_blanc());
 
   plateau=PL_creerPlateau();
   CPS_creerCoups(&listeCoups);
@@ -293,12 +300,43 @@ void test_ObtenirCoupIA(void)
 {
     Plateau plateau=PL_creerPlateau();
     Couleur couleurJoueur=CL_blanc();
+    Coup Meilleurcoup,meilleurCoupVrai;
+    Position position1,position2,position3,position4,positionCoup1,positionMeilleurcoup;
+    Pion pion1=PI_creerPion(CL_blanc()), pion2=PI_creerPion(CL_noir()), pion3=PI_creerPion(CL_noir()),
+          pion4=PI_creerPion(CL_blanc()),pionMeilleurcoup=PI_creerPion(CL_blanc());
+
+    /* Configuration initiale du plateau */
+
+    POS_fixerPosition(3,3,&position1);
+    POS_fixerPosition(3,4,&position2);
+    POS_fixerPosition(4,3,&position3);
+    POS_fixerPosition(4,4,&position4);
+    POS_fixerPosition(3,2,&positionCoup1);
+    POS_fixerPosition(4,2,&positionMeilleurcoup);
+
+    PL_poserPion(&plateau,position1,pion1);
+    PL_poserPion(&plateau,position2,pion2);
+    PL_poserPion(&plateau,position3,pion3);
+    PL_poserPion(&plateau,position4,pion4);
+
+    Meilleurcoup=CP_creerCoup(positionMeilleurcoup,pionMeilleurcoup);
+
+    meilleurCoupVrai=obtenirCoupIA(plateau,couleurJoueur);
+
+    CU_ASSERT_TRUE(CP_sontEgaux(Meilleurcoup,meilleurCoupVrai));
+}
+/* Tests relatifs à scoreDUnCoup */
+
+void test_scoreDUnCoup(void)
+{
+    Plateau plateau=PL_creerPlateau();
+    Couleur couleurJoueur=CL_blanc();
     unsigned int profondeurMinMax=profondeur();
     Coup coup1, Meilleurcoup;
     int scoreCourant, meilleurScore;
     Position position1,position2,position3,position4,positionCoup1,positionMeilleurcoup;
-    Pion pion1=CL_blanc(), pion2=CL_noir(), pion3=CL_noir(), pion4=CL_blanc(),pionCoup1=CL_blanc(),
-    pionMeilleurcoup=CL_blanc();
+    Pion pion1=PI_creerPion(CL_blanc()), pion2=PI_creerPion(CL_noir()), pion3=PI_creerPion(CL_noir()),
+          pion4=PI_creerPion(CL_blanc()),pionCoup1=PI_creerPion(CL_blanc()), pionMeilleurcoup=PI_creerPion(CL_blanc());
 
     /* Configuration initiale du plateau */
 
@@ -320,11 +358,101 @@ void test_ObtenirCoupIA(void)
     meilleurScore = scoreDUnCoup(plateau,Meilleurcoup,couleurJoueur,couleurJoueur,profondeurMinMax);
     scoreCourant = scoreDUnCoup(plateau,coup1,couleurJoueur,couleurJoueur,profondeurMinMax);
 
+
     CU_ASSERT_TRUE    ((coupValide(plateau, coup1))
                        && (coupValide(plateau, Meilleurcoup))
-                       && (meilleurScore>scoreCourant)
-                       );
+                       && (meilleurScore>scoreCourant));
 }
+
+
+/* Tests relatifs à evaluerPlateau */
+
+void test_evaluerNbCoupsPossiblesAdversaire(void){
+    Plateau plateau=PL_creerPlateau();
+    Couleur couleurJoueur=CL_blanc(), couleurAdversaire;
+    int NbCoupsAdversaire,resultat;
+    Position position1,position2,position3,position4;
+    Pion pion1=PI_creerPion(CL_blanc()), pion2=PI_creerPion(CL_noir()), pion3=PI_creerPion(CL_noir()), pion4=PI_creerPion(CL_blanc());
+
+    POS_fixerPosition(3,3,&position1);
+    POS_fixerPosition(3,4,&position2);
+    POS_fixerPosition(4,3,&position3);
+    POS_fixerPosition(4,4,&position4);
+
+    PL_poserPion(&plateau,position1,pion1);
+    PL_poserPion(&plateau,position2,pion2);
+    PL_poserPion(&plateau,position3,pion3);
+    PL_poserPion(&plateau,position4,pion4);
+
+    couleurAdversaire=CL_changerCouleur(couleurJoueur);
+    NbCoupsAdversaire=4;
+    resultat=(60-10*NbCoupsAdversaire);
+
+    CU_ASSERT_TRUE(evaluerNbCoupsPossiblesAdversaire(plateau,couleurAdversaire) == resultat);
+
+}
+
+void test_evaluerNbPionsCouleur(void){
+    Plateau plateau=PL_creerPlateau();
+    Couleur couleurJoueur=CL_blanc();
+    unsigned int nbPionsNoirs,nbPionsBlancs;
+    Position position1,position2,position3,position4,positionCoup1,positionCoup2;
+    Pion pion1=PI_creerPion(CL_blanc()), pion2=PI_creerPion(CL_noir()), pion3=PI_creerPion(CL_noir()),
+          pion4=PI_creerPion(CL_blanc()),pionCoup1=PI_creerPion(CL_blanc()),pionCoup2=PI_creerPion(CL_blanc());
+
+    POS_fixerPosition(3,3,&position1);
+    POS_fixerPosition(3,4,&position2);
+    POS_fixerPosition(4,3,&position3);
+    POS_fixerPosition(4,4,&position4);
+    POS_fixerPosition(3,2,&positionCoup1);
+    POS_fixerPosition(4,2,&positionCoup2);
+
+    PL_poserPion(&plateau,position1,pion1);
+    PL_poserPion(&plateau,position2,pion2);
+    PL_poserPion(&plateau,position3,pion3);
+    PL_poserPion(&plateau,position4,pion4);
+    PL_poserPion(&plateau,positionCoup1,pionCoup1);
+    PL_poserPion(&plateau,positionCoup2,pionCoup2);
+
+    nbPions(plateau,&nbPionsNoirs,&nbPionsBlancs);
+
+    CU_ASSERT_TRUE (evaluerNbPionsCouleur(plateau,couleurJoueur)==2);
+}
+
+
+void test_evaluerPositionsPionsPlateau(void){
+    int** grilleScore=initialiserGrilleScore();
+    Plateau plateau=PL_creerPlateau();
+    Couleur couleurJoueur=CL_blanc();
+    Position position1,position2,position3,position4,positionCoup1,positionCoup2;
+    Pion pion1=PI_creerPion(CL_blanc()), pion2=PI_creerPion(CL_noir()), pion3=PI_creerPion(CL_noir()),
+          pion4=PI_creerPion(CL_blanc()),pionCoup1=PI_creerPion(CL_blanc()),pionCoup2=PI_creerPion(CL_blanc());
+    int resJoueurTEST,resAdversaireTEST;
+
+    resJoueurTEST=0;
+    resAdversaireTEST=0;
+
+    POS_fixerPosition(3,3,&position1);
+    POS_fixerPosition(3,4,&position2);
+    POS_fixerPosition(4,3,&position3);
+    POS_fixerPosition(4,4,&position4);
+    POS_fixerPosition(3,2,&positionCoup1);
+    POS_fixerPosition(4,2,&positionCoup2);
+
+    PL_poserPion(&plateau,position1,pion1);
+    PL_poserPion(&plateau,position2,pion2);
+    PL_poserPion(&plateau,position3,pion3);
+    PL_poserPion(&plateau,position4,pion4);
+    PL_poserPion(&plateau,positionCoup1,pionCoup1);
+    PL_poserPion(&plateau,positionCoup2,pionCoup2);
+
+    resJoueurTEST=grilleScore[3][3]+grilleScore[4][4]+grilleScore[3][2]+grilleScore[4][2];
+    resAdversaireTEST=grilleScore[3][4]+grilleScore[4][3];
+
+    CU_ASSERT_TRUE ( evaluerPositionsPionsPlateau(plateau,couleurJoueur)==(resJoueurTEST-resAdversaireTEST));
+
+}
+
 
 
 int main(int argc, char** argv){
@@ -332,6 +460,9 @@ int main(int argc, char** argv){
     CU_pSuite pSuite_coupValide;
     CU_pSuite pSuite_listeCoupsPossibles;
     CU_pSuite pSuite_ObtenirCoupIA;
+    CU_pSuite pSuite_scoreDUnCoup;
+    CU_pSuite pSuite_evaluerPlateau;
+
 
     /* initialisation du registre de tests */
     if (CUE_SUCCESS != CU_initialize_registry())
@@ -341,11 +472,15 @@ int main(int argc, char** argv){
     pSuite_copierPlateau = CU_add_suite("Tests boite noire : copierPlateau", init_suite_success, clean_suite_success);
     pSuite_coupValide = CU_add_suite("Tests boite noire : coupValide", init_suite_success, clean_suite_success);
     pSuite_listeCoupsPossibles = CU_add_suite("Tests boite noire : listeCoupsPossibles", init_suite_success, clean_suite_success);
+    pSuite_scoreDUnCoup = CU_add_suite("Tests boite noire : scoreDUnCoup", init_suite_success, clean_suite_success);
     pSuite_ObtenirCoupIA = CU_add_suite("Tests boite noire : ObtenirCoupIA", init_suite_success, clean_suite_success);
+    pSuite_evaluerPlateau = CU_add_suite("Tests boite noire : evaluerPlateau", init_suite_success, clean_suite_success);
     if ((NULL == pSuite_copierPlateau)
         || (NULL == pSuite_coupValide)
         || (NULL == pSuite_listeCoupsPossibles)
+        || (NULL == pSuite_scoreDUnCoup)
         || (NULL == pSuite_ObtenirCoupIA)
+        || (NULL == pSuite_evaluerPlateau)
         ){
         CU_cleanup_registry();
         return CU_get_error();
@@ -362,8 +497,11 @@ int main(int argc, char** argv){
         || (NULL == CU_add_test(pSuite_coupValide, "Coup valide, pos initiale quelconque", test_coupValideQuelconque))
         || (NULL == CU_add_test(pSuite_listeCoupsPossibles, "Liste des coups possibles au début de jeu", test_listeCoupsPossibles))
         || (NULL == CU_add_test(pSuite_listeCoupsPossibles, "Liste de coups possibles vide", test_listeCoupsPossiblesPlateauVide))
+        || (NULL == CU_add_test(pSuite_scoreDUnCoup, "calcul le bon score du coup", test_scoreDUnCoup))
         || (NULL == CU_add_test(pSuite_ObtenirCoupIA, "Renvoie le bon coup", test_ObtenirCoupIA))
-
+        || (NULL == CU_add_test(pSuite_evaluerPlateau, "evaluer le nombre de coups possibles de l'adversaire", test_evaluerNbCoupsPossiblesAdversaire))
+        || (NULL == CU_add_test(pSuite_evaluerPlateau, "evaluer le nombre de pions de la meme couleur", test_evaluerNbPionsCouleur))
+        || (NULL == CU_add_test(pSuite_evaluerPlateau, "evaluer la position des pions sur le plateau", test_evaluerPositionsPionsPlateau))
         ){
         CU_cleanup_registry();
         return CU_get_error();

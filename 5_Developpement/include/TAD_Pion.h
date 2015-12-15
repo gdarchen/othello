@@ -16,7 +16,10 @@
  *
  */
 
- typedef Couleur Pion; /**< les pions du plateau selon une couleur */
+ typedef struct {
+  Couleur couleur; /**< la couleur du pion */
+} Pion;
+
 
 /**
  * \fn Pion PI_creerPion(Couleur couleur)
