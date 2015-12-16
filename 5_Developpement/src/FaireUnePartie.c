@@ -245,7 +245,7 @@ Position DIR_positionSelonDirection(Position posInit, Direction dirDeplacement){
     unsigned int i,j;
     i = POS_obtenirLigne(posInit);
     j = POS_obtenirColonne(posInit);
-    if DIR_deplacementValide(posInit,dirDeplacement){
+    if (DIR_deplacementValide(posInit,dirDeplacement)){
         switch(dirDeplacement){
             case GAUCHE :
                 POS_fixerPosition(i,j-1, &newPos);
