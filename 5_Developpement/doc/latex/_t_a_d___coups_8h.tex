@@ -1,0 +1,125 @@
+\hypertarget{_t_a_d___coups_8h}{}\section{include/\+T\+A\+D\+\_\+\+Coups.h File Reference}
+\label{_t_a_d___coups_8h}\index{include/\+T\+A\+D\+\_\+\+Coups.\+h@{include/\+T\+A\+D\+\_\+\+Coups.\+h}}
+
+
+Implantation du T\+A\+D \hyperlink{struct_coups}{Coups}.  
+
+
+{\ttfamily \#include \char`\"{}T\+A\+D\+\_\+\+Coup.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}T\+A\+D\+\_\+\+Couleur.\+h\char`\"{}}\\*
+Include dependency graph for T\+A\+D\+\_\+\+Coups.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=306pt]{_t_a_d___coups_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=331pt]{_t_a_d___coups_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{struct_coups}{Coups}
+\begin{DoxyCompactList}\small\item\em Le type \hyperlink{struct_coups}{Coups} permet de représenter un tableau de \hyperlink{struct_coup}{Coup} et le nombre de \hyperlink{struct_coup}{Coup} possibles. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{_t_a_d___coups_8h_a72b7ac89f46d3cb2aa9e9eddb69e7adc}{}\#define {\bfseries M\+A\+X\+\_\+\+C\+O\+U\+P\+S}~60\label{_t_a_d___coups_8h_a72b7ac89f46d3cb2aa9e9eddb69e7adc}
+
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{_t_a_d___coups_8h_aa2ce3e213706ca436cacbda18e34f5c2}{}void {\bfseries C\+P\+S\+\_\+creer\+Coups} (\hyperlink{struct_coups}{Coups} $\ast$coups)\label{_t_a_d___coups_8h_aa2ce3e213706ca436cacbda18e34f5c2}
+
+\item 
+void \hyperlink{_t_a_d___coups_8h_af2e7edcec7429d4bdfd2663eb195ecc3}{C\+P\+S\+\_\+ajouter\+Coups} (\hyperlink{struct_coups}{Coups} $\ast$coups, \hyperlink{struct_coup}{Coup} coup)
+\begin{DoxyCompactList}\small\item\em Fonction ajoute le \hyperlink{struct_coup}{Coup} coup à la variable coups. \end{DoxyCompactList}\item 
+unsigned int \hyperlink{_t_a_d___coups_8h_af1de1eae45bfb41101a8011d0f72557d}{C\+P\+S\+\_\+nb\+Coups} (\hyperlink{struct_coups}{Coups} coups)
+\begin{DoxyCompactList}\small\item\em Fonction qui renvoie le nombre de \hyperlink{struct_coups}{Coups} d\textquotesingle{}une variable de type \hyperlink{struct_coups}{Coups}. \end{DoxyCompactList}\item 
+\hyperlink{struct_coup}{Coup} \hyperlink{_t_a_d___coups_8h_a8f108bb6178f13d908dd89acec4efec1}{C\+P\+S\+\_\+ieme\+Coup} (\hyperlink{struct_coups}{Coups} coups, unsigned int i)
+\begin{DoxyCompactList}\small\item\em Fonction qui ieme \hyperlink{struct_coup}{Coup} de la variable coups. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Implantation du T\+A\+D \hyperlink{struct_coups}{Coups}. 
+
+\begin{DoxyAuthor}{Author}
+Groupe 1.\+5 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\+0 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+02/12/15 
+\end{DoxyDate}
+
+
+\subsection{Function Documentation}
+\hypertarget{_t_a_d___coups_8h_af2e7edcec7429d4bdfd2663eb195ecc3}{}\index{T\+A\+D\+\_\+\+Coups.\+h@{T\+A\+D\+\_\+\+Coups.\+h}!C\+P\+S\+\_\+ajouter\+Coups@{C\+P\+S\+\_\+ajouter\+Coups}}
+\index{C\+P\+S\+\_\+ajouter\+Coups@{C\+P\+S\+\_\+ajouter\+Coups}!T\+A\+D\+\_\+\+Coups.\+h@{T\+A\+D\+\_\+\+Coups.\+h}}
+\subsubsection[{C\+P\+S\+\_\+ajouter\+Coups}]{\setlength{\rightskip}{0pt plus 5cm}void C\+P\+S\+\_\+ajouter\+Coups (
+\begin{DoxyParamCaption}
+\item[{{\bf Coups} $\ast$}]{coups, }
+\item[{{\bf Coup}}]{coup}
+\end{DoxyParamCaption}
+)}\label{_t_a_d___coups_8h_af2e7edcec7429d4bdfd2663eb195ecc3}
+
+
+Fonction ajoute le \hyperlink{struct_coup}{Coup} coup à la variable coups. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Coups$\ast$} & coups \+: un tableau de \hyperlink{struct_coups}{Coups} \\
+\hline
+{\em \hyperlink{struct_coup}{Coup}} & coup \+: le \hyperlink{struct_coup}{Coup} à ajouter à coups \\
+\hline
+\end{DoxyParams}
+\hypertarget{_t_a_d___coups_8h_a8f108bb6178f13d908dd89acec4efec1}{}\index{T\+A\+D\+\_\+\+Coups.\+h@{T\+A\+D\+\_\+\+Coups.\+h}!C\+P\+S\+\_\+ieme\+Coup@{C\+P\+S\+\_\+ieme\+Coup}}
+\index{C\+P\+S\+\_\+ieme\+Coup@{C\+P\+S\+\_\+ieme\+Coup}!T\+A\+D\+\_\+\+Coups.\+h@{T\+A\+D\+\_\+\+Coups.\+h}}
+\subsubsection[{C\+P\+S\+\_\+ieme\+Coup}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Coup} C\+P\+S\+\_\+ieme\+Coup (
+\begin{DoxyParamCaption}
+\item[{{\bf Coups}}]{coups, }
+\item[{unsigned int}]{i}
+\end{DoxyParamCaption}
+)}\label{_t_a_d___coups_8h_a8f108bb6178f13d908dd89acec4efec1}
+
+
+Fonction qui ieme \hyperlink{struct_coup}{Coup} de la variable coups. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \hyperlink{struct_coups}{Coups}} & coups \+: la variable dont on veut obtenir le ieme \hyperlink{struct_coup}{Coup} \\
+\hline
+{\em unsigned} & int i \+: indice du \hyperlink{struct_coup}{Coup} à obtenir \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+unsigned int \+: le nombre de \hyperlink{struct_coups}{Coups} 
+\end{DoxyReturn}
+\hypertarget{_t_a_d___coups_8h_af1de1eae45bfb41101a8011d0f72557d}{}\index{T\+A\+D\+\_\+\+Coups.\+h@{T\+A\+D\+\_\+\+Coups.\+h}!C\+P\+S\+\_\+nb\+Coups@{C\+P\+S\+\_\+nb\+Coups}}
+\index{C\+P\+S\+\_\+nb\+Coups@{C\+P\+S\+\_\+nb\+Coups}!T\+A\+D\+\_\+\+Coups.\+h@{T\+A\+D\+\_\+\+Coups.\+h}}
+\subsubsection[{C\+P\+S\+\_\+nb\+Coups}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int C\+P\+S\+\_\+nb\+Coups (
+\begin{DoxyParamCaption}
+\item[{{\bf Coups}}]{coups}
+\end{DoxyParamCaption}
+)}\label{_t_a_d___coups_8h_af1de1eae45bfb41101a8011d0f72557d}
+
+
+Fonction qui renvoie le nombre de \hyperlink{struct_coups}{Coups} d\textquotesingle{}une variable de type \hyperlink{struct_coups}{Coups}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \hyperlink{struct_coups}{Coups}} & coups \+: la variable dont on veut compter le nombre de \hyperlink{struct_coups}{Coups} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+unsigned int \+: le nombre de \hyperlink{struct_coups}{Coups} 
+\end{DoxyReturn}

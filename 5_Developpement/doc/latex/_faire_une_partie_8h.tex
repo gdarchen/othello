@@ -1,0 +1,132 @@
+\hypertarget{_faire_une_partie_8h}{}\section{include/\+Faire\+Une\+Partie.h File Reference}
+\label{_faire_une_partie_8h}\index{include/\+Faire\+Une\+Partie.\+h@{include/\+Faire\+Une\+Partie.\+h}}
+
+
+Implantation de faireunepartie-\/prive pour le projet othello.  
+
+
+{\ttfamily \#include \char`\"{}Faire\+Une\+Partie\+\_\+\+Prive.\+h\char`\"{}}\\*
+Include dependency graph for Faire\+Une\+Partie.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_faire_une_partie_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_faire_une_partie_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{_faire_une_partie_8h_afbcf1f25e5757648ebb1468bacfa88a0}{faire\+Une\+Partie} (void($\ast$afficher\+Plateau)(\hyperlink{struct_plateau}{Plateau}, \hyperlink{struct_coup}{Coup}, int, int), \hyperlink{struct_coup}{Coup}($\ast$get\+Coup1)(\hyperlink{struct_plateau}{Plateau}, \hyperlink{_t_a_d___couleur_8h_aa304d0ca681f782b1d7735da33037dd7}{Couleur}), \hyperlink{struct_coup}{Coup}($\ast$get\+Coup2)(\hyperlink{struct_plateau}{Plateau}, \hyperlink{_t_a_d___couleur_8h_aa304d0ca681f782b1d7735da33037dd7}{Couleur}), \hyperlink{_t_a_d___couleur_8h_aa304d0ca681f782b1d7735da33037dd7}{Couleur} $\ast$joueur, int $\ast$est\+Match\+Nul)
+\begin{DoxyCompactList}\small\item\em Faire\+Une\+Partie regroupe la procedure faire\+Une\+Partie qui va permettre de jouer a l\textquotesingle{}othello. \end{DoxyCompactList}\item 
+void \hyperlink{_faire_une_partie_8h_a72253f5f7bcc8905865eb0bd84b7e726}{pion\+Est\+Present} (\hyperlink{struct_pion}{Pion} pion\+Joueur, \hyperlink{_faire_une_partie___prive_8h_a224b9163917ac32fc95a60d8c1eec3aa}{Direction} dir\+A\+Tester, \hyperlink{struct_position}{Position} $\ast$pos, \hyperlink{struct_plateau}{Plateau} $\ast$plateau, int $\ast$pion\+Present)
+\begin{DoxyCompactList}\small\item\em Procedure qui permet de savoir si un pion est présent sur le plateau selon une direction, et si oui quelle est sa position. \end{DoxyCompactList}\item 
+void \hyperlink{_faire_une_partie_8h_a90b49530825bcf975873cc1236dd1886}{nb\+Pions} (\hyperlink{struct_plateau}{Plateau} plateau, unsigned int $\ast$nb\+Pions\+Noirs, unsigned int $\ast$nb\+Pions\+Blancs)
+\begin{DoxyCompactList}\small\item\em Procedure qui permet de compter le nombre de pions des joueurs 1 et 2 sur le plateau. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Implantation de faireunepartie-\/prive pour le projet othello. 
+
+\begin{DoxyAuthor}{Author}
+groupe 1.\+5 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\+0 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+02/12/2015 
+\end{DoxyDate}
+
+
+\subsection{Function Documentation}
+\hypertarget{_faire_une_partie_8h_afbcf1f25e5757648ebb1468bacfa88a0}{}\index{Faire\+Une\+Partie.\+h@{Faire\+Une\+Partie.\+h}!faire\+Une\+Partie@{faire\+Une\+Partie}}
+\index{faire\+Une\+Partie@{faire\+Une\+Partie}!Faire\+Une\+Partie.\+h@{Faire\+Une\+Partie.\+h}}
+\subsubsection[{faire\+Une\+Partie}]{\setlength{\rightskip}{0pt plus 5cm}void faire\+Une\+Partie (
+\begin{DoxyParamCaption}
+\item[{void($\ast$)({\bf Plateau}, {\bf Coup}, int, int)}]{afficher\+Plateau, }
+\item[{{\bf Coup}($\ast$)({\bf Plateau}, {\bf Couleur})}]{get\+Coup1, }
+\item[{{\bf Coup}($\ast$)({\bf Plateau}, {\bf Couleur})}]{get\+Coup2, }
+\item[{{\bf Couleur} $\ast$}]{joueur, }
+\item[{int $\ast$}]{est\+Match\+Nul}
+\end{DoxyParamCaption}
+)}\label{_faire_une_partie_8h_afbcf1f25e5757648ebb1468bacfa88a0}
+
+
+Faire\+Une\+Partie regroupe la procedure faire\+Une\+Partie qui va permettre de jouer a l\textquotesingle{}othello. 
+
+faire\+Une\+Partie(void($<$em$>$afficher\+Plateau)(\hyperlink{struct_plateau}{Plateau}), \hyperlink{struct_coup}{Coup($\ast$get\+Coup)}(\hyperlink{struct_plateau}{Plateau},\hyperlink{struct_pion}{Pion}), \hyperlink{struct_coup}{Coup($\ast$get\+Coup)}(\hyperlink{struct_plateau}{Plateau},\hyperlink{struct_pion}{Pion}), Couleur joueur, int$\ast$ est\+Match\+Nul) Procedure permettant de jouer au jeu de l\textquotesingle{}othello
+
+
+\begin{DoxyParams}{Parameters}
+{\em void($\ast$afficher\+Plateau)(\+Plateau,\hyperlink{struct_coup}{Coup},int,int)} & P\+O\+I\+N\+T\+E\+U\+R sur une fonction qui permet d\textquotesingle{}afficher le plateau a chaque tour \\
+\hline
+{\em \hyperlink{struct_coup}{Coup($\ast$get\+Coup1)(\+Plateau},Pion)} & permet d\textquotesingle{}obtenir le coup du joueur 1 \\
+\hline
+{\em \hyperlink{struct_coup}{Coup($\ast$get\+Coup2)(\+Plateau},Pion)} & permet d\textquotesingle{}obtenir le coup du joueur 2 \\
+\hline
+{\em Couleur$\ast$} & joueur permet de determiner le gagnant de la partie \\
+\hline
+{\em int$\ast$} & est\+Match\+Nul booléen qui permet de savoir si aucun joueur n\textquotesingle{}a gagné la partie ou il y\textquotesingle{}a un gagnant \textbackslash{} \\
+\hline
+\end{DoxyParams}
+\hypertarget{_faire_une_partie_8h_a90b49530825bcf975873cc1236dd1886}{}\index{Faire\+Une\+Partie.\+h@{Faire\+Une\+Partie.\+h}!nb\+Pions@{nb\+Pions}}
+\index{nb\+Pions@{nb\+Pions}!Faire\+Une\+Partie.\+h@{Faire\+Une\+Partie.\+h}}
+\subsubsection[{nb\+Pions}]{\setlength{\rightskip}{0pt plus 5cm}void nb\+Pions (
+\begin{DoxyParamCaption}
+\item[{{\bf Plateau}}]{plateau, }
+\item[{unsigned int $\ast$}]{nb\+Pions\+Noirs, }
+\item[{unsigned int $\ast$}]{nb\+Pions\+Blancs}
+\end{DoxyParamCaption}
+)}\label{_faire_une_partie_8h_a90b49530825bcf975873cc1236dd1886}
+
+
+Procedure qui permet de compter le nombre de pions des joueurs 1 et 2 sur le plateau. 
+
+void nb\+Pions (\hyperlink{struct_plateau}{Plateau} plateau, unsigned int$\ast$ score\+Joueur1, unsigned int$\ast$ score\+Joueur2) 
+\begin{DoxyParams}{Parameters}
+{\em \hyperlink{struct_plateau}{Plateau}} & plateau, le plateau de jeu \\
+\hline
+{\em unsigned} & int$\ast$ nb\+Pions\+Blancs, le nombre de pions Blanc \\
+\hline
+{\em unsigned} & int$\ast$ nb\+Pions\+Noirs, le nombre de pions Noirs \textbackslash{} \\
+\hline
+\end{DoxyParams}
+\hypertarget{_faire_une_partie_8h_a72253f5f7bcc8905865eb0bd84b7e726}{}\index{Faire\+Une\+Partie.\+h@{Faire\+Une\+Partie.\+h}!pion\+Est\+Present@{pion\+Est\+Present}}
+\index{pion\+Est\+Present@{pion\+Est\+Present}!Faire\+Une\+Partie.\+h@{Faire\+Une\+Partie.\+h}}
+\subsubsection[{pion\+Est\+Present}]{\setlength{\rightskip}{0pt plus 5cm}void pion\+Est\+Present (
+\begin{DoxyParamCaption}
+\item[{{\bf Pion}}]{pion\+Joueur, }
+\item[{{\bf Direction}}]{dir\+A\+Tester, }
+\item[{{\bf Position} $\ast$}]{pos, }
+\item[{{\bf Plateau} $\ast$}]{plateau, }
+\item[{int $\ast$}]{pion\+Present}
+\end{DoxyParamCaption}
+)}\label{_faire_une_partie_8h_a72253f5f7bcc8905865eb0bd84b7e726}
+
+
+Procedure qui permet de savoir si un pion est présent sur le plateau selon une direction, et si oui quelle est sa position. 
+
+void pion\+Est\+Present(\+Pion pion\+Joueur, unsigned int x, unsigned int y, Position$\ast$ pos, Plateau$\ast$ plateau, int$\ast$ pion\+Present) 
+\begin{DoxyParams}{Parameters}
+{\em \hyperlink{struct_pion}{Pion}} & pion\+Joueur, le pion représentant le joueur  \\
+\hline
+{\em unsigned} & int x, la direction selon l\textquotesingle{}axe des abscisses \\
+\hline
+{\em unsigned} & int y, la direction selon l\textquotesingle{}axe des ordonnées \\
+\hline
+{\em Position$\ast$} & pos, la position initiale du pion qui, à la fin de l\textquotesingle{}exécution de la procédure, renvoit la position du pion trouvé \\
+\hline
+{\em Plateau$\ast$} & plateau, le plateau de jeu \\
+\hline
+{\em int$\ast$} & pion\+Present, qui renvoit 0 si aucun pion conforme n\textquotesingle{}a été trouvé, 1 sinon \textbackslash{} \\
+\hline
+\end{DoxyParams}
