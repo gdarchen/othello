@@ -16,11 +16,11 @@ Coup obtenirCoupHumain(Plateau plateau, Couleur couleur){
   }
     while(i > 7){
       printf("veuillez saisir un numéro de ligne (de 0 à 7) : \n");
-      scanf("%d",&i);
+      scanf("%u",&i);
     }
     while(j > 7){
       printf("veuillez saisir un numéro de colonne (de 0 à 7) : \n");
-      scanf("%d",&j);
+      scanf("%u",&j);
     }
   POS_fixerPosition(i,j,&position);
   pion=PI_creerPion(couleur);
