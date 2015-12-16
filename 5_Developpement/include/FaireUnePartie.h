@@ -17,19 +17,20 @@
  */
 
 /**
- * \procedure faireUnePartie(void(*afficherPlateau)(Plateau), Coup(*getCoup)(Plateau,Pion), Coup(*getCoup)(Plateau,Pion), Couleur* joueur, int* estMatchNul)
+ * \procedure faireUnePartie(void(*afficherPlateau)(Plateau), Coup(*getCoup)(Plateau,Pion), Coup(*getCoup)(Plateau,Pion), Couleur* vainqueur, int* estMatchNul, Couleur couleurJoueur1)
  * \brief Procedure permettant de jouer au jeu de l'othello
  *
  * \param void(*afficherPlateau)(Plateau,Coup,int,int) POINTEUR sur une fonction qui permet d'afficher le plateau a chaque tour
  * \param Coup(*getCoup1)(Plateau,Pion) permet d'obtenir le coup du joueur 1
  * \param Coup(*getCoup2)(Plateau,Pion) permet d'obtenir le coup du joueur 2
- * \param  Couleur* joueur permet de determiner le gagnant de la partie
+ * \param Couleur* vaiqueur permet de determiner le gagnant de la partie
  * \param int* estMatchNul booléen qui permet de savoir si aucun joueur n'a gagné la partie ou il y'a un gagnant
+ * \param Couleur couleurJoueur1 permet d'obtenir la couleur choisie par le joueur 1
  * \
  */
 
 
-void faireUnePartie(void(*afficherPlateau)(Plateau,Coup,int,int), Coup(*getCoup1)(Plateau,Couleur), Coup(*getCoup2)(Plateau,Couleur), Couleur* joueur, int* estMatchNul);
+void faireUnePartie(void(*afficherPlateau)(Plateau,Coup,int,int), Coup(*getCoup1)(Plateau,Couleur), Coup(*getCoup2)(Plateau,Couleur), Couleur* vainqueur, int* estMatchNul, Couleur couleurJoueur1);
 
 /**
  * \procedure void pionEstPresent(Pion pionJoueur, unsigned int x, unsigned int y, Position* pos, Plateau* plateau, int* pionPresent)
