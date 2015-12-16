@@ -1,0 +1,70 @@
+\hypertarget{_affichage_8h}{}\section{include/\+Affichage.h File Reference}
+\label{_affichage_8h}\index{include/\+Affichage.\+h@{include/\+Affichage.\+h}}
+
+
+Fonctions d\textquotesingle{}affichage d\textquotesingle{}un plateau et d\textquotesingle{}affichage de l\textquotesingle{}aide.  
+
+
+{\ttfamily \#include \char`\"{}T\+A\+D\+\_\+\+Couleur.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}T\+A\+D\+\_\+\+Pion.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}T\+A\+D\+\_\+\+Plateau.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}T\+A\+D\+\_\+\+Position.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}T\+A\+D\+\_\+\+Coup.\+h\char`\"{}}\\*
+Include dependency graph for Affichage.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=330pt]{_affichage_8h__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{_affichage_8h_a073375ed46d7f2d21c61262a5af52930}{}void \hyperlink{_affichage_8h_a073375ed46d7f2d21c61262a5af52930}{afficher\+Aide} ()\label{_affichage_8h_a073375ed46d7f2d21c61262a5af52930}
+
+\begin{DoxyCompactList}\small\item\em Fonction qui affiche l\textquotesingle{}aide du jeu d\textquotesingle{}Othello (exécutable appelé sans argument) \end{DoxyCompactList}\item 
+\hypertarget{_affichage_8h_af24e3ad5f898ceab9d3011cff1ff793a}{}void {\bfseries afficher\+Tournoi} (\hyperlink{struct_plateau}{Plateau} plateau, \hyperlink{struct_coup}{Coup} coup, int a\+Pu\+Jouer, int est\+Partie\+Finie)\label{_affichage_8h_af24e3ad5f898ceab9d3011cff1ff793a}
+
+\item 
+char \hyperlink{_affichage_8h_a797147b14780279afc9943eaac537888}{int\+To\+Char} (unsigned int i)
+\begin{DoxyCompactList}\small\item\em Fonction qui convertit un entier en une lettre. \end{DoxyCompactList}\item 
+\hypertarget{_affichage_8h_ae90e85a8322ed3a0b2e98d25a947dd35}{}void {\bfseries afficher\+Plateau} (\hyperlink{struct_plateau}{Plateau} plateau, \hyperlink{struct_coup}{Coup} coup, int a\+Pu\+Jouer, int est\+Partie\+Finie)\label{_affichage_8h_ae90e85a8322ed3a0b2e98d25a947dd35}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Fonctions d\textquotesingle{}affichage d\textquotesingle{}un plateau et d\textquotesingle{}affichage de l\textquotesingle{}aide. 
+
+\begin{DoxyAuthor}{Author}
+Groupe 1.\+5 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\+0 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+09/12/2015 
+\end{DoxyDate}
+
+
+\subsection{Function Documentation}
+\hypertarget{_affichage_8h_a797147b14780279afc9943eaac537888}{}\index{Affichage.\+h@{Affichage.\+h}!int\+To\+Char@{int\+To\+Char}}
+\index{int\+To\+Char@{int\+To\+Char}!Affichage.\+h@{Affichage.\+h}}
+\subsubsection[{int\+To\+Char}]{\setlength{\rightskip}{0pt plus 5cm}char int\+To\+Char (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{i}
+\end{DoxyParamCaption}
+)}\label{_affichage_8h_a797147b14780279afc9943eaac537888}
+
+
+Fonction qui convertit un entier en une lettre. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em unsigned} & int i, l\textquotesingle{}entier à convertir \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+char 
+\end{DoxyReturn}
