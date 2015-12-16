@@ -7,6 +7,7 @@
 #include <stdio.h>
 
 #define INFINI 10000 /* Valeur affectée pour signifier qu'un coup est gagnant. */
+#define PROFONDEUR 5
 
 /* Partie publique */
 
@@ -44,7 +45,7 @@ int scoreDUnCoup(Plateau plateau, Coup coup, Couleur couleurRef, Couleur couleur
 	copierPlateau(plateau,&plateauTest);
 	jouerCoup(coup, &plateauTest);
 	if (plateauRempli(plateauTest) || profondeurCourante==0)
-		return score(plateauTest, couleurRef);
+        return score(plateauTest, couleurRef);
 	else
 		return minMax(plateauTest, couleurRef, CL_changerCouleur(couleurCourante), profondeurCourante-1);
 
@@ -57,9 +58,9 @@ int minMax(Plateau plateau, Couleur couleurRef, Couleur couleurCourante, unsigne
 
 	coupsPossibles = listeCoupsPossibles(plateau, couleurCourante);
 	if (CPS_nbCoups(coupsPossibles) > 0){
-		resultat = scoreDUnCoup(plateau, CPS_iemeCoup(coupsPossibles, 1), couleurRef, couleurCourante, profondeurCourante);
-		for (i=2 ; i<CPS_nbCoups(coupsPossibles);i++){ // nbCoups(coupsPossibles) + 1 ???
-			score = scoreDUnCoup(plateau, CPS_iemeCoup(coupsPossibles, i), couleurRef, couleurCourante, profondeurCourante);
+		resultat = scoreDUnCoup(plateau, CPS_iemeCoup(coupsPossibles, 0), couleurRef, couleurCourante, profondeurCourante);
+		for (i=1 ; i<CPS_nbCoups(coupsPossibles);i++){ // nbCoups(coupsPossibles) + 1 ???
+            score = scoreDUnCoup(plateau, CPS_iemeCoup(coupsPossibles, i), couleurRef, couleurCourante, profondeurCourante);
 			if (couleurCourante == couleurRef){
 				resultat = max(resultat, score);
 			}
@@ -123,6 +124,7 @@ int evaluerNbPionsCouleur(Plateau plateau, Couleur couleur){
 
 int evaluerPositionsPionsPlateau(Plateau plateau, Couleur couleur){
   int** grilleScore=initialiserGrilleScore();
+  initialiserGrilleScore(grilleScore);
   unsigned int i,j;
   Position pos;
   int resJoueur,resAdversaire,res;

@@ -355,13 +355,13 @@ void test_scoreDUnCoup(void)
     coup1=CP_creerCoup(positionCoup1,pionCoup1);
     Meilleurcoup=CP_creerCoup(positionMeilleurcoup,pionMeilleurcoup);
 
-    //meilleurScore = scoreDUnCoup(plateau,Meilleurcoup,couleurJoueur,couleurJoueur,profondeurMinMax);
+    meilleurScore = scoreDUnCoup(plateau,Meilleurcoup,couleurJoueur,couleurJoueur,profondeurMinMax);
     scoreCourant = scoreDUnCoup(plateau,coup1,couleurJoueur,couleurJoueur,profondeurMinMax);
 
 
     CU_ASSERT_TRUE    ((coupValide(plateau, coup1))
                        && (coupValide(plateau, Meilleurcoup))
-                       && (meilleurScore>scoreCourant));
+                       && (meilleurScore>=scoreCourant));
 }
 
 
