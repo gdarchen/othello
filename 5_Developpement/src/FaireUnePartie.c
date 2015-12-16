@@ -245,31 +245,33 @@ Position DIR_positionSelonDirection(Position posInit, Direction dirDeplacement){
     unsigned int i,j;
     i = POS_obtenirLigne(posInit);
     j = POS_obtenirColonne(posInit);
-    switch(dirDeplacement){
-        case GAUCHE :
-            POS_fixerPosition(i,j-1, &newPos);
-            break;
-        case DROITE :
-            POS_fixerPosition(i,j+1, &newPos);
-            break;
-        case HAUT :
-            POS_fixerPosition(i-1,j, &newPos);
-            break;
-        case BAS :
-            POS_fixerPosition(i+1,j, &newPos);
-            break;
-        case DIAGGH :
-            POS_fixerPosition(i-1,j-1, &newPos);
-            break;
-        case DIAGGB :
-            POS_fixerPosition(i+1,j-1, &newPos);
-            break;
-        case DIAGDH :
-            POS_fixerPosition(i-1,j+1, &newPos);
-            break;
-        case DIAGDB :
-            POS_fixerPosition(i+1,j+1, &newPos);
-            break;
+    if DIR_deplacementValide(posInit,dirDeplacement){
+        switch(dirDeplacement){
+            case GAUCHE :
+                POS_fixerPosition(i,j-1, &newPos);
+                break;
+            case DROITE :
+                POS_fixerPosition(i,j+1, &newPos);
+                break;
+            case HAUT :
+                POS_fixerPosition(i-1,j, &newPos);
+                break;
+            case BAS :
+                POS_fixerPosition(i+1,j, &newPos);
+                break;
+            case DIAGGH :
+                POS_fixerPosition(i-1,j-1, &newPos);
+                break;
+            case DIAGGB :
+                POS_fixerPosition(i+1,j-1, &newPos);
+                break;
+            case DIAGDH :
+                POS_fixerPosition(i-1,j+1, &newPos);
+                break;
+            case DIAGDB :
+                POS_fixerPosition(i+1,j+1, &newPos);
+                break;
+        }
     }
     return newPos;
 }
