@@ -1,0 +1,14 @@
+<map id="include/TAD_Couleur.h" name="include/TAD_Couleur.h">
+<area shape="rect" id="node2" href="$_affichage_8h.html" title="Fonctions d&#39;affichage d&#39;un plateau et d&#39;affichage de l&#39;aide. " alt="" coords="44,237,177,263"/>
+<area shape="rect" id="node3" href="$_t_a_d___pion_8h_source.html" title="include/TAD_Pion.h" alt="" coords="247,80,385,107"/>
+<area shape="rect" id="node4" href="$_t_a_d___plateau_8h_source.html" title="include/TAD_Plateau.h" alt="" coords="753,155,909,181"/>
+<area shape="rect" id="node5" href="$_faire_une_partie___prive_8h.html" title="Implantation de faireunepartie&#45;prive pour le projet othello. " alt="" coords="280,319,435,360"/>
+<area shape="rect" id="node7" href="$_liste_coups_possibles_8h.html" title="Implantation et signatures des fonctions publiques de ListeCoupsPossibles. " alt="" coords="439,483,641,509"/>
+<area shape="rect" id="node9" href="$_obtenir_coup_humain_8h.html" title="Implantation et signatures des fonctions publiques d&#39;ObtenirCoupHumain. " alt="" coords="529,237,725,263"/>
+<area shape="rect" id="node10" href="$_obtenir_coup_i_a_8h.html" title="Implantation et signatures des fonctions publiques d&#39;ObtenirCoupIA. " alt="" coords="749,237,913,263"/>
+<area shape="rect" id="node11" href="$_obtenir_coup_i_a___prive_8h_source.html" title="include/ObtenirCoupIA\l_Prive.h" alt="" coords="1090,229,1243,271"/>
+<area shape="rect" id="node13" href="$_t_a_d___coups_8h.html" title="Implantation du TAD Coups. " alt="" coords="354,237,505,263"/>
+<area shape="rect" id="node12" href="$_t_a_d___coup_8h.html" title="Implantation du TAD Coup. " alt="" coords="245,155,387,181"/>
+<area shape="rect" id="node8" href="$_liste_coups_possibles___prive_8h_source.html" title="include/ListeCoupsPossibles\l_Prive.h" alt="" coords="290,557,481,599"/>
+<area shape="rect" id="node6" href="$_faire_une_partie_8h.html" title="Implantation de faireunepartie&#45;prive pour le projet othello. " alt="" coords="303,408,468,435"/>
+</map>

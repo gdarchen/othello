@@ -1,0 +1,10 @@
+<map id="include/TAD_Coup.h" name="include/TAD_Coup.h">
+<area shape="rect" id="node2" href="$_affichage_8h.html" title="Fonctions d&#39;affichage d&#39;un plateau et d&#39;affichage de l&#39;aide. " alt="" coords="5,80,139,107"/>
+<area shape="rect" id="node3" href="$_faire_une_partie___prive_8h.html" title="Implantation de faireunepartie&#45;prive pour le projet othello. " alt="" coords="117,155,272,196"/>
+<area shape="rect" id="node5" href="$_liste_coups_possibles_8h.html" title="Implantation et signatures des fonctions publiques de ListeCoupsPossibles. " alt="" coords="214,319,415,345"/>
+<area shape="rect" id="node6" href="$_liste_coups_possibles___prive_8h_source.html" title="include/ListeCoupsPossibles\l_Prive.h" alt="" coords="150,393,341,435"/>
+<area shape="rect" id="node7" href="$_t_a_d___coups_8h.html" title="Implantation du TAD Coups. " alt="" coords="214,80,365,107"/>
+<area shape="rect" id="node8" href="$_obtenir_coup_humain_8h.html" title="Implantation et signatures des fonctions publiques d&#39;ObtenirCoupHumain. " alt="" coords="491,80,687,107"/>
+<area shape="rect" id="node9" href="$_obtenir_coup_i_a_8h.html" title="Implantation et signatures des fonctions publiques d&#39;ObtenirCoupIA. " alt="" coords="711,80,875,107"/>
+<area shape="rect" id="node4" href="$_faire_une_partie_8h.html" title="Implantation de faireunepartie&#45;prive pour le projet othello. " alt="" coords="112,244,277,271"/>
+</map>
