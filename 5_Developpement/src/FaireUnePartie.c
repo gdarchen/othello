@@ -23,10 +23,10 @@ void faireUnePartie(void(*afficherPlateau)(Plateau,Coup,int,int), Coup(*getCoup1
         jouer(&plateau,&couleurJoueur1,getCoup1,&aPuJouerJoueur1,&coupJoueur1);
         afficherPlateau(plateau,coupJoueur1,aPuJouerJoueur1,estFinie);
         jouer(&plateau,&couleurJoueur2,getCoup2,&aPuJouerJoueur2,&coupJoueur2);
-	    afficherPlateau(plateau,coupJoueur2,aPuJouerJoueur2,estFinie);
+	      afficherPlateau(plateau,coupJoueur2,aPuJouerJoueur2,estFinie);
         finPartie(plateau,aPuJouerJoueur1,aPuJouerJoueur2,&nbPionsNoirs,&nbPionsBlancs,&estFinie);
     }
-
+    afficherPlateau(plateau,coupJoueur2,aPuJouerJoueur2,estFinie);
     if (nbPionsBlancs==nbPionsNoirs){
         *vainqueur=CL_blanc();
         *estMatchNul=TRUE;}
