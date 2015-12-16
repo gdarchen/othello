@@ -56,7 +56,7 @@ int minMax(Plateau plateau, Couleur couleurRef, Couleur couleurCourante, unsigne
 	int resultat, score;
 	unsigned int i;
 
-	//coupsPossibles = listeCoupsPossibles(plateau, couleurCourante);
+	coupsPossibles = listeCoupsPossibles(plateau, couleurCourante);
 	if (CPS_nbCoups(coupsPossibles) > 0){
 		resultat = scoreDUnCoup(plateau, CPS_iemeCoup(coupsPossibles, 0), couleurRef, couleurCourante, profondeurCourante);
 		for (i=1 ; i<CPS_nbCoups(coupsPossibles);i++){ // nbCoups(coupsPossibles) + 1 ???
