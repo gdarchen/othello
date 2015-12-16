@@ -4,7 +4,7 @@
 #include <stdio.h>
 
 Coup obtenirCoupHumain(Plateau plateau, Couleur couleur){
-  int i=-1,j=-1;
+  unsigned int i=8,j=8;
   Coup coup;
   Position position;
   Pion pion;
@@ -14,11 +14,11 @@ Coup obtenirCoupHumain(Plateau plateau, Couleur couleur){
   else {
     printf("Joueur noir, ");
   }
-    while((i!=0) && (i!=1) && (i!=2) && (i!=3) && (i!=4) && (i!=5) && (i!=6) && (i!=7)){
+    while(i > 7){
       printf("veuillez saisir un numéro de ligne (de 0 à 7) : \n");
       scanf("%d",&i);
     }
-    while((j!=0) && (j!=1) && (j!=2) && (j!=3) && (j!=4) && (j!=5) && (j!=6) && (j!=7)){
+    while(j > 7){
       printf("veuillez saisir un numéro de colonne (de 0 à 7) : \n");
       scanf("%d",&j);
     }
