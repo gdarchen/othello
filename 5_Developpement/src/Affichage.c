@@ -99,11 +99,8 @@ void afficherPlateau(Plateau plateau, Coup coup, int aPuJouer,int estPartieFinie
         POS_fixerPosition(i,j,&position);
         if (!PL_estCaseVide(plateau,position)){
           if (CL_sontEgales((PI_obtenirCouleur(PL_obtenirPion(plateau,position))),couleurBlanc)){
-            printf("\033[37m" ); // Remplacer 35 par 37 pour du blanc
-            printf(" ● ");
-            printf("\033[40m" );
+            printf(" ○ ");
             printf("|");
-            printf("\033[0m");
           }
           else
           {
