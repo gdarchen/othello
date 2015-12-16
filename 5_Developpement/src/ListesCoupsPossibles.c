@@ -52,7 +52,7 @@ int coupValide(Plateau plateau, Coup coup) {
     Direction dir = GAUCHE;
     while(!(pionPresent) && (dir <= DIAGDB)) {
         posTmp = pos;
-        if(DIR_deplacementValide(posTmp,dir)==1){
+        if(DIR_deplacementValide(posTmp,dir)){
           pionEstPresent(pionJoueur,dir,&posTmp,&plateau,&pionPresent);
         }
         dir++;

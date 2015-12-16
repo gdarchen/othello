@@ -34,4 +34,13 @@ Coups listeCoupsPossibles(Plateau plateau, Couleur couleur);
  */
 void copierPlateau(Plateau plateauACopier, Plateau* plateauCopie);
 
+/**
+ * \fn int coupValide(Plateau plateau, Coup coup)
+ * \brief Fonction qui vérifie qu'un coup est valide
+ *
+ * \param Plateau plateau, le plateau
+ * \param Coup coup, le coup à vérifier
+ */
+int coupValide(Plateau plateau, Coup coup);
+
 #endif

@@ -7,7 +7,7 @@
 #include <stdio.h>
 
 #define INFINI 10000 /* Valeur affectée pour signifier qu'un coup est gagnant. */
-#define PROFONDEUR 3
+#define PROFONDEUR 5
 
 /* Partie publique */
 
@@ -23,7 +23,7 @@ Coup obtenirCoupIA(Plateau plateau, Couleur couleur){
         for (i=1;i<CPS_nbCoups(coupsPossibles);i++) { // cf remarque précédente : le 2nd coup est à l'indice 1 etc...
             coupCourant = CPS_iemeCoup(coupsPossibles,i);
             scoreCourant = scoreDUnCoup(plateau,coupCourant,couleur,couleur,profondeurMinMax);
-            if (scoreCourant > meilleurScore) {
+            if ((scoreCourant > meilleurScore) && coupValide(plateau,coupCourant)) {
                 meilleurCoup = coupCourant;
                 meilleurScore = scoreCourant;
             }

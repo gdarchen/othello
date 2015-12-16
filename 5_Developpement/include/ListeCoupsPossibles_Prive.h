@@ -6,6 +6,6 @@
 #include "FaireUnePartie.h"
 #include "FaireUnePartie_Prive.h"
 
-int coupValide(Plateau plateau, Coup coup);
+
 
 #endif
