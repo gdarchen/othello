@@ -61,7 +61,7 @@ int minMax(Plateau plateau, Couleur couleurRef, Couleur couleurCourante, unsigne
 		resultat = scoreDUnCoup(plateau, CPS_iemeCoup(coupsPossibles, 0), couleurRef, couleurCourante, profondeurCourante);
 		for (i=1 ; i<CPS_nbCoups(coupsPossibles);i++){ // nbCoups(coupsPossibles) + 1 ???
             score = scoreDUnCoup(plateau, CPS_iemeCoup(coupsPossibles, i), couleurRef, couleurCourante, profondeurCourante);
-			if (couleurCourante == couleurRef){
+			if (CL_sontEgales(couleurCourante,couleurRef)){
 				resultat = max(resultat, score);
 			}
 			else{
@@ -70,7 +70,7 @@ int minMax(Plateau plateau, Couleur couleurRef, Couleur couleurCourante, unsigne
 		}
 	}
 	else{
-		if (couleurCourante == couleurRef){
+		if (CL_sontEgales(couleurCourante,couleurRef)){
 			resultat = INFINI;
 		}
 		else{

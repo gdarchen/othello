@@ -110,7 +110,7 @@ void inverserPionsDir(Plateau* plateau, Position posInitiale, Position posCouran
     inew=POS_obtenirLigne(DIR_positionSelonDirection(posSuivante,dirInversion));
     jnew=POS_obtenirColonne(DIR_positionSelonDirection(posSuivante,dirInversion));
 
-    if (!(POS_sontEgales(posInitiale,posCourante))){
+    if (!(POS_sontEgales(posInitiale,posCourante)) && DIR_deplacementValide(posCourante, dirInversion)){
         PL_inverserPion(plateau,posCourante);
         POS_fixerPosition(inew,jnew,&posSuivante);
         inverserPionsDir(plateau,posInitiale,posSuivante,dirInversion);
