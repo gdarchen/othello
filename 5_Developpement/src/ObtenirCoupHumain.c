@@ -32,7 +32,9 @@ Coup obtenirCoupHumain(Plateau plateau, Couleur couleur){
   estValide=coupValide(plateau,coup);
   i=8;
   j=8;
-  printf("Coup non valide, recommencez \n");
+  if(!estValide){
+    printf("Coup non valide, recommencez \n");
+  }
   }
 
 
