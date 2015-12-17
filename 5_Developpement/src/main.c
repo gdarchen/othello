@@ -27,13 +27,13 @@ int main(int argc, char** argv){
 		}
 		else
 		{
-			if (argc==2 && (strcmp(argv[1],"tournoi")==0)){
+			if (argc==3 && (strcmp(argv[1],"tournoi")==0)){
 				if (strcmp(argv[2],"blanc")==0){
-					faireUnePartie(afficherPlateau,obtenirCoupIA,obtenirCoupIA,&vainqueur,&matchNul,CL_blanc());
+					faireUnePartie(afficherTournoi,obtenirCoupIA,obtenirCoupIA,&vainqueur,&matchNul,CL_blanc());
 				}
 				else{
 					if (strcmp(argv[2],"noir")==0){
-						faireUnePartie(afficherPlateau,obtenirCoupIA,obtenirCoupIA,&vainqueur,&matchNul,CL_blanc());
+						faireUnePartie(afficherTournoi,obtenirCoupIA,obtenirCoupIA,&vainqueur,&matchNul,CL_blanc());
 					}
 				}
 			}
