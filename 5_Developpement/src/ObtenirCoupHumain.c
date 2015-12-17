@@ -6,10 +6,10 @@
 
 Coup obtenirCoupHumain(Plateau plateau, Couleur couleur){
   unsigned int i=8,j=8;
+  int estValide = 0;
   Coup coup;
   Position position;
   Pion pion;
-  int estValide;
   if(CL_sontEgales(couleur,CL_blanc())){
     printf("Joueur ○ : \n");
   }
