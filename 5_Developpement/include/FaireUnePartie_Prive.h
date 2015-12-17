@@ -109,13 +109,13 @@ void pionEstPresentRecursif(Pion pionJoueur, Direction dirATester, Position* pos
  * \param Plateau plateau, le plateau de jeu
  * \param int aPuJouerJoueur1, 1 si le joueur 1 a pu jouer à son dernier tour, 0 sinon
  * \param int aPuJouerJoueur2, 1 si le joueur 2 a pu jouer à son dernier tour, 0 sinon
- * \param unsigned int* nbPionsBlancs, le nombre de pions Blanc
- * \param unsigned int* nbPionsNoirs, le nombre de pions Noirs
+ * \param int* nbPionsBlancs, le nombre de pions Blanc
+ * \param int* nbPionsNoirs, le nombre de pions Noirs
  * \param int* estFinie, 1 si la partie est finie, 0 sinon
  * \
  */
 
-void finPartie (Plateau plateau, int aPuJouerJoueur1, int aPuJouerJoueur2 , unsigned int* nbPionsNoirs, unsigned int* nbPionsBlancs , int* estFinie);
+void finPartie (Plateau plateau, int aPuJouerJoueur1, int aPuJouerJoueur2 , int* nbPionsNoirs, int* nbPionsBlancs , int* estFinie);
 
 
 int plateauRempli(Plateau plateau);

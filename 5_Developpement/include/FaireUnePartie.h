@@ -50,10 +50,10 @@ void pionEstPresent(Pion pionJoueur, Direction dirATester, Position* pos, Platea
  * \brief Procedure qui permet de compter le nombre de pions des joueurs 1 et 2 sur le plateau
  *
  * \param Plateau plateau, le plateau de jeu
- * \param unsigned int* nbPionsBlancs, le nombre de pions Blanc
- * \param unsigned int* nbPionsNoirs, le nombre de pions Noirs
+ * \param int* nbPionsBlancs, le nombre de pions Blanc
+ * \param int* nbPionsNoirs, le nombre de pions Noirs
  * \
  */
-void nbPions(Plateau plateau, unsigned int* nbPionsNoirs, unsigned int* nbPionsBlancs);
+void nbPions(Plateau plateau, int* nbPionsNoirs, int* nbPionsBlancs);
 
 #endif

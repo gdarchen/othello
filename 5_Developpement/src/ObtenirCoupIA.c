@@ -112,7 +112,7 @@ int evaluerNbCoupsPossiblesAdversaire(Plateau plateau, Couleur couleur){
 }
 
 int evaluerNbPionsCouleur(Plateau plateau, Couleur couleur){
-  unsigned int nbPionsNoirs,nbPionsBlancs;
+  int nbPionsNoirs,nbPionsBlancs;
   int res;
 
   nbPions(plateau,&nbPionsNoirs,&nbPionsBlancs);

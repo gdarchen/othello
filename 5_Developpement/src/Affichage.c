@@ -21,7 +21,7 @@ void afficherAide(){
 }
 
 void afficherTournoi(Plateau plateau, Coup coup, int aPuJouer,int estPartieFinie){
-  unsigned int nbPionsNoirs,nbPionsBlancs,i,j,ligne;
+  int nbPionsNoirs,nbPionsBlancs,i,j,ligne;
   char colonne;
 
   if(estPartieFinie){
@@ -85,7 +85,7 @@ char intToChar(unsigned int i){
 
 void afficherPlateau(Plateau plateau, Coup coup, int aPuJouer,int estPartieFinie){
   unsigned int i,j;
-  unsigned int nbPionsNoirs,nbPionsBlancs;
+  int nbPionsNoirs,nbPionsBlancs;
   Couleur couleurBlanc, couleurNoir;
   couleurBlanc=CL_blanc();
   couleurNoir=CL_noir();

@@ -16,7 +16,7 @@ void faireUnePartie(void(*afficher)(Plateau,Coup,int,int), Coup(*getCoup1)(Plate
     int aPuJouerJoueur1=TRUE, aPuJouerJoueur2=TRUE;
     int estFinie=FALSE;
     Couleur couleurJoueur2=CL_changerCouleur(couleurJoueur1);
-    unsigned int nbPionsBlancs=2, nbPionsNoirs=2;
+    int nbPionsBlancs=2, nbPionsNoirs=2;
     Coup coupJoueur1, coupJoueur2;
     afficher(plateau,coupJoueur1,aPuJouerJoueur1,estFinie);
     while (!(estFinie)) {
@@ -158,7 +158,7 @@ void pionEstPresentRecursif(Pion pionJoueur, Direction dirATester, Position* pos
 }
 
 
-void finPartie (Plateau plateau, int aPuJouerJoueur1, int aPuJouerJoueur2 , unsigned int* nbPionsNoirs, unsigned int* nbPionsBlancs , int* estFinie)
+void finPartie (Plateau plateau, int aPuJouerJoueur1, int aPuJouerJoueur2 , int* nbPionsNoirs, int* nbPionsBlancs , int* estFinie)
 {
     if(((aPuJouerJoueur1==FALSE) && (aPuJouerJoueur2==FALSE)) || (plateauRempli(plateau)==TRUE)){
         nbPions(plateau,nbPionsNoirs,nbPionsBlancs);
@@ -167,7 +167,7 @@ void finPartie (Plateau plateau, int aPuJouerJoueur1, int aPuJouerJoueur2 , unsi
 }
 
 
-void nbPions (Plateau plateau, unsigned int* nbPionsNoirs, unsigned int* nbPionsBlancs)
+void nbPions (Plateau plateau, int* nbPionsNoirs, int* nbPionsBlancs)
 {
     *nbPionsNoirs=0;
     *nbPionsBlancs=0;
