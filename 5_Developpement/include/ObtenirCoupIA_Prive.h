@@ -8,16 +8,16 @@
 unsigned int profondeur(void);
 
 /* Score associé à un coup joué par le joueur de la couleur couleurCourante */
-int scoreDUnCoup(Plateau plateau, Coup coup, Couleur couleurRef, Couleur couleurCourante, unsigned int profondeurCourante);
+int scoreDUnCoup(Plateau plateau, Coup coup, Couleur couleurRef, Couleur couleurCourante, unsigned int profondeurCourante, int** grilleScore);
 
 /* Permet de "remonter" le score du meilleur coup dans l'arbre des possibilités de jeu */
-int minMax(Plateau plateau, Couleur couleurRef, Couleur couleurCourante, unsigned int profondeurCourante);
+int minMax(Plateau plateau, Couleur couleurRef, Couleur couleurCourante, unsigned int profondeurCourante, int** grilleScore);
 
 /* Permet d'obtenir le score de la partie pour la couleur donnée en entrée */
-int score(Plateau plateau, Couleur couleur);
+int score(Plateau plateau, Couleur couleur, int** grilleScore);
 
 /* Evaluation du plateau selon différentes règles de jeu et de priorité */
-int evaluerPlateau(Plateau plateau, Couleur couleur);
+int evaluerPlateau(Plateau plateau, Couleur couleur, int** grilleScore);
 
 /* Evaluation du nombre de coups possibles de l'adversaire*/
 int evaluerNbCoupsPossiblesAdversaire(Plateau plateau, Couleur couleur);
@@ -26,7 +26,7 @@ int evaluerNbCoupsPossiblesAdversaire(Plateau plateau, Couleur couleur);
 int evaluerNbPionsCouleur(Plateau plateau, Couleur couleur);
 
 /* Evaluation du plateau selon la position des différents pions */
-int evaluerPositionsPionsPlateau(Plateau plateau, Couleur couleur);
+int evaluerPositionsPionsPlateau(Plateau plateau, Couleur couleur, int** grilleScore);
 
 /* Initialisation de la grille qui attribue à chaque position un poids */
 int** initialiserGrilleScore();

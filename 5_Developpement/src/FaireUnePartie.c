@@ -125,7 +125,8 @@ void pionEstPresent(Pion pionJoueur, Direction dirATester, Position* pos, Platea
         *pionPresent = FALSE;}
     else {
         *pos = DIR_positionSelonDirection(*pos,dirATester);
-        if(CL_sontEgales(PI_obtenirCouleur(PL_obtenirPion(*plateau,*pos)),couleurAdversaire)){
+        /* On doit regarder que la case n'est pas vide car le plateau est rempli des pions blancs par défaut */
+        if(CL_sontEgales(PI_obtenirCouleur(PL_obtenirPion(*plateau,*pos)),couleurAdversaire) && (!PL_estCaseVide(*plateau,*pos))){
           *pos = DIR_positionSelonDirection(*pos,dirATester);
           pionEstPresentRecursif(pionJoueur,dirATester,pos,plateau,pionPresent);
         }
