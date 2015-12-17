@@ -177,11 +177,11 @@ void nbPions (Plateau plateau, int* nbPionsNoirs, int* nbPionsBlancs)
     for(i=0;i<8;i++){
         for(j=0;j<8;j++){
             POS_fixerPosition(i,j,&pos);
-            if (CL_sontEgales(PI_obtenirCouleur(PL_obtenirPion(plateau,pos)),couleur) && (!PL_estCaseVide(plateau,pos))){
-                *nbPionsNoirs=*nbPionsNoirs+1;
-            }
-            else {
-                if (!PL_estCaseVide(plateau,pos)){
+            if((!PL_estCaseVide(plateau,pos))){
+                if (CL_sontEgales(PI_obtenirCouleur(PL_obtenirPion(plateau,pos)),couleur)){
+                    *nbPionsNoirs=*nbPionsNoirs+1;
+                }
+                else {
                     *nbPionsBlancs=*nbPionsBlancs+1;
                 }
             }
