@@ -9,7 +9,6 @@
 
 #ifndef __AFFICHAGE__
 #define __AFFICHAGE__
-//#include "FaireUnePartie.h"
 #include "TAD_Couleur.h"
 #include "TAD_Pion.h"
 #include "TAD_Plateau.h"
@@ -50,4 +49,13 @@ char intToChar(unsigned int i);
   */
 void afficherPlateau(Plateau plateau, Coup coup, int aPuJouer,int estPartieFinie);
 
-  #endif
+ /**
+  * \fn void afficherCoup(Couleur couleurJouer, Coup coupJoueur)
+  * \brief Fonction qui affiche le coup d'un joueur
+  *
+  * \param Couleur couleurJoueur, la couleur du joueur dont on affiche le coup
+  * \param Coup coupJoueur, le coup joué par le joueur de couleur couleurJoueur
+  */
+void afficherCoup(Couleur couleurJoueur, Coup coupJoueur);
+
+#endif

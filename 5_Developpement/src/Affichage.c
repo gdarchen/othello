@@ -90,13 +90,13 @@ void afficherPlateau(Plateau plateau, Coup coup, int aPuJouer,int estPartieFinie
   couleurBlanc=CL_blanc();
   couleurNoir=CL_noir();
   if(!estPartieFinie){
-    printf("    0   1   2   3   4   5   6   7 \n");
+    printf("    1   2   3   4   5   6   7   8 \n");
     printf("   ———————————————————————————————\n");
     Position position;
-    for(i=0;i<8;i++){
+    for(i=1;i<9;i++){
       printf("%d |", i);
-      for (j=0;j<8;j++){
-        POS_fixerPosition(i,j,&position);
+      for (j=1;j<9;j++){
+        POS_fixerPosition(i-1,j-1,&position);
         if (!PL_estCaseVide(plateau,position)){
           if (CL_sontEgales((PI_obtenirCouleur(PL_obtenirPion(plateau,position))),couleurBlanc)){
             printf(" ○ ");
@@ -124,37 +124,29 @@ void afficherPlateau(Plateau plateau, Coup coup, int aPuJouer,int estPartieFinie
     }
     else{
       if(nbPionsNoirs>nbPionsBlancs){
-        printf("Le joueur ayant les pions noirs a gagné\n");
+        printf("Le joueur ayant les pions ●  a gagné\n");
       }
       else{
-        printf("Le joueur ayant les pions blancs a gagné\n");
+        printf("Le joueur ayant les pions ○  a gagné\n");
       }
     }
   }
 }
 
-/* Procedure à supprimer (sert à tester l'affichage)
+void afficherCoup(Couleur couleurJoueur, Coup coupJoueur){
+  Position pos = CP_obtenirPositionCoup(coupJoueur);
+  unsigned int ligne = POS_obtenirLigne(pos);
+  unsigned int colonne = POS_obtenirColonne(pos);
+  ligne ++; // pour l'affichage
+  colonne ++; // pour l'affichage
 
-int main(int argc, char const *argv[]){
-  Plateau plateau=PL_creerPlateau();
-  Pion pBlanc=PI_creerPion(CL_blanc()), pNoir=PI_creerPion(CL_noir());
-  Position pos1,pos2,pos3,pos4;
-  POS_fixerPosition(3,4,&pos1);
-  POS_fixerPosition(4,3,&pos2);
-  POS_fixerPosition(3,3,&pos3);
-  POS_fixerPosition(4,4,&pos4);
-  PL_poserPion(&plateau,pos1,pBlanc);
-  PL_poserPion(&plateau,pos2,pBlanc);
-  PL_poserPion(&plateau,pos3,pNoir);
-  PL_poserPion(&plateau,pos4,pNoir);
-  afficherPlateau(plateau);
-  afficherAide();
-  return 0;
+  if (CL_sontEgales(couleurJoueur,CL_blanc())){
+    printf("\n\n\n Le joueur ○  joue en : \n \tligne : %u — colonne : %u \n\n",ligne,colonne);
+  }
+  else{
+    if (CL_sontEgales(couleurJoueur,CL_noir())){
+      printf("\n\n\n Le joueur ●  joue en : \n \tligne : %u — colonne : %u \n\n",ligne,colonne);
+    }
+  }
 }
 
-// Lignes de code pour executer et tester ce fichier :
-// gcc -o src/Affichage.o -c src/Affichage.c -Iinclude -Wall -pedantic -std=c99
-// gcc -o src/TESTTTT src/Affichage.o src/TAD_Couleur.o src/TAD_Pion.o src/TAD_Plateau.o src/TAD_Position.o
-// ./src/TESTTTT
-
-*/

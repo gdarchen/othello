@@ -1,6 +1,7 @@
 #include "FaireUnePartie.h"
 #include "FaireUnePartie_Prive.h"
 #include "ListeCoupsPossibles.h"
+#include "Affichage.h"
 #include <stddef.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -11,7 +12,8 @@
 /* Partie publique */
 
 void faireUnePartie(void(*afficher)(Plateau,Coup,int,int), Coup(*getCoup1)(Plateau,Couleur), Coup(*getCoup2)(Plateau,Couleur), Couleur *vainqueur, int* estMatchNul, Couleur couleurJoueur1)
-{   Plateau plateau=PL_creerPlateau();
+{   
+    Plateau plateau=PL_creerPlateau();
     initialiserPlateau(&plateau);
     int aPuJouerJoueur1=TRUE, aPuJouerJoueur2=TRUE;
     int estFinie=FALSE;
@@ -21,19 +23,24 @@ void faireUnePartie(void(*afficher)(Plateau,Coup,int,int), Coup(*getCoup1)(Plate
     afficher(plateau,coupJoueur1,aPuJouerJoueur1,estFinie);
     while (!(estFinie)) {
         jouer(&plateau,&couleurJoueur1,getCoup1,&aPuJouerJoueur1,&coupJoueur1);
+        afficherCoup(couleurJoueur1,coupJoueur1);
         afficher(plateau,coupJoueur1,aPuJouerJoueur1,estFinie);
         jouer(&plateau,&couleurJoueur2,getCoup2,&aPuJouerJoueur2,&coupJoueur2);
-	      afficher(plateau,coupJoueur2,aPuJouerJoueur2,estFinie);
+        afficherCoup(couleurJoueur2,coupJoueur2);
+	    afficher(plateau,coupJoueur2,aPuJouerJoueur2,estFinie);
         finPartie(plateau,aPuJouerJoueur1,aPuJouerJoueur2,&nbPionsNoirs,&nbPionsBlancs,&estFinie);
     }
     afficher(plateau,coupJoueur2,aPuJouerJoueur2,estFinie);
     if (nbPionsBlancs==nbPionsNoirs){
         *vainqueur=CL_blanc();
-        *estMatchNul=TRUE;}
+        *estMatchNul=TRUE;
+    }
     else (*estMatchNul=FALSE);{
         if (nbPionsBlancs>nbPionsNoirs){
-            *vainqueur=CL_blanc();}
-        else {*vainqueur=CL_blanc();}
+            *vainqueur=CL_blanc();
+        }
+        else {*vainqueur=CL_blanc();
+        }
     }
 }
 
@@ -59,8 +66,7 @@ void initialiserPlateau(Plateau *plateauDeJeu){
 }
 
 
-void jouer(Plateau* plateau , Couleur* couleurJoueur, Coup(*getCoup)(Plateau,Couleur), int* aPuJouer, Coup* coupJoueur)
-{
+void jouer(Plateau* plateau , Couleur* couleurJoueur, Coup(*getCoup)(Plateau,Couleur), int* aPuJouer, Coup* coupJoueur){
     unsigned int i;
     int res;
     Coups coups;
@@ -78,8 +84,8 @@ void jouer(Plateau* plateau , Couleur* couleurJoueur, Coup(*getCoup)(Plateau,Cou
     *aPuJouer=res;
 }
 
-void jouerCoup (Coup coup, Plateau* plateau)
-{   Position pos;
+void jouerCoup (Coup coup, Plateau* plateau){   
+    Position pos;
     Pion  pionJoueur;
 
     PL_poserPion(plateau,CP_obtenirPositionCoup(coup),CP_obtenirPionCoup(coup));

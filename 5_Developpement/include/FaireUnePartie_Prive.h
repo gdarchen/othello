@@ -36,7 +36,7 @@
 
 
 /**
- * \procedure Plateau InitialiserPlateau()
+ * \fn Plateau InitialiserPlateau()
  * \brief Procedure permettant d'initialiser le plateau (place quatre pions au centre)
  *
  * \
@@ -44,7 +44,7 @@
 void initialiserPlateau(Plateau *plateau);
 
 /**
- * \procedure void jouer(Plateau* plateau , Couleur* couleurJoueur, GETCOUP(*obtenirCoupJoueur)(Plateau,Couleur,Coup), int* aPuJouer)
+ * \fn void jouer(Plateau* plateau , Couleur* couleurJoueur, GETCOUP(*obtenirCoupJoueur)(Plateau,Couleur,Coup), int* aPuJouer)
  * \brief Procedure qui permet à un joueur de jouer
  *
  * \param Plateau* plateau, le plateau de l'othello
@@ -58,7 +58,7 @@ void jouer(Plateau* plateau , Couleur* couleurJoueur, Coup(*obtenirCoupJoueur)(P
 
 
 /**
- * \procedure void jouerCoup (Coup coup, Plateau* plateau)
+ * \fn void jouerCoup (Coup coup, Plateau* plateau)
  * \brief Procedure qui permet de jouer un coup sur le plateau
  *
  * \param Coup coup , le coup que le joueur souhaite jouer
@@ -68,7 +68,7 @@ void jouer(Plateau* plateau , Couleur* couleurJoueur, Coup(*obtenirCoupJoueur)(P
 void jouerCoup(Coup coup, Plateau* plateau);
 
 /**
- * \procedure void inverserPions(Position pos, Pion pionJoueur, Plateau* plateau)
+ * \fn void inverserPions(Position pos, Pion pionJoueur, Plateau* plateau)
  * \brief Procedure qui permet de retourner les pions dans toutes les directions si possible, après le coup
  *
  * \param Position pos, la position du coup
@@ -79,7 +79,7 @@ void jouerCoup(Coup coup, Plateau* plateau);
 void inverserPions(Position pos, Pion pionJoueur, Plateau* plateau);
 
 /**
- * \procedure inverserPionsDir(Plateau* plateau, Position posInitiale, Position posCourante, Direction dirInversion);
+ * \fn inverserPionsDir(Plateau* plateau, Position posInitiale, Position posCourante, Direction dirInversion);
  * \brief Procedure qui permet de retourner les pions sur le plateau selon une direction donnée
  *
  * \param Plateau* plateau, le plateau de jeu
@@ -91,7 +91,7 @@ void inverserPions(Position pos, Pion pionJoueur, Plateau* plateau);
 void inverserPionsDir(Plateau* plateau, Position posInitiale, Position posCourante, Direction dirInversion);
 
 /**
- * \procedure void pionEstPresentRecursif(Pion pionJoueur, Direction dirATester, Position* pos, Plateau* plateau, int* pionPresent);
+ * \fn void pionEstPresentRecursif(Pion pionJoueur, Direction dirATester, Position* pos, Plateau* plateau, int* pionPresent);
  * \brief Procedure qui permet de savoir si un pion est présent sur le plateau selon une direction, et si oui quelle est sa position, de manière récursive à partir de la case à côté de la position initiale
  *
  * \param Pion pionJoueur, le pion représentant le joueur
@@ -103,7 +103,7 @@ void inverserPionsDir(Plateau* plateau, Position posInitiale, Position posCouran
  */
 void pionEstPresentRecursif(Pion pionJoueur, Direction dirATester, Position* pos, Plateau* plateau, int* pionPresent);
 /**
- * \procedure finPartie (Plateau plateau, int aPuJouerJoueur1,aPuJouerJoueur2 , unsigned int* scoreJoueur1, unsigned int* scoreJoueur2 , int* estFinie)
+ * \fn finPartie (Plateau plateau, int aPuJouerJoueur1,aPuJouerJoueur2 , unsigned int* scoreJoueur1, unsigned int* scoreJoueur2 , int* estFinie)
  * \brief Procedure qui permet de déterminer si la partie est finie ou non.
  *
  * \param Plateau plateau, le plateau de jeu
@@ -117,7 +117,13 @@ void pionEstPresentRecursif(Pion pionJoueur, Direction dirATester, Position* pos
 
 void finPartie (Plateau plateau, int aPuJouerJoueur1, int aPuJouerJoueur2 , int* nbPionsNoirs, int* nbPionsBlancs , int* estFinie);
 
-
+/** 
+ * \fn int plateauRempli (Plateau plateau)
+ * \brief Fonction qui renvoie un booléen indiquant si le plateau est rempli ou non.
+ *
+ * \param Plateau plateau, le plateau à tester.
+ * \return int, le booléen indiquant si le plateau est rempli.
+ */
 int plateauRempli(Plateau plateau);
 
 

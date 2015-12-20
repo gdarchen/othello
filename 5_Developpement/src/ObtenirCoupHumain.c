@@ -5,7 +5,7 @@
 #include <stdio.h>
 
 Coup obtenirCoupHumain(Plateau plateau, Couleur couleur){
-  unsigned int i=8,j=8;
+  unsigned int i=9,j=9;
   int estValide = 0;
   Coup coup;
   Position position;
@@ -17,21 +17,23 @@ Coup obtenirCoupHumain(Plateau plateau, Couleur couleur){
     printf("Joueur ● : \n");
   }
   while(estValide==0) {
-    while(i > 7){
-      printf("Veuillez saisir un numéro de ligne (de 0 à 7) : \n");
+    while(i > 8){
+      printf("Veuillez saisir un numéro de ligne (de 1 à 8) : \n");
       scanf("%u",&i);
     }
-    while(j > 7){
-      printf("Veuillez saisir un numéro de colonne (de 0 à 7) : \n");
+    while(j > 8){
+      printf("Veuillez saisir un numéro de colonne (de 1 à 8) : \n");
       scanf("%u",&j);
     }
 
+  i=i-1;
+  j=j-1;
   POS_fixerPosition(i,j,&position);
   pion=PI_creerPion(couleur);
   coup=CP_creerCoup(position,pion);
   estValide=coupValide(plateau,coup);
-  i=8;
-  j=8;
+  i=9;
+  j=9;
   if(!estValide){
     printf("Coup non valide, recommencez \n");
   }
