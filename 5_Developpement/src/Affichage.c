@@ -13,11 +13,11 @@ void afficherAide(){
     "\t othello standard blanc|noir [profondeur>2] \n"
       "\t\t permet de jouer contre l’ordinateur en lui donnant les blancs \n"
       "\t\t ou les noirs \n"
-      "\t\t par defaut la profondeur d’analyse est egale a 5 \n \n"
+      "\t\t par défaut la profondeur d’analyse est égale à 5 \n \n"
     "\t othello tournoi blanc|noir [profondeur>2] \n"
       "\t\t permet de faire jouer le programme dans un mode ’tournoi’ en \n"
       "\t\t lui donnant les blancs ou les noirs\n"
-      "\t\t par defaut la profondeur d’analyse est egale a 5\n\n");
+      "\t\t par défaut la profondeur d’analyse est égale à 5\n\n");
 }
 
 void afficherTournoi(Plateau plateau, Coup coup, int aPuJouer,int estPartieFinie){
