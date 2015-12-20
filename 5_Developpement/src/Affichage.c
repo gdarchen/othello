@@ -90,11 +90,11 @@ void afficherPlateau(Plateau plateau, Coup coup, int aPuJouer,int estPartieFinie
   couleurBlanc=CL_blanc();
   couleurNoir=CL_noir();
   if(!estPartieFinie){
-    printf("    1   2   3   4   5   6   7   8 \n");
-    printf("   ———————————————————————————————\n");
+    printf("      1   2   3   4   5   6   7   8 \n");
+    printf("     ———————————————————————————————\n");
     Position position;
     for(i=1;i<9;i++){
-      printf("%d |", i);
+      printf("  %d |", i);
       for (j=1;j<9;j++){
         POS_fixerPosition(i-1,j-1,&position);
         if (!PL_estCaseVide(plateau,position)){
@@ -114,7 +114,7 @@ void afficherPlateau(Plateau plateau, Coup coup, int aPuJouer,int estPartieFinie
           printf("   |");
         }
       }
-  	  printf("\n   ———————————————————————————————\n");
+  	  printf("\n     ———————————————————————————————\n");
     }
   }
   else{
