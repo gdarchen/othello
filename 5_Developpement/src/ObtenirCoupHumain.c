@@ -26,22 +26,17 @@ Coup obtenirCoupHumain(Plateau plateau, Couleur couleur){
       scanf("%u",&j);
     }
 
-  i=i-1;
-  j=j-1;
-  POS_fixerPosition(i,j,&position);
-  pion=PI_creerPion(couleur);
-  coup=CP_creerCoup(position,pion);
-  estValide=coupValide(plateau,coup);
-  i=9;
-  j=9;
-  if(!estValide){
-    printf("Coup non valide, recommencez \n");
+    i=i-1;
+    j=j-1;
+    POS_fixerPosition(i,j,&position);
+    pion=PI_creerPion(couleur);
+    coup=CP_creerCoup(position,pion);
+    estValide=coupValide(plateau,coup);
+    i=9;
+    j=9;
+    if(!estValide){
+      printf("Coup non valide, recommencez \n");
+    }
   }
-  }
-
-
-
-
-
-  return(coup);
+  return coup;
 }

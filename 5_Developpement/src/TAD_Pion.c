@@ -7,11 +7,11 @@
 Pion PI_creerPion(Couleur couleurPion){
   Pion pion;
   pion.couleur=couleurPion;
-  return(pion);
+  return pion;
 }
 
 Couleur PI_obtenirCouleur(Pion pion){
-  return(pion.couleur);
+  return pion.couleur;
 }
 
 void PI_retournerPion(Pion* pion){
@@ -22,5 +22,5 @@ void PI_retournerPion(Pion* pion){
 }
 
 int PI_sontEgaux(Pion pion1, Pion pion2){
-  return(CL_sontEgales(pion1.couleur,pion2.couleur));
+  return CL_sontEgales(pion1.couleur,pion2.couleur);
 }

@@ -12,7 +12,7 @@ Plateau PL_creerPlateau(){
       plateau.presencePions[i-1][j-1]=0;
     }
   }
-  return(plateau);
+  return plateau;
 }
 
 int PL_estCaseVide(Plateau plateau, Position position){
@@ -20,10 +20,10 @@ int PL_estCaseVide(Plateau plateau, Position position){
   i=POS_obtenirLigne(position);
   j=POS_obtenirColonne(position);
   if((plateau.presencePions[i][j])==0){
-    return(1);
+    return 1;
   }
   else{
-    return(0);
+    return 0;
   }
 }
 
@@ -48,7 +48,7 @@ Pion PL_obtenirPion(Plateau plateau, Position position){
   i=POS_obtenirLigne(position);
   j=POS_obtenirColonne(position);
   pion=plateau.pions[i][j];
-  return(pion);
+  return pion;
 }
 
 void PL_inverserPion(Plateau* plateau, Position position){

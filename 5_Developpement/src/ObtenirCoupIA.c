@@ -13,45 +13,45 @@
 /* Partie publique */
 
 Coup obtenirCoupIA(Plateau plateau, Couleur couleur){
-    Coups coupsPossibles;
-    unsigned int i,profondeurMinMax=profondeur();
-    int scoreCourant, meilleurScore;
-    Coup coupCourant, meilleurCoup;
-    int** grilleScore=initialiserGrilleScore();
-    coupsPossibles=listeCoupsPossibles(plateau,couleur);
-    if (CPS_nbCoups(coupsPossibles) > 0) {
-        meilleurCoup = CPS_iemeCoup(coupsPossibles,0); // Le premier coup de la liste à l'indice 0 ici, contrairement au pseudo-code
-        meilleurScore = scoreDUnCoup(plateau,meilleurCoup,couleur,couleur,profondeurMinMax, grilleScore);
-        for (i=1;i<CPS_nbCoups(coupsPossibles);i++) { // cf remarque précédente : le 2nd coup est à l'indice 1 etc...
-            coupCourant = CPS_iemeCoup(coupsPossibles,i);
-            scoreCourant = scoreDUnCoup(plateau,coupCourant,couleur,couleur,profondeurMinMax, grilleScore);
-            if ((scoreCourant > meilleurScore) && coupValide(plateau,coupCourant)) {
-                meilleurCoup = coupCourant;
-                meilleurScore = scoreCourant;
-            }
-        }
+  Coups coupsPossibles;
+  unsigned int i,profondeurMinMax=profondeur();
+  int scoreCourant, meilleurScore;
+  Coup coupCourant, meilleurCoup;
+  int** grilleScore=initialiserGrilleScore();
+  coupsPossibles=listeCoupsPossibles(plateau,couleur);
+  if (CPS_nbCoups(coupsPossibles) > 0) {
+    meilleurCoup = CPS_iemeCoup(coupsPossibles,0); // Le premier coup de la liste à l'indice 0 ici, contrairement au pseudo-code
+    meilleurScore = scoreDUnCoup(plateau,meilleurCoup,couleur,couleur,profondeurMinMax, grilleScore);
+    for (i=1;i<CPS_nbCoups(coupsPossibles);i++) { // cf remarque précédente : le 2nd coup est à l'indice 1 etc...
+      coupCourant = CPS_iemeCoup(coupsPossibles,i);
+      scoreCourant = scoreDUnCoup(plateau,coupCourant,couleur,couleur,profondeurMinMax, grilleScore);
+      if ((scoreCourant > meilleurScore) && coupValide(plateau,coupCourant)) {
+        meilleurCoup = coupCourant;
+        meilleurScore = scoreCourant;
+      }
     }
-    free(grilleScore);
-    return meilleurCoup;
+  }
+  free(grilleScore);
+  return meilleurCoup;
 }
 
 
 /* Partie privée */
 
 unsigned int profondeur(void){
-
-    return PROFONDEUR;
+  return PROFONDEUR;
 }
 
 int scoreDUnCoup(Plateau plateau, Coup coup, Couleur couleurRef, Couleur couleurCourante, unsigned int profondeurCourante, int** grilleScore){
 	Plateau plateauTest;
 	copierPlateau(plateau,&plateauTest);
 	jouerCoup(coup, &plateauTest);
-	if (plateauRempli(plateauTest) || profondeurCourante==0)
-        return score(plateauTest, couleurRef, grilleScore);
-	else
+	if (plateauRempli(plateauTest) || profondeurCourante==0){
+    return score(plateauTest, couleurRef, grilleScore);
+  }
+	else{
 		return minMax(plateauTest, couleurRef, CL_changerCouleur(couleurCourante), profondeurCourante-1, grilleScore);
-
+  }
 }
 
 int minMax(Plateau plateau, Couleur couleurRef, Couleur couleurCourante, unsigned int profondeurCourante, int** grilleScore){
@@ -62,8 +62,8 @@ int minMax(Plateau plateau, Couleur couleurRef, Couleur couleurCourante, unsigne
 	coupsPossibles = listeCoupsPossibles(plateau, couleurCourante);
 	if (CPS_nbCoups(coupsPossibles) > 0){
 		resultat = scoreDUnCoup(plateau, CPS_iemeCoup(coupsPossibles, 0), couleurRef, couleurCourante, profondeurCourante, grilleScore);
-		for (i=1 ; i<CPS_nbCoups(coupsPossibles);i++){ // nbCoups(coupsPossibles) + 1 ???
-            score = scoreDUnCoup(plateau, CPS_iemeCoup(coupsPossibles, i), couleurRef, couleurCourante, profondeurCourante, grilleScore);
+		for (i=0 ; i<CPS_nbCoups(coupsPossibles);i++){
+      score = scoreDUnCoup(plateau, CPS_iemeCoup(coupsPossibles, i), couleurRef, couleurCourante, profondeurCourante, grilleScore);
 			if (CL_sontEgales(couleurCourante,couleurRef)){
 				resultat = max(resultat, score);
 			}
@@ -84,7 +84,6 @@ int minMax(Plateau plateau, Couleur couleurRef, Couleur couleurCourante, unsigne
 }
 
 int score(Plateau plateau, Couleur couleur, int** grilleScore){
-
   return evaluerPlateau(plateau,couleur, grilleScore);
 }
 
@@ -95,7 +94,7 @@ int evaluerPlateau(Plateau plateau, Couleur couleur, int** grilleScore){
   evaluer3=evaluerPositionsPionsPlateau(plateau,couleur,grilleScore);
   res=evaluer1+evaluer2+evaluer3; /* Il serait peut-être utile de donner un coefficient à chaque evaluation ? */
 
-  return (res);
+  return res;
 }
 
 int evaluerNbCoupsPossiblesAdversaire(Plateau plateau, Couleur couleur){
@@ -108,7 +107,7 @@ int evaluerNbCoupsPossiblesAdversaire(Plateau plateau, Couleur couleur){
   nbCoupsAdversaire=CPS_nbCoups(coupsAdversaire);
 
   res=(60-10*nbCoupsAdversaire); /* Le mieux est que l'adversaire ait 0 coups possibles. Plus il en a, moins l'évaluation est bonne. */
-  return(res);
+  return res;
 }
 
 int evaluerNbPionsCouleur(Plateau plateau, Couleur couleur){
@@ -145,7 +144,7 @@ int evaluerPositionsPionsPlateau(Plateau plateau, Couleur couleur, int** grilleS
     }
   }
   res=resJoueur-resAdversaire;
-  return(res);
+  return res;
 }
 
 /* Tirée de http://emmanuel.adam.free.fr/site/IMG/pdf/jeuP.pdf */

@@ -4,12 +4,12 @@
 /* Partie publique */
 
 unsigned int POS_obtenirLigne(Position position){
-  return(position.ligne);
+  return position.ligne;
 }
 
 
 unsigned int POS_obtenirColonne(Position position){
-  return(position.colonne);
+  return position.colonne;
 }
 
 void POS_fixerPosition(unsigned int ligne, unsigned int colonne, Position* position){
@@ -19,5 +19,5 @@ void POS_fixerPosition(unsigned int ligne, unsigned int colonne, Position* posit
 }
 
 int POS_sontEgales(Position pos1, Position pos2){
-  return(((pos1.ligne) == (pos2.ligne)) && ((pos1.colonne) == (pos2.colonne)));
+  return (((pos1.ligne) == (pos2.ligne)) && ((pos1.colonne) == (pos2.colonne)));
 }

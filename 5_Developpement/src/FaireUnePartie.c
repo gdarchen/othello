@@ -39,7 +39,8 @@ void faireUnePartie(void(*afficher)(Plateau,Coup,int,int), Coup(*getCoup1)(Plate
         if (nbPionsBlancs>nbPionsNoirs){
             *vainqueur=CL_blanc();
         }
-        else {*vainqueur=CL_blanc();
+        else {
+            *vainqueur=CL_blanc();
         }
     }
 }
@@ -92,7 +93,6 @@ void jouerCoup (Coup coup, Plateau* plateau){
     pos=CP_obtenirPositionCoup(coup);
     pionJoueur=CP_obtenirPionCoup(coup);
     inverserPions(pos,pionJoueur,plateau);
-
 }
 
 

@@ -12,65 +12,62 @@
 /* Partie publique  */
 
 Coups listeCoupsPossibles(Plateau plateau, Couleur couleur){
-    Coups coupsPossibles;
-    Position positionTest;
-    Coup coupTest;
-    Pion pionJoueur;
-    unsigned int k,i,j;
-    int nbPionsBlancs,nbPionsNoirs,nbPionsAParcourir;
+  Coups coupsPossibles;
+  Position positionTest;
+  Coup coupTest;
+  Pion pionJoueur;
+  unsigned int k,i,j;
+  int nbPionsBlancs,nbPionsNoirs,nbPionsAParcourir;
 
-    CPS_creerCoups(&coupsPossibles);
-    pionJoueur = PI_creerPion(couleur);
-    nbPions(plateau,&nbPionsNoirs,&nbPionsBlancs);
-    nbPionsAParcourir = 64-(nbPionsBlancs+nbPionsBlancs);
-    i = 0;
-    j = 0;
-    k = 0;
-    for (i = 0; i < 8; i++){
-        for (j = 0; j < 8; j++){
-            if (k < nbPionsAParcourir){
-               POS_fixerPosition(i,j,&positionTest);
-               if(PL_estCaseVide(plateau,positionTest)) {
-                  coupTest = CP_creerCoup(positionTest,pionJoueur);
-                  if (coupValide(plateau,coupTest)){
-                      CPS_ajouterCoups(&coupsPossibles,coupTest);
-                      k=k+1;
-                  }
-               }
-            }
-        }
+  CPS_creerCoups(&coupsPossibles);
+  pionJoueur = PI_creerPion(couleur);
+  nbPions(plateau,&nbPionsNoirs,&nbPionsBlancs);
+  nbPionsAParcourir = 64-(nbPionsBlancs+nbPionsBlancs);
+  i = 0;
+  j = 0;
+  k = 0;
+  for (i = 0; i < 8; i++){
+    for (j = 0; j < 8; j++){
+      if (k < nbPionsAParcourir){
+       POS_fixerPosition(i,j,&positionTest);
+       if(PL_estCaseVide(plateau,positionTest)) {
+          coupTest = CP_creerCoup(positionTest,pionJoueur);
+          if (coupValide(plateau,coupTest)){
+            CPS_ajouterCoups(&coupsPossibles,coupTest);
+            k=k+1;
+          }
+       }
+      }
     }
+  }
   return coupsPossibles;
 }
 
 /* Partie privee  */
 
 int coupValide(Plateau plateau, Coup coup) {
-    int pionPresent;
-    Position pos,posTmp;
-    Pion pionJoueur;
-    pionPresent = 0;
-    pos = CP_obtenirPositionCoup(coup);
-    pionJoueur = CP_obtenirPionCoup(coup);
-    Direction dir = GAUCHE;
-    while(!(pionPresent) && (dir <= DIAGDB)) {
-        posTmp = pos;
-        if(DIR_deplacementValide(posTmp,dir)){
-          pionEstPresent(pionJoueur,dir,&posTmp,&plateau,&pionPresent);
-        }
-        dir++;
+  int pionPresent;
+  Position pos,posTmp;
+  Pion pionJoueur;
+  pionPresent = 0;
+  pos = CP_obtenirPositionCoup(coup);
+  pionJoueur = CP_obtenirPionCoup(coup);
+  Direction dir = GAUCHE;
+  while(!(pionPresent) && (dir <= DIAGDB)) {
+    posTmp = pos;
+    if(DIR_deplacementValide(posTmp,dir)){
+      pionEstPresent(pionJoueur,dir,&posTmp,&plateau,&pionPresent);
     }
-    return pionPresent;
+    dir++;
+  }
+  return pionPresent;
 }
 
 
 
 
 void copierPlateau(Plateau plateauACopier, Plateau* plateauCopie){
-
-    *plateauCopie=PL_creerPlateau();
-    memcpy(&(plateauCopie->pions),&(plateauACopier.pions),sizeof(Pion)*8*8);
-    memcpy(&(plateauCopie->presencePions),&(plateauACopier.presencePions),sizeof(int)*8*8);
-
-
+  *plateauCopie=PL_creerPlateau();
+  memcpy(&(plateauCopie->pions),&(plateauACopier.pions),sizeof(Pion)*8*8);
+  memcpy(&(plateauCopie->presencePions),&(plateauACopier.presencePions),sizeof(int)*8*8);
 }
