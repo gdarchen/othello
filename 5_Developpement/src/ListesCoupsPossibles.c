@@ -23,7 +23,6 @@ Coups listeCoupsPossibles(Plateau plateau, Couleur couleur){
   pionJoueur = PI_creerPion(couleur);
   nbPions(plateau,&nbPionsNoirs,&nbPionsBlancs);
   nbPionsAParcourir = 64-(nbPionsBlancs+nbPionsBlancs);
-  k = 0;
   for (i = 0; i < 8; i++){
     for (j = 0; j < 8; j++){
       if (k < nbPionsAParcourir){
