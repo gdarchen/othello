@@ -40,7 +40,7 @@ void faireUnePartie(void(*afficher)(Plateau,Coup,int,int), Coup(*getCoup1)(Plate
             *vainqueur=CL_blanc();
         }
         else {
-            *vainqueur=CL_blanc();
+            *vainqueur=CL_noir();
         }
     }
 }
