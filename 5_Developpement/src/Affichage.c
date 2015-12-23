@@ -21,7 +21,8 @@ void afficherAide(){
 }
 
 void afficherTournoi(Plateau plateau, Coup coup, int aPuJouer,int estPartieFinie){
-  int nbPionsNoirs,nbPionsBlancs,i,j,ligne;
+  int nbPionsNoirs,nbPionsBlancs,ligne;
+  unsigned int i,j;
   char colonne;
 
   if(estPartieFinie){
@@ -149,4 +150,3 @@ void afficherCoup(Couleur couleurJoueur, Coup coupJoueur){
     }
   }
 }
-

@@ -12,7 +12,7 @@
 /* Partie publique */
 
 void faireUnePartie(void(*afficher)(Plateau,Coup,int,int), Coup(*getCoup1)(Plateau,Couleur), Coup(*getCoup2)(Plateau,Couleur), Couleur *vainqueur, int* estMatchNul, Couleur couleurJoueur1)
-{   
+{
     Plateau plateau=PL_creerPlateau();
     initialiserPlateau(&plateau);
     int aPuJouerJoueur1=TRUE, aPuJouerJoueur2=TRUE;
@@ -85,7 +85,7 @@ void jouer(Plateau* plateau , Couleur* couleurJoueur, Coup(*getCoup)(Plateau,Cou
     *aPuJouer=res;
 }
 
-void jouerCoup (Coup coup, Plateau* plateau){   
+void jouerCoup (Coup coup, Plateau* plateau){
     Position pos;
     Pion  pionJoueur;
 
