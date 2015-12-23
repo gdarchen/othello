@@ -25,6 +25,7 @@ void faireUnePartie(void(*afficher)(Plateau,Coup,int,int), Coup(*getCoup1)(Plate
         jouer(&plateau,&couleurJoueur1,getCoup1,&aPuJouerJoueur1,&coupJoueur1);
         afficherCoup(couleurJoueur1,coupJoueur1);
         afficher(plateau,coupJoueur1,aPuJouerJoueur1,estFinie);
+        printf("joueur 2 joue");
         jouer(&plateau,&couleurJoueur2,getCoup2,&aPuJouerJoueur2,&coupJoueur2);
         afficherCoup(couleurJoueur2,coupJoueur2);
 	    afficher(plateau,coupJoueur2,aPuJouerJoueur2,estFinie);

@@ -3,6 +3,7 @@
 #include "TAD_Couleur.h"
 #include "TAD_Plateau.h"
 
+
 Plateau PL_creerPlateau(){
   Plateau plateau;
   unsigned int i,j;
