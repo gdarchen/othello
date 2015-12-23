@@ -16,15 +16,13 @@ Coups listeCoupsPossibles(Plateau plateau, Couleur couleur){
   Position positionTest;
   Coup coupTest;
   Pion pionJoueur;
-  unsigned int k,i,j;
+  unsigned int i,j;
   int nbPionsBlancs,nbPionsNoirs,nbPionsAParcourir;
-
+  int k = 0;
   CPS_creerCoups(&coupsPossibles);
   pionJoueur = PI_creerPion(couleur);
   nbPions(plateau,&nbPionsNoirs,&nbPionsBlancs);
   nbPionsAParcourir = 64-(nbPionsBlancs+nbPionsBlancs);
-  i = 0;
-  j = 0;
   k = 0;
   for (i = 0; i < 8; i++){
     for (j = 0; j < 8; j++){
