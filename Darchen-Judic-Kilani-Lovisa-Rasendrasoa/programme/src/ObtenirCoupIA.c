@@ -19,7 +19,6 @@ Coup obtenirCoupIA(Plateau plateau, Couleur couleur){
   Coup coupCourant, meilleurCoup;
   int** grilleScore=initialiserGrilleScore();
   coupsPossibles=listeCoupsPossibles(plateau,couleur);
-  printf("nb coups possibles : %d",CPS_nbCoups(coupsPossibles));
   if (CPS_nbCoups(coupsPossibles) > 0) {
     meilleurCoup = CPS_iemeCoup(coupsPossibles,0); // Le premier coup de la liste à l'indice 0 ici, contrairement au pseudo-code
     meilleurScore = scoreDUnCoup(plateau,meilleurCoup,couleur,couleur,profondeurMinMax, grilleScore);

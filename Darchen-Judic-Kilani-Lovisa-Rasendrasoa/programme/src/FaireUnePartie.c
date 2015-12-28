@@ -15,18 +15,21 @@ void faireUnePartie(void(*afficher)(Plateau,Coup,int,int), Coup(*getCoup1)(Plate
 {
     Plateau plateau=PL_creerPlateau();
     initialiserPlateau(&plateau);
-    int aPuJouerJoueur1=FALSE, aPuJouerJoueur2=FALSE;
+    int aPuJouerJoueur1=TRUE, aPuJouerJoueur2=TRUE;
     int estFinie=FALSE;
     Couleur couleurJoueur2=CL_changerCouleur(couleurJoueur1);
     int nbPionsBlancs=2, nbPionsNoirs=2;
     Coup coupJoueur1, coupJoueur2;
+
+    Position positionInitialisation;
+    POS_fixerPosition(4,4,&positionInitialisation);
+    coupJoueur1 = CP_creerCoup(positionInitialisation,PI_creerPion(CL_blanc()));
+
     afficher(plateau,coupJoueur1,aPuJouerJoueur1,estFinie);
     while (!(estFinie)) {
         jouer(&plateau,&couleurJoueur1,getCoup1,&aPuJouerJoueur1,&coupJoueur1);
-        //afficherCoup(couleurJoueur1,coupJoueur1);
         afficher(plateau,coupJoueur1,aPuJouerJoueur1,estFinie);
         jouer(&plateau,&couleurJoueur2,getCoup2,&aPuJouerJoueur2,&coupJoueur2);
-        //afficherCoup(couleurJoueur2,coupJoueur2);
 	    afficher(plateau,coupJoueur2,aPuJouerJoueur2,estFinie);
         finPartie(plateau,aPuJouerJoueur1,aPuJouerJoueur2,&nbPionsNoirs,&nbPionsBlancs,&estFinie);
     }

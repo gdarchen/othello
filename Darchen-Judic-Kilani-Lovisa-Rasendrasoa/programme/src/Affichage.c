@@ -93,8 +93,8 @@ void afficherPlateau(Plateau plateau, Coup coup, int aPuJouer,int estPartieFinie
   Couleur couleurBlanc, couleurNoir;
   couleurBlanc=CL_blanc();
   couleurNoir=CL_noir();
-  
-  if (aPuJouer){
+
+  if (aPuJouer && !((POS_obtenirColonne(CP_obtenirPositionCoup(coup))==4) && (POS_obtenirLigne(CP_obtenirPositionCoup(coup))==4))){
     afficherCoup(couleurDernierJoueur,coup);
   }
   
