@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include "TAD_Couleur.h"
 #include "TAD_Pion.h"
+#include "TAD_Coup.h"
 #include "TAD_Plateau.h"
 #include "TAD_Position.h"
 #include "Affichage.h"
@@ -85,11 +86,18 @@ char intToChar(unsigned int i){
 }
 
 void afficherPlateau(Plateau plateau, Coup coup, int aPuJouer,int estPartieFinie){
+  Couleur couleurDernierJoueur;
+  couleurDernierJoueur = PI_obtenirCouleur(CP_obtenirPionCoup(coup));
   unsigned int i,j;
   int nbPionsNoirs,nbPionsBlancs;
   Couleur couleurBlanc, couleurNoir;
   couleurBlanc=CL_blanc();
   couleurNoir=CL_noir();
+  
+  if (aPuJouer){
+    afficherCoup(couleurDernierJoueur,coup);
+  }
+  
   if(!estPartieFinie){
     printf("      1   2   3   4   5   6   7   8 \n");
     printf("     ———————————————————————————————\n");
