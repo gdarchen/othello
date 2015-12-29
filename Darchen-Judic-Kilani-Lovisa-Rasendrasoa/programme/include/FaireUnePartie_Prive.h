@@ -31,10 +31,6 @@
  Direction DIR_inverserDirection(Direction dirInit);
  int DIR_deplacementValide(Position pos, Direction dirDeplacement);
 
-
-
-
-
 /**
  * \fn Plateau InitialiserPlateau()
  * \brief Procedure permettant d'initialiser le plateau (place quatre pions au centre)
@@ -117,7 +113,7 @@ void pionEstPresentRecursif(Pion pionJoueur, Direction dirATester, Position* pos
 
 void finPartie (Plateau plateau, int aPuJouerJoueur1, int aPuJouerJoueur2 , int* nbPionsNoirs, int* nbPionsBlancs , int* estFinie);
 
-/** 
+/**
  * \fn int plateauRempli (Plateau plateau)
  * \brief Fonction qui renvoie un booléen indiquant si le plateau est rempli ou non.
  *

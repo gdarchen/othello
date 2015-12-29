@@ -97,12 +97,12 @@
 		}%FinTantQue
 		\instruction{afficher(plateau,coupJoueur2,aPuJouerJoueur2,estFinie)}
 		\sialorssinon{nbPionsBlancs $=$ nbPionsNoirs}
-		{\affecter{joueur}{CL_blanc()}
+		{\affecter{vainqueur}{CL_blanc()}
 		\affecter{estMatchNul}{VRAI}}
 		{\affecter{estMatchNul}{FAUX}
 			\sialorssinon{nbPionsBlancs $ > $ nbPionsNoirs}
-			{\affecter{joueur}{CL_blanc()}}
-			{\affecter{joueur}{CL_noir()}}%FinSi
+			{\affecter{vainqueur}{CL_blanc()}}
+			{\affecter{vainqueur}{CL_noir()}}%FinSi
 		}%FinSi
 	}
 \end{algorithme}
