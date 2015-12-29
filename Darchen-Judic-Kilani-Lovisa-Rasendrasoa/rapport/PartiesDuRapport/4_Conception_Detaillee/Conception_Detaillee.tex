@@ -97,12 +97,12 @@
 		}%FinTantQue
 		\instruction{afficher(plateau,coupJoueur2,aPuJouerJoueur2,estFinie)}
 		\sialorssinon{nbPionsBlancs $=$ nbPionsNoirs}
-		{\affecter{vainqueur}{CL_blanc()}
+		{\affecter{vainqueur}{CL\_blanc()}
 		\affecter{estMatchNul}{VRAI}}
 		{\affecter{estMatchNul}{FAUX}
 			\sialorssinon{nbPionsBlancs $ > $ nbPionsNoirs}
-			{\affecter{vainqueur}{CL_blanc()}}
-			{\affecter{vainqueur}{CL_noir()}}%FinSi
+			{\affecter{vainqueur}{CL\_blanc()}}
+			{\affecter{vainqueur}{CL\_noir()}}%FinSi
 		}%FinSi
 	}
 \end{algorithme}
@@ -160,7 +160,7 @@
 		    \affecter{posTmp}{pos}
 		    \instruction{pionEstPresent(pionJoueur,dir,posTmp,plateau,pionPresent)}
 		    \sialors{pionPresent}{
-		      \instruction{inverserPionsDir(plateau,pos,DIR_positionSelonDirection(posTmp,DIR_inverserDirection(dir)),DIR_inverserDirection(dir))}
+		      \instruction{inverserPionsDir(plateau,pos,DIR\_positionSelonDirection(posTmp,DIR\_inverserDirection(dir)),DIR\_inverserDirection(dir))}
 		    }
 	      }%FinPour
 	}
@@ -176,11 +176,11 @@
 	posSuivante : Position}
 	{	
 		\affecter{positionSuivante}{posCourante}
-		\affecter{inew}{POS\_obtenirLigne(DIR_positionSelonDirection(posSuivante,dirInversion))}
-		\affecter{jnew}{POS\_obtenirColonne(DIR_positionSelonDirection(posSuivante,dirInversion))}
-		\sialors{non(POS_sontEgales(posInitiale,posCourante)) ET DIR_deplacementValide(posCourante, dirInversion))}{
+		\affecter{inew}{POS\_obtenirLigne(DIR\_positionSelonDirection(posSuivante,dirInversion))}
+		\affecter{jnew}{POS\_obtenirColonne(DIR\_positionSelonDirection(posSuivante,dirInversion))}
+		\sialors{non(POS\_sontEgales(posInitiale,posCourante)) ET DIR\_deplacementValide(posCourante, dirInversion))}{
 			\instruction{PL\_inverserPion(plateau,posCourante)}
-			\instruction{POS_fixerPosition(inew,jnew,&posSuivante)}
+			\instruction{POS\_fixerPosition(inew,jnew,posSuivante)}
       			\instruction{inverserPionsDir(plateau, posInitiale, posSuivante, dirInversion)}
 		}%FinSi
 	}
@@ -194,13 +194,13 @@
 	{couleurAdversaire : Couleur}
 	{
 		\affecter{couleurAdversaire}{CL\_changerCouleur(PI\_obtenirCouleur(pionJoueur))}
-		\sialorssinon{non(DIR_deplacementValide(pos,dirATester))}{
+		\sialorssinon{non(DIR\_deplacementValide(pos,dirATester))}{
 		      \affecter{pionPresent}{FAUX}
 		}
 		{
-		      \affecter{pos}{DIR_positionSelonDirection(pos,dirATester)}
-		      \sialorssinon{CL_sontEgales(PI_obtenirCouleur(PL_obtenirPion(plateau,pos)),couleurAdversaire) ET (non(PL_estCaseVide(plateau,pos)))}{
-			\affecter{pos}{DIR_positionSelonDirection(pos,dirATester)}
+		      \affecter{pos}{DIR\_positionSelonDirection(pos,dirATester)}
+		      \sialorssinon{CL\_sontEgales(PI\_obtenirCouleur(PL\_obtenirPion(plateau,pos)),couleurAdversaire) ET (non(PL\_estCaseVide(plateau,pos)))}{
+			\affecter{pos}{DIR\_positionSelonDirection(pos,dirATester)}
 			\instruction{pionEstPresentRecursif(pionJoueur, dirATester, pos, plateau, pionPresent)}
 		      }
 		      {
@@ -221,15 +221,15 @@
 		      \affecter{pionPresent}{FAUX}
 		}
 		{
-		      \sialorssinon{CL_sontEgales(PI_obtenirCouleur(PL_obtenirPion(plateau,pos)),couleurJoueur)}{
+		      \sialorssinon{CL\_sontEgales(PI\_obtenirCouleur(PL\_obtenirPion(plateau,pos)),couleurJoueur)}{
 			    \affecter{pionPresent}{VRAI}
 		      }
 		      {
-			    \sialorssinon{non(DIR_deplacementValide(pos,dirATester))}{
+			    \sialorssinon{non(DIR\_deplacementValide(pos,dirATester))}{
 				  \affecter{pionPresent}{FAUX}
 			    }
 			    {
-				  \affecter{pos}{DIR_positionSelonDirection(pos,dirATester)}
+				  \affecter{pos}{DIR\_positionSelonDirection(pos,dirATester)}
 				  \instruction{pionEstPresentRecursif(pionJoueur, dirATester, pos, plateau, pionPresent)}
 			    }%FinSi
 		      }%FinSi
