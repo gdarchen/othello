@@ -96,6 +96,17 @@ Pour la conception détaillée, nous avons ajouté la fonction de comparaison de
 \type{afficherPlateau}{\typeProcedure{\paramEntree{plateau : Plateau, coup : Coup, aPuJoueur, estPartieFinie : \booleen}}}
 \end{itemize}
 
+\subsection{Type Direction}
+~ \\
+Pour nous aider dans l'écriture de fonctions de FaireUnePartie et d'ObtenirCoupIA, nous avons décidé de nous aider d'un type énuméré Direction, ainsi que de fonctions encapsulantes.
+
+\begin{itemize}
+\type{Direction}{\{GAUCHE,DROITE,HAUT,BAS,DIAGGH,DIAGGB,DIAGDH,DIAGDB\}}
+\signaturefonction{DIR\_positionSelonDirection}{posInit : Position, dirDeplacement : Direction}{Position}
+\signaturefonction{DIR\_inverserDirection}{dirInit : Direction}{Direction}
+\signaturefonction{DIR\_deplacementValide}{pos : Position, dirDeplacement : Direction}{\entier}
+\end{itemize}
+
 \subsection{Sous-programmes}
 \begin{itemize}
 \signatureprocedure{faireUnePartie}{\paramEntree{afficher : afficherPlateau, coupJoueur1, coupJoueur2 : getCoup, couleurJoueur1 : Couleur}, \paramSortie{vainqueur : Couleur, estMatchNul : \booleen}}
