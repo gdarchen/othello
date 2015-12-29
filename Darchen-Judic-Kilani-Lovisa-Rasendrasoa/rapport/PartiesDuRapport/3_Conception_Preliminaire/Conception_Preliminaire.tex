@@ -129,9 +129,15 @@ Pour nous aider dans l'écriture de fonctions de FaireUnePartie et d'ObtenirCoup
 \signaturefonction{listeCoupsPossibles}{plateau : Plateau, couleur : Couleur}{Coups}
 \signaturefonction{coupValide}{plateau : Plateau, coup : Coup}{\booleen}
 \signatureprocedure{copierPlateau}{\paramEntree{plateauACopier : Plateau}, \paramSortie{plateauCopie : Plateau}}
-\signaturefonction{minMax}{plateau : Plateau, couleurRef, couleurCourante : Couleur, profondeurCourante : \naturel}{\entier}
-\signaturefonction{scoreDUnCoup}{plateau : Plateau, coup : Coup, couleurRef, couleurCourante : Couleur, profondeurCourante : \naturel}{\entier}
-\signaturefonction{score}{plateau : Plateau, couleur : Couleur}{\entier}
-\signaturefonction{evaluerPlateau}{plateau : Plateau, couleur : Couleur}{\entier}
+\signaturefonction{minMax}{plateau : Plateau, couleurRef, couleurCourante : Couleur, profondeurCourante : \naturel, grilleScore : \tableauDeuxDimensions{1..8}{1..8}{de}{\entier}}{\entier}
+\signaturefonction{scoreDUnCoup}{plateau : Plateau, coup : Coup, couleurRef, couleurCourante : Couleur, profondeurCourante : \naturel, grilleScore : \tableauDeuxDimensions{1..8}{1..8}{de}{\entier}}{\entier}
+\signaturefonction{score}{plateau : Plateau, couleur : Couleur, grilleScore : \tableauDeuxDimensions{1..8}{1..8}{de}{\entier}}{\entier}
+\signaturefonction{evaluerPlateau}{plateau : Plateau, couleur : Couleur, grilleScore : \tableauDeuxDimensions{1..8}{1..8}{de}{\entier}}{\entier}
+
+\signaturefonction{evaluerNbCoupsPossiblesAdversaire}{plateau : Plateau, couleur : Couleur}{\entier}
+\signaturefonction{evaluerNbPionsCouleur}{plateau : Plateau, couleur : Couleur}{\entier}
+\signaturefonction{evaluerPositionsPionsPlateau}{plateau : Plateau, couleur : Couleur, grilleScore : \tableauDeuxDimensions{1..8}{1..8}{de}{\entier}}{\entier}
+\signaturefonction{initialiserGrilleScore}{}{grilleScore : \tableauDeuxDimensions{1..8}{1..8}{de}{\entier}}
+
 \end{itemize}
 
