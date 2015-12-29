@@ -351,13 +351,13 @@
 	      \affecter{pionJoueur}{CP\_obtenirPionCoup(coup)}
 	      \affecter{dir}{GAUCHE}
 	      \tantque{non(pionPresent) ET (dir $<=$ DIAGDB)}{
-		    \affecter{posTmp}{pos}
-		    \sialors{DIR\_deplacementValide(posTmp,dir)}{
-		      pionEstPresent(pionJoueur,dir,posTmp,plateau,pionPresent);
-		    }
-		    \affecter{dir}{dir+1}
+		\affecter{posTmp}{pos}
+		\sialors{DIR\_deplacementValide(posTmp, dir)}{
+		      \instruction{pionEstPresent(pionJoueur, dir, posTmp, plateau, pionPresent)}
+		}
+		\affecter{dir}{dir $+$ 1}
 	      }%FinTantQue
-	\retourner{pionPresent}  
+	      \retourner{pionPresent}
 	}
 \end{algorithme}
 
