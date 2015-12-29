@@ -354,7 +354,7 @@
 	      \affecter{dir}{GAUCHE}
 	      \tantque{non(pionPresent) ET (dir $<=$ DIAGDB)}{
 		\affecter{posTmp}{pos}
-		\sialors{DIR\_deplacementValide(posTmp, dir)}{
+		\sialors{DIR\_deplacementValide(posTmp, dir) ET PL\_estCaseVide(plateau, pos)}{
 		      \instruction{pionEstPresent(pionJoueur, dir, posTmp, plateau, pionPresent)}
 		}
 		\affecter{dir}{dir $+$ 1}
