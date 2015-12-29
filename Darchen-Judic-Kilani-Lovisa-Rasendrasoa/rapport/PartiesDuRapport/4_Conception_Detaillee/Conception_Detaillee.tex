@@ -66,35 +66,43 @@
 \section{La procédure \tt{faireUnePartie}}
 \begin{algorithme}
 	\procedure{faireUnePartie}
-	{\paramEntree{afficher : afficherPlateau, obtenirCoupJoueur1, obtenirCoupJoueur2 : getCoup}, \paramSortie{joueur : Couleur, estMatchNul : \booleen}}
+	{\paramEntree{afficher : afficherPlateau, obtenirCoupJoueur1, obtenirCoupJoueur2 : getCoup, couleurJoueur1 : Couleur}, \paramSortie{vainqueur : Couleur, estMatchNul : \booleen}}
 	{plateau : Plateau \\
 	aPuJouerJoueur1, aPuJouerJoueur2, estFinie : \booleen\\
-	couleurJoueur1,couleurJoueur2 : Couleur \\
-	nbPionsBlancs, nbPionsNoirs : \naturel}
+	couleurJoueur2 : Couleur \\
+	nbPionsBlancs, nbPionsNoirs : \naturel \\
+	positionInitialisation : Position \\
+	coupJoueur1, coupJoueur2 : Coup}
 	{
 		\affecter{aPuJouerJoueur1}{VRAI}
 		\affecter{aPuJouerJoueur2}{VRAI}
-		\affecter{couleurJoueur1}{blanc()}
-		\affecter{couleurJoueur2}{noir()}
+		\affecter{couleurJoueur2}{CL\_changerCouleur(couleurJoueur1}
 		\affecter{estFinie}{FAUX}
 		\affecter{nbPionsBlancs}{2}
 		\affecter{nbPionsNoirs}{2}
 		\affecter{plateau}{initialiserPlateau()}
-		\instruction{afficher(plateau)}
+		\instruction{PL\_initialiserPlateau(plateau)}
+		
+		\instruction{POS\_fixerPosition(4,4,positionInitialisation)}
+		\affecter{coupJoueur1}{CP\_creerCoup(positionInitialisation,PI\_creerPion(CL\_blanc()))}
+		
+		\instruction{afficher(plateau,coupJoueur1,aPuJouerJoueur1,estFinie)}
 		\tantque{non(estFinie)}{
-			\instruction{jouer(plateau, couleurJoueur1, obtenirCoupJoueur1, aPuJouerJoueur1)}
-			\instruction{afficher(plateau)}
+			\instruction{jouer(plateau, couleurJoueur1, obtenirCoupJoueur1, aPuJouerJoueur1, coupJoueur1)}
+			\instruction{afficher(plateau),coupJoueur1,aPuJouerJoueur1,estFinie}
 			\instruction{finPartie(aPuJouerJoueur1, aPuJouerJoueur2, plateau, estFinie, nbPionsBlancs, nbPionsNoirs)}
-			\instruction{jouer(plateau, couleurJoueur2, obtenirCoupJoueur1, aPuJouerJoueur2)}
-			\instruction{afficher(plateau)}
-			\instruction{finPartie(aPuJouerJoueur1, aPuJouerJoueur2, plateau, estFinie, nbPionsBlancs, nbPionsNoirs)}}%FinTantQue
+			\instruction{jouer(plateau, couleurJoueur2, obtenirCoupJoueur1, aPuJouerJoueur2, coupJoueur2)}
+			\instruction{afficher(plateau,coupJoueur2,aPuJouerJoueur2,estFinie)}
+			\instruction{finPartie(plateau, aPuJouerJoueur1, aPuJouerJoueur2, nbPionsBlancs, nbPionsNoirs, estFinie)}
+		}%FinTantQue
+		\instruction{afficher(plateau,coupJoueur2,aPuJouerJoueur2,estFinie)}
 		\sialorssinon{nbPionsBlancs $=$ nbPionsNoirs}
-		{\affecter{joueur}{blanc()}
+		{\affecter{joueur}{CL_blanc()}
 		\affecter{estMatchNul}{VRAI}}
 		{\affecter{estMatchNul}{FAUX}
 			\sialorssinon{nbPionsBlancs $ > $ nbPionsNoirs}
-			{\affecter{joueur}{blanc()}}
-			{\affecter{joueur}{noir()}}%FinSi
+			{\affecter{joueur}{CL_blanc()}}
+			{\affecter{joueur}{CL_noir()}}%FinSi
 		}%FinSi
 	}
 \end{algorithme}
@@ -103,19 +111,22 @@
 \section{La procédure \tt{jouer}}
 \begin{algorithme}
 	\procedure{jouer}
-	{\paramEntreeSortie{plateau : Plateau, couleurJoueur : Couleur}, \paramEntree{obtenirCoupJoueur : getCoup}, \paramSortie{aPuJouer : \booleen}}
+	{\paramEntreeSortie{plateau : Plateau, couleurJoueur : Couleur}, \paramEntree{obtenirCoupJoueur : getCoup}, \paramSortie{aPuJouer : \booleen, coupJoueur : Coup}}
 	{i : \naturel \\
 	coups : Coups \\
-	joueurCourant : Couleur \\
-	coupJoueur : Coup}
+	res : \entier}
 	{\affecter{coupJoueur}{obtenirCoupJoueur(plateau,couleurJoueur)}
 	\affecter{coups}{listeCoupsPossibles(plateau, couleurJoueur)}
-	\pour{i}{1}{nbCoups(coups)}{}{
-		\sialors{iemeCoup(coups,i) $=$ coup}
+	\sialors{CPS\_nbCoups(coups) $>$ 0}{
+	  \pour{i}{1}{CPS\_nbCoups(coups)}{}{
+		\sialors{CP\_sontEgaux(CPS\_iemeCoup(coups,i),coupJoueur)}
 		{
 			\instruction{jouerCoup(coupJoueur,plateau)}
+			\affecter{res}{VRAI}
 		} %FinSi
-	} %FinPour
+	  } %FinPour
+	}
+	
 	\affecter{aPuJouer}{res}
 
 	}
@@ -125,12 +136,13 @@
 \begin{algorithme}
 	\procedure{jouerCoup}
 	{\paramEntree{coup : Coup}, \paramEntreeSortie{plateau : Plateau}}
-	{i : \naturelNonNul}
+	{pos : Position \\
+	pionJoueur : Pion}
 	{
-		\instruction{poserPion(plateau, obtenirPositionCoup(coup), obtenirPionCoup(coup))}
-		\affecter{pos}{obtenirPositionCoup(coup)}
-		\affecter{pionJoueur}{obtenirPionCoup(coup)}
-		\instruction{inverserPions(pos, pionJoueur, plateau : Plateau)}
+		\instruction{PL\_poserPion(plateau, CP\_obtenirPositionCoup(coup), CP\_obtenirPionCoup(coup))}
+		\affecter{pos}{CP\_obtenirPositionCoup(coup)}
+		\affecter{pionJoueur}{CP\_obtenirPionCoup(coup)}
+		\instruction{inverserPions(pos, pionJoueur, plateau)}
 	}
 \end{algorithme}
 
@@ -141,22 +153,15 @@
 	\procedure{inverserPions}
 	{\paramEntree{pos : Position, pionJoueur : Pion}, \paramEntreeSortie{plateau : Plateau}}
 	{posTmp : Position \\
-	x,y : \entier \\
-	i,j : \naturelNonNul \\
+	dir : Direction \\
 	pionPresent : \booleen}
 	{
-	      \pour{i}{1}{3}{}{	
-		    \affecter{x}{i $-$ 2}
-		    \pour{j}{1}{3}{}{	
-			  \affecter{y}{i $-$ 2}
-			  \sialors{non (x $=$ 0) et (y $=$ 0)}{
-				\affecter{posTmp}{pos}
-				\instruction{pionEstPresent(pionJoueur, x, y, posTmp, plateau, pionPresent)}
-				\sialors{pionPresent}{
-				      \instruction{inverserPionsDir(plateau, pos, posTmp, $-$x, $-$y)}
-				}%FinSi
-			  }%FinSi
-		    }%FinPour
+	      \pour{dir}{GAUCHE}{DIAGDB}{}{	
+		    \affecter{posTmp}{pos}
+		    \instruction{pionEstPresent(pionJoueur,dir,posTmp,plateau,pionPresent)}
+		    \sialors{pionPresent}{
+		      \instruction{inverserPionsDir(plateau,pos,DIR_positionSelonDirection(posTmp,DIR_inverserDirection(dir)),DIR_inverserDirection(dir))}
+		    }
 	      }%FinPour
 	}
 \end{algorithme}
@@ -166,15 +171,17 @@
 
 \begin{algorithme}
 	\procedure{inverserPionsDir}
-	{\paramEntreeSortie{plateau : Plateau}, \paramEntree{posInitiale, posCourante : Position, x, y : \entier}}
-	{i,j : \naturelNonNul}
+	{\paramEntreeSortie{plateau : Plateau}, \paramEntree{posInitiale, posCourante : Position, dirInversion : Direction}}
+	{inew,jnew : \naturelNonNul \\
+	posSuivante : Position}
 	{	
-		\affecter{i}{obtenirLigne(posCourante)}
-		\affecter{j}{obtenirColonne(posCourante)}
-		\sialors{non (posInitiale $=$ posCourante)}{
-			\instruction{inverserPion(plateau,posCourante)}
-      			\affecter{posCourante}{fixerPosition(x$+$i, y$+$j)}
-      			\instruction{inverserPionsDir(plateau, posInitiale, posCourante, x, y)}
+		\affecter{positionSuivante}{posCourante}
+		\affecter{inew}{POS\_obtenirLigne(DIR_positionSelonDirection(posSuivante,dirInversion))}
+		\affecter{jnew}{POS\_obtenirColonne(DIR_positionSelonDirection(posSuivante,dirInversion))}
+		\sialors{non(POS_sontEgales(posInitiale,posCourante)) ET DIR_deplacementValide(posCourante, dirInversion))}{
+			\instruction{PL\_inverserPion(plateau,posCourante)}
+			\instruction{POS_fixerPosition(inew,jnew,&posSuivante)}
+      			\instruction{inverserPionsDir(plateau, posInitiale, posSuivante, dirInversion)}
 		}%FinSi
 	}
 \end{algorithme}
@@ -183,21 +190,18 @@
 
 \begin{algorithme}
 	\procedure{pionEstPresent}
-	{\paramEntree{pionJoueur : Pion, x, y : \entier}, \paramEntreeSortie{pos : Position, plateau : Plateau}, \paramSortie{pionPresent : \booleen}}
-	{i,j : \naturelNonNul \\
-	couleurAdversaire : Couleur}
+	{\paramEntree{pionJoueur : Pion, dirATester : Direction}, \paramEntreeSortie{pos : Position, plateau : Plateau}, \paramSortie{pionPresent : \booleen}}
+	{couleurAdversaire : Couleur}
 	{
-		\affecter{i}{obtenirLigne(pos)}
-		\affecter{j}{obtenirColonne(pos)}
-		\affecter{couleurAdversaire}{changerCouleur(obtenirCouleur(pionJoueur))}
-		\sialorssinon{((x$+$i)$<$1) ou ((x$+$i)$>$8) ou ((y$+$j)$<$1) ou ((y$+$j)$>$8)}{
+		\affecter{couleurAdversaire}{CL\_changerCouleur(PI\_obtenirCouleur(pionJoueur))}
+		\sialorssinon{non(DIR_deplacementValide(pos,dirATester))}{
 		      \affecter{pionPresent}{FAUX}
 		}
 		{
-		      \affecter{pos}{fixerPosition(x$+$i, y$+$j)}
-		      \sialorssinon{sontEgales(obtenirCouleur(obtenirPion(plateau,pos)),couleurAdversaire)}{
-			\affecter{pos}{fixerPosition(2$\times$x$+$i, 2$\times$y$+$j)}
-			\instruction{pionEstPresentRecursif(pionJoueur, x, y, pos, plateau, pionPresent)}
+		      \affecter{pos}{DIR_positionSelonDirection(pos,dirATester)}
+		      \sialorssinon{CL_sontEgales(PI_obtenirCouleur(PL_obtenirPion(plateau,pos)),couleurAdversaire) ET (non(PL_estCaseVide(plateau,pos)))}{
+			\affecter{pos}{DIR_positionSelonDirection(pos,dirATester)}
+			\instruction{pionEstPresentRecursif(pionJoueur, dirATester, pos, plateau, pionPresent)}
 		      }
 		      {
 			\affecter{pionPresent}{FAUX}
@@ -209,27 +213,24 @@
 \section{La procédure \tt{pionEstPresentRecursif}}
 \begin{algorithme}
 	\procedure{pionEstPresentRecursif}
-	{\paramEntree{pionJoueur : Pion, x, y : \entier}, \paramEntreeSortie{pos : Position, plateau : Plateau}, \paramSortie{pionPresent : \booleen}}
-	{i,j : \naturelNonNul \\
-	couleurJoueur : Couleur}
+	{\paramEntree{pionJoueur : Pion, dirATester : Direction}, \paramEntreeSortie{pos : Position, plateau : Plateau}, \paramSortie{pionPresent : \booleen}}
+	{couleurJoueur : Couleur}
 	{
-		\affecter{i}{obtenirLigne(pos)}
-		\affecter{j}{obtenirColonne(pos)}
-		\affecter{couleurJoueur}{obtenirCouleurPion(pionJoueur)}
+		\affecter{couleurJoueur}{PI\_obtenirCouleurPion(pionJoueur)}
 		\sialorssinon{estCaseVide(plateau, pos)}{
 		      \affecter{pionPresent}{FAUX}
 		}
 		{
-		      \sialorssinon{obtenirCouleurPion(obtenirPion(plateau, pos)) $=$ couleurJoueur}{
+		      \sialorssinon{CL_sontEgales(PI_obtenirCouleur(PL_obtenirPion(plateau,pos)),couleurJoueur)}{
 			    \affecter{pionPresent}{VRAI}
 		      }
 		      {
-			    \sialorssinon{((x$+$i)$<$1) ou ((x$+$i)$>$8) ou ((y$+$j)$<$1) ou ((y$+$j)$>$8)}{
+			    \sialorssinon{non(DIR_deplacementValide(pos,dirATester))}{
 				  \affecter{pionPresent}{FAUX}
 			    }
 			    {
-				  \affecter{pos}{fixerPosition(x$+$i, y$+$j)}
-				  \instruction{pionEstPresentRecursif(pionJoueur, x, y, pos, plateau, pionPresent)}
+				  \affecter{pos}{DIR_positionSelonDirection(pos,dirATester)}
+				  \instruction{pionEstPresentRecursif(pionJoueur, dirATester, pos, plateau, pionPresent)}
 			    }%FinSi
 		      }%FinSi
 		}%FinSi
