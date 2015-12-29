@@ -230,7 +230,6 @@ void test_coupValideQuelconque(void){
   POS_fixerPosition(4,5,&positionAutreCouleur2);
   POS_fixerPosition(4,6,&positionMemeCouleur);
 
-  PL_poserPion(&plateau,positionTest,pionTest);
   PL_poserPion(&plateau,positionAutreCouleur1,pionAutreCouleur1);
   PL_poserPion(&plateau,positionAutreCouleur2,pionAutreCouleur2);
   PL_poserPion(&plateau,positionMemeCouleur,pionMemeCouleur);
