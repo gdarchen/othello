@@ -178,7 +178,7 @@ void test_plateauRempliFaux(void){
 
 void test_nbPionsPlateauRempli(void){
   unsigned int i,j;
-  unsigned int nbPionsNoirs=0,nbPionsBlancs=0;
+  int nbPionsNoirs=0,nbPionsBlancs=0;
   Position position;
   Pion pion=PI_creerPion(CL_noir());
   Plateau plateau;
@@ -196,7 +196,7 @@ void test_nbPionsPlateauRempli(void){
 
 void test_nbPionsPlateauInitial(void){
   Plateau plateau;
-  unsigned int nbPionsNoirs=0,nbPionsBlancs=0;
+  int nbPionsNoirs=0,nbPionsBlancs=0;
   plateau=PL_creerPlateau();
   initialiserPlateau(&plateau);
   nbPions(plateau,&nbPionsNoirs,&nbPionsBlancs);
@@ -209,7 +209,7 @@ void test_nbPionsPlateauInitial(void){
 void test_finPartieJoueursBloques(void){
   Plateau plateau=PL_creerPlateau();
   int aPuJouerJoueur1 = FALSE, aPuJouerJoueur2 = FALSE;
-  unsigned int nbPionsNoirs = 0, nbPionsBlancs = 0;
+  int nbPionsNoirs = 0, nbPionsBlancs = 0;
   int estFinie = FALSE;
   finPartie(plateau,aPuJouerJoueur1,aPuJouerJoueur2,&nbPionsNoirs,&nbPionsBlancs,&estFinie);
 
@@ -220,7 +220,7 @@ void test_finPartieUnSeulJoueurBloque(void){
   Plateau plateau=PL_creerPlateau();
   initialiserPlateau(&plateau);
   int aPuJouerJoueur1 = TRUE, aPuJouerJoueur2 = FALSE;
-  unsigned int nbPionsNoirs = 4, nbPionsBlancs = 4;
+  int nbPionsNoirs = 4, nbPionsBlancs = 4;
   int estFinie = FALSE;
   finPartie(plateau,aPuJouerJoueur1,aPuJouerJoueur2,&nbPionsNoirs,&nbPionsBlancs,&estFinie);
 
@@ -233,7 +233,7 @@ void test_finPartiePlateauRempli(void){
   Position pos;
   int aPuJouerJoueur1 = TRUE, aPuJouerJoueur2 = TRUE;
   int estFinie = FALSE;
-  unsigned int nbPionsNoirs = 0, nbPionsBlancs = 0;
+  int nbPionsNoirs = 0, nbPionsBlancs = 0;
   unsigned int i,j;
   for(i=0;i<8;i++){
     for(j=0;j<8;j++){

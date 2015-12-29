@@ -337,6 +337,7 @@ void test_scoreDUnCoup(void)
     Position position1,position2,position3,position4,positionCoup1,positionMeilleurcoup;
     Pion pion1=PI_creerPion(CL_blanc()), pion2=PI_creerPion(CL_noir()), pion3=PI_creerPion(CL_noir()),
           pion4=PI_creerPion(CL_blanc()),pionCoup1=PI_creerPion(CL_blanc()), pionMeilleurcoup=PI_creerPion(CL_blanc());
+    int** grilleScore=initialiserGrilleScore();
 
     /* Configuration initiale du plateau */
 
@@ -355,8 +356,8 @@ void test_scoreDUnCoup(void)
     coup1=CP_creerCoup(positionCoup1,pionCoup1);
     Meilleurcoup=CP_creerCoup(positionMeilleurcoup,pionMeilleurcoup);
 
-    meilleurScore = scoreDUnCoup(plateau,Meilleurcoup,couleurJoueur,couleurJoueur,profondeurMinMax);
-    scoreCourant = scoreDUnCoup(plateau,coup1,couleurJoueur,couleurJoueur,profondeurMinMax);
+    meilleurScore = scoreDUnCoup(plateau,Meilleurcoup,couleurJoueur,couleurJoueur,profondeurMinMax,grilleScore);
+    scoreCourant = scoreDUnCoup(plateau,coup1,couleurJoueur,couleurJoueur,profondeurMinMax,grilleScore);
 
 
     CU_ASSERT_TRUE    ((coupValide(plateau, coup1))
@@ -395,7 +396,7 @@ void test_evaluerNbCoupsPossiblesAdversaire(void){
 void test_evaluerNbPionsCouleur(void){
     Plateau plateau=PL_creerPlateau();
     Couleur couleurJoueur=CL_blanc();
-    unsigned int nbPionsNoirs,nbPionsBlancs;
+    int nbPionsNoirs,nbPionsBlancs;
     Position position1,position2,position3,position4,positionCoup1,positionCoup2;
     Pion pion1=PI_creerPion(CL_blanc()), pion2=PI_creerPion(CL_noir()), pion3=PI_creerPion(CL_noir()),
           pion4=PI_creerPion(CL_blanc()),pionCoup1=PI_creerPion(CL_blanc()),pionCoup2=PI_creerPion(CL_blanc());
@@ -449,7 +450,7 @@ void test_evaluerPositionsPionsPlateau(void){
     resJoueurTEST=grilleScore[3][3]+grilleScore[4][4]+grilleScore[3][2]+grilleScore[4][2];
     resAdversaireTEST=grilleScore[3][4]+grilleScore[4][3];
 
-    CU_ASSERT_TRUE ( evaluerPositionsPionsPlateau(plateau,couleurJoueur)==(resJoueurTEST-resAdversaireTEST));
+    CU_ASSERT_TRUE ( evaluerPositionsPionsPlateau(plateau,couleurJoueur,grilleScore)==(resJoueurTEST-resAdversaireTEST));
 
 }
 
