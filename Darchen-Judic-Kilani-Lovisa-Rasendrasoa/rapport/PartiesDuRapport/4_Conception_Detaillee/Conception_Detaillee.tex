@@ -293,6 +293,47 @@
 	} % Fin
 \end{algorithme}
 
+
+\section{La fonction \tt{listeCoupsPossibles}}
+
+\begin{algorithme}
+
+\fonction{listeCoupsPossibles}
+	{plateau : Plateau, couleur : Couleur}
+	{Coups}
+	{coupsPossibles : Coups \\
+	positionTest : Position \\
+	coupTest : Coup \\
+	pionJoueur : Pion \\
+	i,j : \naturelNonNul \\
+	k,nbPionsBlancs,nbPionsNoirs,nbPionsAParcourir : \naturel}
+	{
+	  \affecter{k}{0}
+	  \instruction{CPS\_creerCoups(coupsPossibles)}
+	  \affecter{pionJoueur}{PI\_creerPion(couleur)}
+	  \instruction{nbPions(plateau,nbPionsNoirs,nbPionsBlancs)}
+	  \affecter{nbPionsAParcourir}{64 $-$ (nbPionsBlancs $+$ nbPionsNoirs)}
+	  \pour{i}{1}{8}{}{
+	    \pour{j}{1}{8}{}{
+	      \sialors{k $<$ nbPionsAParcourir}{
+		\instruction{POS\_fixerPosition(i,j,positionTest)}
+		\sialors{PL\_estCaseVide(plateau,positionTest)}{
+		  \instruction{coupTest $=$ CP\_creerCoup(positionTest,pionJoueur)}
+		  \sialors{coupValide(plateau,coupTest)}{
+		    \instruction{CPS\_ajouterCoups(coupsPossibles,coupTest)}
+		    \affecter{k}{k+1}
+		  }
+		}
+	      }
+	    }
+	  }
+	  \retourner{coupsPossibles}
+	}
+
+\end{algorithme}
+
+
+
 \section{La fonction \tt{coupValide}}
 
 \begin{algorithme}
@@ -303,22 +344,18 @@
 	{pos,posTmp : Position \\
 	pionJoueur : Pion \\
 	pionPresent : \booleen \\
-	x,y : \entier}
+	dir : Direction}
 	{
-	      \affecter{x}{-1}
 	      \affecter{pionPresent}{FAUX}
-	      \affecter{pos}{obtenirPositionCoup(coup)}
-	      \affecter{pionJoueur}{obtenirPionCoup(coup)}
-	      \tantque{non(pionPresent) et (x$<$2)}{
-		    \affecter{y}{$-$1}
-		    \tantque{non(pionPresent) et (y$<$2)}{
-			  \sialors{non((x $=$ 0) et (y $=$ 0))}{
-				\affecter{posTmp}{pos}
-				\instruction{pionEstPresent(pionJoueur, x, y, posTmp, plateau, pionPresent)}
-			  }%FinSi
-			  \affecter{y}{y$+$1}
-		    }%FinTantQue
-		    \affecter{x}{x$+$1}
+	      \affecter{pos}{CP\_obtenirPositionCoup(coup)}
+	      \affecter{pionJoueur}{CP\_obtenirPionCoup(coup)}
+	      \affecter{dir}{GAUCHE}
+	      \tantque{non(pionPresent) ET (dir $<=$ DIAGDB)}{
+		    \affecter{posTmp}{pos}
+		    \sialors{DIR\_deplacementValide(posTmp,dir)}{
+		      pionEstPresent(pionJoueur,dir,posTmp,plateau,pionPresent);
+		    }
+		    \affecter{dir}{dir+1}
 	      }%FinTantQue
 	\retourner{pionPresent}  
 	}
