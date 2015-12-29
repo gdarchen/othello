@@ -15,6 +15,43 @@
 	\end{tadAxiomes}
 \end{tad}
 
+\section{Le TAD \tt{Pion}}
+
+\begin{tad}
+	\tadNom{Pion}
+	\tadDependances{Couleur}
+	\begin{tadOperations}{changerCouleurPion}
+		\tadOperation{creerPion}{\tadUnParam{Couleur}}{\tadUnParam{Pion}}
+		\tadOperation{obtenirCouleurPion}{\tadUnParam{Pion}}{\tadUnParam{Couleur}}		
+		\tadOperation{retournerPion}{\tadUnParam{Pion}}{\tadUnParam{Pion}}
+	\end{tadOperations}
+	\begin{tadAxiomes}
+		\tadAxiome{\emph{obtenirCouleurPion(creerPion(couleur))=couleur}}
+		\tadAxiome{\emph{obtenirCouleurPion(retournerPion(pion))=changerCouleur(obtenirCouleurPion(pion))}}
+	\end{tadAxiomes}
+\end{tad}
+
+
+\section{Le TAD \tt{Position}}
+
+\begin{tad}
+	\tadNom{Position}
+	\tadDependances{\naturelNonNul}
+	\begin{tadOperations}{obtenirColonne}
+		\tadOperation{obtenirLigne}{\tadUnParam{Position}}{\tadUnParam{\naturelNonNul}}
+		\tadOperation{obtenirColonne}{\tadUnParam{Position}}{\tadUnParam{\naturelNonNul}}
+		\tadOperationAvecPreconditions{fixerPosition}{\tadDeuxParams{\naturelNonNul}{\naturelNonNul}}{\tadUnParam{Position}}
+	\end{tadOperations}
+	\begin{tadAxiomes}
+		\tadAxiome{\emph{obtenirLigne(fixerPosition(ligne,colonne))=ligne}}
+		\tadAxiome{\emph{obtenirColonne(fixerPosition(ligne,colonne))=colonne}}
+	\end{tadAxiomes}
+	\begin{tadPreconditions}{fixerPosition}
+	\tadPrecondition{fixerPosition(ligne,colonne)}{$1 \leqslant \text{ligne} \leqslant 8$  \&  $1 \leqslant \text{colonne} \leqslant 8 $}
+	\end{tadPreconditions}
+\end{tad}
+
+
 \section{Le TAD \tt{Plateau}}
 
 \begin{tad}
@@ -60,21 +97,7 @@
 	\end{tadAxiomes}
 \end{tad}
 
-\section{Le TAD \tt{Pion}}
 
-\begin{tad}
-	\tadNom{Pion}
-	\tadDependances{Couleur}
-	\begin{tadOperations}{changerCouleurPion}
-		\tadOperation{creerPion}{\tadUnParam{Couleur}}{\tadUnParam{Pion}}
-		\tadOperation{obtenirCouleurPion}{\tadUnParam{Pion}}{\tadUnParam{Couleur}}		
-		\tadOperation{retournerPion}{\tadUnParam{Pion}}{\tadUnParam{Pion}}
-	\end{tadOperations}
-	\begin{tadAxiomes}
-		\tadAxiome{\emph{obtenirCouleurPion(creerPion(couleur))=couleur}}
-		\tadAxiome{\emph{obtenirCouleurPion(retournerPion(pion))=changerCouleur(obtenirCouleurPion(pion))}}
-	\end{tadAxiomes}
-\end{tad}
 
 \section{Le TAD \tt{Coups}}
 
@@ -98,22 +121,3 @@
 \end{tad}
 
 
-
-\section{Le TAD \tt{Position}}
-
-\begin{tad}
-	\tadNom{Position}
-	\tadDependances{\naturelNonNul}
-	\begin{tadOperations}{obtenirColonne}
-		\tadOperation{obtenirLigne}{\tadUnParam{Position}}{\tadUnParam{\naturelNonNul}}
-		\tadOperation{obtenirColonne}{\tadUnParam{Position}}{\tadUnParam{\naturelNonNul}}
-		\tadOperationAvecPreconditions{fixerPosition}{\tadDeuxParams{\naturelNonNul}{\naturelNonNul}}{\tadUnParam{Position}}
-	\end{tadOperations}
-	\begin{tadAxiomes}
-		\tadAxiome{\emph{obtenirLigne(fixerPosition(ligne,colonne))=ligne}}
-		\tadAxiome{\emph{obtenirColonne(fixerPosition(ligne,colonne))=colonne}}
-	\end{tadAxiomes}
-	\begin{tadPreconditions}{fixerPosition}
-	\tadPrecondition{fixerPosition(ligne,colonne)}{$1 \leqslant \text{ligne} \leqslant 8$  \&  $1 \leqslant \text{colonne} \leqslant 8 $}
-	\end{tadPreconditions}
-\end{tad}

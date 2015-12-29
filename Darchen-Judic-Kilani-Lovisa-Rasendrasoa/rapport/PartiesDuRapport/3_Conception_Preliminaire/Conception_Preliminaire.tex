@@ -1,75 +1,91 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%% Fichier de la Conception Préliminaire %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \chapter{Conception préliminaire des TAD}
+~\\
+Nous avons mis en place un code d'identification à l'aide de préfixes pour chaque TAD de la manière suivante :
+\begin{itemize}
+ \item Couleur : CL\_
+ \item Pion : PI\_
+ \item Position : POS\_
+ \item Plateau : PL\_
+ \item Coup : CP\_
+ \item Coups : CPS\_
+\end{itemize}
+
+
 \section{Conception préliminaire du TAD \tt{Couleur}}
 \begin{itemize}
-\signaturefonction{blanc}{}{Couleur}
-\signaturefonction{noir}{}{Couleur}
-\signaturefonction{changerCouleur}{couleur : Couleur}{Couleur}
+\signaturefonction{CL\_blanc}{}{Couleur}
+\signaturefonction{CL\_noir}{}{Couleur}
+\signaturefonction{CL\_changerCouleur}{couleur : Couleur}{Couleur}
 \end{itemize}
 
 ~\\
 Pour la conception détaillée, nous avons ajouté la fonction de comparaison de deux \og Couleur \fg{}  :
 \begin{itemize}
-\signaturefonction{sontEgales}{couleur1, couleur2 : Couleur}{\booleen}
-\end{itemize}
-
-\section{Conception préliminaire du TAD \tt{Plateau}}
-\begin{itemize}
-\signaturefonction{creerPlateau}{}{Plateau}
-\signaturefonction{estCaseVide}{plateau : Plateau, position : Position}{Couleur}
-\signatureProcedureAvecPreconditions{viderCase}{\paramEntreeSortie{plateau : Plateau}, \paramEntree{position : Position}}{non(estCaseVide(plateau,position))}
-\signatureProcedureAvecPreconditions{poserPion}{\paramEntreeSortie{plateau : Plateau}, \paramEntree{position : Position, pion : Pion}}{estCaseVide(plateau,position)}
-\signatureFonctionAvecPreconditions{obtenirPion}{plateau : Plateau, position : Position}{Pion}{non(estCaseVide(plateau,position))}
-\signatureProcedureAvecPreconditions{inverserPion}{\paramEntreeSortie{plateau : Plateau}, \paramEntree{position : Position}}{non(estCaseVide(plateau,position))}
-\end{itemize}
-
-\section{Conception préliminaire du TAD \tt{Coup}}
-\begin{itemize}
-\signaturefonction{creerCoup}{position : Position, pion : Pion}{Coup}
-\signaturefonction{obtenirPositionCoup}{coup : Coup}{Position}
-\signaturefonction{obtenirPionCoup}{coup : Coup}{Pion}
-\end{itemize}
-
-~\\
-Pour la conception détaillée, nous avons ajouté la fonction de comparaison de deux \og Coup \fg{}  :
-\begin{itemize}
-\signaturefonction{sontEgaux}{coup1, coup2 : Coup}{\booleen}
+\signaturefonction{CL\_sontEgales}{couleur1, couleur2 : Couleur}{\booleen}
 \end{itemize}
 
 \section{Conception préliminaire du TAD \tt{Pion}}
 \begin{itemize}
-\signaturefonction{creerPion}{couleur : Couleur}{Pion}
-\signaturefonction{obtenirCouleurPion}{pion : Pion}{Couleur}
-\signatureprocedure{retournerPion}{\paramEntreeSortie{pion : Pion}}
+\signaturefonction{PI\_creerPion}{couleur : Couleur}{Pion}
+\signaturefonction{PI\_obtenirCouleurPion}{pion : Pion}{Couleur}
+\signatureprocedure{PI\_retournerPion}{\paramEntreeSortie{pion : Pion}}
 \end{itemize}
 
 ~\\
 Pour la conception détaillée, nous avons ajouté la fonction de comparaison de deux \og Pion \fg{}  :
 \begin{itemize}
-\signaturefonction{sontEgaux}{pion1, pion2 : Pion}{\booleen}
-\end{itemize}
-
-\section{Conception préliminaire du TAD \tt{Coups}}
-\begin{itemize}
-\signaturefonction{creerCoups}{}{Coups}
-\signatureprocedure{ajouterCoups}{\paramEntreeSortie{coups : Coups}, \paramEntree{coup : Coup}}
-\signaturefonction{nbCoups}{coups : Coups}{Naturel}
-\signatureFonctionAvecPreconditions{iemeCoup}{coups : Coups, i : \naturelNonNul}{Coup}{i $\leqslant$ nbCoups(coups)}
+\signaturefonction{PI\_sontEgaux}{pion1, pion2 : Pion}{\booleen}
 \end{itemize}
 
 \section{Conception préliminaire du TAD \tt{Position}}
 \begin{itemize}
-\signaturefonction{obtenirLigne}{position : Position}{\naturelNonNul}
-\signaturefonction{obtenirColonne}{position : Position}{\naturelNonNul}
-\signatureProcedureAvecPreconditions{fixerPosition}{\paramEntree{ligne, colonne : \naturelNonNul}, {\paramSortie{position : Position}}}{1 $\leqslant$ ligne $\leqslant$ 8 \& 1$\leqslant$ colonne $\leqslant$ 8}
+\signaturefonction{POS\_obtenirLigne}{position : Position}{\naturelNonNul}
+\signaturefonction{POS\_obtenirColonne}{position : Position}{\naturelNonNul}
+\signatureProcedureAvecPreconditions{POS\_fixerPosition}{\paramEntree{ligne, colonne : \naturelNonNul}, {\paramSortie{position : Position}}}{1 $\leqslant$ ligne $\leqslant$ 8 \& 1$\leqslant$ colonne $\leqslant$ 8}
 \end{itemize}
 
 ~\\
 Pour la conception détaillée, nous avons ajouté la fonction de comparaison de deux \og Position \fg{}  :
 \begin{itemize}
-\signaturefonction{sontEgales}{position1, position2: Position}{\booleen}
+\signaturefonction{POS\_sontEgales}{position1, position2: Position}{\booleen}
 \end{itemize}
+
+
+\section{Conception préliminaire du TAD \tt{Plateau}}
+\begin{itemize}
+\signaturefonction{PL\_creerPlateau}{}{Plateau}
+\signaturefonction{PL\_estCaseVide}{plateau : Plateau, position : Position}{Couleur}
+\signatureProcedureAvecPreconditions{PL\_viderCase}{\paramEntreeSortie{plateau : Plateau}, \paramEntree{position : Position}}{non(estCaseVide(plateau,position))}
+\signatureProcedureAvecPreconditions{PL\_poserPion}{\paramEntreeSortie{plateau : Plateau}, \paramEntree{position : Position, pion : Pion}}{estCaseVide(plateau,position)}
+\signatureFonctionAvecPreconditions{PL\_obtenirPion}{plateau : Plateau, position : Position}{Pion}{non(estCaseVide(plateau,position))}
+\signatureProcedureAvecPreconditions{PL\_inverserPion}{\paramEntreeSortie{plateau : Plateau}, \paramEntree{position : Position}}{non(estCaseVide(plateau,position))}
+\end{itemize}
+
+\section{Conception préliminaire du TAD \tt{Coup}}
+\begin{itemize}
+\signaturefonction{CP\_creerCoup}{position : Position, pion : Pion}{Coup}
+\signaturefonction{CP\_obtenirPositionCoup}{coup : Coup}{Position}
+\signaturefonction{CP\_obtenirPionCoup}{coup : Coup}{Pion}
+\end{itemize}
+
+~\\
+Pour la conception détaillée, nous avons ajouté la fonction de comparaison de deux \og Coup \fg{}  :
+\begin{itemize}
+\signaturefonction{CP\_sontEgaux}{coup1, coup2 : Coup}{\booleen}
+\end{itemize}
+
+
+\section{Conception préliminaire du TAD \tt{Coups}}
+\begin{itemize}
+\signaturefonction{CPS\_creerCoups}{}{Coups}
+\signatureprocedure{CPS\_ajouterCoups}{\paramEntreeSortie{coups : Coups}, \paramEntree{coup : Coup}}
+\signaturefonction{CPS\_nbCoups}{coups : Coups}{Naturel}
+\signatureFonctionAvecPreconditions{CPS\_iemeCoup}{coups : Coups, i : \naturelNonNul}{Coup}{i $\leqslant$ nbCoups(coups)}
+\end{itemize}
+
+
 
 \chapter{Conception préliminaire des fonctions et procédures issues des analyses descendantes}
 \setcounter{section}{0}
