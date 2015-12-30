@@ -1,0 +1,55 @@
+\documentclass{beamer}
+
+\usepackage[frenchb]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{listings,xcolor}
+\usetheme{CambridgeUS}
+\usepackage{hyperref}
+\usepackage{fancybox}
+
+
+
+
+\newif\ifplacelogo 
+\placelogotrue 
+\logo{\ifplacelogo\includegraphics[height=5mm]{LogoINSA.png}\fi} 
+
+
+
+
+\title[Projet Othello]{Projet d'Algorithmique}
+\subtitle{Le jeu d'\emph{Othello}}
+
+\author[Groupe 1.5 ]{Gautier DARCHEN \\ Romain JUDIC \\ Riadh KILANI \\ Claire LOVISA \\ Sandratra RASENDRASOA}
+
+\institute[]{INSA de Rouen}
+\date{\today}
+%\logo{\includegraphics[height=5mm]{LogoINSA.png}}
+
+\AtBeginSection[]
+{
+  \begin{frame}[label=sommaire]
+  \frametitle{Sommaire}
+  \tableofcontents[currentsection, hideothersubsections, pausesubsections]
+  \end{frame} 
+}
+
+\begin{document}
+\placelogotrue	
+	\begin{frame} %Titre
+	\titlepage
+	\end{frame}
+	
+	
+	\section{Analyse}
+	\begin{frame}[label=analyse] % Présentation
+	\frametitle{Analyse}
+	\begin{alertblock}{Grille d’exécution des tâches de la partie Analyse}
+   	\rightskip=0pt\leftskip=0pt
+
+	\end{alertblock}
+	\end{frame}
+	
+
+\end{document}
