@@ -1,0 +1,97 @@
+\hypertarget{ListeCoupsPossibles_8h}{\section{Référence du fichier include/\-Liste\-Coups\-Possibles.h}
+\label{ListeCoupsPossibles_8h}\index{include/\-Liste\-Coups\-Possibles.\-h@{include/\-Liste\-Coups\-Possibles.\-h}}
+}
+
+
+Implantation et signatures des fonctions publiques de Liste\-Coups\-Possibles.  
+
+
+{\ttfamily \#include \char`\"{}T\-A\-D\-\_\-\-Coup.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}T\-A\-D\-\_\-\-Coups.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}T\-A\-D\-\_\-\-Plateau.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}T\-A\-D\-\_\-\-Couleur.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Faire\-Une\-Partie.\-h\char`\"{}}\\*
+\subsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structCoups}{Coups} \hyperlink{ListeCoupsPossibles_8h_a870da467e63478902e15f674bc1724dd}{liste\-Coups\-Possibles} (\hyperlink{structPlateau}{Plateau} plateau, \hyperlink{TAD__Couleur_8h_aa304d0ca681f782b1d7735da33037dd7}{Couleur} couleur)
+\begin{DoxyCompactList}\small\item\em Fonction qui retourne un ensemble de coups possibles. \end{DoxyCompactList}\item 
+void \hyperlink{ListeCoupsPossibles_8h_a3c6daf3d4b0cb1741cbbbe43be378350}{copier\-Plateau} (\hyperlink{structPlateau}{Plateau} plateau\-A\-Copier, \hyperlink{structPlateau}{Plateau} $\ast$plateau\-Copie)
+\begin{DoxyCompactList}\small\item\em Procédure qui copie un plateau sur un autre. \end{DoxyCompactList}\item 
+int \hyperlink{ListeCoupsPossibles_8h_a8e33ba80c769b41dd0895e32a4095205}{coup\-Valide} (\hyperlink{structPlateau}{Plateau} plateau, \hyperlink{structCoup}{Coup} coup)
+\begin{DoxyCompactList}\small\item\em Fonction qui vérifie qu'un coup est valide. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Description détaillée}
+Implantation et signatures des fonctions publiques de Liste\-Coups\-Possibles. \begin{DoxyAuthor}{Auteur}
+Groupe 1.\-5 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\-0 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+02/12/2015 
+\end{DoxyDate}
+
+
+\subsection{Documentation des fonctions}
+\hypertarget{ListeCoupsPossibles_8h_a3c6daf3d4b0cb1741cbbbe43be378350}{\index{Liste\-Coups\-Possibles.\-h@{Liste\-Coups\-Possibles.\-h}!copier\-Plateau@{copier\-Plateau}}
+\index{copier\-Plateau@{copier\-Plateau}!ListeCoupsPossibles.h@{Liste\-Coups\-Possibles.\-h}}
+\subsubsection[{copier\-Plateau}]{\setlength{\rightskip}{0pt plus 5cm}void copier\-Plateau (
+\begin{DoxyParamCaption}
+\item[{{\bf Plateau}}]{plateau\-A\-Copier, }
+\item[{{\bf Plateau} $\ast$}]{plateau\-Copie}
+\end{DoxyParamCaption}
+)}}\label{ListeCoupsPossibles_8h_a3c6daf3d4b0cb1741cbbbe43be378350}
+
+
+Procédure qui copie un plateau sur un autre. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em \hyperlink{structPlateau}{Plateau}} & plateau\-A\-Copier, le plateau à copier \\
+\hline
+{\em Plateau$\ast$} & plateau\-Copie, le plateau copié \\
+\hline
+\end{DoxyParams}
+\hypertarget{ListeCoupsPossibles_8h_a8e33ba80c769b41dd0895e32a4095205}{\index{Liste\-Coups\-Possibles.\-h@{Liste\-Coups\-Possibles.\-h}!coup\-Valide@{coup\-Valide}}
+\index{coup\-Valide@{coup\-Valide}!ListeCoupsPossibles.h@{Liste\-Coups\-Possibles.\-h}}
+\subsubsection[{coup\-Valide}]{\setlength{\rightskip}{0pt plus 5cm}int coup\-Valide (
+\begin{DoxyParamCaption}
+\item[{{\bf Plateau}}]{plateau, }
+\item[{{\bf Coup}}]{coup}
+\end{DoxyParamCaption}
+)}}\label{ListeCoupsPossibles_8h_a8e33ba80c769b41dd0895e32a4095205}
+
+
+Fonction qui vérifie qu'un coup est valide. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em \hyperlink{structPlateau}{Plateau}} & plateau, le plateau \\
+\hline
+{\em \hyperlink{structCoup}{Coup}} & coup, le coup à vérifier \\
+\hline
+\end{DoxyParams}
+\hypertarget{ListeCoupsPossibles_8h_a870da467e63478902e15f674bc1724dd}{\index{Liste\-Coups\-Possibles.\-h@{Liste\-Coups\-Possibles.\-h}!liste\-Coups\-Possibles@{liste\-Coups\-Possibles}}
+\index{liste\-Coups\-Possibles@{liste\-Coups\-Possibles}!ListeCoupsPossibles.h@{Liste\-Coups\-Possibles.\-h}}
+\subsubsection[{liste\-Coups\-Possibles}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Coups} liste\-Coups\-Possibles (
+\begin{DoxyParamCaption}
+\item[{{\bf Plateau}}]{plateau, }
+\item[{{\bf Couleur}}]{couleur}
+\end{DoxyParamCaption}
+)}}\label{ListeCoupsPossibles_8h_a870da467e63478902e15f674bc1724dd}
+
+
+Fonction qui retourne un ensemble de coups possibles. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em \hyperlink{structPlateau}{Plateau}} & plateau, le plateau \\
+\hline
+{\em Couleur} & couleur, couleur du joueur courant \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+\hyperlink{structCoups}{Coups} 
+\end{DoxyReturn}
