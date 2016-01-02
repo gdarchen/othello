@@ -29,11 +29,9 @@ void faireUnePartie(void(*afficher)(Plateau,Coup,int,int), Coup(*getCoup1)(Plate
     while (!(estFinie)) {
         jouer(&plateau,&couleurJoueur1,getCoup1,&aPuJouerJoueur1,&coupJoueur1);
         afficher(plateau,coupJoueur1,aPuJouerJoueur1,estFinie);
-        printf("A pu jouer : %d",aPuJouerJoueur1);
         jouer(&plateau,&couleurJoueur2,getCoup2,&aPuJouerJoueur2,&coupJoueur2);
 	      afficher(plateau,coupJoueur2,aPuJouerJoueur2,estFinie);
         finPartie(plateau,aPuJouerJoueur1,aPuJouerJoueur2,&nbPionsNoirs,&nbPionsBlancs,&estFinie);
-        printf("A pu jouer : %d",aPuJouerJoueur2);
     }
     afficher(plateau,coupJoueur2,aPuJouerJoueur2,estFinie);
     if (nbPionsBlancs==nbPionsNoirs){
