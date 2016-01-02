@@ -49,9 +49,41 @@
 \BOOKMARK [1][-]{section.3.8}{La fonction \253 evaluerNbPionsCouleur \273}{chapter.3}% 49
 \BOOKMARK [1][-]{section.3.9}{La fonction \253 evaluerPositionsPionsPlateau \273}{chapter.3}% 50
 \BOOKMARK [-1][-]{part.4}{IV D\351veloppement}{}% 51
-\BOOKMARK [-1][-]{part.5}{V R\351partition du travail}{}% 52
-\BOOKMARK [0][-]{chapter.1}{Analyse descendante}{part.5}% 53
-\BOOKMARK [0][-]{chapter.2}{Conception pr\351liminaire}{part.5}% 54
-\BOOKMARK [0][-]{chapter.3}{Conception d\351taill\351e}{part.5}% 55
-\BOOKMARK [0][-]{chapter.4}{D\351veloppement}{part.5}% 56
-\BOOKMARK [-1][-]{table.caption.6}{Conclusion}{}% 57
+\BOOKMARK [0][-]{chapter.1}{Les fichiers d'en-t\352tes \(headers\)}{part.4}% 52
+\BOOKMARK [1][-]{section.1.1}{Le fichier \253 TAD\137Couleur.h \273}{chapter.1}% 53
+\BOOKMARK [1][-]{section.1.2}{Le fichier \253 TAD\137Coup.h \273}{chapter.1}% 54
+\BOOKMARK [1][-]{section.1.3}{Le fichier \253 TAD\137Coups.h \273}{chapter.1}% 55
+\BOOKMARK [1][-]{section.1.4}{Le fichier \253 TAD\137Pion.h \273}{chapter.1}% 56
+\BOOKMARK [1][-]{section.1.5}{Le fichier \253 TAD\137Plateau.h \273}{chapter.1}% 57
+\BOOKMARK [1][-]{section.1.6}{Le fichier \253 TAD\137Position.h \273}{chapter.1}% 58
+\BOOKMARK [1][-]{section.1.7}{Le fichier \253 Affichage.h \273}{chapter.1}% 59
+\BOOKMARK [1][-]{section.1.8}{Le fichier \253 FaireUnePartie.h \273}{chapter.1}% 60
+\BOOKMARK [1][-]{section.1.9}{Le fichier \253 FaireUnePartie\137Prive.h \273}{chapter.1}% 61
+\BOOKMARK [1][-]{section.1.10}{Le fichier \253 ListeCoupsPossibles.h \273}{chapter.1}% 62
+\BOOKMARK [1][-]{section.1.11}{Le fichier \253 ListeCoupsPossibles\137Prive.h \273}{chapter.1}% 63
+\BOOKMARK [1][-]{section.1.12}{Le fichier \253 ObtenirCoupHumain.h \273}{chapter.1}% 64
+\BOOKMARK [1][-]{section.1.13}{Le fichier \253 ObtenirCoupIA.h \273}{chapter.1}% 65
+\BOOKMARK [1][-]{section.1.14}{Le fichier \253 ObtenirCoupIA\137Prive.h \273}{chapter.1}% 66
+\BOOKMARK [0][-]{chapter.2}{Les fichiers C}{part.4}% 67
+\BOOKMARK [1][-]{section.2.1}{Le fichier \253 TAD\137Couleur.c \273}{chapter.2}% 68
+\BOOKMARK [1][-]{section.2.2}{Le fichier \253 TAD\137Coup.c \273}{chapter.2}% 69
+\BOOKMARK [1][-]{section.2.3}{Le fichier \253 TAD\137Coups.c \273}{chapter.2}% 70
+\BOOKMARK [1][-]{section.2.4}{Le fichier \253 TAD\137Pion.c \273}{chapter.2}% 71
+\BOOKMARK [1][-]{section.2.5}{Le fichier \253 TAD\137Plateau.c \273}{chapter.2}% 72
+\BOOKMARK [1][-]{section.2.6}{Le fichier \253 TAD\137Position.c \273}{chapter.2}% 73
+\BOOKMARK [1][-]{section.2.7}{Le fichier \253 Affichage.c \273}{chapter.2}% 74
+\BOOKMARK [1][-]{section.2.8}{Le fichier \253 FaireUnePartie.c \273}{chapter.2}% 75
+\BOOKMARK [1][-]{section.2.9}{Le fichier \253 ListesCoupsPossibles.c \273}{chapter.2}% 76
+\BOOKMARK [1][-]{section.2.10}{Le fichier \253 ObtenirCoupHumain.c \273}{chapter.2}% 77
+\BOOKMARK [1][-]{section.2.11}{Le fichier \253 ObtenirCoupIA.c \273}{chapter.2}% 78
+\BOOKMARK [1][-]{section.2.12}{Le fichier \253 main.c \273}{chapter.2}% 79
+\BOOKMARK [0][-]{chapter.3}{Les fichiers de test}{part.4}% 80
+\BOOKMARK [1][-]{section.3.1}{Le fichier \253 TestFaireUnePartie.c \273}{chapter.3}% 81
+\BOOKMARK [1][-]{section.3.2}{Le fichier \253 TestListeCoupsPossibles.c \273}{chapter.3}% 82
+\BOOKMARK [1][-]{section.3.3}{Le fichier \253 TestTADs.c \273}{chapter.3}% 83
+\BOOKMARK [-1][-]{part.5}{V R\351partition du travail}{}% 84
+\BOOKMARK [0][-]{chapter.1}{Analyse descendante}{part.5}% 85
+\BOOKMARK [0][-]{chapter.2}{Conception pr\351liminaire}{part.5}% 86
+\BOOKMARK [0][-]{chapter.3}{Conception d\351taill\351e}{part.5}% 87
+\BOOKMARK [0][-]{chapter.4}{D\351veloppement}{part.5}% 88
+\BOOKMARK [-1][-]{table.caption.7}{Conclusion}{}% 89

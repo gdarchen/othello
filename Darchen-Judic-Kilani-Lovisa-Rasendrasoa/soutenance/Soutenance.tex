@@ -11,7 +11,9 @@
 \usepackage{hyperref}
 \usepackage{fancybox}
 \usepackage{slashbox}
+\usepackage{multirow}
 
+\renewcommand{\tt}[1]{\texttt{#1}}
 
 
 \newif\ifplacelogo 
@@ -48,7 +50,7 @@
 	\section{Analyse}
 	\begin{frame}[label=analyse] % Présentation
 	\frametitle{Analyse}
-	\begin{alertblock}{Grille d’exécution des tâches de la partie Analyse}
+	\begin{alertblock}{Grille d’exécution des tâches de la partie \og Analyse \fg}
    	\rightskip=0pt\leftskip=0pt
 	{\tiny\begin{table}[h]
 \begin{center}
@@ -85,7 +87,7 @@
 	\section{Conception préliminaire}
 	\begin{frame}[label=cp] % Présentation
 	\frametitle{Conception préliminaire}
-	\begin{alertblock}{Grille d’exécution des tâches de la partie Conception Préliminaire}
+	\begin{alertblock}{Grille d’exécution des tâches de la partie \og Conception Préliminaire \fg }
    	\rightskip=0pt\leftskip=0pt
 	{\tiny \begin{table}[h]
 \begin{center}
@@ -125,9 +127,49 @@
 		\section{Conception détaillée}
 	\begin{frame}[label=cd] % Présentation
 	\frametitle{Conception détaillée}
-	\begin{alertblock}{Grille d’exécution des tâches de la partie Conception Détaillée}
+	\begin{alertblock}{Grille d’exécution des tâches de la partie \og Conception Détaillée \fg}
    	\rightskip=0pt\leftskip=0pt
-	{\tiny \begin{table}[h]
+	{\tiny
+   	\begin{table}[h]
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|c|}
+  \cline{3-7}
+   \multicolumn{2}{c|}{ }  & \textbf{Gautier} & \textbf{Riadh} & \textbf{Romain} & \textbf{Claire} & \textbf{Sandratra}\\ \hline
+     \multirow{6}{*}{\textbf{TAD}} &  TAD \tt{Couleur} & & & &\cellcolor{lightgray} & \\ \cline{2-7}
+     			 &  TAD \tt{Pion} & & & &\cellcolor{lightgray} & \\ \cline{2-7}
+       		 &  TAD \tt{Position} & & & &\cellcolor{lightgray} & \\ \cline{2-7}
+       		 &  TAD \tt{Plateau} & \cellcolor{lightgray} & & & & \\ \cline{2-7}
+       		 &  TAD \tt{Coup} & \cellcolor{lightgray} & & & & \\ \cline{2-7}
+       		 &  TAD \tt{Coups} & \cellcolor{lightgray} & & & & \\ \hline
+      \multirow{7}{*}{\textbf{faireUnePartie}}  &\tt{faireUnePartie} & & \cellcolor{lightgray}  & & & \\ \cline{2-7}
+      			&\tt{jouer} & & & & & \cellcolor{lightgray} \\ \cline{2-7}
+      			&\tt{jouerCoup} & & & &  \cellcolor{lightgray}   & \\ \cline{2-7}
+      			&\tt{inverserPions} & & \cellcolor{lightgray}  & &\cellcolor{lightgray} & \cellcolor{lightgray} \\ \cline{2-7}
+      			&\tt{inverserPionsDir} & & \cellcolor{lightgray}  & &\cellcolor{lightgray} & \cellcolor{lightgray} \\ \cline{2-7}
+      			&\tt{pionEstPresent} & & & &  \cellcolor{lightgray}   & \\ \cline{2-7}
+      			&\tt{pionEstPresentRecursif} & & & &  \cellcolor{lightgray}   & \\ \hline
+      	\multirow{8}{*}{\textbf{obtenirCoupIA}} & \tt{obtenirCoupIA} & \cellcolor{lightgray} & &\cellcolor{lightgray} & & \\\cline{2-7}
+				 & \tt{scoreDUnCoup} & \cellcolor{lightgray} & &\cellcolor{lightgray} & & \\\cline{2-7}
+				 & \tt{coupValide} &  & &  & \cellcolor{lightgray} & \\\cline{2-7}
+				 & \tt{minMax} & \cellcolor{lightgray} & &\cellcolor{lightgray} & & \\ \cline{2-7}
+				 & \tt{evaluerPlateau} &  & &  & \cellcolor{lightgray} & \\\cline{2-7}
+				 & \tt{evaluerNbCoupsPossiblesAdversaire} &  & &  & \cellcolor{lightgray} & \\\cline{2-7}
+				 & \tt{evaluerNbPionsCouleur} &  & &  & \cellcolor{lightgray} & \\\cline{2-7}
+				 & \tt{evaluerPositionsPionsPlateau} &  & &  & \cellcolor{lightgray} & \\\hline
+\end{tabular}
+\end{center}
+\end{table} }
+
+	\end{alertblock}
+	\end{frame}
+	
+		\section{Développement}
+	\begin{frame}[label=dev] % Présentation
+	\frametitle{Développement}
+	\begin{alertblock}{Grille d’exécution des tâches de la partie \og Développement \fg }
+   	\rightskip=0pt\leftskip=0pt
+   	{\tiny
+\begin{table}[h]
 \begin{center}
 \begin{tabular}{c|c|c|}
   \cline{2-3}
@@ -159,20 +201,14 @@
  \multicolumn{1}{|l|}{ \textbf{\texttt{main}}} & Gautier & \cellcolor{lightgray} \\ \hline
 \end{tabular}
 \end{center}
-\end{table}}
-
-	\end{alertblock}
-	\end{frame}
-	
-		\section{Développement}
-	\begin{frame}[label=dev] % Présentation
-	\frametitle{Développement}
-	\begin{alertblock}{Grille d’exécution des tâches de la partie Développement}
-   	\rightskip=0pt\leftskip=0pt
-   	{\tiny
-
-
+\end{table}
 	}
 	\end{alertblock}
 	\end{frame}
 \end{document}
+
+
+
+
+
+

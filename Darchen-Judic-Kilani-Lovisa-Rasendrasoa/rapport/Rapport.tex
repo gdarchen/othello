@@ -23,15 +23,15 @@
 \usepackage{default}
 \usepackage{hyperref}
 \usepackage{lscape}
-\usepackage[tikz]{bclogo}
 \usepackage{verbatim}
 \usepackage{tikz}
+\usepackage{lscape}
 \usepackage{placeins}
 \usepackage{lmodern}
-\usepackage{listings}
+\usepackage{listingsutf8}
+\usepackage{multirow}
 \usepackage{Packages/algorithmeUTF8}
 \usepackage{Packages/slashbox}
-
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%% En-têtes et pieds de page %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -51,6 +51,24 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Renewcommand %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \renewcommand{\tt}[1]{\og \texttt{#1} \fg}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LISTINGS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\lstset{inputencoding=utf8/latin1}
+
+\lstdefinestyle{customc}{
+  breaklines=true,
+  frame=lbrt,
+  xleftmargin=\parindent,
+  language=C,
+  showstringspaces=false,
+  basicstyle=\footnotesize\ttfamily,
+  keywordstyle=\bfseries\color{green!40!black},
+  morekeywords ={Coup, Coups, Pion, Plateau, Position, Direction, }
+  commentstyle=\itshape\color{purple!40!black},
+  identifierstyle=\color{blue},
+  stringstyle=\color{orange},
+  escapeinside={\%*}{*)}
+}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Page de titre %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -123,6 +141,7 @@ Sandratra \textsc{Rasendrasoa}\\
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Developpement %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \part{Développement}
 
+\input{./PartiesDuRapport/5_Developpement/Developpement.tex}
 
 \setcounter{chapter}{0}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Repartition %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -196,6 +215,37 @@ Sandratra \textsc{Rasendrasoa}\\
 \end{table}
 
 \chapter{Conception détaillée}
+
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|c|}
+  \cline{3-7}
+   \multicolumn{2}{c|}{ }  & {\footnotesize\textbf{Gautier}} &  {\footnotesize\textbf{Riadh}} & {\footnotesize\textbf{Romain}} & {\footnotesize\textbf{Claire}} & { \footnotesize\textbf{Sandratra}}\\ \hline
+     \multirow{6}{*}{{\footnotesize\textbf{TAD}}} &  TAD \tt{Couleur} & & & &\cellcolor{lightgray} & \\ \cline{2-7}
+     			 &  TAD \tt{Pion} & & & &\cellcolor{lightgray} & \\ \cline{2-7}
+       		 &  TAD \tt{Position} & & & &\cellcolor{lightgray} & \\ \cline{2-7}
+       		 &  TAD \tt{Plateau} & \cellcolor{lightgray} & & & & \\ \cline{2-7}
+       		 &  TAD \tt{Coup} & \cellcolor{lightgray} & & & & \\ \cline{2-7}
+       		 &  TAD \tt{Coups} & \cellcolor{lightgray} & & & & \\ \hline
+      \multirow{7}{*}{{\footnotesize\textbf{faireUnePartie}}}  &\tt{faireUnePartie} & & \cellcolor{lightgray}  & & & \\ \cline{2-7}
+      			&\tt{jouer} & & & & & \cellcolor{lightgray} \\ \cline{2-7}
+      			&\tt{jouerCoup} & & & &  \cellcolor{lightgray}   & \\ \cline{2-7}
+      			&\tt{inverserPions} & & \cellcolor{lightgray}  & &\cellcolor{lightgray} & \cellcolor{lightgray} \\ \cline{2-7}
+      			&\tt{inverserPionsDir} & & \cellcolor{lightgray}  & &\cellcolor{lightgray} & \cellcolor{lightgray} \\ \cline{2-7}
+      			&\tt{pionEstPresent} & & & &  \cellcolor{lightgray}   & \\ \cline{2-7}
+      			&\tt{pionEstPresentRecursif} & & & &  \cellcolor{lightgray}   & \\ \hline
+      	\multirow{8}{*}{{\footnotesize\textbf{obtenirCoupIA}}} & \tt{obtenirCoupIA} & \cellcolor{lightgray} & &\cellcolor{lightgray} & & \\\cline{2-7}
+				 & \tt{scoreDUnCoup} & \cellcolor{lightgray} & &\cellcolor{lightgray} & & \\\cline{2-7}
+				 & \tt{coupValide} &  & &  & \cellcolor{lightgray} & \\\cline{2-7}
+				 & \tt{minMax} & \cellcolor{lightgray} & &\cellcolor{lightgray} & & \\ \cline{2-7}
+				 & \tt{evaluerPlateau} &  & &  & \cellcolor{lightgray} & \\\cline{2-7}
+				 & {\footnotesize\tt{evaluerNbCoupsPossiblesAdversaire}} &  & &  & \cellcolor{lightgray} & \\\cline{2-7}
+				 & \tt{evaluerNbPionsCouleur} &  & &  & \cellcolor{lightgray} & \\\cline{2-7}
+				 & {\small\tt{evaluerPositionsPionsPlateau}} &  & &  & \cellcolor{lightgray} & \\\hline
+\end{tabular}
+\end{center}
+\caption{Répartition des tâches dans la phase de conception détaillée}
+\end{table}
 
 \chapter{Développement}
 \begin{table}[h]
