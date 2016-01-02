@@ -24,6 +24,7 @@ void faireUnePartie(void(*afficher)(Plateau,Coup,int,int), Coup(*getCoup1)(Plate
     Position positionInitialisation;
     POS_fixerPosition(4,4,&positionInitialisation);
     coupJoueur1 = CP_creerCoup(positionInitialisation,PI_creerPion(CL_blanc()));
+    coupJoueur2 = CP_creerCoup(positionInitialisation,PI_creerPion(CL_blanc()));
 
     afficher(plateau,coupJoueur1,aPuJouerJoueur1,estFinie);
     while (!(estFinie)) {
