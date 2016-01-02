@@ -10,6 +10,7 @@ view :
 
 Rapport.pdf Rapport.tex Rapport.aux Rapport.out Rapport.toc Rapport.log :
 	$(TEX) Rapport.tex
+	$(TEX) Rapport.tex
 	$(MOVE) Rapport.aux ./$(FICHIERSCOMP)
 	$(MOVE) Rapport.out ./$(FICHIERSCOMP)
 	$(MOVE) Rapport.toc ./$(FICHIERSCOMP)

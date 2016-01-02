@@ -159,7 +159,7 @@ res : \entier}
 		    \affecter{posTmp}{pos}
 		    \instruction{pionEstPresent(pionJoueur,dir,posTmp,plateau,pionPresent)}
 		    \sialors{pionPresent}{
-		      \instruction{inverserPionsDir(plateau,pos,DIR\_positionSelonDirection(posTmp,DIR\_inverserDirection(dir)),DIR\_inverserDirection(dir))}
+		      \instruction{inverserPionsDir(plateau,pos,DIR\_positionSelonDirection(posTmp,DIR\_inverserDirection(dir)),\\DIR\_inverserDirection(dir))}
 		    }
 	      }%FinPour
 	}
@@ -198,7 +198,7 @@ res : \entier}
 		}
 		{
 		      \affecter{pos}{DIR\_positionSelonDirection(pos,dirATester)}
-		      \sialorssinon{CL\_sontEgales(PI\_obtenirCouleur(PL\_obtenirPion(plateau,pos)),couleurAdversaire) ET (non(PL\_estCaseVide(plateau,pos)))}{
+		      \sialorssinon{CL\_sontEgales(PI\_obtenirCouleur(PL\_obtenirPion(plateau,pos)),couleurAdversaire) ET \\ (non(PL\_estCaseVide(plateau,pos)))}{
 			\affecter{pos}{DIR\_positionSelonDirection(pos,dirATester)}
 			\instruction{pionEstPresentRecursif(pionJoueur, dirATester, pos, plateau, pionPresent)}
 		      }
