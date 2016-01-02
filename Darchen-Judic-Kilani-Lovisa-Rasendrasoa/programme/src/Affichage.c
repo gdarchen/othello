@@ -14,7 +14,7 @@ void afficherAide(){
     "\t othello standard blanc|noir [profondeur>2] \n"
       "\t\t permet de jouer contre l’ordinateur en lui donnant les blancs \n"
       "\t\t ou les noirs \n"
-      "\t\t par défaut la profondeur d’analyse est égale à 5 \n \n"
+      "\t\t par défaut la profondeur d’analyse est égale à 4 \n \n"
     "\t othello tournoi blanc|noir [profondeur>2] \n"
       "\t\t permet de faire jouer le programme dans un mode ’tournoi’ en \n"
       "\t\t lui donnant les blancs ou les noirs\n"
@@ -97,7 +97,7 @@ void afficherPlateau(Plateau plateau, Coup coup, int aPuJouer,int estPartieFinie
   if (aPuJouer && !((POS_obtenirColonne(CP_obtenirPositionCoup(coup))==4) && (POS_obtenirLigne(CP_obtenirPositionCoup(coup))==4))){
     afficherCoup(couleurDernierJoueur,coup);
   }
-  
+
   if(!estPartieFinie){
     printf("      1   2   3   4   5   6   7   8 \n");
     printf("     ———————————————————————————————\n");

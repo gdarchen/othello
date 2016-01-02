@@ -19,7 +19,7 @@
  *
  */
 
-#define PROFONDEUR 5
+#define PROFONDEUR 4
 
  /**
   * \fn Coup obtenirCoupIA(plateau Plateau, couleur Couleur)
