@@ -1,0 +1,102 @@
+\hypertarget{TAD__Coup_8h}{\section{Référence du fichier include/\-T\-A\-D\-\_\-\-Coup.h}
+\label{TAD__Coup_8h}\index{include/\-T\-A\-D\-\_\-\-Coup.\-h@{include/\-T\-A\-D\-\_\-\-Coup.\-h}}
+}
+
+
+Implantation du T\-A\-D \hyperlink{structCoup}{Coup}.  
+
+
+{\ttfamily \#include \char`\"{}T\-A\-D\-\_\-\-Position.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}T\-A\-D\-\_\-\-Pion.\-h\char`\"{}}\\*
+\subsection*{Structures de données}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structCoup}{Coup}
+\begin{DoxyCompactList}\small\item\em Le type \hyperlink{structCoup}{Coup} permet de représenter le coup d'un joueur, en regroupant une position (sur le plateau) et un pion. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structCoup}{Coup} \hyperlink{TAD__Coup_8h_ac8bb7df461819f909ecdcc3274d19e7c}{C\-P\-\_\-creer\-Coup} (\hyperlink{structPosition}{Position} position, \hyperlink{structPion}{Pion} pion)
+\begin{DoxyCompactList}\small\item\em Fonction qui retourne un coup à partir d'une position et d'un pion. \end{DoxyCompactList}\item 
+\hyperlink{structPosition}{Position} \hyperlink{TAD__Coup_8h_a24f2d3002a9e57f6f5c48182ae6fef24}{C\-P\-\_\-obtenir\-Position\-Coup} (\hyperlink{structCoup}{Coup} coup)
+\begin{DoxyCompactList}\small\item\em Fonction qui retourne la position d'un coup. \end{DoxyCompactList}\item 
+\hyperlink{structPion}{Pion} \hyperlink{TAD__Coup_8h_ab1e3cb35286e02a9bcd37196d6344d91}{C\-P\-\_\-obtenir\-Pion\-Coup} (\hyperlink{structCoup}{Coup} coup)
+\begin{DoxyCompactList}\small\item\em Fonction qui retourne le pion d'un coup. \end{DoxyCompactList}\item 
+\hypertarget{TAD__Coup_8h_a73a36992b6f1e68628d0f29b26f386d9}{int {\bfseries C\-P\-\_\-sont\-Egaux} (\hyperlink{structCoup}{Coup} coup1, \hyperlink{structCoup}{Coup} coup2)}\label{TAD__Coup_8h_a73a36992b6f1e68628d0f29b26f386d9}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Description détaillée}
+Implantation du T\-A\-D \hyperlink{structCoup}{Coup}. \begin{DoxyAuthor}{Auteur}
+Groupe 1.\-5 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\-0 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+02/12/15 
+\end{DoxyDate}
+
+
+\subsection{Documentation des fonctions}
+\hypertarget{TAD__Coup_8h_ac8bb7df461819f909ecdcc3274d19e7c}{\index{T\-A\-D\-\_\-\-Coup.\-h@{T\-A\-D\-\_\-\-Coup.\-h}!C\-P\-\_\-creer\-Coup@{C\-P\-\_\-creer\-Coup}}
+\index{C\-P\-\_\-creer\-Coup@{C\-P\-\_\-creer\-Coup}!TAD_Coup.h@{T\-A\-D\-\_\-\-Coup.\-h}}
+\subsubsection[{C\-P\-\_\-creer\-Coup}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Coup} C\-P\-\_\-creer\-Coup (
+\begin{DoxyParamCaption}
+\item[{{\bf Position}}]{position, }
+\item[{{\bf Pion}}]{pion}
+\end{DoxyParamCaption}
+)}}\label{TAD__Coup_8h_ac8bb7df461819f909ecdcc3274d19e7c}
+
+
+Fonction qui retourne un coup à partir d'une position et d'un pion. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em \hyperlink{structPosition}{Position}} & position \-: la position à affecter au \hyperlink{structCoup}{Coup} \\
+\hline
+{\em \hyperlink{structPion}{Pion}} & pion \-: le \hyperlink{structPion}{Pion} à affecter au \hyperlink{structCoup}{Coup} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+\hyperlink{structCoup}{Coup} 
+\end{DoxyReturn}
+\hypertarget{TAD__Coup_8h_ab1e3cb35286e02a9bcd37196d6344d91}{\index{T\-A\-D\-\_\-\-Coup.\-h@{T\-A\-D\-\_\-\-Coup.\-h}!C\-P\-\_\-obtenir\-Pion\-Coup@{C\-P\-\_\-obtenir\-Pion\-Coup}}
+\index{C\-P\-\_\-obtenir\-Pion\-Coup@{C\-P\-\_\-obtenir\-Pion\-Coup}!TAD_Coup.h@{T\-A\-D\-\_\-\-Coup.\-h}}
+\subsubsection[{C\-P\-\_\-obtenir\-Pion\-Coup}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Position} C\-P\-\_\-obtenir\-Pion\-Coup (
+\begin{DoxyParamCaption}
+\item[{{\bf Coup}}]{coup}
+\end{DoxyParamCaption}
+)}}\label{TAD__Coup_8h_ab1e3cb35286e02a9bcd37196d6344d91}
+
+
+Fonction qui retourne le pion d'un coup. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em \hyperlink{structCoup}{Coup}} & coup \-: le coup dont on veut le pion \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+\hyperlink{structCoup}{Coup} 
+\end{DoxyReturn}
+\hypertarget{TAD__Coup_8h_a24f2d3002a9e57f6f5c48182ae6fef24}{\index{T\-A\-D\-\_\-\-Coup.\-h@{T\-A\-D\-\_\-\-Coup.\-h}!C\-P\-\_\-obtenir\-Position\-Coup@{C\-P\-\_\-obtenir\-Position\-Coup}}
+\index{C\-P\-\_\-obtenir\-Position\-Coup@{C\-P\-\_\-obtenir\-Position\-Coup}!TAD_Coup.h@{T\-A\-D\-\_\-\-Coup.\-h}}
+\subsubsection[{C\-P\-\_\-obtenir\-Position\-Coup}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Position} C\-P\-\_\-obtenir\-Position\-Coup (
+\begin{DoxyParamCaption}
+\item[{{\bf Coup}}]{coup}
+\end{DoxyParamCaption}
+)}}\label{TAD__Coup_8h_a24f2d3002a9e57f6f5c48182ae6fef24}
+
+
+Fonction qui retourne la position d'un coup. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em \hyperlink{structCoup}{Coup}} & coup \-: le coup dont on veut la position \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+\hyperlink{structCoup}{Coup} 
+\end{DoxyReturn}
