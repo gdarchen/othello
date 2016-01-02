@@ -14,6 +14,7 @@
 #include "TAD_Couleur.h"
 
 /**
+ * \struct Plateau
  * \brief Le type Plateau permet de représenter un plateau
  *
  */

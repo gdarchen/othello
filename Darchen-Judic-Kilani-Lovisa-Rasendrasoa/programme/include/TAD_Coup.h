@@ -13,6 +13,7 @@
  #include "TAD_Pion.h"
 
 /**
+ * \struct Coup
  * \brief Le type Coup permet de représenter le coup d'un joueur, en regroupant une position (sur le plateau) et un pion
  *
  */

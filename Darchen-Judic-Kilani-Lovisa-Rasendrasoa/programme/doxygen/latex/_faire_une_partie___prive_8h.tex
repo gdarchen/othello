@@ -1,0 +1,189 @@
+\hypertarget{_faire_une_partie___prive_8h}{\section{Référence du fichier include/\-Faire\-Une\-Partie\-\_\-\-Prive.h}
+\label{_faire_une_partie___prive_8h}\index{include/\-Faire\-Une\-Partie\-\_\-\-Prive.\-h@{include/\-Faire\-Une\-Partie\-\_\-\-Prive.\-h}}
+}
+
+
+Implantation de faireunepartie-\/prive pour le projet othello.  
+
+
+{\ttfamily \#include \char`\"{}T\-A\-D\-\_\-\-Plateau.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}T\-A\-D\-\_\-\-Couleur.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}T\-A\-D\-\_\-\-Position.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}T\-A\-D\-\_\-\-Pion.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}T\-A\-D\-\_\-\-Coup.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}T\-A\-D\-\_\-\-Coups.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Faire\-Une\-Partie.\-h\char`\"{}}\\*
+\subsection*{Énumérations}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{_faire_une_partie___prive_8h_a224b9163917ac32fc95a60d8c1eec3aa}{Direction} \{ \\*
+{\bfseries G\-A\-U\-C\-H\-E}, 
+{\bfseries D\-R\-O\-I\-T\-E}, 
+{\bfseries H\-A\-U\-T}, 
+{\bfseries B\-A\-S}, 
+\\*
+{\bfseries D\-I\-A\-G\-G\-H}, 
+{\bfseries D\-I\-A\-G\-G\-B}, 
+{\bfseries D\-I\-A\-G\-D\-H}, 
+{\bfseries D\-I\-A\-G\-D\-B}
+ \}
+\begin{DoxyCompactList}\small\item\em Faire\-Une\-Partie-\/prive regroupe seulement les fonctions et procédures qu'on va utiliser dans F\-A\-I\-R\-E\-U\-N\-E\-P\-A\-R\-T\-I\-E. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{_faire_une_partie___prive_8h_aaf339dd563c8bdd5f02f1fc94d9295b7}{\hyperlink{struct_position}{Position} {\bfseries D\-I\-R\-\_\-position\-Selon\-Direction} (\hyperlink{struct_position}{Position} pos\-Init, \hyperlink{_faire_une_partie___prive_8h_a224b9163917ac32fc95a60d8c1eec3aa}{Direction} dir\-Deplacement)}\label{_faire_une_partie___prive_8h_aaf339dd563c8bdd5f02f1fc94d9295b7}
+
+\item 
+\hypertarget{_faire_une_partie___prive_8h_a14fba88b3696b98569655ed19a28b609}{\hyperlink{_faire_une_partie___prive_8h_a224b9163917ac32fc95a60d8c1eec3aa}{Direction} {\bfseries D\-I\-R\-\_\-inverser\-Direction} (\hyperlink{_faire_une_partie___prive_8h_a224b9163917ac32fc95a60d8c1eec3aa}{Direction} dir\-Init)}\label{_faire_une_partie___prive_8h_a14fba88b3696b98569655ed19a28b609}
+
+\item 
+\hypertarget{_faire_une_partie___prive_8h_aabcf85ca5155b18ac3e40e85f0d5b0bb}{int {\bfseries D\-I\-R\-\_\-deplacement\-Valide} (\hyperlink{struct_position}{Position} pos, \hyperlink{_faire_une_partie___prive_8h_a224b9163917ac32fc95a60d8c1eec3aa}{Direction} dir\-Deplacement)}\label{_faire_une_partie___prive_8h_aabcf85ca5155b18ac3e40e85f0d5b0bb}
+
+\item 
+\hypertarget{_faire_une_partie___prive_8h_abef4802712cdf356b802706d2c0b97b6}{void {\bfseries initialiser\-Plateau} (\hyperlink{struct_plateau}{Plateau} $\ast$plateau)}\label{_faire_une_partie___prive_8h_abef4802712cdf356b802706d2c0b97b6}
+
+\item 
+\hypertarget{_faire_une_partie___prive_8h_aa99d3a46026468b5043c9599414f10b2}{void {\bfseries jouer} (\hyperlink{struct_plateau}{Plateau} $\ast$plateau, \hyperlink{_t_a_d___couleur_8h_aa304d0ca681f782b1d7735da33037dd7}{Couleur} $\ast$couleur\-Joueur, \hyperlink{struct_coup}{Coup}($\ast$obtenir\-Coup\-Joueur)(\hyperlink{struct_plateau}{Plateau}, \hyperlink{_t_a_d___couleur_8h_aa304d0ca681f782b1d7735da33037dd7}{Couleur}), int $\ast$a\-Pu\-Jouer, \hyperlink{struct_coup}{Coup} $\ast$coup\-Joueur)}\label{_faire_une_partie___prive_8h_aa99d3a46026468b5043c9599414f10b2}
+
+\item 
+void \hyperlink{_faire_une_partie___prive_8h_aef0dc8a08a42ddf7c9b0cb7f657a95b6}{jouer\-Coup} (\hyperlink{struct_coup}{Coup} coup, \hyperlink{struct_plateau}{Plateau} $\ast$plateau)
+\begin{DoxyCompactList}\small\item\em Procedure qui permet de jouer un coup sur le plateau. \end{DoxyCompactList}\item 
+void \hyperlink{_faire_une_partie___prive_8h_affa3e9e4075f7a05b898a1ccfffb3c3f}{inverser\-Pions} (\hyperlink{struct_position}{Position} pos, \hyperlink{struct_pion}{Pion} pion\-Joueur, \hyperlink{struct_plateau}{Plateau} $\ast$plateau)
+\begin{DoxyCompactList}\small\item\em Procedure qui permet de retourner les pions dans toutes les directions si possible, après le coup. \end{DoxyCompactList}\item 
+void \hyperlink{_faire_une_partie___prive_8h_ae71de2db398aa649e07ac16c6fecda93}{inverser\-Pions\-Dir} (\hyperlink{struct_plateau}{Plateau} $\ast$plateau, \hyperlink{struct_position}{Position} pos\-Initiale, \hyperlink{struct_position}{Position} pos\-Courante, \hyperlink{_faire_une_partie___prive_8h_a224b9163917ac32fc95a60d8c1eec3aa}{Direction} dir\-Inversion)
+\begin{DoxyCompactList}\small\item\em Procedure qui permet de retourner les pions sur le plateau selon une direction donnée. \end{DoxyCompactList}\item 
+void \hyperlink{_faire_une_partie___prive_8h_a4b0c1ed2299ef60f806bda6eceeefe9e}{pion\-Est\-Present\-Recursif} (\hyperlink{struct_pion}{Pion} pion\-Joueur, \hyperlink{_faire_une_partie___prive_8h_a224b9163917ac32fc95a60d8c1eec3aa}{Direction} dir\-A\-Tester, \hyperlink{struct_position}{Position} $\ast$pos, \hyperlink{struct_plateau}{Plateau} $\ast$plateau, int $\ast$pion\-Present)
+\begin{DoxyCompactList}\small\item\em Procedure qui permet de savoir si un pion est présent sur le plateau selon une direction, et si oui quelle est sa position, de manière récursive à partir de la case à côté de la position initiale. \end{DoxyCompactList}\item 
+\hypertarget{_faire_une_partie___prive_8h_a027f7d4de035158156c72f4bdc5c548f}{void {\bfseries fin\-Partie} (\hyperlink{struct_plateau}{Plateau} plateau, int a\-Pu\-Jouer\-Joueur1, int a\-Pu\-Jouer\-Joueur2, int $\ast$nb\-Pions\-Noirs, int $\ast$nb\-Pions\-Blancs, int $\ast$est\-Finie)}\label{_faire_une_partie___prive_8h_a027f7d4de035158156c72f4bdc5c548f}
+
+\item 
+int \hyperlink{_faire_une_partie___prive_8h_a192c7c755ce01943f5ee815808563190}{plateau\-Rempli} (\hyperlink{struct_plateau}{Plateau} plateau)
+\begin{DoxyCompactList}\small\item\em Fonction qui renvoie un booléen indiquant si le plateau est rempli ou non. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Description détaillée}
+Implantation de faireunepartie-\/prive pour le projet othello. \begin{DoxyAuthor}{Auteur}
+groupe 1.\-5 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\-0 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+02/12/2015 
+\end{DoxyDate}
+
+
+\subsection{Documentation des fonctions}
+\hypertarget{_faire_une_partie___prive_8h_affa3e9e4075f7a05b898a1ccfffb3c3f}{\index{Faire\-Une\-Partie\-\_\-\-Prive.\-h@{Faire\-Une\-Partie\-\_\-\-Prive.\-h}!inverser\-Pions@{inverser\-Pions}}
+\index{inverser\-Pions@{inverser\-Pions}!FaireUnePartie_Prive.h@{Faire\-Une\-Partie\-\_\-\-Prive.\-h}}
+\subsubsection[{inverser\-Pions}]{\setlength{\rightskip}{0pt plus 5cm}void inverser\-Pions (
+\begin{DoxyParamCaption}
+\item[{{\bf Position}}]{pos, }
+\item[{{\bf Pion}}]{pion\-Joueur, }
+\item[{{\bf Plateau} $\ast$}]{plateau}
+\end{DoxyParamCaption}
+)}}\label{_faire_une_partie___prive_8h_affa3e9e4075f7a05b898a1ccfffb3c3f}
+
+
+Procedure qui permet de retourner les pions dans toutes les directions si possible, après le coup. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em \hyperlink{struct_position}{Position}} & pos, la position du coup \\
+\hline
+{\em \hyperlink{struct_pion}{Pion}} & pion\-Joueur, le pion du coup \\
+\hline
+{\em Plateau$\ast$} & plateau, le plateau sur lequel est joué le coup \textbackslash{} \\
+\hline
+\end{DoxyParams}
+\hypertarget{_faire_une_partie___prive_8h_ae71de2db398aa649e07ac16c6fecda93}{\index{Faire\-Une\-Partie\-\_\-\-Prive.\-h@{Faire\-Une\-Partie\-\_\-\-Prive.\-h}!inverser\-Pions\-Dir@{inverser\-Pions\-Dir}}
+\index{inverser\-Pions\-Dir@{inverser\-Pions\-Dir}!FaireUnePartie_Prive.h@{Faire\-Une\-Partie\-\_\-\-Prive.\-h}}
+\subsubsection[{inverser\-Pions\-Dir}]{\setlength{\rightskip}{0pt plus 5cm}inverser\-Pions\-Dir (
+\begin{DoxyParamCaption}
+\item[{{\bf Plateau} $\ast$}]{plateau, }
+\item[{{\bf Position}}]{pos\-Initiale, }
+\item[{{\bf Position}}]{pos\-Courante, }
+\item[{{\bf Direction}}]{dir\-Inversion}
+\end{DoxyParamCaption}
+)}}\label{_faire_une_partie___prive_8h_ae71de2db398aa649e07ac16c6fecda93}
+
+
+Procedure qui permet de retourner les pions sur le plateau selon une direction donnée. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em Plateau$\ast$} & plateau, le plateau de jeu \\
+\hline
+{\em \hyperlink{struct_position}{Position}} & pos\-Initiale, la position du coup joué \\
+\hline
+{\em \hyperlink{struct_position}{Position}} & pos\-Courante, la position courante sur le plateau  \\
+\hline
+{\em Direction} & dir\-Inversion, la direction d'inversion \textbackslash{} \\
+\hline
+\end{DoxyParams}
+\hypertarget{_faire_une_partie___prive_8h_aef0dc8a08a42ddf7c9b0cb7f657a95b6}{\index{Faire\-Une\-Partie\-\_\-\-Prive.\-h@{Faire\-Une\-Partie\-\_\-\-Prive.\-h}!jouer\-Coup@{jouer\-Coup}}
+\index{jouer\-Coup@{jouer\-Coup}!FaireUnePartie_Prive.h@{Faire\-Une\-Partie\-\_\-\-Prive.\-h}}
+\subsubsection[{jouer\-Coup}]{\setlength{\rightskip}{0pt plus 5cm}void jouer\-Coup (
+\begin{DoxyParamCaption}
+\item[{{\bf Coup}}]{coup, }
+\item[{{\bf Plateau} $\ast$}]{plateau}
+\end{DoxyParamCaption}
+)}}\label{_faire_une_partie___prive_8h_aef0dc8a08a42ddf7c9b0cb7f657a95b6}
+
+
+Procedure qui permet de jouer un coup sur le plateau. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em \hyperlink{struct_coup}{Coup}} & coup , le coup que le joueur souhaite jouer \\
+\hline
+{\em Plateau$\ast$} & plateau, le plateau de l'othello \textbackslash{} \\
+\hline
+\end{DoxyParams}
+\hypertarget{_faire_une_partie___prive_8h_a4b0c1ed2299ef60f806bda6eceeefe9e}{\index{Faire\-Une\-Partie\-\_\-\-Prive.\-h@{Faire\-Une\-Partie\-\_\-\-Prive.\-h}!pion\-Est\-Present\-Recursif@{pion\-Est\-Present\-Recursif}}
+\index{pion\-Est\-Present\-Recursif@{pion\-Est\-Present\-Recursif}!FaireUnePartie_Prive.h@{Faire\-Une\-Partie\-\_\-\-Prive.\-h}}
+\subsubsection[{pion\-Est\-Present\-Recursif}]{\setlength{\rightskip}{0pt plus 5cm}void pion\-Est\-Present\-Recursif (
+\begin{DoxyParamCaption}
+\item[{{\bf Pion}}]{pion\-Joueur, }
+\item[{{\bf Direction}}]{dir\-A\-Tester, }
+\item[{{\bf Position} $\ast$}]{pos, }
+\item[{{\bf Plateau} $\ast$}]{plateau, }
+\item[{int $\ast$}]{pion\-Present}
+\end{DoxyParamCaption}
+)}}\label{_faire_une_partie___prive_8h_a4b0c1ed2299ef60f806bda6eceeefe9e}
+
+
+Procedure qui permet de savoir si un pion est présent sur le plateau selon une direction, et si oui quelle est sa position, de manière récursive à partir de la case à côté de la position initiale. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em \hyperlink{struct_pion}{Pion}} & pion\-Joueur, le pion représentant le joueur  \\
+\hline
+{\em Direction} & dir\-A\-Tester, la direction de recherche \\
+\hline
+{\em Position$\ast$} & pos, la position initiale du pion qui, à la fin de l'exécution de la procédure, renvoit la position du pion trouvé \\
+\hline
+{\em Plateau$\ast$} & plateau, le plateau de jeu \\
+\hline
+{\em int$\ast$} & pion\-Present, qui renvoit 0 si aucun pion conforme n'a été trouvé, 1 sinon \textbackslash{} \\
+\hline
+\end{DoxyParams}
+\hypertarget{_faire_une_partie___prive_8h_a192c7c755ce01943f5ee815808563190}{\index{Faire\-Une\-Partie\-\_\-\-Prive.\-h@{Faire\-Une\-Partie\-\_\-\-Prive.\-h}!plateau\-Rempli@{plateau\-Rempli}}
+\index{plateau\-Rempli@{plateau\-Rempli}!FaireUnePartie_Prive.h@{Faire\-Une\-Partie\-\_\-\-Prive.\-h}}
+\subsubsection[{plateau\-Rempli}]{\setlength{\rightskip}{0pt plus 5cm}int plateau\-Rempli (
+\begin{DoxyParamCaption}
+\item[{{\bf Plateau}}]{plateau}
+\end{DoxyParamCaption}
+)}}\label{_faire_une_partie___prive_8h_a192c7c755ce01943f5ee815808563190}
+
+
+Fonction qui renvoie un booléen indiquant si le plateau est rempli ou non. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em \hyperlink{struct_plateau}{Plateau}} & plateau, le plateau à tester. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+int, le booléen indiquant si le plateau est rempli. 
+\end{DoxyReturn}

@@ -17,9 +17,11 @@
 
 
 /**
+ * \struct Coups
  * \brief Le type Coups permet de représenter un tableau de Coup et le nombre de Coup possibles
  *
  */
+
 typedef struct {
 	Coup tabCoups[MAX_COUPS];
 	unsigned int nbCps;
@@ -57,7 +59,7 @@ unsigned int CPS_nbCoups(Coups coups);
  *
  * \param Coups coups : la variable dont on veut obtenir le ieme Coup
  * \param unsigned int i : indice du Coup à obtenir
- * \return unsigned int : le nombre de Coups
+ * \return Coup : le nombre de Coups
  */
 Coup CPS_iemeCoup(Coups coups, unsigned int i);
 

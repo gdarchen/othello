@@ -1,4 +1,0 @@
-<map id="Coup" name="Coup">
-<area shape="rect" id="node2" href="$struct_pion.html" title="Le type Pion permet de représenter un pion. " alt="" coords="5,5,53,32"/>
-<area shape="rect" id="node3" href="$struct_position.html" title="Le type Position permet de représenter une position sur le plateau. " alt="" coords="77,5,147,32"/>
-</map>

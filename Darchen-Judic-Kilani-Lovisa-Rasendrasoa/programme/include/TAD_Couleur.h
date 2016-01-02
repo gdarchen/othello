@@ -11,6 +11,7 @@
  #define __TAD_COULEUR__
 
 /**
+ * \enum Couleur
  * \brief Le type Couleur représente les deux couleurs possibles
  *
  */

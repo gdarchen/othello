@@ -11,6 +11,7 @@
 #define __TAD_POSITION__
 
 /**
+ * \struct Position
  * \brief Le type Position permet de représenter une position sur le plateau
  *
  */

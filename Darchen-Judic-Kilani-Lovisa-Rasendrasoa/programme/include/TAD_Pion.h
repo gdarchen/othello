@@ -12,6 +12,7 @@
 #include "TAD_Couleur.h"
 
 /**
+ * \struct Pion
  * \brief Le type Pion permet de représenter un pion
  *
  */
