@@ -10,7 +10,7 @@ view :
 
 Rapport.pdf Rapport.tex Rapport.aux Rapport.out Rapport.toc Rapport.log :
 	$(TEX) Rapport.tex
-	$(TEX) Rapport.tex
+	$(TEX) Rapport.tex # On compile une deuxième fois pour que la table des matières (.toc) soit générée.
 	$(MOVE) Rapport.aux ./$(FICHIERSCOMP)
 	$(MOVE) Rapport.out ./$(FICHIERSCOMP)
 	$(MOVE) Rapport.toc ./$(FICHIERSCOMP)
