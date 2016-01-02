@@ -1,58 +1,58 @@
 \select@language {french}
 \contentsline {part}{Introduction}{2}{figure.caption.1}
-\contentsline {part}{I\hspace {1em}Analyse}{4}{part.1}
-\contentsline {chapter}{\numberline {1}Analyse des TAD}{5}{chapter.1}
-\contentsline {section}{\numberline {1.1}Le TAD \FB@og \texttt {Couleur} \FB@fg }{5}{section.1.1}
-\contentsline {section}{\numberline {1.2}Le TAD \FB@og \texttt {Pion} \FB@fg }{5}{section.1.2}
-\contentsline {section}{\numberline {1.3}Le TAD \FB@og \texttt {Position} \FB@fg }{5}{section.1.3}
-\contentsline {section}{\numberline {1.4}Le TAD \FB@og \texttt {Plateau} \FB@fg }{5}{section.1.4}
-\contentsline {section}{\numberline {1.5}Le TAD \FB@og \texttt {Coup} \FB@fg }{6}{section.1.5}
-\contentsline {section}{\numberline {1.6}Le TAD \FB@og \texttt {Coups} \FB@fg }{6}{section.1.6}
-\contentsline {chapter}{\numberline {2}Analyse descendante}{7}{chapter.2}
-\contentsline {part}{II\hspace {1em}Conception pr\IeC {\'e}liminaire}{8}{part.2}
-\contentsline {chapter}{\numberline {1}Conception pr\IeC {\'e}liminaire des TAD}{9}{chapter.1}
-\contentsline {section}{\numberline {1.1}Conception pr\IeC {\'e}liminaire du TAD \FB@og \texttt {Couleur} \FB@fg }{9}{section.1.1}
-\contentsline {section}{\numberline {1.2}Conception pr\IeC {\'e}liminaire du TAD \FB@og \texttt {Pion} \FB@fg }{9}{section.1.2}
-\contentsline {section}{\numberline {1.3}Conception pr\IeC {\'e}liminaire du TAD \FB@og \texttt {Position} \FB@fg }{9}{section.1.3}
-\contentsline {section}{\numberline {1.4}Conception pr\IeC {\'e}liminaire du TAD \FB@og \texttt {Plateau} \FB@fg }{10}{section.1.4}
-\contentsline {section}{\numberline {1.5}Conception pr\IeC {\'e}liminaire du TAD \FB@og \texttt {Coup} \FB@fg }{10}{section.1.5}
-\contentsline {section}{\numberline {1.6}Conception pr\IeC {\'e}liminaire du TAD \FB@og \texttt {Coups} \FB@fg }{10}{section.1.6}
-\contentsline {chapter}{\numberline {2}Conception pr\IeC {\'e}liminaire des fonctions et proc\IeC {\'e}dures issues des analyses descendantes}{11}{chapter.2}
-\contentsline {section}{\numberline {2.1}Conception pr\IeC {\'e}liminaire de l'analyse descendante de \FB@og \texttt {Faire une partie} \FB@fg }{11}{section.2.1}
-\contentsline {subsection}{\numberline {2.1.1}Types}{11}{subsection.2.1.1}
-\contentsline {subsection}{\numberline {2.1.2}Type Direction}{11}{subsection.2.1.2}
-\contentsline {subsection}{\numberline {2.1.3}Sous-programmes}{11}{subsection.2.1.3}
-\contentsline {section}{\numberline {2.2}Conception pr\IeC {\'e}liminaire de l'analyse descendante de \FB@og \texttt {obtenirCoupIA} \FB@fg }{12}{section.2.2}
-\contentsline {part}{III\hspace {1em}Conception d\IeC {\'e}taill\IeC {\'e}e}{13}{part.3}
-\contentsline {chapter}{\numberline {1}Conception d\IeC {\'e}taill\IeC {\'e}e des TAD}{14}{chapter.1}
-\contentsline {section}{\numberline {1.1}CD du type \FB@og \texttt {Couleur} \FB@fg }{14}{section.1.1}
-\contentsline {section}{\numberline {1.2}CD du type \FB@og \texttt {Pion} \FB@fg }{14}{section.1.2}
-\contentsline {section}{\numberline {1.3}CD du type \FB@og \texttt {Position} \FB@fg }{14}{section.1.3}
-\contentsline {section}{\numberline {1.4}CD du type \FB@og \texttt {Plateau} \FB@fg }{14}{section.1.4}
-\contentsline {section}{\numberline {1.5}CD du type \FB@og \texttt {Coup} \FB@fg }{14}{section.1.5}
-\contentsline {section}{\numberline {1.6}CD du type \FB@og \texttt {Coups} \FB@fg }{14}{section.1.6}
-\contentsline {chapter}{\numberline {2}Conception d\IeC {\'e}taill\IeC {\'e}e des algorithmes compliqu\IeC {\'e}s de l'analyse \FB@og \texttt {faireUnePartie} \FB@fg }{16}{chapter.2}
-\contentsline {section}{\numberline {2.1}La proc\IeC {\'e}dure \FB@og \texttt {faireUnePartie} \FB@fg }{16}{section.2.1}
-\contentsline {section}{\numberline {2.2}La proc\IeC {\'e}dure \FB@og \texttt {jouer} \FB@fg }{17}{section.2.2}
-\contentsline {section}{\numberline {2.3}La proc\IeC {\'e}dure \FB@og \texttt {jouerCoup} \FB@fg }{17}{section.2.3}
-\contentsline {section}{\numberline {2.4}La proc\IeC {\'e}dure \FB@og \texttt {inverserPions} \FB@fg }{17}{section.2.4}
-\contentsline {section}{\numberline {2.5}La proc\IeC {\'e}dure \FB@og \texttt {inverserPionsDir} \FB@fg }{18}{section.2.5}
-\contentsline {section}{\numberline {2.6}La proc\IeC {\'e}dure \FB@og \texttt {pionEstPresent} \FB@fg }{18}{section.2.6}
-\contentsline {section}{\numberline {2.7}La proc\IeC {\'e}dure \FB@og \texttt {pionEstPresentRecursif} \FB@fg }{19}{section.2.7}
-\contentsline {chapter}{\numberline {3}Conception d\IeC {\'e}taill\IeC {\'e}e des algorithmes compliqu\IeC {\'e}s de l'analyse \FB@og \texttt {obtenirCoupIA} \FB@fg }{20}{chapter.3}
-\contentsline {section}{\numberline {3.1}La fonction \FB@og \texttt {obtenirCoupIA} \FB@fg }{20}{section.3.1}
-\contentsline {section}{\numberline {3.2}La fonction \FB@og \texttt {scoreDUnCoup} \FB@fg }{21}{section.3.2}
-\contentsline {section}{\numberline {3.3}La fonction \FB@og \texttt {listeCoupsPossibles} \FB@fg }{21}{section.3.3}
-\contentsline {section}{\numberline {3.4}La fonction \FB@og \texttt {coupValide} \FB@fg }{22}{section.3.4}
-\contentsline {section}{\numberline {3.5}La fonction \FB@og \texttt {minMax} \FB@fg }{22}{section.3.5}
-\contentsline {section}{\numberline {3.6}La fonction \FB@og \texttt {evaluerPlateau} \FB@fg }{23}{section.3.6}
-\contentsline {section}{\numberline {3.7}La fonction \FB@og \texttt {evaluerNbCoupsPossiblesAdversaire} \FB@fg }{23}{section.3.7}
-\contentsline {section}{\numberline {3.8}La fonction \FB@og \texttt {evaluerNbPionsCouleur} \FB@fg }{23}{section.3.8}
-\contentsline {section}{\numberline {3.9}La fonction \FB@og \texttt {evaluerPositionsPionsPlateau} \FB@fg }{24}{section.3.9}
-\contentsline {part}{IV\hspace {1em}D\IeC {\'e}veloppement}{25}{part.4}
-\contentsline {part}{V\hspace {1em}R\IeC {\'e}partition du travail}{26}{part.5}
-\contentsline {chapter}{\numberline {1}Analyse descendante}{27}{chapter.1}
-\contentsline {chapter}{\numberline {2}Conception pr\IeC {\'e}liminaire}{28}{chapter.2}
-\contentsline {chapter}{\numberline {3}Conception d\IeC {\'e}taill\IeC {\'e}e}{29}{chapter.3}
-\contentsline {chapter}{\numberline {4}D\IeC {\'e}veloppement}{30}{chapter.4}
-\contentsline {part}{Conclusion}{30}{table.caption.6}
+\contentsline {part}{I\hspace {1em}Analyse}{5}{part.1}
+\contentsline {chapter}{\numberline {1}Analyse des TAD}{6}{chapter.1}
+\contentsline {section}{\numberline {1.1}Le TAD \FB@og \texttt {Couleur} \FB@fg }{6}{section.1.1}
+\contentsline {section}{\numberline {1.2}Le TAD \FB@og \texttt {Pion} \FB@fg }{6}{section.1.2}
+\contentsline {section}{\numberline {1.3}Le TAD \FB@og \texttt {Position} \FB@fg }{6}{section.1.3}
+\contentsline {section}{\numberline {1.4}Le TAD \FB@og \texttt {Plateau} \FB@fg }{6}{section.1.4}
+\contentsline {section}{\numberline {1.5}Le TAD \FB@og \texttt {Coup} \FB@fg }{7}{section.1.5}
+\contentsline {section}{\numberline {1.6}Le TAD \FB@og \texttt {Coups} \FB@fg }{7}{section.1.6}
+\contentsline {chapter}{\numberline {2}Analyse descendante}{8}{chapter.2}
+\contentsline {part}{II\hspace {1em}Conception pr\IeC {\'e}liminaire}{9}{part.2}
+\contentsline {chapter}{\numberline {1}Conception pr\IeC {\'e}liminaire des TAD}{10}{chapter.1}
+\contentsline {section}{\numberline {1.1}Conception pr\IeC {\'e}liminaire du TAD \FB@og \texttt {Couleur} \FB@fg }{10}{section.1.1}
+\contentsline {section}{\numberline {1.2}Conception pr\IeC {\'e}liminaire du TAD \FB@og \texttt {Pion} \FB@fg }{10}{section.1.2}
+\contentsline {section}{\numberline {1.3}Conception pr\IeC {\'e}liminaire du TAD \FB@og \texttt {Position} \FB@fg }{10}{section.1.3}
+\contentsline {section}{\numberline {1.4}Conception pr\IeC {\'e}liminaire du TAD \FB@og \texttt {Plateau} \FB@fg }{11}{section.1.4}
+\contentsline {section}{\numberline {1.5}Conception pr\IeC {\'e}liminaire du TAD \FB@og \texttt {Coup} \FB@fg }{11}{section.1.5}
+\contentsline {section}{\numberline {1.6}Conception pr\IeC {\'e}liminaire du TAD \FB@og \texttt {Coups} \FB@fg }{11}{section.1.6}
+\contentsline {chapter}{\numberline {2}Conception pr\IeC {\'e}liminaire des fonctions et proc\IeC {\'e}dures issues des analyses descendantes}{12}{chapter.2}
+\contentsline {section}{\numberline {2.1}Conception pr\IeC {\'e}liminaire de l'analyse descendante de \FB@og \texttt {Faire une partie} \FB@fg }{12}{section.2.1}
+\contentsline {subsection}{\numberline {2.1.1}Types}{12}{subsection.2.1.1}
+\contentsline {subsection}{\numberline {2.1.2}Type Direction}{12}{subsection.2.1.2}
+\contentsline {subsection}{\numberline {2.1.3}Sous-programmes}{12}{subsection.2.1.3}
+\contentsline {section}{\numberline {2.2}Conception pr\IeC {\'e}liminaire de l'analyse descendante de \FB@og \texttt {obtenirCoupIA} \FB@fg }{13}{section.2.2}
+\contentsline {part}{III\hspace {1em}Conception d\IeC {\'e}taill\IeC {\'e}e}{14}{part.3}
+\contentsline {chapter}{\numberline {1}Conception d\IeC {\'e}taill\IeC {\'e}e des TAD}{15}{chapter.1}
+\contentsline {section}{\numberline {1.1}CD du type \FB@og \texttt {Couleur} \FB@fg }{15}{section.1.1}
+\contentsline {section}{\numberline {1.2}CD du type \FB@og \texttt {Pion} \FB@fg }{15}{section.1.2}
+\contentsline {section}{\numberline {1.3}CD du type \FB@og \texttt {Position} \FB@fg }{15}{section.1.3}
+\contentsline {section}{\numberline {1.4}CD du type \FB@og \texttt {Plateau} \FB@fg }{15}{section.1.4}
+\contentsline {section}{\numberline {1.5}CD du type \FB@og \texttt {Coup} \FB@fg }{15}{section.1.5}
+\contentsline {section}{\numberline {1.6}CD du type \FB@og \texttt {Coups} \FB@fg }{15}{section.1.6}
+\contentsline {chapter}{\numberline {2}Conception d\IeC {\'e}taill\IeC {\'e}e des algorithmes compliqu\IeC {\'e}s de l'analyse \FB@og \texttt {faireUnePartie} \FB@fg }{17}{chapter.2}
+\contentsline {section}{\numberline {2.1}La proc\IeC {\'e}dure \FB@og \texttt {faireUnePartie} \FB@fg }{17}{section.2.1}
+\contentsline {section}{\numberline {2.2}La proc\IeC {\'e}dure \FB@og \texttt {jouer} \FB@fg }{18}{section.2.2}
+\contentsline {section}{\numberline {2.3}La proc\IeC {\'e}dure \FB@og \texttt {jouerCoup} \FB@fg }{18}{section.2.3}
+\contentsline {section}{\numberline {2.4}La proc\IeC {\'e}dure \FB@og \texttt {inverserPions} \FB@fg }{18}{section.2.4}
+\contentsline {section}{\numberline {2.5}La proc\IeC {\'e}dure \FB@og \texttt {inverserPionsDir} \FB@fg }{19}{section.2.5}
+\contentsline {section}{\numberline {2.6}La proc\IeC {\'e}dure \FB@og \texttt {pionEstPresent} \FB@fg }{19}{section.2.6}
+\contentsline {section}{\numberline {2.7}La proc\IeC {\'e}dure \FB@og \texttt {pionEstPresentRecursif} \FB@fg }{20}{section.2.7}
+\contentsline {chapter}{\numberline {3}Conception d\IeC {\'e}taill\IeC {\'e}e des algorithmes compliqu\IeC {\'e}s de l'analyse \FB@og \texttt {obtenirCoupIA} \FB@fg }{21}{chapter.3}
+\contentsline {section}{\numberline {3.1}La fonction \FB@og \texttt {obtenirCoupIA} \FB@fg }{21}{section.3.1}
+\contentsline {section}{\numberline {3.2}La fonction \FB@og \texttt {scoreDUnCoup} \FB@fg }{22}{section.3.2}
+\contentsline {section}{\numberline {3.3}La fonction \FB@og \texttt {listeCoupsPossibles} \FB@fg }{22}{section.3.3}
+\contentsline {section}{\numberline {3.4}La fonction \FB@og \texttt {coupValide} \FB@fg }{23}{section.3.4}
+\contentsline {section}{\numberline {3.5}La fonction \FB@og \texttt {minMax} \FB@fg }{23}{section.3.5}
+\contentsline {section}{\numberline {3.6}La fonction \FB@og \texttt {evaluerPlateau} \FB@fg }{24}{section.3.6}
+\contentsline {section}{\numberline {3.7}La fonction \FB@og \texttt {evaluerNbCoupsPossiblesAdversaire} \FB@fg }{24}{section.3.7}
+\contentsline {section}{\numberline {3.8}La fonction \FB@og \texttt {evaluerNbPionsCouleur} \FB@fg }{24}{section.3.8}
+\contentsline {section}{\numberline {3.9}La fonction \FB@og \texttt {evaluerPositionsPionsPlateau} \FB@fg }{25}{section.3.9}
+\contentsline {part}{IV\hspace {1em}D\IeC {\'e}veloppement}{26}{part.4}
+\contentsline {part}{V\hspace {1em}R\IeC {\'e}partition du travail}{27}{part.5}
+\contentsline {chapter}{\numberline {1}Analyse descendante}{28}{chapter.1}
+\contentsline {chapter}{\numberline {2}Conception pr\IeC {\'e}liminaire}{29}{chapter.2}
+\contentsline {chapter}{\numberline {3}Conception d\IeC {\'e}taill\IeC {\'e}e}{30}{chapter.3}
+\contentsline {chapter}{\numberline {4}D\IeC {\'e}veloppement}{31}{chapter.4}
+\contentsline {part}{Conclusion}{31}{table.caption.6}
