@@ -30,7 +30,7 @@ void faireUnePartie(void(*afficher)(Plateau,Coup,int,int), Coup(*getCoup1)(Plate
         jouer(&plateau,&couleurJoueur1,getCoup1,&aPuJouerJoueur1,&coupJoueur1);
         afficher(plateau,coupJoueur1,aPuJouerJoueur1,estFinie);
         jouer(&plateau,&couleurJoueur2,getCoup2,&aPuJouerJoueur2,&coupJoueur2);
-	    afficher(plateau,coupJoueur2,aPuJouerJoueur2,estFinie);
+	      afficher(plateau,coupJoueur2,aPuJouerJoueur2,estFinie);
         finPartie(plateau,aPuJouerJoueur1,aPuJouerJoueur2,&nbPionsNoirs,&nbPionsBlancs,&estFinie);
     }
     afficher(plateau,coupJoueur2,aPuJouerJoueur2,estFinie);
@@ -71,19 +71,13 @@ void initialiserPlateau(Plateau *plateauDeJeu){
 
 
 void jouer(Plateau* plateau , Couleur* couleurJoueur, Coup(*getCoup)(Plateau,Couleur), int* aPuJouer, Coup* coupJoueur){
-    unsigned int i;
     int res;
-    Coups coups;
     res=FALSE;
     *coupJoueur=getCoup(*plateau,*couleurJoueur);
-    coups=listeCoupsPossibles(*plateau,*couleurJoueur);
-    if (CPS_nbCoups(coups)>0){
-        for(i=0;i<CPS_nbCoups(coups);i++){
-            if (CP_sontEgaux(CPS_iemeCoup(coups,i),*coupJoueur)) {
-                jouerCoup(*coupJoueur,plateau);
-                res=TRUE;
-            }
-        }
+
+    if(coupValide(*plateau,*coupJoueur)){
+      jouerCoup(*coupJoueur,plateau);
+      res=TRUE;
     }
     *aPuJouer=res;
 }
@@ -201,17 +195,18 @@ void nbPions (Plateau plateau, int* nbPionsNoirs, int* nbPionsBlancs)
 
 int plateauRempli(Plateau plateau){
     int res = TRUE;
-    unsigned int i,j;
+    unsigned int i=0,j=0;
     Position position;
-    for(i=0;i<8;i++){
-        for(j=0;j<8;j++){
-            POS_fixerPosition(i,j,&position);
-            if (PL_estCaseVide(plateau,position)){
-                res = FALSE;
-            }
+    while(res && (i<8)){
+      while(res && (j<8)){
+        POS_fixerPosition(i,j,&position);
+        if (PL_estCaseVide(plateau,position)){
+          res = FALSE;
         }
+        j=j+1;
+      }
+      i=i+1;
     }
-
     return res;
 }
 
