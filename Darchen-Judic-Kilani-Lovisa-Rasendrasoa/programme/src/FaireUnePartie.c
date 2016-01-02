@@ -163,7 +163,7 @@ void pionEstPresentRecursif(Pion pionJoueur, Direction dirATester, Position* pos
 
 void finPartie (Plateau plateau, int aPuJouerJoueur1, int aPuJouerJoueur2 , int* nbPionsNoirs, int* nbPionsBlancs , int* estFinie)
 {
-    if(((aPuJouerJoueur1==FALSE) && (aPuJouerJoueur2==FALSE)) || (plateauRempli(plateau)==TRUE)){
+    if(((aPuJouerJoueur1==FALSE) && (aPuJouerJoueur2==FALSE)) || (plateauRempli(plateau))){
         nbPions(plateau,nbPionsNoirs,nbPionsBlancs);
         *estFinie=TRUE;
     }
