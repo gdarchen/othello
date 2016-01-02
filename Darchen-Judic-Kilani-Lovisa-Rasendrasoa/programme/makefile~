@@ -3,6 +3,7 @@ LIBDIR=lib
 BINDIR=bin
 INCLUDEDIR=include
 TESTDIR=tests
+DOC=doc
 CC = gcc
 AR = ar
 CFLAGS=-Wall -pedantic -g -std=c99  -I$(INCLUDEDIR)  
@@ -13,11 +14,12 @@ TEST2=TestTADs
 TEST3=TestFaireUnePartie
 
 
-all :  $(BINDIR)/$(EXEC)
-	doxygen doxygen/config_file
+all : $(BINDIR)/$(EXEC)
+	
 
-$(BINDIR)/$(EXEC) : $(SRCDIR)/main.o $(SRCDIR)/FaireUnePartie.o $(SRCDIR)/ListesCoupsPossibles.o  $(SRCDIR)/TAD_Couleur.o  $(SRCDIR)/TAD_Coup.o  $(SRCDIR)/TAD_Coups.o  $(SRCDIR)/TAD_Pion.o  $(SRCDIR)/TAD_Plateau.o  $(SRCDIR)/TAD_Position.o $(SRCDIR)/Affichage.o $(SRCDIR)/ObtenirCoupHumain.o $(SRCDIR)/ObtenirCoupIA.o
-	$(CC)  -o $@ $^ $(LDFLAGS) 
+$(BINDIR)/$(EXEC) : doxygen doc/config_file
+	$(SRCDIR)/main.o $(SRCDIR)/FaireUnePartie.o $(SRCDIR)/ListesCoupsPossibles.o  $(SRCDIR)/TAD_Couleur.o  $(SRCDIR)/TAD_Coup.o  $(SRCDIR)/TAD_Coups.o  $(SRCDIR)/TAD_Pion.o  $(SRCDIR)/TAD_Plateau.o  $(SRCDIR)/TAD_Position.o $(SRCDIR)/Affichage.o $(SRCDIR)/ObtenirCoupHumain.o $(SRCDIR)/ObtenirCoupIA.o	
+	$(CC)  -o $@ $^ $(LDFLAGS)
 
 $(SRCDIR)/%.o : $(SRCDIR)/%.c
 	$(CC) $(CFLAGS) -o $@ -c $< 
