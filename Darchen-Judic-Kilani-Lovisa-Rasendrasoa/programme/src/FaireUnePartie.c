@@ -203,14 +203,6 @@ int plateauRempli(Plateau plateau){
     int res = TRUE;
     unsigned int i=0,j=0;
     Position position;
-    /*for(i=0;i<8;i++){
-        for(j=0;j<8;j++){
-            POS_fixerPosition(i,j,&position);
-            if (PL_estCaseVide(plateau,position)){
-                res = FALSE;
-            }
-        }
-    }*/
     while(res && (i<8)){
       while(res && (j<8)){
         POS_fixerPosition(i,j,&position);
