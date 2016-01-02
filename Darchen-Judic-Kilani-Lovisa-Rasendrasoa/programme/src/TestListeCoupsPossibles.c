@@ -11,6 +11,7 @@
 #include "ListeCoupsPossibles.h"
 #include "ListeCoupsPossibles_Prive.h"
 #include "FaireUnePartie.h"
+#include "FaireUnePartie_Prive.h"
 #include "ObtenirCoupIA.h"
 #include "ObtenirCoupIA_Prive.h"
 
@@ -333,24 +334,17 @@ void test_scoreDUnCoup(void)
     unsigned int profondeurMinMax=profondeur();
     Coup coup1, Meilleurcoup;
     int scoreCourant, meilleurScore;
-    Position position1,position2,position3,position4,positionCoup1,positionMeilleurcoup;
-    Pion pion1=PI_creerPion(CL_blanc()), pion2=PI_creerPion(CL_noir()), pion3=PI_creerPion(CL_noir()),
-          pion4=PI_creerPion(CL_blanc()),pionCoup1=PI_creerPion(CL_blanc()), pionMeilleurcoup=PI_creerPion(CL_blanc());
+    Position positionPionBlanc,positionCoup1,positionMeilleurcoup;
+    Pion pionCoup1=PI_creerPion(CL_noir()), pionMeilleurcoup=PI_creerPion(CL_noir()), pionBlanc=PI_creerPion(CL_blanc());
     int** grilleScore=initialiserGrilleScore();
 
     /* Configuration initiale du plateau */
 
-    POS_fixerPosition(3,3,&position1);
-    POS_fixerPosition(3,4,&position2);
-    POS_fixerPosition(4,3,&position3);
-    POS_fixerPosition(4,4,&position4);
+    initialiserPlateau(&plateau);
+    POS_fixerPosition(2,4,&positionPionBlanc);
+    PL_poserPion(&plateau, positionPionBlanc, pionBlanc);
     POS_fixerPosition(3,2,&positionCoup1);
-    POS_fixerPosition(4,2,&positionMeilleurcoup);
-
-    PL_poserPion(&plateau,position1,pion1);
-    PL_poserPion(&plateau,position2,pion2);
-    PL_poserPion(&plateau,position3,pion3);
-    PL_poserPion(&plateau,position4,pion4);
+    POS_fixerPosition(1,4,&positionMeilleurcoup);
 
     coup1=CP_creerCoup(positionCoup1,pionCoup1);
     Meilleurcoup=CP_creerCoup(positionMeilleurcoup,pionMeilleurcoup);
