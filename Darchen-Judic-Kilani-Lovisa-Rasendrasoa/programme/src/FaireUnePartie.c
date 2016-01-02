@@ -71,13 +71,19 @@ void initialiserPlateau(Plateau *plateauDeJeu){
 
 
 void jouer(Plateau* plateau , Couleur* couleurJoueur, Coup(*getCoup)(Plateau,Couleur), int* aPuJouer, Coup* coupJoueur){
+    unsigned int i;
     int res;
+    Coups coups;
     res=FALSE;
     *coupJoueur=getCoup(*plateau,*couleurJoueur);
-
-    if(coupValide(*plateau,*coupJoueur)){
-      jouerCoup(*coupJoueur,plateau);
-      res=TRUE;
+    coups=listeCoupsPossibles(*plateau,*couleurJoueur);
+    if (CPS_nbCoups(coups)>0){
+        for(i=0;i<CPS_nbCoups(coups);i++){
+            if (CP_sontEgaux(CPS_iemeCoup(coups,i),*coupJoueur)) {
+                jouerCoup(*coupJoueur,plateau);
+                res=TRUE;
+            }
+        }
     }
     *aPuJouer=res;
 }
@@ -163,7 +169,7 @@ void pionEstPresentRecursif(Pion pionJoueur, Direction dirATester, Position* pos
 
 void finPartie (Plateau plateau, int aPuJouerJoueur1, int aPuJouerJoueur2 , int* nbPionsNoirs, int* nbPionsBlancs , int* estFinie)
 {
-    if(((aPuJouerJoueur1==FALSE) && (aPuJouerJoueur2==FALSE)) || (plateauRempli(plateau))){
+    if(((aPuJouerJoueur1==FALSE) && (aPuJouerJoueur2==FALSE)) || (plateauRempli(plateau)==TRUE)){
         nbPions(plateau,nbPionsNoirs,nbPionsBlancs);
         *estFinie=TRUE;
     }
@@ -197,6 +203,14 @@ int plateauRempli(Plateau plateau){
     int res = TRUE;
     unsigned int i=0,j=0;
     Position position;
+    /*for(i=0;i<8;i++){
+        for(j=0;j<8;j++){
+            POS_fixerPosition(i,j,&position);
+            if (PL_estCaseVide(plateau,position)){
+                res = FALSE;
+            }
+        }
+    }*/
     while(res && (i<8)){
       while(res && (j<8)){
         POS_fixerPosition(i,j,&position);

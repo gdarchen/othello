@@ -110,19 +110,25 @@
 
 \section{La procédure \tt{jouer}}
 \begin{algorithme}
-	\procedure{jouer}
-	{\paramEntreeSortie{plateau : Plateau, couleurJoueur : Couleur}, \paramEntree{obtenirCoupJoueur : getCoup}, \paramSortie{aPuJouer : \booleen, coupJoueur : Coup}}
-	{res : \entier}
-	{\affecter{coupJoueur}{obtenirCoupJoueur(plateau,couleurJoueur)}
-	\sialors{coupValide(plateau,coupJoueur)}{
-	  \instruction{jouerCoup(coupJoueur,plateau)}
-	  \affecter{res}{VRAI}
-
-	}
+\procedure{jouer}
+{\paramEntreeSortie{plateau : Plateau, couleurJoueur : Couleur}, \paramEntree{obtenirCoupJoueur : getCoup}, \paramSortie{aPuJouer : \booleen, coupJoueur : Coup}}
+{i : \naturel \\
+coups : Coups \\
+res : \entier}
+{\affecter{coupJoueur}{obtenirCoupJoueur(plateau,couleurJoueur)}
+\affecter{coups}{listeCoupsPossibles(plateau, couleurJoueur)}
+\sialors{CPS\_nbCoups(coups) $>$ 0}{
+\pour{i}{1}{CPS\_nbCoups(coups)}{}{
+\sialors{CP\_sontEgaux(CPS\_iemeCoup(coups,i),coupJoueur)}
+{
+\instruction{jouerCoup(coupJoueur,plateau)}
+\affecter{res}{VRAI}
+} %FinSi
+} %FinPour
+}
+\affecter{aPuJouer}{res}
+}
 	
-	\affecter{aPuJouer}{res}
-
-	}
 \end{algorithme}
 
 \section{La procédure \tt{jouerCoup}}
