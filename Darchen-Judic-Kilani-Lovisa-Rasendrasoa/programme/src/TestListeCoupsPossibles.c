@@ -299,38 +299,29 @@ void test_listeCoupsPossiblesPlateauVide(void){
 void test_ObtenirCoupIA(void)
 {
     Plateau plateau=PL_creerPlateau();
-    Couleur couleurJoueur=CL_blanc();
-    Coup Meilleurcoup,meilleurCoupVrai;
-    Position position1,position2,position3,position4,positionCoup1,positionMeilleurcoup;
-    Pion pion1=PI_creerPion(CL_blanc()), pion2=PI_creerPion(CL_noir()), pion3=PI_creerPion(CL_noir()),
-          pion4=PI_creerPion(CL_blanc()),pionMeilleurcoup=PI_creerPion(CL_blanc());
+    Couleur couleurJoueur=CL_noir();
+    Coup Meilleurcoup,meilleurCoupIA;
+    Position positionPionBlanc,positionMeilleurcoup;
+    Pion pionBlanc=PI_creerPion(CL_blanc()),pionMeilleurcoup=PI_creerPion(CL_noir());
 
-    /* Configuration initiale du plateau */
-
-    POS_fixerPosition(3,3,&position1);
-    POS_fixerPosition(3,4,&position2);
-    POS_fixerPosition(4,3,&position3);
-    POS_fixerPosition(4,4,&position4);
-    POS_fixerPosition(3,2,&positionCoup1);
-    POS_fixerPosition(4,2,&positionMeilleurcoup);
-
-    PL_poserPion(&plateau,position1,pion1);
-    PL_poserPion(&plateau,position2,pion2);
-    PL_poserPion(&plateau,position3,pion3);
-    PL_poserPion(&plateau,position4,pion4);
+    initialiserPlateau(&plateau);
+    POS_fixerPosition(2,4,&positionPionBlanc);
+    PL_poserPion(&plateau, positionPionBlanc, pionBlanc);
+    POS_fixerPosition(2,3,&positionMeilleurcoup);
 
     Meilleurcoup=CP_creerCoup(positionMeilleurcoup,pionMeilleurcoup);
 
-    meilleurCoupVrai=obtenirCoupIA(plateau,couleurJoueur);
+    meilleurCoupIA=obtenirCoupIA(plateau,couleurJoueur);
 
-    CU_ASSERT_TRUE(CP_sontEgaux(Meilleurcoup,meilleurCoupVrai));
+
+    CU_ASSERT_TRUE(CP_sontEgaux(Meilleurcoup,meilleurCoupIA));
 }
 /* Tests relatifs à scoreDUnCoup */
 
 void test_scoreDUnCoup(void)
 {
     Plateau plateau=PL_creerPlateau();
-    Couleur couleurJoueur=CL_blanc();
+    Couleur couleurJoueur=CL_noir();
     unsigned int profondeurMinMax=profondeur();
     Coup coup1, Meilleurcoup;
     int scoreCourant, meilleurScore;
@@ -343,8 +334,8 @@ void test_scoreDUnCoup(void)
     initialiserPlateau(&plateau);
     POS_fixerPosition(2,4,&positionPionBlanc);
     PL_poserPion(&plateau, positionPionBlanc, pionBlanc);
-    POS_fixerPosition(3,2,&positionCoup1);
-    POS_fixerPosition(1,4,&positionMeilleurcoup);
+    POS_fixerPosition(1,4,&positionCoup1);
+    POS_fixerPosition(3,2,&positionMeilleurcoup);
 
     coup1=CP_creerCoup(positionCoup1,pionCoup1);
     Meilleurcoup=CP_creerCoup(positionMeilleurcoup,pionMeilleurcoup);
@@ -355,7 +346,7 @@ void test_scoreDUnCoup(void)
 
     CU_ASSERT_TRUE    ((coupValide(plateau, coup1))
                        && (coupValide(plateau, Meilleurcoup))
-                       && (meilleurScore>=scoreCourant));
+                       && (meilleurScore>scoreCourant));
 }
 
 
