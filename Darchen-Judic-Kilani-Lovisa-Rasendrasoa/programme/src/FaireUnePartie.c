@@ -71,13 +71,19 @@ void initialiserPlateau(Plateau *plateauDeJeu){
 
 
 void jouer(Plateau* plateau , Couleur* couleurJoueur, Coup(*getCoup)(Plateau,Couleur), int* aPuJouer, Coup* coupJoueur){
+    unsigned int i;
     int res;
+    Coups coups;
     res=FALSE;
     *coupJoueur=getCoup(*plateau,*couleurJoueur);
-
-    if(coupValide(*plateau,*coupJoueur)){
-      jouerCoup(*coupJoueur,plateau);
-      res=TRUE;
+    coups=listeCoupsPossibles(*plateau,*couleurJoueur);
+    if (CPS_nbCoups(coups)>0){
+        for(i=0;i<CPS_nbCoups(coups);i++){
+            if (CP_sontEgaux(CPS_iemeCoup(coups,i),*coupJoueur)) {
+                jouerCoup(*coupJoueur,plateau);
+                res=TRUE;
+            }
+        }
     }
     *aPuJouer=res;
 }
