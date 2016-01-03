@@ -307,30 +307,21 @@ res : \entier}
 	coupTest : Coup \\
 	pionJoueur : Pion \\
 	i,j : \naturelNonNul \\
-	k,nbPionsBlancs,nbPionsNoirs,nbPionsAParcourir : \naturel}
+	nbPionsBlancs,nbPionsNoirs : \naturel}
 	{
-	  \affecter{k}{0}
 	  \instruction{CPS\_creerCoups(coupsPossibles)}
-	  \affecter{pionJoueur}{PI\_creerPion(couleur)}
-	  \instruction{nbPions(plateau,nbPionsNoirs,nbPionsBlancs)}
-	  \affecter{nbPionsAParcourir}{64 $-$ (nbPionsBlancs $+$ nbPionsNoirs)}
-	  
-	  \affecter{i}{0}
-	  \affecter{j}{0}
-	  \tantque{i<8 ET k<=nbPionsAParcourir}{
-	    \tantque{j<8 ET k<=nbPionsAParcourir}{
+	  \affecter{pionJoueur}{PI\_creerPion(couleur)}	  
+
+	  \pour{i}{1}{8}{}{
+	    \pour{j}{1}{8}{}{
 		\instruction{POS\_fixerPosition(i,j,positionTest)}
 		\sialors{PL\_estCaseVide(plateau,positionTest)}{
 		  \instruction{coupTest $=$ CP\_creerCoup(positionTest,pionJoueur)}
 		  \sialors{coupValide(plateau,coupTest)}{
 		    \instruction{CPS\_ajouterCoups(coupsPossibles,coupTest)}
-		    \affecter{k}{k+1}
 		  }
 		}
-	      \affecter{j}{j+1}
 	    }
-	    \affecter{j}{0}
-	    \affecter{i}{i+1}
 	  }
 	  \retourner{coupsPossibles}
 	}

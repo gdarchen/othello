@@ -43,12 +43,12 @@
 \contentsline {section}{\numberline {3.1}La fonction \FB@og \texttt {obtenirCoupIA} \FB@fg }{22}{section.3.1}
 \contentsline {section}{\numberline {3.2}La fonction \FB@og \texttt {scoreDUnCoup} \FB@fg }{23}{section.3.2}
 \contentsline {section}{\numberline {3.3}La fonction \FB@og \texttt {listeCoupsPossibles} \FB@fg }{23}{section.3.3}
-\contentsline {section}{\numberline {3.4}La fonction \FB@og \texttt {coupValide} \FB@fg }{24}{section.3.4}
+\contentsline {section}{\numberline {3.4}La fonction \FB@og \texttt {coupValide} \FB@fg }{23}{section.3.4}
 \contentsline {section}{\numberline {3.5}La fonction \FB@og \texttt {minMax} \FB@fg }{24}{section.3.5}
 \contentsline {section}{\numberline {3.6}La fonction \FB@og \texttt {evaluerPlateau} \FB@fg }{25}{section.3.6}
 \contentsline {section}{\numberline {3.7}La fonction \FB@og \texttt {evaluerNbCoupsPossiblesAdversaire} \FB@fg }{25}{section.3.7}
 \contentsline {section}{\numberline {3.8}La fonction \FB@og \texttt {evaluerNbPionsCouleur} \FB@fg }{25}{section.3.8}
-\contentsline {section}{\numberline {3.9}La fonction \FB@og \texttt {evaluerPositionsPionsPlateau} \FB@fg }{26}{section.3.9}
+\contentsline {section}{\numberline {3.9}La fonction \FB@og \texttt {evaluerPositionsPionsPlateau} \FB@fg }{25}{section.3.9}
 \contentsline {part}{IV\hspace {1em}D\IeC {\'e}veloppement}{27}{part.4}
 \contentsline {chapter}{\numberline {1}Les fichiers d'en-t\IeC {\^e}tes (\emph {headers})}{28}{chapter.1}
 \contentsline {section}{\numberline {1.1}Le fichier \FB@og \texttt {TAD\_Couleur.h} \FB@fg }{28}{section.1.1}
@@ -61,7 +61,7 @@
 \contentsline {section}{\numberline {1.8}Le fichier \FB@og \texttt {FaireUnePartie.h} \FB@fg }{36}{section.1.8}
 \contentsline {section}{\numberline {1.9}Le fichier \FB@og \texttt {FaireUnePartie\_Prive.h} \FB@fg }{37}{section.1.9}
 \contentsline {section}{\numberline {1.10}Le fichier \FB@og \texttt {ListeCoupsPossibles.h} \FB@fg }{40}{section.1.10}
-\contentsline {section}{\numberline {1.11}Le fichier \FB@og \texttt {ListeCoupsPossibles\_Prive.h} \FB@fg }{40}{section.1.11}
+\contentsline {section}{\numberline {1.11}Le fichier \FB@og \texttt {ListeCoupsPossibles\_Prive.h} \FB@fg }{41}{section.1.11}
 \contentsline {section}{\numberline {1.12}Le fichier \FB@og \texttt {ObtenirCoupHumain.h} \FB@fg }{41}{section.1.12}
 \contentsline {section}{\numberline {1.13}Le fichier \FB@og \texttt {ObtenirCoupIA.h} \FB@fg }{41}{section.1.13}
 \contentsline {section}{\numberline {1.14}Le fichier \FB@og \texttt {ObtenirCoupIA\_Prive.h} \FB@fg }{42}{section.1.14}

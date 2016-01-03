@@ -17,42 +17,20 @@ Coups listeCoupsPossibles(Plateau plateau, Couleur couleur){
   Coup coupTest;
   Pion pionJoueur;
   unsigned int i,j;
-  int nbPionsBlancs,nbPionsNoirs,nbPionsAParcourir;
-  int k = 0;
+  int nbPionsBlancs,nbPionsNoirs;
   CPS_creerCoups(&coupsPossibles);
   pionJoueur = PI_creerPion(couleur);
-  nbPions(plateau,&nbPionsNoirs,&nbPionsBlancs);
-  nbPionsAParcourir = 64-(nbPionsBlancs+nbPionsBlancs);
-  /*for (i = 0; i < 8; i++){
+  for (i = 0; i < 8; i++){
     for (j = 0; j < 8; j++){
-      if (k <= nbPionsAParcourir){
        POS_fixerPosition(i,j,&positionTest);
        if(PL_estCaseVide(plateau,positionTest)) {
           coupTest = CP_creerCoup(positionTest,pionJoueur);
           if (coupValide(plateau,coupTest)){
             CPS_ajouterCoups(&coupsPossibles,coupTest);
-            k=k+1;
           }
        }
-      }
     }
-  }*/
-  i=0;
-  j=0;
-  while((i<8) && (k <= nbPionsAParcourir)){
-    while((j<8) && (k <= nbPionsAParcourir)){
-      POS_fixerPosition(i,j,&positionTest);
-       if(PL_estCaseVide(plateau,positionTest)) {
-          coupTest = CP_creerCoup(positionTest,pionJoueur);
-          if (coupValide(plateau,coupTest)){
-            CPS_ajouterCoups(&coupsPossibles,coupTest);
-            k=k+1;
-          }
-       }
-       j=j+1;
-    }
-    j=0;
-    i=i+1;
+  }
   }
 
   return coupsPossibles;
