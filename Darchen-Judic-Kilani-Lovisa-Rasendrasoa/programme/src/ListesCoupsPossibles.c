@@ -17,7 +17,6 @@ Coups listeCoupsPossibles(Plateau plateau, Couleur couleur){
   Coup coupTest;
   Pion pionJoueur;
   unsigned int i,j;
-  int nbPionsBlancs,nbPionsNoirs;
   CPS_creerCoups(&coupsPossibles);
   pionJoueur = PI_creerPion(couleur);
   for (i = 0; i < 8; i++){
@@ -30,7 +29,6 @@ Coups listeCoupsPossibles(Plateau plateau, Couleur couleur){
           }
        }
     }
-  }
   }
 
   return coupsPossibles;

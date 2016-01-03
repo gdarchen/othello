@@ -3,16 +3,15 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<meta name="generator" content="Doxygen 1.8.9.1"/>
+<meta name="generator" content="Doxygen 1.8.6"/>
 <title>Othello: Référence du fichier include/Affichage.h</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript">
-  $(document).ready(function() { init_search(); });
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
 </script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
@@ -32,7 +31,7 @@
 </table>
 </div>
 <!-- end header part -->
-<!-- Généré par Doxygen 1.8.9.1 -->
+<!-- Généré par Doxygen 1.8.6 -->
 <script type="text/javascript">
 var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
 </script>
@@ -70,7 +69,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-</div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tout</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Structures de données</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Fichiers</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Fonctions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Énumérations</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -94,11 +93,11 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
 
 <p>Fonctions d'affichage d'un plateau et d'affichage de l'aide.  
 <a href="#details">Plus de détails...</a></p>
-<div class="textblock"><code>#include &quot;<a class="el" href="TAD__Couleur_8h_source.html">TAD_Couleur.h</a>&quot;</code><br />
-<code>#include &quot;TAD_Pion.h&quot;</code><br />
-<code>#include &quot;TAD_Plateau.h&quot;</code><br />
-<code>#include &quot;TAD_Position.h&quot;</code><br />
-<code>#include &quot;<a class="el" href="TAD__Coup_8h_source.html">TAD_Coup.h</a>&quot;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="TAD__Couleur_8h_source.html">TAD_Couleur.h</a>&quot;</code><br/>
+<code>#include &quot;TAD_Pion.h&quot;</code><br/>
+<code>#include &quot;TAD_Plateau.h&quot;</code><br/>
+<code>#include &quot;TAD_Position.h&quot;</code><br/>
+<code>#include &quot;<a class="el" href="TAD__Coup_8h_source.html">TAD_Coup.h</a>&quot;</code><br/>
 </div>
 <p><a href="Affichage_8h_source.html">Aller au code source de ce fichier.</a></p>
 <table class="memberdecls">
@@ -106,19 +105,19 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
 Fonctions</h2></td></tr>
 <tr class="memitem:a073375ed46d7f2d21c61262a5af52930"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a073375ed46d7f2d21c61262a5af52930"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Affichage_8h.html#a073375ed46d7f2d21c61262a5af52930">afficherAide</a> ()</td></tr>
-<tr class="memdesc:a073375ed46d7f2d21c61262a5af52930"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction qui affiche l'aide du jeu d'Othello (exécutable appelé sans argument) <br /></td></tr>
+<tr class="memdesc:a073375ed46d7f2d21c61262a5af52930"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction qui affiche l'aide du jeu d'Othello (exécutable appelé sans argument) <br/></td></tr>
 <tr class="separator:a073375ed46d7f2d21c61262a5af52930"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af24e3ad5f898ceab9d3011cff1ff793a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af24e3ad5f898ceab9d3011cff1ff793a"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>afficherTournoi</b> (<a class="el" href="structPlateau.html">Plateau</a> plateau, <a class="el" href="structCoup.html">Coup</a> coup, int aPuJouer, int estPartieFinie)</td></tr>
 <tr class="separator:af24e3ad5f898ceab9d3011cff1ff793a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a797147b14780279afc9943eaac537888"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Affichage_8h.html#a797147b14780279afc9943eaac537888">intToChar</a> (unsigned int i)</td></tr>
-<tr class="memdesc:a797147b14780279afc9943eaac537888"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction qui convertit un entier en une lettre.  <a href="#a797147b14780279afc9943eaac537888">Plus de détails...</a><br /></td></tr>
+<tr class="memdesc:a797147b14780279afc9943eaac537888"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction qui convertit un entier en une lettre.  <a href="#a797147b14780279afc9943eaac537888">Plus de détails...</a><br/></td></tr>
 <tr class="separator:a797147b14780279afc9943eaac537888"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae90e85a8322ed3a0b2e98d25a947dd35"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae90e85a8322ed3a0b2e98d25a947dd35"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>afficherPlateau</b> (<a class="el" href="structPlateau.html">Plateau</a> plateau, <a class="el" href="structCoup.html">Coup</a> coup, int aPuJouer, int estPartieFinie)</td></tr>
 <tr class="separator:ae90e85a8322ed3a0b2e98d25a947dd35"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a12238f6cc478ad5cc949060d898714ea"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Affichage_8h.html#a12238f6cc478ad5cc949060d898714ea">afficherCoup</a> (<a class="el" href="TAD__Couleur_8h.html#aa304d0ca681f782b1d7735da33037dd7">Couleur</a> couleurJoueur, <a class="el" href="structCoup.html">Coup</a> coupJoueur)</td></tr>
-<tr class="memdesc:a12238f6cc478ad5cc949060d898714ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction qui affiche le coup d'un joueur.  <a href="#a12238f6cc478ad5cc949060d898714ea">Plus de détails...</a><br /></td></tr>
+<tr class="memdesc:a12238f6cc478ad5cc949060d898714ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction qui affiche le coup d'un joueur.  <a href="#a12238f6cc478ad5cc949060d898714ea">Plus de détails...</a><br/></td></tr>
 <tr class="separator:a12238f6cc478ad5cc949060d898714ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
@@ -190,9 +189,9 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>afficherPlateau</b> (
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Généré le Dimanche 3 Janvier 2016 14:22:57 pour Othello par &#160;<a href="http://www.doxygen.org/index.html">
+Généré le Dimanche 3 Janvier 2016 14:32:15 pour Othello par &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.9.1
+</a> 1.8.6
 </small></address>
 </body>
 </html>

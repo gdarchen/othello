@@ -3,16 +3,15 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<meta name="generator" content="Doxygen 1.8.9.1"/>
+<meta name="generator" content="Doxygen 1.8.6"/>
 <title>Othello: Référence du fichier include/FaireUnePartie_Prive.h</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript">
-  $(document).ready(function() { init_search(); });
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
 </script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
@@ -32,7 +31,7 @@
 </table>
 </div>
 <!-- end header part -->
-<!-- Généré par Doxygen 1.8.9.1 -->
+<!-- Généré par Doxygen 1.8.6 -->
 <script type="text/javascript">
 var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
 </script>
@@ -70,7 +69,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-</div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tout</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Structures de données</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Fichiers</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Fonctions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Énumérations</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -95,31 +94,31 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
 
 <p>Implantation de faireunepartie-prive pour le projet othello.  
 <a href="#details">Plus de détails...</a></p>
-<div class="textblock"><code>#include &quot;TAD_Plateau.h&quot;</code><br />
-<code>#include &quot;<a class="el" href="TAD__Couleur_8h_source.html">TAD_Couleur.h</a>&quot;</code><br />
-<code>#include &quot;TAD_Position.h&quot;</code><br />
-<code>#include &quot;TAD_Pion.h&quot;</code><br />
-<code>#include &quot;<a class="el" href="TAD__Coup_8h_source.html">TAD_Coup.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="TAD__Coups_8h_source.html">TAD_Coups.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="FaireUnePartie_8h_source.html">FaireUnePartie.h</a>&quot;</code><br />
+<div class="textblock"><code>#include &quot;TAD_Plateau.h&quot;</code><br/>
+<code>#include &quot;<a class="el" href="TAD__Couleur_8h_source.html">TAD_Couleur.h</a>&quot;</code><br/>
+<code>#include &quot;TAD_Position.h&quot;</code><br/>
+<code>#include &quot;TAD_Pion.h&quot;</code><br/>
+<code>#include &quot;<a class="el" href="TAD__Coup_8h_source.html">TAD_Coup.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="TAD__Coups_8h_source.html">TAD_Coups.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="FaireUnePartie_8h_source.html">FaireUnePartie.h</a>&quot;</code><br/>
 </div>
 <p><a href="FaireUnePartie__Prive_8h_source.html">Aller au code source de ce fichier.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
 Énumérations</h2></td></tr>
-<tr class="memitem:a224b9163917ac32fc95a60d8c1eec3aa"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a224b9163917ac32fc95a60d8c1eec3aa"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="FaireUnePartie__Prive_8h.html#a224b9163917ac32fc95a60d8c1eec3aa">Direction</a> { <br />
+<tr class="memitem:a224b9163917ac32fc95a60d8c1eec3aa"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="FaireUnePartie__Prive_8h.html#a224b9163917ac32fc95a60d8c1eec3aa">Direction</a> { <br/>
 &#160;&#160;<b>GAUCHE</b>, 
 <b>DROITE</b>, 
 <b>HAUT</b>, 
 <b>BAS</b>, 
-<br />
+<br/>
 &#160;&#160;<b>DIAGGH</b>, 
 <b>DIAGGB</b>, 
 <b>DIAGDH</b>, 
 <b>DIAGDB</b>
-<br />
+<br/>
  }</td></tr>
-<tr class="memdesc:a224b9163917ac32fc95a60d8c1eec3aa"><td class="mdescLeft">&#160;</td><td class="mdescRight">FaireUnePartie-prive regroupe seulement les fonctions et procédures qu'on va utiliser dans FAIREUNEPARTIE. <br /></td></tr>
+<tr class="memdesc:a224b9163917ac32fc95a60d8c1eec3aa"><td class="mdescLeft">&#160;</td><td class="mdescRight">FaireUnePartie-prive regroupe seulement les fonctions et procédures qu'on va utiliser dans FAIREUNEPARTIE. <br/></td></tr>
 <tr class="separator:a224b9163917ac32fc95a60d8c1eec3aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
@@ -140,22 +139,22 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>initialiserPlateau</b
 void&#160;</td><td class="memItemRight" valign="bottom"><b>jouer</b> (<a class="el" href="structPlateau.html">Plateau</a> *plateau, <a class="el" href="TAD__Couleur_8h.html#aa304d0ca681f782b1d7735da33037dd7">Couleur</a> *couleurJoueur, <a class="el" href="structCoup.html">Coup</a>(*obtenirCoupJoueur)(<a class="el" href="structPlateau.html">Plateau</a>, <a class="el" href="TAD__Couleur_8h.html#aa304d0ca681f782b1d7735da33037dd7">Couleur</a>), int *aPuJouer, <a class="el" href="structCoup.html">Coup</a> *coupJoueur)</td></tr>
 <tr class="separator:aa99d3a46026468b5043c9599414f10b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aef0dc8a08a42ddf7c9b0cb7f657a95b6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="FaireUnePartie__Prive_8h.html#aef0dc8a08a42ddf7c9b0cb7f657a95b6">jouerCoup</a> (<a class="el" href="structCoup.html">Coup</a> coup, <a class="el" href="structPlateau.html">Plateau</a> *plateau)</td></tr>
-<tr class="memdesc:aef0dc8a08a42ddf7c9b0cb7f657a95b6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Procedure qui permet de jouer un coup sur le plateau.  <a href="#aef0dc8a08a42ddf7c9b0cb7f657a95b6">Plus de détails...</a><br /></td></tr>
+<tr class="memdesc:aef0dc8a08a42ddf7c9b0cb7f657a95b6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Procedure qui permet de jouer un coup sur le plateau.  <a href="#aef0dc8a08a42ddf7c9b0cb7f657a95b6">Plus de détails...</a><br/></td></tr>
 <tr class="separator:aef0dc8a08a42ddf7c9b0cb7f657a95b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:affa3e9e4075f7a05b898a1ccfffb3c3f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="FaireUnePartie__Prive_8h.html#affa3e9e4075f7a05b898a1ccfffb3c3f">inverserPions</a> (<a class="el" href="structPosition.html">Position</a> pos, <a class="el" href="structPion.html">Pion</a> pionJoueur, <a class="el" href="structPlateau.html">Plateau</a> *plateau)</td></tr>
-<tr class="memdesc:affa3e9e4075f7a05b898a1ccfffb3c3f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Procedure qui permet de retourner les pions dans toutes les directions si possible, après le coup.  <a href="#affa3e9e4075f7a05b898a1ccfffb3c3f">Plus de détails...</a><br /></td></tr>
+<tr class="memdesc:affa3e9e4075f7a05b898a1ccfffb3c3f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Procedure qui permet de retourner les pions dans toutes les directions si possible, après le coup.  <a href="#affa3e9e4075f7a05b898a1ccfffb3c3f">Plus de détails...</a><br/></td></tr>
 <tr class="separator:affa3e9e4075f7a05b898a1ccfffb3c3f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae71de2db398aa649e07ac16c6fecda93"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="FaireUnePartie__Prive_8h.html#ae71de2db398aa649e07ac16c6fecda93">inverserPionsDir</a> (<a class="el" href="structPlateau.html">Plateau</a> *plateau, <a class="el" href="structPosition.html">Position</a> posInitiale, <a class="el" href="structPosition.html">Position</a> posCourante, <a class="el" href="FaireUnePartie__Prive_8h.html#a224b9163917ac32fc95a60d8c1eec3aa">Direction</a> dirInversion)</td></tr>
-<tr class="memdesc:ae71de2db398aa649e07ac16c6fecda93"><td class="mdescLeft">&#160;</td><td class="mdescRight">Procedure qui permet de retourner les pions sur le plateau selon une direction donnée.  <a href="#ae71de2db398aa649e07ac16c6fecda93">Plus de détails...</a><br /></td></tr>
+<tr class="memdesc:ae71de2db398aa649e07ac16c6fecda93"><td class="mdescLeft">&#160;</td><td class="mdescRight">Procedure qui permet de retourner les pions sur le plateau selon une direction donnée.  <a href="#ae71de2db398aa649e07ac16c6fecda93">Plus de détails...</a><br/></td></tr>
 <tr class="separator:ae71de2db398aa649e07ac16c6fecda93"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4b0c1ed2299ef60f806bda6eceeefe9e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="FaireUnePartie__Prive_8h.html#a4b0c1ed2299ef60f806bda6eceeefe9e">pionEstPresentRecursif</a> (<a class="el" href="structPion.html">Pion</a> pionJoueur, <a class="el" href="FaireUnePartie__Prive_8h.html#a224b9163917ac32fc95a60d8c1eec3aa">Direction</a> dirATester, <a class="el" href="structPosition.html">Position</a> *pos, <a class="el" href="structPlateau.html">Plateau</a> *plateau, int *pionPresent)</td></tr>
-<tr class="memdesc:a4b0c1ed2299ef60f806bda6eceeefe9e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Procedure qui permet de savoir si un pion est présent sur le plateau selon une direction, et si oui quelle est sa position, de manière récursive à partir de la case à côté de la position initiale.  <a href="#a4b0c1ed2299ef60f806bda6eceeefe9e">Plus de détails...</a><br /></td></tr>
+<tr class="memdesc:a4b0c1ed2299ef60f806bda6eceeefe9e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Procedure qui permet de savoir si un pion est présent sur le plateau selon une direction, et si oui quelle est sa position, de manière récursive à partir de la case à côté de la position initiale.  <a href="#a4b0c1ed2299ef60f806bda6eceeefe9e">Plus de détails...</a><br/></td></tr>
 <tr class="separator:a4b0c1ed2299ef60f806bda6eceeefe9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a027f7d4de035158156c72f4bdc5c548f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a027f7d4de035158156c72f4bdc5c548f"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>finPartie</b> (<a class="el" href="structPlateau.html">Plateau</a> plateau, int aPuJouerJoueur1, int aPuJouerJoueur2, int *nbPionsNoirs, int *nbPionsBlancs, int *estFinie)</td></tr>
 <tr class="separator:a027f7d4de035158156c72f4bdc5c548f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a192c7c755ce01943f5ee815808563190"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="FaireUnePartie__Prive_8h.html#a192c7c755ce01943f5ee815808563190">plateauRempli</a> (<a class="el" href="structPlateau.html">Plateau</a> plateau)</td></tr>
-<tr class="memdesc:a192c7c755ce01943f5ee815808563190"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction qui renvoie un booléen indiquant si le plateau est rempli ou non.  <a href="#a192c7c755ce01943f5ee815808563190">Plus de détails...</a><br /></td></tr>
+<tr class="memdesc:a192c7c755ce01943f5ee815808563190"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction qui renvoie un booléen indiquant si le plateau est rempli ou non.  <a href="#a192c7c755ce01943f5ee815808563190">Plus de détails...</a><br/></td></tr>
 <tr class="separator:a192c7c755ce01943f5ee815808563190"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
@@ -374,9 +373,9 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>finPartie</b> (<a cla
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Généré le Dimanche 3 Janvier 2016 14:22:57 pour Othello par &#160;<a href="http://www.doxygen.org/index.html">
+Généré le Dimanche 3 Janvier 2016 14:32:15 pour Othello par &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.9.1
+</a> 1.8.6
 </small></address>
 </body>
 </html>

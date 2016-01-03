@@ -3,16 +3,15 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<meta name="generator" content="Doxygen 1.8.9.1"/>
+<meta name="generator" content="Doxygen 1.8.6"/>
 <title>Othello: Référence du fichier include/FaireUnePartie.h</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript">
-  $(document).ready(function() { init_search(); });
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
 </script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
@@ -32,7 +31,7 @@
 </table>
 </div>
 <!-- end header part -->
-<!-- Généré par Doxygen 1.8.9.1 -->
+<!-- Généré par Doxygen 1.8.6 -->
 <script type="text/javascript">
 var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
 </script>
@@ -70,7 +69,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-</div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tout</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Structures de données</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Fichiers</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Fonctions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Énumérations</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -94,20 +93,20 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
 
 <p>Implantation de faireunepartie-prive pour le projet othello.  
 <a href="#details">Plus de détails...</a></p>
-<div class="textblock"><code>#include &quot;<a class="el" href="FaireUnePartie__Prive_8h_source.html">FaireUnePartie_Prive.h</a>&quot;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="FaireUnePartie__Prive_8h_source.html">FaireUnePartie_Prive.h</a>&quot;</code><br/>
 </div>
 <p><a href="FaireUnePartie_8h_source.html">Aller au code source de ce fichier.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Fonctions</h2></td></tr>
 <tr class="memitem:a30385e641c6f3cc4be0064a153c42355"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="FaireUnePartie_8h.html#a30385e641c6f3cc4be0064a153c42355">faireUnePartie</a> (void(*afficherPlateau)(<a class="el" href="structPlateau.html">Plateau</a>, <a class="el" href="structCoup.html">Coup</a>, int, int), <a class="el" href="structCoup.html">Coup</a>(*getCoup1)(<a class="el" href="structPlateau.html">Plateau</a>, <a class="el" href="TAD__Couleur_8h.html#aa304d0ca681f782b1d7735da33037dd7">Couleur</a>), <a class="el" href="structCoup.html">Coup</a>(*getCoup2)(<a class="el" href="structPlateau.html">Plateau</a>, <a class="el" href="TAD__Couleur_8h.html#aa304d0ca681f782b1d7735da33037dd7">Couleur</a>), <a class="el" href="TAD__Couleur_8h.html#aa304d0ca681f782b1d7735da33037dd7">Couleur</a> *vainqueur, int *estMatchNul, <a class="el" href="TAD__Couleur_8h.html#aa304d0ca681f782b1d7735da33037dd7">Couleur</a> couleurJoueur1)</td></tr>
-<tr class="memdesc:a30385e641c6f3cc4be0064a153c42355"><td class="mdescLeft">&#160;</td><td class="mdescRight">FaireUnePartie regroupe la procedure faireUnePartie qui va permettre de jouer a l'othello.  <a href="#a30385e641c6f3cc4be0064a153c42355">Plus de détails...</a><br /></td></tr>
+<tr class="memdesc:a30385e641c6f3cc4be0064a153c42355"><td class="mdescLeft">&#160;</td><td class="mdescRight">FaireUnePartie regroupe la procedure faireUnePartie qui va permettre de jouer a l'othello.  <a href="#a30385e641c6f3cc4be0064a153c42355">Plus de détails...</a><br/></td></tr>
 <tr class="separator:a30385e641c6f3cc4be0064a153c42355"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a72253f5f7bcc8905865eb0bd84b7e726"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="FaireUnePartie_8h.html#a72253f5f7bcc8905865eb0bd84b7e726">pionEstPresent</a> (<a class="el" href="structPion.html">Pion</a> pionJoueur, <a class="el" href="FaireUnePartie__Prive_8h.html#a224b9163917ac32fc95a60d8c1eec3aa">Direction</a> dirATester, <a class="el" href="structPosition.html">Position</a> *pos, <a class="el" href="structPlateau.html">Plateau</a> *plateau, int *pionPresent)</td></tr>
-<tr class="memdesc:a72253f5f7bcc8905865eb0bd84b7e726"><td class="mdescLeft">&#160;</td><td class="mdescRight">Procedure qui permet de savoir si un pion est présent sur le plateau selon une direction, et si oui quelle est sa position.  <a href="#a72253f5f7bcc8905865eb0bd84b7e726">Plus de détails...</a><br /></td></tr>
+<tr class="memdesc:a72253f5f7bcc8905865eb0bd84b7e726"><td class="mdescLeft">&#160;</td><td class="mdescRight">Procedure qui permet de savoir si un pion est présent sur le plateau selon une direction, et si oui quelle est sa position.  <a href="#a72253f5f7bcc8905865eb0bd84b7e726">Plus de détails...</a><br/></td></tr>
 <tr class="separator:a72253f5f7bcc8905865eb0bd84b7e726"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad6602db9273ba66952c5b707b1b82b21"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="FaireUnePartie_8h.html#ad6602db9273ba66952c5b707b1b82b21">nbPions</a> (<a class="el" href="structPlateau.html">Plateau</a> plateau, int *nbPionsNoirs, int *nbPionsBlancs)</td></tr>
-<tr class="memdesc:ad6602db9273ba66952c5b707b1b82b21"><td class="mdescLeft">&#160;</td><td class="mdescRight">Procedure qui permet de compter le nombre de pions des joueurs 1 et 2 sur le plateau.  <a href="#ad6602db9273ba66952c5b707b1b82b21">Plus de détails...</a><br /></td></tr>
+<tr class="memdesc:ad6602db9273ba66952c5b707b1b82b21"><td class="mdescLeft">&#160;</td><td class="mdescRight">Procedure qui permet de compter le nombre de pions des joueurs 1 et 2 sur le plateau.  <a href="#ad6602db9273ba66952c5b707b1b82b21">Plus de détails...</a><br/></td></tr>
 <tr class="separator:ad6602db9273ba66952c5b707b1b82b21"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
@@ -211,7 +210,8 @@ Fonctions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Procedure qui permet de compter le nombre de pions des joueurs 1 et 2 sur le plateau. </p>
-<p>void nbPions (<a class="el" href="structPlateau.html" title="Le type Plateau permet de représenter un plateau. ">Plateau</a> plateau, unsigned int* scoreJoueur1, unsigned int* scoreJoueur2) </p><dl class="params"><dt>Paramètres</dt><dd>
+<p>void nbPions (<a class="el" href="structPlateau.html" title="Le type Plateau permet de représenter un plateau. ">Plateau</a> plateau, unsigned int* scoreJoueur1, unsigned int* scoreJoueur2) </p>
+<dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
     <tr><td class="paramname"><a class="el" href="structPlateau.html" title="Le type Plateau permet de représenter un plateau. ">Plateau</a></td><td>plateau, le plateau de jeu </td></tr>
     <tr><td class="paramname">int*</td><td>nbPionsBlancs, le nombre de pions Blanc </td></tr>
@@ -265,7 +265,8 @@ Fonctions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Procedure qui permet de savoir si un pion est présent sur le plateau selon une direction, et si oui quelle est sa position. </p>
-<p>void pionEstPresent(Pion pionJoueur, unsigned int x, unsigned int y, Position* pos, Plateau* plateau, int* pionPresent) </p><dl class="params"><dt>Paramètres</dt><dd>
+<p>void pionEstPresent(Pion pionJoueur, unsigned int x, unsigned int y, Position* pos, Plateau* plateau, int* pionPresent) </p>
+<dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
     <tr><td class="paramname"><a class="el" href="structPion.html" title="Le type Pion permet de représenter un pion. ">Pion</a></td><td>pionJoueur, le pion représentant le joueur  </td></tr>
     <tr><td class="paramname">Direction</td><td>dirATester, la direction à tester </td></tr>
@@ -281,9 +282,9 @@ Fonctions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Généré le Dimanche 3 Janvier 2016 14:22:57 pour Othello par &#160;<a href="http://www.doxygen.org/index.html">
+Généré le Dimanche 3 Janvier 2016 14:32:15 pour Othello par &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.9.1
+</a> 1.8.6
 </small></address>
 </body>
 </html>
