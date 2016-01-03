@@ -25,7 +25,7 @@ Coups listeCoupsPossibles(Plateau plateau, Couleur couleur){
   nbPionsAParcourir = 64-(nbPionsBlancs+nbPionsBlancs);
   for (i = 0; i < 8; i++){
     for (j = 0; j < 8; j++){
-      if (k < nbPionsAParcourir){
+      if (k <= nbPionsAParcourir){
        POS_fixerPosition(i,j,&positionTest);
        if(PL_estCaseVide(plateau,positionTest)) {
           coupTest = CP_creerCoup(positionTest,pionJoueur);

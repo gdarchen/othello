@@ -17,11 +17,11 @@ Coup obtenirCoupHumain(Plateau plateau, Couleur couleur){
     printf("Joueur ● : \n");
   }
   while(estValide==0) {
-    while(i > 8){
+    while((i > 8) || (i < 1)){
       printf("Veuillez saisir un numéro de ligne (de 1 à 8) : \n");
       scanf("%u",&i);
     }
-    while(j > 8){
+    while((j > 8) || (i < 1)){
       printf("Veuillez saisir un numéro de colonne (de 1 à 8) : \n");
       scanf("%u",&j);
     }
