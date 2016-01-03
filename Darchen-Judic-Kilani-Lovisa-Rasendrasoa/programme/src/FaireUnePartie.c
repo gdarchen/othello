@@ -78,7 +78,6 @@ void jouer(Plateau* plateau , Couleur* couleurJoueur, Coup(*getCoup)(Plateau,Cou
     res=FALSE;
     *coupJoueur=getCoup(*plateau,*couleurJoueur);
     coups=listeCoupsPossibles(*plateau,*couleurJoueur);
-    printf("%d \n",CPS_nbCoups(coups));
     if (CPS_nbCoups(coups)>0){
         for(i=0;i<CPS_nbCoups(coups);i++){
             if (CP_sontEgaux(CPS_iemeCoup(coups,i),*coupJoueur)) {
