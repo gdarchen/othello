@@ -314,9 +314,11 @@ res : \entier}
 	  \affecter{pionJoueur}{PI\_creerPion(couleur)}
 	  \instruction{nbPions(plateau,nbPionsNoirs,nbPionsBlancs)}
 	  \affecter{nbPionsAParcourir}{64 $-$ (nbPionsBlancs $+$ nbPionsNoirs)}
-	  \pour{i}{1}{8}{}{
-	    \pour{j}{1}{8}{}{
-	      \sialors{k $<$ nbPionsAParcourir}{
+	  
+	  \affecter{i}{0}
+	  \affecter{j}{0}
+	  \tantque{i<8 ET k<=nbPionsAParcourir}{
+	    \tantque{j<8 ET k<=nbPionsAParcourir}{
 		\instruction{POS\_fixerPosition(i,j,positionTest)}
 		\sialors{PL\_estCaseVide(plateau,positionTest)}{
 		  \instruction{coupTest $=$ CP\_creerCoup(positionTest,pionJoueur)}
@@ -325,8 +327,10 @@ res : \entier}
 		    \affecter{k}{k+1}
 		  }
 		}
-	      }
+	      \affecter{j}{j+1}
 	    }
+	    \affecter{j}{0}
+	    \affecter{i}{i+1}
 	  }
 	  \retourner{coupsPossibles}
 	}
