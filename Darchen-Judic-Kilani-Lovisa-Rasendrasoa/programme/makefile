@@ -3,7 +3,7 @@ LIBDIR=lib
 BINDIR=bin
 INCLUDEDIR=include
 TESTDIR=tests
-DOC=doc
+DOC=doxygen
 CC = gcc
 AR = ar
 CFLAGS=-Wall -pedantic -g -std=c99  -I$(INCLUDEDIR)
@@ -18,7 +18,7 @@ all : $(BINDIR)/$(EXEC)
 
 
 $(BINDIR)/$(EXEC) : $(SRCDIR)/main.o $(SRCDIR)/FaireUnePartie.o $(SRCDIR)/ListesCoupsPossibles.o  $(SRCDIR)/TAD_Couleur.o  $(SRCDIR)/TAD_Coup.o  $(SRCDIR)/TAD_Coups.o  $(SRCDIR)/TAD_Pion.o  $(SRCDIR)/TAD_Plateau.o  $(SRCDIR)/TAD_Position.o $(SRCDIR)/Affichage.o $(SRCDIR)/ObtenirCoupHumain.o $(SRCDIR)/ObtenirCoupIA.o
-	#doxygen doc/config_file
+	doxygen ./config_file
 	$(CC)  -o $@ $^ $(LDFLAGS)
 
 $(SRCDIR)/%.o : $(SRCDIR)/%.c
@@ -40,3 +40,5 @@ clean :
 	rm -rf $(LIBDIR)/*
 	rm -rf $(SRCDIR)/*.o
 	rm -rf $(TESTDIR)/*
+	rm -rf $(DOC)/*
+
