@@ -80,7 +80,6 @@ void jouer(Plateau* plateau , Couleur* couleurJoueur, Coup(*getCoup)(Plateau,Cou
     coups=listeCoupsPossibles(*plateau,*couleurJoueur);
     printf("%d \n",CPS_nbCoups(coups));
     if (CPS_nbCoups(coups)>0){
-      printf("OK 1 \n");
         for(i=0;i<CPS_nbCoups(coups);i++){
             if (CP_sontEgaux(CPS_iemeCoup(coups,i),*coupJoueur)) {
                 jouerCoup(*coupJoueur,plateau);
@@ -172,7 +171,6 @@ void pionEstPresentRecursif(Pion pionJoueur, Direction dirATester, Position* pos
 
 void finPartie (Plateau plateau, int aPuJouerJoueur1, int aPuJouerJoueur2 , int* nbPionsNoirs, int* nbPionsBlancs , int* estFinie)
 {
-    printf("J1 : %d, J2 : %d, rempli : %d \n",aPuJouerJoueur1,aPuJouerJoueur2,plateauRempli(plateau));
     if(((aPuJouerJoueur1==FALSE) && (aPuJouerJoueur2==FALSE)) || (plateauRempli(plateau))){
         nbPions(plateau,nbPionsNoirs,nbPionsBlancs);
         *estFinie=TRUE;
