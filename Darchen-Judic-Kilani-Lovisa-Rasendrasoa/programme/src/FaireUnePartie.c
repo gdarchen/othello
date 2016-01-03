@@ -24,16 +24,15 @@ void faireUnePartie(void(*afficher)(Plateau,Coup,int,int), Coup(*getCoup1)(Plate
     Position positionInitialisation;
     POS_fixerPosition(4,4,&positionInitialisation);
     coupJoueur1 = CP_creerCoup(positionInitialisation,PI_creerPion(CL_blanc()));
+    coupJoueur2 = CP_creerCoup(positionInitialisation,PI_creerPion(CL_blanc()));
 
     afficher(plateau,coupJoueur1,aPuJouerJoueur1,estFinie);
     while (!(estFinie)) {
         jouer(&plateau,&couleurJoueur1,getCoup1,&aPuJouerJoueur1,&coupJoueur1);
         afficher(plateau,coupJoueur1,aPuJouerJoueur1,estFinie);
-        printf("A pu jouer : %d",aPuJouerJoueur1);
         jouer(&plateau,&couleurJoueur2,getCoup2,&aPuJouerJoueur2,&coupJoueur2);
 	      afficher(plateau,coupJoueur2,aPuJouerJoueur2,estFinie);
         finPartie(plateau,aPuJouerJoueur1,aPuJouerJoueur2,&nbPionsNoirs,&nbPionsBlancs,&estFinie);
-        printf("A pu jouer : %d",aPuJouerJoueur2);
     }
     afficher(plateau,coupJoueur2,aPuJouerJoueur2,estFinie);
     if (nbPionsBlancs==nbPionsNoirs){
@@ -79,7 +78,9 @@ void jouer(Plateau* plateau , Couleur* couleurJoueur, Coup(*getCoup)(Plateau,Cou
     res=FALSE;
     *coupJoueur=getCoup(*plateau,*couleurJoueur);
     coups=listeCoupsPossibles(*plateau,*couleurJoueur);
+    printf("%d \n",CPS_nbCoups(coups));
     if (CPS_nbCoups(coups)>0){
+      printf("OK 1 \n");
         for(i=0;i<CPS_nbCoups(coups);i++){
             if (CP_sontEgaux(CPS_iemeCoup(coups,i),*coupJoueur)) {
                 jouerCoup(*coupJoueur,plateau);
@@ -171,6 +172,7 @@ void pionEstPresentRecursif(Pion pionJoueur, Direction dirATester, Position* pos
 
 void finPartie (Plateau plateau, int aPuJouerJoueur1, int aPuJouerJoueur2 , int* nbPionsNoirs, int* nbPionsBlancs , int* estFinie)
 {
+    printf("J1 : %d, J2 : %d, rempli : %d \n",aPuJouerJoueur1,aPuJouerJoueur2,plateauRempli(plateau));
     if(((aPuJouerJoueur1==FALSE) && (aPuJouerJoueur2==FALSE)) || (plateauRempli(plateau))){
         nbPions(plateau,nbPionsNoirs,nbPionsBlancs);
         *estFinie=TRUE;
@@ -213,6 +215,7 @@ int plateauRempli(Plateau plateau){
         }
         j=j+1;
       }
+      j=0;
       i=i+1;
     }
     return res;
