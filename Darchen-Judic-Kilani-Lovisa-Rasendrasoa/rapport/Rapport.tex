@@ -115,7 +115,18 @@ Sandratra \textsc{Rasendrasoa}\\
 \thispagestyle{plain}
 \addcontentsline{toc}{part}{Introduction}
 \chapter*{Introduction}
-	
+	Dans le cadre du projet d'algorithmique et de programmation, nous avons été amenés à développer un jeu de plateau, le jeu d'Othello.
+
+	A cette fin, nous avons établi nos objectifs en fonction du cahier des charges fournis par M.Delestre:
+\begin {enumerate}
+\item Le programme doit pouvoir afficher une aide au jeu
+\item Le programme permet de jouer contre un ordinateur avec la possibilité de choisir une couleur.
+\item L'objectif final est de pouvoir participer à un tournoi face à un autre programme, tout en respectant certaines contraintes détaillées dans le cahier des charges.
+\end {enumerate}
+
+	Dans le lignée des travaux pratiques, le jeu a été écrit en langage C, et afin de pouvoir gérer les différents documents à notre disposition, nous avons appris à manipuler un gestionnaire de projet utilisant le logiciel Git.
+
+	Constitué de 5 membres, nous avons réparti les tâches en fonction de l'avancement du projet, en essayant de travailler si possible en binôme ou seul, pour ensuite pouvoir discuter et comparer les travaux de chacun.	
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Sommaire %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \tableofcontents
 
@@ -125,7 +136,10 @@ Sandratra \textsc{Rasendrasoa}\\
 \input{./PartiesDuRapport/1_TAD/TAD.tex}
 
 \chapter{Analyse descendante}
-\vspace*{\stretch{1}} {\huge \textbf{ \textcolor{red}{On insérera ici les images des analyses descendantes (une fois qu'elles seront finies et qu'on n'y touchera plus).}} }\vspace*{\stretch{1}}
+
+\includegraphics[scale=0.4]{Illustrations/FaireUnePartie.png}
+\includegraphics[scale=0.4]{Illustrations/ObtenirCoupIA.png}\
+
 
 \setcounter{chapter}{0}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Conception préliminaire %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -286,5 +300,12 @@ Sandratra \textsc{Rasendrasoa}\\
 \thispagestyle{plain}
 \addcontentsline{toc}{part}{Conclusion}
 \chapter*{Conclusion}
+	Ce projet s'est révélé enrichissant et très instructif sur de nombreux points. Bien que nous ayons auparavant déja réalisé des projets en informatique, celui-ci est probablement celui qui approche au mieux un projet en milieu professionnel. En effet, la prise d'initiative, un bonne communication en équipe et le respect des délais sont des aspects que l'on retrouve certainement dans le métier d'ingénieur.
+
+	Il nous a permis d'appliquer sur nos connaissances en programmation et en algorithmique à "plus grande échelle", dans un domaine ludique, ce qui s'est révélé passionnant.
+
+	Les principaux problèmes que nous avons rencontrés concernaient l'IA. Le fait que nous utilisions l'algorithme min-max pour notre IA ne nous a pas permis de concevoir une IA plus performante. Cependant, nous avons fait en sorte de respecter au mieux les délais de réalisation de chaque phase, afin de pouvoir ensuite essayer d'optimiser l'IA que nous avons conçue. 
+
+	Nous avons cependant répondu aux attentes énoncées dans le cahier des charges en mettant en oeuvre un programme capable de faire face aux différents compétiteurs lors du tournoi. 
 
 \end{document}

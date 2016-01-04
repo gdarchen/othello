@@ -14,12 +14,12 @@
 #include "TAD_Couleur.h"
 
 // /**
-//  * \def PROFONDEUR 3
+//  * \def PROFONDEUR 4
 //  * \brief Profondeur d'exploration de scoreDUnCoup et minMax
 //  *
 //  */
 //
-// #define PROFONDEUR 3
+// #define PROFONDEUR 4
 
  /**
   * \fn Coup obtenirCoupIA(plateau Plateau, couleur Couleur)

@@ -3,7 +3,7 @@ LIBDIR=lib
 BINDIR=bin
 INCLUDEDIR=include
 TESTDIR=tests
-DOC=doxygen
+DOC=doc
 CC = gcc
 AR = ar
 CFLAGS=-Wall -pedantic -g -std=c99  -I$(INCLUDEDIR)

@@ -7,7 +7,7 @@
 #include <stdio.h>
 
 #define INFINI 10000 /* Valeur affectée pour signifier qu'un coup est gagnant. */
-#define PROFONDEUR 2
+#define PROFONDEUR 3
 
 
 /* Partie publique */
