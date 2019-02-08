@@ -4,6 +4,13 @@
 *.aux
 *.log
 *.dvi
+*.nav
+*.out
+*.snm
+*.toc
 
 # Fichiers crees lors de la compilation des fichiers C
 *.o
+
+bin/
+.DS_Store
